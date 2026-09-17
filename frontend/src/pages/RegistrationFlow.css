@@ -1,0 +1,122 @@
+.registration-layout {
+  padding-top: var(--spacing-md);
+  padding-bottom: var(--spacing-xl);
+}
+
+.registration-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md) 0;
+  margin-bottom: var(--spacing-xl);
+}
+
+.registration-nav .brand {
+  color: var(--color-primary);
+  font-family: var(--font-display);
+  cursor: pointer;
+  letter-spacing: -0.02em;
+}
+
+.nav-help {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-text);
+  opacity: 0.8;
+}
+
+.progress-container {
+  max-width: 800px;
+  margin: 0 auto var(--spacing-margin);
+}
+
+.progress-steps {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-sm);
+}
+
+.step-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xs);
+  opacity: 0.5;
+}
+
+.step-indicator.active, .step-indicator.past {
+  opacity: 1;
+}
+
+.step-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-action);
+  font-weight: 700;
+  color: var(--color-text);
+  transition: all 0.3s ease;
+}
+
+.step-indicator.active .step-circle {
+  background-color: var(--color-primary);
+  color: var(--color-canvas);
+  border-color: var(--color-primary);
+}
+
+.step-indicator.past .step-circle {
+  background-color: var(--color-secondary);
+  color: var(--color-canvas);
+  border-color: var(--color-secondary);
+}
+
+.step-label {
+  font-family: var(--font-action);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.progress-bar-bg {
+  height: 4px;
+  background-color: var(--color-border);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: var(--color-primary);
+  transition: width 0.3s ease;
+}
+
+.registration-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Step Container Standard Styling */
+.step-container {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.step-header {
+  margin-bottom: var(--spacing-lg);
+}
+
+.step-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--spacing-xl);
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--color-border);
+}
