@@ -13,11 +13,11 @@ const Step2ResumeUpload = () => {
 - Font: syne
 - Mode: light
 - Roundness: rounded-sm
-" className="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Wv17fPGZaLmQXq7a6amA4WbWcLH5hhV1oOotGWaoJyu7BBK5QpPXRJVVHyUfqU6hlIRA0KgAXweESkb3tTpGbayr8SEhKEjGHVX16vdNMfTTCwMS3JQHPJJzYqXqBYYPiH4h88wEZWanWCB3hY9QFIypC9rtQbra8GBwzAaR5WoJTupcm3yuMxbo_ucCmW4oBpaYB2Kkbg35Mx8NCnVsTkKkSWKH66aoTVzSwA5hSN8ZCvCX-noY28eCs"/><div className="hidden sm:flex flex-col"><span className="font-label-lg text-label-lg tracking-wide uppercase text-on-surface font-bold">Internship Expo 2026</span><span className="font-label-badge text-label-badge text-outline uppercase tracking-wider">Student Candidate Portal</span></div></div><nav className="hidden lg:flex items-center gap-space-lg" data-active-classes="text-primary font-bold"><a aria-current="page" className="transition-colors uppercase tracking-wider text-primary font-bold" data-path="candidate-overview" href="#">Overview</a><a className="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-wider" data-path="application-guidelines" href="#">Guidelines</a><a className="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-wider" data-path="partner-companies" href="#">Companies</a><a className="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-wider" data-path="application-faq" href="#">Support &amp; FAQ</a></nav><div className="flex items-center gap-space-md"><button className="inline-flex items-center gap-space-xs px-space-md py-space-sm rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors" type="button"><span className="material-symbols-outlined text-[18px] text-on-surface-variant">bookmark_border</span><span>Save &amp; Exit</span></button><div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span className="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main className="w-full max-w-[1440px] mx-auto px-margin pt-20 flex-1"><div className="flex flex-col w-full">
+" className="h-8 w-auto object-contain brightness-0 invert" src="https://lh3.googleusercontent.com/aida/AEtjO1Wv17fPGZaLmQXq7a6amA4WbWcLH5hhV1oOotGWaoJyu7BBK5QpPXRJVVHyUfqU6hlIRA0KgAXweESkb3tTpGbayr8SEhKEjGHVX16vdNMfTTCwMS3JQHPJJzYqXqBYYPiH4h88wEZWanWCB3hY9QFIypC9rtQbra8GBwzAaR5WoJTupcm3yuMxbo_ucCmW4oBpaYB2Kkbg35Mx8NCnVsTkKkSWKH66aoTVzSwA5hSN8ZCvCX-noY28eCs"/><div className="hidden sm:flex flex-col"><span className="font-label-lg text-label-lg tracking-wide uppercase text-on-surface font-bold">Internship Expo 2026</span><span className="font-label-badge text-label-badge text-outline uppercase tracking-wider">Student Candidate Portal</span></div></div><nav className="hidden lg:flex items-center gap-space-lg" data-active-classes="text-primary font-bold"><a aria-current="page" className="transition-colors uppercase tracking-wider text-primary font-bold" data-path="candidate-overview" href="#">Overview</a><a className="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-wider" data-path="application-guidelines" href="#">Guidelines</a><a className="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-wider" data-path="partner-companies" href="#">Companies</a><a className="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-wider" data-path="application-faq" href="#">Support &amp; FAQ</a></nav><div className="flex items-center gap-space-md"><button className="inline-flex items-center gap-space-xs px-space-md py-space-sm rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors" type="button"><span className="material-symbols-outlined text-[18px] text-on-surface-variant">bookmark_border</span><span>Save &amp; Exit</span></button><div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span className="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main className="w-full max-w-[1440px] mx-auto px-margin pt-20 flex-1"><div className="flex flex-col w-full">
 {/* Top 5-Step Horizontal Stepper Tracker */}
 <section className="w-full pb-space-lg">
-<div className="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
-<div className="relative flex items-center justify-between max-w-5xl mx-auto px-space-md">
+<div className="bg-surface-container-lowest rounded-xl p-4 md:p-space-lg shadow-sm overflow-x-auto hide-scrollbar">
+<div className="relative flex items-center justify-between max-w-5xl mx-auto px-2 md:px-space-md min-w-[600px]">
 {/* Background Track Segments */}
 <div className="absolute left-12 right-12 top-5 h-[3px] bg-surface-container-high -z-0"></div>
 {/* Active Track Line Segment 1 to 2 */}
@@ -121,20 +121,20 @@ const Step2ResumeUpload = () => {
           </span>
 <span className="flex h-2 w-2 rounded-full bg-secondary-container animate-pulse"></span>
 </div>
-<h3 className="font-headline-sm text-headline-sm text-surface-container-lowest font-bold mb-space-xs">
+<h3 className="font-headline-sm text-headline-sm text-white font-bold mb-space-xs">
           AI Resume Parser Active
         </h3>
-<p className="font-body-sm text-body-sm text-surface-variant mb-space-md">
+<p className="font-body-sm text-body-sm text-white mb-space-md">
           Parsed profiles are indexed directly for tier-1 partner shortlists within 48 seconds of upload.
         </p>
 <div className="grid grid-cols-1 md:grid-cols-2 gap-space-sm">
 <div className="bg-surface-container-highest/10 rounded-lg p-space-sm">
-<span className="block font-headline-md text-headline-md text-surface-container-lowest font-bold">94%</span>
-<span className="font-label-badge text-label-badge text-surface-variant uppercase">ATS Parse Index</span>
+<span className="block font-headline-md text-headline-md text-white font-bold">94%</span>
+<span className="font-label-badge text-label-badge text-white uppercase">ATS Parse Index</span>
 </div>
 <div className="bg-surface-container-highest/10 rounded-lg p-space-sm">
 <span className="block font-headline-md text-headline-md text-secondary-container font-bold">PDF Only</span>
-<span className="font-label-badge text-label-badge text-surface-variant uppercase">Strict Format</span>
+<span className="font-label-badge text-label-badge text-white uppercase">Strict Format</span>
 </div>
 </div>
 </div>
@@ -143,7 +143,7 @@ const Step2ResumeUpload = () => {
 <div className="relative h-32 w-full rounded-lg overflow-hidden mb-space-sm">
 <img className="w-full h-full object-cover" data-alt="Modern candid editorial photograph of corporate and tech recruiters reviewing collegiate engineering candidate resumes on dual monitor displays during the TEDxCRCE Career Expo, warm natural lighting, deep shadows, authentic workplace atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdPkSgHob267F0UPNYEQbKm0mN4IhNmTlFX4O4bM5YbdYq-hTDXc2SEfJyYB3SGTL378cEHwnAJuoig1hrf5wf7FWvI5UOvNNPca6oaItObTWxKALTMJ7OjHWgp7IsRosnS_GVfC7ZKS1L3gv7XqGBkNZPFE35K7F-7lRYZggi6w5FJ8xykgtUbkx1ly0mv64yip0OtCsJlCKxCamynpzm4l3Yq2SKJmY8Lesu3EN5JAkKjmdCsNQu"/>
 <div className="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-transparent to-transparent"></div>
-<span className="absolute bottom-2 left-2 text-surface-container-lowest font-label-badge text-label-badge uppercase tracking-wider font-bold">
+<span className="absolute bottom-2 left-2 text-white font-label-badge text-label-badge uppercase tracking-wider font-bold">
             50+ Actively Hiring Partners
           </span>
 </div>
@@ -210,19 +210,19 @@ const Step2ResumeUpload = () => {
 </div>
 </div>
 {/* Sticky Bottom Action Dock (Standard Fixed Canvas Navigation) */}
-<div className="w-full bg-surface-container-lowest rounded-xl p-space-md shadow-md mb-space-xl flex items-center justify-between">
+<div className="w-full bg-surface-container-lowest rounded-xl p-space-md shadow-md mb-space-xl flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0">
 {/* Back to Step 1 Action */}
-<button className="inline-flex items-center gap-space-xs px-space-lg py-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg font-semibold transition-all" onClick={() => navigate('/register/step1')}>
+<button className="w-full md:w-auto justify-center inline-flex items-center gap-space-xs px-space-lg py-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg font-semibold transition-all" onClick={() => navigate('/register/step1')}>
 <span className="material-symbols-outlined text-[20px]">arrow_back</span>
 <span>Back to Student Details</span>
 </button>
 {/* Middle Step Status Telemetry */}
-<div className="flex items-center gap-space-sm text-on-surface-variant font-label-md text-label-md">
+<div className="hidden md:flex items-center gap-space-sm text-on-surface-variant font-label-md text-label-md">
 <span className="w-2.5 h-2.5 rounded-full bg-primary inline-block"></span>
 <span>Step 2 of 5 • <strong className="text-on-surface">{resumeLink ? 'Resume Link Ready' : 'Awaiting Link'}</strong></span>
 </div>
 {/* Next Step Primary Red CTA */}
-<button className="inline-flex items-center gap-space-xs px-space-xl py-space-sm rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg font-bold shadow-[2px_2px_0px_#1b1c1c] transition-all active:translate-x-0.5 active:translate-y-0.5" onClick={() => navigate('/register/step3')}>
+<button className="w-full md:w-auto justify-center inline-flex items-center gap-space-xs px-space-xl py-space-sm rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg font-bold shadow-[2px_2px_0px_#1b1c1c] transition-all active:translate-x-0.5 active:translate-y-0.5" onClick={() => navigate('/register/step3')}>
 <span>Continue to Positions</span>
 <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
 </button>

@@ -13,7 +13,7 @@ const Step1StudentDetails = () => {
 - Font: syne
 - Mode: light
 - Roundness: rounded-sm
-" className="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Wv17fPGZaLmQXq7a6amA4WbWcLH5hhV1oOotGWaoJyu7BBK5QpPXRJVVHyUfqU6hlIRA0KgAXweESkb3tTpGbayr8SEhKEjGHVX16vdNMfTTCwMS3JQHPJJzYqXqBYYPiH4h88wEZWanWCB3hY9QFIypC9rtQbra8GBwzAaR5WoJTupcm3yuMxbo_ucCmW4oBpaYB2Kkbg35Mx8NCnVsTkKkSWKH66aoTVzSwA5hSN8ZCvCX-noY28eCs"/><div className="hidden sm:flex flex-col"><span className="font-label-lg text-label-lg tracking-wide uppercase text-on-surface font-bold">Internship Expo 2026</span><span className="font-label-badge text-label-badge text-outline uppercase tracking-wider">Student Candidate Portal</span></div></div><nav className="hidden lg:flex items-center gap-space-lg" data-active-classes="text-primary font-bold"><a aria-current="page" className="transition-colors uppercase tracking-wider text-primary font-bold" data-path="candidate-overview" href="#">Overview</a><a className="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-wider" data-path="application-guidelines" href="#">Guidelines</a><a className="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-wider" data-path="partner-companies" href="#">Companies</a><a className="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-wider" data-path="application-faq" href="#">Support &amp; FAQ</a></nav><div className="flex items-center gap-space-md"><button className="inline-flex items-center gap-space-xs px-space-md py-space-sm rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors" type="button"><span className="material-symbols-outlined text-[18px] text-on-surface-variant">bookmark_border</span><span>Save &amp; Exit</span></button><div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span className="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main className="w-full max-w-[1440px] mx-auto px-margin pt-20 flex-1"><div className="flex flex-col w-full">
+" className="h-8 w-auto object-contain brightness-0 invert" src="https://lh3.googleusercontent.com/aida/AEtjO1Wv17fPGZaLmQXq7a6amA4WbWcLH5hhV1oOotGWaoJyu7BBK5QpPXRJVVHyUfqU6hlIRA0KgAXweESkb3tTpGbayr8SEhKEjGHVX16vdNMfTTCwMS3JQHPJJzYqXqBYYPiH4h88wEZWanWCB3hY9QFIypC9rtQbra8GBwzAaR5WoJTupcm3yuMxbo_ucCmW4oBpaYB2Kkbg35Mx8NCnVsTkKkSWKH66aoTVzSwA5hSN8ZCvCX-noY28eCs"/><div className="hidden sm:flex flex-col"><span className="font-label-lg text-label-lg tracking-wide uppercase text-on-surface font-bold">Internship Expo 2026</span><span className="font-label-badge text-label-badge text-outline uppercase tracking-wider">Student Candidate Portal</span></div></div><nav className="hidden lg:flex items-center gap-space-lg" data-active-classes="text-primary font-bold"><a aria-current="page" className="transition-colors uppercase tracking-wider text-primary font-bold" data-path="candidate-overview" href="#">Overview</a><a className="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-wider" data-path="application-guidelines" href="#">Guidelines</a><a className="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-wider" data-path="partner-companies" href="#">Companies</a><a className="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-wider" data-path="application-faq" href="#">Support &amp; FAQ</a></nav><div className="flex items-center gap-space-md"><button className="inline-flex items-center gap-space-xs px-space-md py-space-sm rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors" type="button"><span className="material-symbols-outlined text-[18px] text-on-surface-variant">bookmark_border</span><span>Save &amp; Exit</span></button><div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span className="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main className="w-full max-w-[1440px] mx-auto px-margin pt-20 flex-1"><div className="flex flex-col w-full">
 {/* Progress Stepper Indicator (Fixed Desktop Grid) */}
 <section className="w-full max-w-[1020px] mx-auto pt-6 pb-10">
 <div className="relative flex items-center justify-between w-full">
@@ -114,18 +114,18 @@ const Step1StudentDetails = () => {
 </span>
 </div>
 <p className="font-headline-sm text-headline-sm text-inverse-on-surface font-bold mb-space-xs">38+ Engineering &amp; Design Roles</p>
-<p className="font-body-sm text-body-sm text-surface-dim">
+<p className="font-body-sm text-body-sm text-white">
             Roles mapped across AI Research, Full-Stack, Robotics, Embedded Systems, and Product Strategy.
           </p>
 {/* Metric spark row */}
 <div className="mt-space-lg grid grid-cols-1 md:grid-cols-2 gap-space-sm">
 <div className="bg-surface-variant/20 p-space-sm rounded-md">
-<div className="font-headline-md text-headline-md font-bold text-surface-bright">₹45k/mo</div>
-<div className="font-label-badge text-label-badge text-surface-dim uppercase">Avg. Stipend</div>
+<div className="font-headline-md text-headline-md font-bold text-white">₹45k/mo</div>
+<div className="font-label-badge text-label-badge text-white uppercase">Avg. Stipend</div>
 </div>
 <div className="bg-surface-variant/20 p-space-sm rounded-md">
-<div className="font-headline-md text-headline-md font-bold text-surface-bright">100%</div>
-<div className="font-label-badge text-label-badge text-surface-dim uppercase">Verified Desks</div>
+<div className="font-headline-md text-headline-md font-bold text-white">100%</div>
+<div className="font-label-badge text-label-badge text-white uppercase">Verified Desks</div>
 </div>
 </div>
 </div>
@@ -187,9 +187,9 @@ const Step1StudentDetails = () => {
 <p className="font-body-sm text-body-sm text-outline">Direct campus validation enabled. CRCE students bypass external screening fees.</p>
 </div>
 {/* Two-Column Row: Branch + Academic Year */}
-<div className="grid grid-cols-1 xl:grid-cols-12 gap-5">
+<div className="grid grid-cols-1 md:grid-cols-2 gap-5">
 {/* 3. Branch / Department Select */}
-<div className="md:col-span-6 flex flex-col gap-1.5">
+<div className="flex flex-col gap-1.5">
 <label className="font-label-lg text-label-lg text-on-surface font-semibold flex items-center gap-1" htmlFor="branchSelect">
                   Department / Major <span className="text-primary">*</span>
 </label>
@@ -210,7 +210,7 @@ const Step1StudentDetails = () => {
 </div>
 </div>
 {/* 4. Academic Year Selection Pill Cards */}
-<div className="md:col-span-6 flex flex-col gap-1.5">
+<div className="flex flex-col gap-1.5">
 <div className="flex items-center justify-between">
 <label className="font-label-lg text-label-lg text-on-surface font-semibold flex items-center gap-1">
                     Year of Study <span className="text-primary">*</span>
@@ -232,9 +232,9 @@ const Step1StudentDetails = () => {
 </div>
 </div>
 {/* Two-Column Row: Institutional Email + WhatsApp Alerts */}
-<div className="grid grid-cols-1 xl:grid-cols-12 gap-5">
+<div className="grid grid-cols-1 md:grid-cols-2 gap-5">
 {/* 5. Email Address */}
-<div className="md:col-span-6 flex flex-col gap-1.5">
+<div className="flex flex-col gap-1.5">
 <label className="font-label-lg text-label-lg text-on-surface font-semibold flex items-center gap-1" htmlFor="emailAddress">
                   Email Address <span className="text-primary">*</span>
 </label>
@@ -250,7 +250,7 @@ const Step1StudentDetails = () => {
 </div>
 </div>
 {/* 6. Phone / WhatsApp Number */}
-<div className="md:col-span-6 flex flex-col gap-1.5">
+<div className="flex flex-col gap-1.5">
 <label className="font-label-lg text-label-lg text-on-surface font-semibold flex items-center gap-1" htmlFor="phoneNumber">
                   WhatsApp Contact <span className="text-primary">*</span>
 </label>
@@ -285,19 +285,19 @@ const Step1StudentDetails = () => {
 </div>
 {/* Docked Desktop Bottom Navigation Bar */}
 <footer className="sticky bottom-0 left-0 right-0 w-full bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_-4px_16px_rgba(0,0,0,0.06)] z-40">
-<div className="max-w-[1312px] mx-auto px-margin py-4 flex items-center justify-between">
+<div className="max-w-[1312px] mx-auto px-4 md:px-margin py-4 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0">
 {/* Back Action (Step 1 Disabled) */}
-<button className="inline-flex items-center gap-space-xs px-5 py-2.5 rounded-lg bg-surface-container-high text-outline cursor-not-allowed opacity-60 font-label-lg text-label-lg transition-all" disabled="" type="button">
+<button className="w-full md:w-auto inline-flex items-center justify-center gap-space-xs px-5 py-2.5 rounded-lg bg-surface-container-high text-outline cursor-not-allowed opacity-60 font-label-lg text-label-lg transition-all" disabled="" type="button">
 <span className="material-symbols-outlined text-[18px]">arrow_back</span>
 <span>Previous Step</span>
 </button>
 {/* Center Auto-Save State */}
-<div className="flex items-center gap-space-sm font-label-md text-label-md text-on-surface-variant">
+<div className="hidden md:flex items-center gap-space-sm font-label-md text-label-md text-on-surface-variant">
 <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-pulse"></span>
 <span>Step 1 of 5 • Autosaved to candidate profile</span>
 </div>
 {/* Forward Action (Proceed to Step 2) */}
-<button className="inline-flex items-center gap-space-sm px-7 py-3 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg shadow-[2px_2px_0px_rgba(27,28,28,0.3)] hover:shadow-[4px_4px_0px_rgba(27,28,28,0.4)] active:translate-x-0.5 active:translate-y-0.5 transition-all group" id="continueBtn" onClick={() => navigate('/register/step2')} type="button">
+<button className="w-full md:w-auto inline-flex items-center justify-center gap-space-sm px-7 py-3 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg shadow-[2px_2px_0px_rgba(27,28,28,0.3)] hover:shadow-[4px_4px_0px_rgba(27,28,28,0.4)] active:translate-x-0.5 active:translate-y-0.5 transition-all group" id="continueBtn" onClick={() => navigate('/register/step2')} type="button">
 <span>Continue to Resume Upload</span>
 <span className="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
 </button>

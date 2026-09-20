@@ -13,10 +13,10 @@ const Step4ApplicationSummary = () => {
 - Font: syne
 - Mode: light
 - Roundness: rounded-sm
-" className="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Wv17fPGZaLmQXq7a6amA4WbWcLH5hhV1oOotGWaoJyu7BBK5QpPXRJVVHyUfqU6hlIRA0KgAXweESkb3tTpGbayr8SEhKEjGHVX16vdNMfTTCwMS3JQHPJJzYqXqBYYPiH4h88wEZWanWCB3hY9QFIypC9rtQbra8GBwzAaR5WoJTupcm3yuMxbo_ucCmW4oBpaYB2Kkbg35Mx8NCnVsTkKkSWKH66aoTVzSwA5hSN8ZCvCX-noY28eCs"/><div className="hidden sm:flex flex-col"><span className="font-label-lg text-label-lg tracking-wide uppercase text-on-surface font-bold">Internship Expo 2026</span><span className="font-label-badge text-label-badge text-outline uppercase tracking-wider">Student Candidate Portal</span></div></div><nav className="hidden lg:flex items-center gap-space-lg" data-active-classes="text-primary font-bold"><a aria-current="page" className="transition-colors uppercase tracking-wider text-primary font-bold" data-path="candidate-overview" href="#">Overview</a><a className="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-wider" data-path="application-guidelines" href="#">Guidelines</a><a className="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-wider" data-path="partner-companies" href="#">Companies</a><a className="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-wider" data-path="application-faq" href="#">Support &amp; FAQ</a></nav><div className="flex items-center gap-space-md"><button className="inline-flex items-center gap-space-xs px-space-md py-space-sm rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors" type="button"><span className="material-symbols-outlined text-[18px] text-on-surface-variant">bookmark_border</span><span>Save &amp; Exit</span></button><div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span className="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main className="w-full max-w-[1440px] mx-auto px-margin pt-20 flex-1"><div className="flex flex-col w-full pb-36">
+" className="h-8 w-auto object-contain brightness-0 invert" src="https://lh3.googleusercontent.com/aida/AEtjO1Wv17fPGZaLmQXq7a6amA4WbWcLH5hhV1oOotGWaoJyu7BBK5QpPXRJVVHyUfqU6hlIRA0KgAXweESkb3tTpGbayr8SEhKEjGHVX16vdNMfTTCwMS3JQHPJJzYqXqBYYPiH4h88wEZWanWCB3hY9QFIypC9rtQbra8GBwzAaR5WoJTupcm3yuMxbo_ucCmW4oBpaYB2Kkbg35Mx8NCnVsTkKkSWKH66aoTVzSwA5hSN8ZCvCX-noY28eCs"/><div className="hidden sm:flex flex-col"><span className="font-label-lg text-label-lg tracking-wide uppercase text-on-surface font-bold">Internship Expo 2026</span><span className="font-label-badge text-label-badge text-outline uppercase tracking-wider">Student Candidate Portal</span></div></div><nav className="hidden lg:flex items-center gap-space-lg" data-active-classes="text-primary font-bold"><a aria-current="page" className="transition-colors uppercase tracking-wider text-primary font-bold" data-path="candidate-overview" href="#">Overview</a><a className="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-wider" data-path="application-guidelines" href="#">Guidelines</a><a className="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-wider" data-path="partner-companies" href="#">Companies</a><a className="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-wider" data-path="application-faq" href="#">Support &amp; FAQ</a></nav><div className="flex items-center gap-space-md"><button className="inline-flex items-center gap-space-xs px-space-md py-space-sm rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors" type="button"><span className="material-symbols-outlined text-[18px] text-on-surface-variant">bookmark_border</span><span>Save &amp; Exit</span></button><div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span className="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main className="w-full max-w-[1440px] mx-auto px-margin pt-20 flex-1"><div className="flex flex-col w-full pb-36">
 {/* Top Application Flow Stepper */}
-<section className="w-full max-w-[840px] mx-auto py-space-xl">
-<div className="relative flex items-center justify-between">
+<section className="w-full py-space-xl overflow-x-auto hide-scrollbar">
+<div className="relative flex items-center justify-between max-w-[840px] mx-auto px-4 min-w-[600px]">
 {/* Continuous connecting track bar */}
 <div className="absolute top-1/2 left-0 right-0 -translate-y-1/2 h-[3px] bg-surface-container-highest z-0"></div>
 <div className="absolute top-1/2 left-0 w-3/4 -translate-y-1/2 h-[3px] bg-primary z-0 transition-all duration-500"></div>
@@ -63,7 +63,7 @@ const Step4ApplicationSummary = () => {
 </div>
 </section>
 {/* Editorial Main Review Layout (Centered Column) */}
-<div className="w-full max-w-[780px] mx-auto flex flex-col gap-space-lg">
+<div className="w-full max-w-[780px] mx-auto px-4 md:px-0 flex flex-col gap-space-lg">
 {/* Title & Eyebrow Module */}
 <header className="flex flex-col gap-space-xs">
 <div className="flex items-center gap-space-sm">
@@ -148,12 +148,12 @@ const Step4ApplicationSummary = () => {
 </div>
 <div className="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-space-md">
 <div className="flex items-start justify-between">
-<div className="flex items-center gap-space-md">
-<div className="w-12 h-14 rounded-lg bg-primary-fixed flex flex-col items-center justify-center text-primary shadow-sm flex-shrink-0">
+<div className="flex flex-col md:flex-row md:items-center gap-space-md">
+<div className="w-12 h-14 rounded-lg bg-primary-fixed flex flex-col items-center justify-center text-primary shadow-sm flex-shrink-0 self-start md:self-auto">
 <span className="material-symbols-outlined text-[24px]">description</span>
 <span className="font-label-badge text-[9px] uppercase font-bold tracking-tight">PDF</span>
 </div>
-<div>
+<div className="flex flex-col items-start overflow-hidden">
 <div className="flex items-center gap-space-sm">
 <span className="font-headline-sm text-headline-sm text-on-surface font-bold">Neil_Fernandes_Resume.pdf</span>
 <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-badge text-label-badge">
@@ -161,7 +161,7 @@ const Step4ApplicationSummary = () => {
                   ATS Validated
                 </span>
 </div>
-<div className="flex items-center gap-space-md mt-1 text-on-surface-variant font-body-sm text-body-sm">
+<div className="flex flex-wrap items-center gap-2 mt-2 text-on-surface-variant font-body-sm text-body-sm">
 <span>2.4 MB</span>
 <span>•</span>
 <span>Uploaded Today at 14:22 IST</span>
@@ -182,8 +182,8 @@ const Step4ApplicationSummary = () => {
 </div>
 </div>
 {/* ATS Extracted Competencies Micro-Bar */}
-<div className="bg-surface-container-lowest p-space-sm rounded-lg flex items-center justify-between">
-<div className="flex items-center gap-space-sm">
+<div className="bg-surface-container-lowest p-space-sm rounded-lg flex flex-col md:flex-row md:items-center justify-between gap-3 md:gap-0">
+<div className="flex items-start md:items-center gap-space-sm">
 <span className="material-symbols-outlined text-[18px] text-primary">auto_awesome</span>
 <span className="font-body-sm text-body-sm text-on-surface"><strong>12 Extracted Skills:</strong> Go, C++, Kubernetes, PyTorch, Distributed Systems, Terraform, Docker</span>
 </div>
@@ -213,8 +213,8 @@ const Step4ApplicationSummary = () => {
 </div>
 <div className="flex flex-col gap-space-sm">
 {/* Role 1: Google Cloud */}
-<div className="flex items-center justify-between bg-surface-container-low p-space-md rounded-xl hover:bg-surface-container transition-colors group">
-<div className="flex items-center gap-space-md">
+<div className="flex flex-col md:flex-row md:items-center justify-between bg-surface-container-low p-space-md rounded-xl hover:bg-surface-container transition-colors group gap-3 md:gap-0">
+<div className="flex items-start md:items-center gap-space-md">
 <div className="w-12 h-12 rounded-lg bg-surface-container-lowest flex items-center justify-center p-2 shadow-sm">
 <span className="material-symbols-outlined text-[28px] text-primary">cloud</span>
 </div>
@@ -222,9 +222,9 @@ const Step4ApplicationSummary = () => {
 <div className="flex items-center gap-space-sm">
 <span className="font-headline-sm text-headline-sm text-on-surface font-bold">Google Cloud</span>
 <span className="text-on-surface-variant">•</span>
-<span className="font-body-md text-body-md text-on-surface font-medium">Cloud Solutions &amp; SRE Intern</span>
+<span className="font-body-md text-sm md:text-body-md text-on-surface font-medium">Cloud Solutions &amp; SRE Intern</span>
 </div>
-<div className="flex items-center gap-space-sm mt-1">
+<div className="flex flex-wrap items-center gap-space-sm mt-2 md:mt-1">
 <span className="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-label-badge text-label-badge">Cloud &amp; Infrastructure</span>
 <span className="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-badge text-label-badge font-semibold">₹45,000 / month</span>
 <span className="text-on-surface-variant font-body-sm text-body-sm">3 Months Duration • Hybrid (BKC)</span>
@@ -236,8 +236,8 @@ const Step4ApplicationSummary = () => {
 </button>
 </div>
 {/* Role 2: Morgan Stanley */}
-<div className="flex items-center justify-between bg-surface-container-low p-space-md rounded-xl hover:bg-surface-container transition-colors group">
-<div className="flex items-center gap-space-md">
+<div className="flex flex-col md:flex-row md:items-center justify-between bg-surface-container-low p-space-md rounded-xl hover:bg-surface-container transition-colors group gap-3 md:gap-0">
+<div className="flex items-start md:items-center gap-space-md">
 <div className="w-12 h-12 rounded-lg bg-surface-container-lowest flex items-center justify-center p-2 shadow-sm">
 <span className="material-symbols-outlined text-[28px] text-secondary">trending_up</span>
 </div>
@@ -245,9 +245,9 @@ const Step4ApplicationSummary = () => {
 <div className="flex items-center gap-space-sm">
 <span className="font-headline-sm text-headline-sm text-on-surface font-bold">Morgan Stanley</span>
 <span className="text-on-surface-variant">•</span>
-<span className="font-body-md text-body-md text-on-surface font-medium">Quantitative Tech &amp; DevOps Intern</span>
+<span className="font-body-md text-sm md:text-body-md text-on-surface font-medium">Quantitative Tech &amp; DevOps Intern</span>
 </div>
-<div className="flex items-center gap-space-sm mt-1">
+<div className="flex flex-wrap items-center gap-space-sm mt-2 md:mt-1">
 <span className="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-label-badge text-label-badge">Fintech &amp; High-Frequency</span>
 <span className="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-badge text-label-badge font-semibold">₹65,000 / month</span>
 <span className="text-on-surface-variant font-body-sm text-body-sm">6 Months Duration • On-site (NESCO)</span>
@@ -259,8 +259,8 @@ const Step4ApplicationSummary = () => {
 </button>
 </div>
 {/* Role 3: NVIDIA */}
-<div className="flex items-center justify-between bg-surface-container-low p-space-md rounded-xl hover:bg-surface-container transition-colors group">
-<div className="flex items-center gap-space-md">
+<div className="flex flex-col md:flex-row md:items-center justify-between bg-surface-container-low p-space-md rounded-xl hover:bg-surface-container transition-colors group gap-3 md:gap-0">
+<div className="flex items-start md:items-center gap-space-md">
 <div className="w-12 h-12 rounded-lg bg-surface-container-lowest flex items-center justify-center p-2 shadow-sm">
 <span className="material-symbols-outlined text-[28px] text-primary">memory</span>
 </div>
@@ -268,9 +268,9 @@ const Step4ApplicationSummary = () => {
 <div className="flex items-center gap-space-sm">
 <span className="font-headline-sm text-headline-sm text-on-surface font-bold">Nvidia</span>
 <span className="text-on-surface-variant">•</span>
-<span className="font-body-md text-body-md text-on-surface font-medium">CUDA &amp; Graphics Pipeline Intern</span>
+<span className="font-body-md text-sm md:text-body-md text-on-surface font-medium">CUDA &amp; Graphics Pipeline Intern</span>
 </div>
-<div className="flex items-center gap-space-sm mt-1">
+<div className="flex flex-wrap items-center gap-space-sm mt-2 md:mt-1">
 <span className="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-label-badge text-label-badge">Hardware &amp; AI Systems</span>
 <span className="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-badge text-label-badge font-semibold">₹50,000 / month</span>
 <span className="text-on-surface-variant font-body-sm text-body-sm">Summer 2026 • Pune Campus</span>
@@ -307,9 +307,9 @@ const Step4ApplicationSummary = () => {
 </div>
 {/* Sticky Bottom Submission Bar (Pinned Footer Action) */}
 <aside className="fixed bottom-0 left-0 right-0 w-full bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_-4px_24px_rgba(0,0,0,0.08)] z-40">
-<div className="max-w-[1440px] mx-auto px-margin h-24 flex items-center justify-between">
+<div className="max-w-[1440px] mx-auto px-4 md:px-margin py-4 md:py-0 md:h-24 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0">
 {/* Back Button */}
-<button className="inline-flex items-center gap-space-sm px-space-lg py-space-sm rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-lg text-label-lg transition-colors" onClick={() => navigate('/register/step3')} type="button">
+<button className="w-full md:w-auto justify-center inline-flex items-center gap-space-sm px-space-lg py-space-sm rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-lg text-label-lg transition-colors" onClick={() => navigate('/register/step3')} type="button">
 <span className="material-symbols-outlined text-[18px]">arrow_back</span>
 <span>Back to Positions</span>
 </button>
@@ -319,12 +319,12 @@ const Step4ApplicationSummary = () => {
 <span className="font-label-badge text-label-badge uppercase tracking-wider font-semibold">3 Steps Verified • Final Roster Ready</span>
 </div>
 {/* Final Submission Action Group */}
-<div className="flex flex-col items-end">
-<button className="inline-flex items-center gap-space-sm px-space-xl py-3 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg font-bold shadow-md transition-all hover:scale-[1.02]" id="submitBtn" onClick={async () => { await submitApplication(); navigate('/register/step5'); }} type="button">
+<div className="w-full md:w-auto flex flex-col items-center md:items-end">
+<button className="w-full md:w-auto justify-center inline-flex items-center gap-space-sm px-space-xl py-3 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg font-bold shadow-md transition-all hover:scale-[1.02]" id="submitBtn" onClick={async () => { await submitApplication(); navigate('/register/step5'); }} type="button">
 <span>Submit Application</span>
 <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
 </button>
-<span className="font-body-sm text-[11px] text-on-surface-variant mt-1">Application locks permanently upon submission</span>
+<span className="font-body-sm text-[11px] text-on-surface-variant mt-1 text-center md:text-right">Application locks permanently upon submission</span>
 </div>
 </div>
 </aside>

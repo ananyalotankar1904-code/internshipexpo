@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --color-canvas: #FFF4E1;
-  --color-primary: #B91C1C;
-  --color-primary-hover: #991B1B;
-  --color-secondary: #D96F2B;
-  --color-secondary-hover: #C25E20;
+  --color-canvas: transparent;
+  --color-primary: #E10600;
+  --color-primary-hover: #B91C1C;
+  --color-secondary: #E10600;
+  --color-secondary-hover: #B91C1C;
   --color-tertiary: #FFC9A9;
-  --color-text: #2F2F2F;
-  --color-surface: #FFFDF9;
+  --color-text: #ffffff;
+  --color-surface: transparent;
   --color-border: #F3D1BC;
 
   --font-display: 'Syne', sans-serif;
@@ -43,7 +43,6 @@
 }
 
 body {
-  background-color: var(--color-canvas);
   color: var(--color-text);
   font-family: var(--font-body);
   line-height: 1.6;
