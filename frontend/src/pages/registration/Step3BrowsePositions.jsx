@@ -40,10 +40,10 @@ const Step3BrowsePositions = () => {
       {/* Navigation Links & Save/Exit */}
       <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
         <nav className="flex items-center gap-6 text-xs font-general font-semibold tracking-wider uppercase text-white/70">
-          <span className="text-tedx-red font-bold">Overview</span>
-          <span className="hover:text-white cursor-pointer transition-colors">Guidelines</span>
-          <span className="hover:text-white cursor-pointer transition-colors">Companies</span>
-          <span className="hover:text-white cursor-pointer transition-colors">Support & FAQ</span>
+          <a href="/" className="text-tedx-red font-bold">Overview</a>
+          <a href="/#about" className="hover:text-white cursor-pointer transition-colors">Guidelines</a>
+          <a href="/#companies" className="hover:text-white cursor-pointer transition-colors">Companies</a>
+          <a href="/#contact" className="hover:text-white cursor-pointer transition-colors">Support & FAQ</a>
         </nav>
         
         <div className="flex items-center gap-3">
