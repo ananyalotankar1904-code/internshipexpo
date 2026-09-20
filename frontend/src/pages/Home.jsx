@@ -3,6 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import tedxLogo from '../tedx-logo.png';
 import CompanyDetailModal from '../components/CompanyDetailModal';
 import Dither from '../components/Dither';
+import ScrollReveal from '../components/animations/ScrollReveal';
+import AnimatedContent from '../components/animations/AnimatedContent';
+import SpotlightCard from '../components/animations/SpotlightCard';
+import { motion } from 'motion/react';
+import AiBlob from '../components/animations/AiBlob';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -26,7 +31,7 @@ const Home = () => {
           <a className="text-2xl font-bold text-white" href="#/" onClick={(e) => { e.preventDefault(); setIsMobileMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>Home</a>
           <a className="text-2xl font-bold text-light-cool-grey hover:text-white transition-colors" href="#about" onClick={(e) => { e.preventDefault(); setIsMobileMenuOpen(false); document.getElementById('about')?.scrollIntoView({behavior: 'smooth'}) }}>About</a>
           <a className="text-2xl font-bold text-light-cool-grey hover:text-white transition-colors" href="#companies" onClick={(e) => { e.preventDefault(); setIsMobileMenuOpen(false); document.getElementById('companies')?.scrollIntoView({behavior: 'smooth'}) }}>Companies</a>
-          <a className="text-2xl font-bold text-light-cool-grey hover:text-white transition-colors" href="#sponsors" onClick={(e) => { e.preventDefault(); setIsMobileMenuOpen(false); document.getElementById('sponsors')?.scrollIntoView({behavior: 'smooth'}) }}>Sponsors</a>
+          <a className="text-2xl font-bold text-light-cool-grey hover:text-white transition-colors" href="#event-details" onClick={(e) => { e.preventDefault(); setIsMobileMenuOpen(false); document.getElementById('event-details')?.scrollIntoView({behavior: 'smooth'}) }}>Event Details</a>
           <a className="text-2xl font-bold text-light-cool-grey hover:text-white transition-colors" href="#contact" onClick={(e) => { e.preventDefault(); setIsMobileMenuOpen(false); document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'}) }}>Contact</a>
           <button className="mt-8 bg-tedx-red text-white font-bold text-xl py-4 rounded-xl shadow-lg" onClick={() => { setIsMobileMenuOpen(false); navigate('/register'); }}>Register Now</button>
         </nav>
@@ -46,7 +51,7 @@ const Home = () => {
             <a aria-current="page" className="transition-colors text-white font-bold" href="#/" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>Home</a>
             <a className="font-label-lg text-label-lg text-light-cool-grey hover:text-white transition-colors" href="#about" onClick={(e) => { e.preventDefault(); document.getElementById('about')?.scrollIntoView({behavior: 'smooth'}) }}>About</a>
             <a className="font-label-lg text-label-lg text-light-cool-grey hover:text-white transition-colors" href="#companies" onClick={(e) => { e.preventDefault(); document.getElementById('companies')?.scrollIntoView({behavior: 'smooth'}) }}>Companies</a>
-            <a className="font-label-lg text-label-lg text-light-cool-grey hover:text-white transition-colors" href="#sponsors" onClick={(e) => { e.preventDefault(); document.getElementById('sponsors')?.scrollIntoView({behavior: 'smooth'}) }}>Sponsors</a>
+            <a className="font-label-lg text-label-lg text-light-cool-grey hover:text-white transition-colors" href="#event-details" onClick={(e) => { e.preventDefault(); document.getElementById('event-details')?.scrollIntoView({behavior: 'smooth'}) }}>Event Details</a>
             <a className="font-label-lg text-label-lg text-light-cool-grey hover:text-white transition-colors" href="#contact" onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'}) }}>Contact</a>
           </nav>
           
@@ -70,7 +75,7 @@ const Home = () => {
           <section className="relative w-full min-h-[100svh] pt-24 md:pt-32 pb-16 overflow-hidden bg-transparent text-white">
             
             <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4 md:px-margin">
-              <div className="flex flex-col md:grid md:grid-cols-12 gap-8 md:gap-gutter items-center">
+              <div className="flex flex-col md:grid md:grid-cols-12 gap-8 md:gap-gutter items-center min-h-[60vh]">
                 {/* Left Column: Typographic Hierarchy */}
                 <div className="w-full md:col-span-7 flex flex-col items-start md:pr-4">
                   {/* Eyebrow Badge */}
@@ -80,7 +85,7 @@ const Home = () => {
                   </div>
                   
                   {/* Hero Headline */}
-                  <h1 className="font-display-hero text-5xl md:text-display-hero uppercase tracking-tight text-white mb-4 md:mb-space-md leading-[1.05] break-words">
+                  <h1 className="font-display-hero text-5xl md:text-display-hero uppercase tracking-tight text-white mb-4 md:mb-space-md leading-[1.05] break-words text-left">
                     TED<span className="text-tedx-red font-extrabold">x</span>CRCE<br/>
                     <span className="text-white relative inline-block">
                       Internship Expo
@@ -92,66 +97,28 @@ const Home = () => {
                   </h1>
                   
                   {/* One-line subtext */}
-                  <p className="font-body-lg text-base md:text-body-lg text-light-cool-grey max-w-xl mb-8 md:mb-space-xl leading-relaxed">
+                  <p className="font-body-lg text-base md:text-body-lg text-light-cool-grey max-w-xl mb-8 md:mb-space-xl leading-relaxed text-left">
                     A platform for FCRCE students to explore opportunities, connect with leading organizations, and take the definitive next step towards their future.
                   </p>
                   
-                  {/* CTA Action Buttons */}
-                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 md:gap-space-md relative w-full md:w-auto">
-                    {/* Primary CTA Button */}
-                    <a className="relative group flex items-center justify-center gap-space-xs px-8 py-4 md:py-3.5 bg-tedx-red text-white font-label-lg text-lg md:text-label-lg rounded-xl shadow-[3px_3px_0px_#080A0D] hover:bg-tedx-red/80 transition-all duration-150 active:translate-x-0 active:translate-y-0 active:shadow-[1px_1px_0px_#080A0D]" href="#companies" onClick={(e) => { e.preventDefault(); document.getElementById('companies')?.scrollIntoView({behavior: 'smooth'}) }}>
-                      <span>Explore Opportunities</span>
-                      <span className="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
-                    </a>
-                    {/* Secondary Outlined CTA Button */}
-                    <a className="flex items-center justify-center px-7 py-4 md:py-3.5 bg-near-black/50 backdrop-blur-sm border border-light-cool-grey/30 text-white font-label-lg text-lg md:text-label-lg rounded-xl shadow-[2px_2px_0px_#080A0D] hover:bg-white/10 transition-all duration-150" href="#/" onClick={(e) => { e.preventDefault(); navigate('/register'); }}>
-                      Register Now
-                    </a>
-                    
-                    {/* Annotation Accent */}
-                    <div className="hidden lg:flex items-center gap-1.5 absolute -right-44 top-1 text-electric-blue">
-                      <svg className="-rotate-12" fill="none" height="24" viewBox="0 0 40 28" width="34">
-                        <path d="M36 4C24 16 12 18 4 24M4 24L12 24M4 24L8 16" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
-                      </svg>
-                      <span className="font-label-badge text-label-badge uppercase tracking-widest text-electric-blue font-bold">Priority Entry</span>
-                    </div>
-                  </div>
-                  
-                  {/* Venue Micro Note (Mobile moves this down, but we keep it here logically or duplicate) */}
-                  <div className="mt-8 md:mt-space-lg flex items-start md:items-center gap-2 md:gap-space-xs font-body-sm text-sm md:text-body-sm text-light-cool-grey">
-                    <span className="material-symbols-outlined text-tedx-red text-[20px] md:text-[18px] shrink-0 mt-0.5 md:mt-0">location_on</span>
+                  {/* Venue Micro Note */}
+                  <div className="mt-8 flex items-center gap-2 md:gap-space-xs font-body-sm text-sm md:text-body-sm text-light-cool-grey">
+                    <span className="material-symbols-outlined text-tedx-red text-[20px] md:text-[18px]">location_on</span>
                     <span>Bandra West Campus · Mumbai, Maharashtra</span>
                   </div>
                 </div>
                 
-                {/* Right Column: Layered Editorial Collage */}
-                <div className="w-full md:col-span-5 relative flex justify-center items-center mt-8 md:mt-0 order-last md:order-none">
-                  {/* Background Polaroid shadow shape */}
-                  <div className="w-full max-w-[430px] p-2 md:p-4 bg-near-black/60 backdrop-blur-md rounded-xl shadow-2xl md:shadow-[6px_6px_0px_#080A0D] md:-rotate-2 transform transition-transform md:hover:rotate-0 duration-300 relative group border border-light-cool-grey/10">
-                    {/* Faux Masking Washi Tape Top Corner */}
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-20 px-3 py-1 bg-tedx-red text-white text-[10px] md:text-label-badge font-label-badge tracking-widest uppercase shadow-md rotate-1">
-                      TEDxCRCE Official Expo
-                    </div>
-                    {/* Image Container with Campus Visual */}
-                    <div className="relative w-full aspect-[4/3] rounded overflow-hidden bg-near-black">
-                      <img className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" data-alt="Stunning aerial seaside perspective of the Father Conceicao Rodrigues College of Engineering campus building on Bandstand in Bandra Mumbai, overlooking the Arabian Sea with students walking in sunny daylight, architectural brutalist modernism" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmWzzYWDBdiwkiUlJsXyX4mLn-qwpZ1Pvn0K1K2cHSVaC17rjYQS5kqgUiABvtQ8yREwSutq-dx9diZiPTq6gceUMQtGr6nhmobkb6jWkefSP6YzYvq8Y1uO7lTBApSPWiqEilcIVQ8-I1ujgldHlcrfGQ2nxdrmsWqBOTAbSBCv8E1ZYhWi8KxOkglvogzjuzFfmGhNqCXayNt_LfdDieUQY7pmrmCDstFhrU34l28uoPYxAgpMPE"/>
-                      <div className="absolute inset-0 bg-gradient-to-t from-deep-navy/80 via-transparent to-transparent"></div>
-                      <div className="absolute bottom-3 left-3 text-white font-label-md text-xs md:text-label-md">
-                        FCRCE Campus · Bandstand, Mumbai
-                      </div>
-                    </div>
-                    {/* Sticky Note Badge pinned at bottom-right corner */}
-                    <div className="absolute -bottom-4 md:-bottom-6 -right-2 md:-right-6 z-20 bg-near-black border border-light-cool-grey/20 text-white p-3 md:p-3.5 rounded-lg shadow-xl md:rotate-3 max-w-[180px] md:max-w-[210px]">
-                      <div className="flex items-center gap-1 text-tedx-red font-bold text-[10px] md:text-label-badge uppercase tracking-wider mb-0.5">
-                        <span className="material-symbols-outlined text-[14px] md:text-[15px]">event</span>
-                        <span>Mark The Date</span>
-                      </div>
-                      <p className="font-headline-sm text-lg md:text-headline-sm leading-tight text-white">
-                        3 OCT 2026
-                      </p>
-                      <p className="font-body-sm text-xs md:text-body-sm text-light-cool-grey mt-0.5">
-                        FCRCE Bandra, Mumbai
-                      </p>
+                {/* Right Column: AI Blob Button */}
+                <div className="w-full md:col-span-5 relative flex justify-end items-end mt-12 md:mt-0 h-full">
+                  <div className="relative md:mt-32 md:mr-12">
+                    <AiBlob text="Register" to="/register" />
+                    
+                    {/* Annotation Accent */}
+                    <div className="hidden lg:flex flex-col items-end gap-1 absolute -left-16 bottom-16 text-electric-blue z-30">
+                      <svg className="-rotate-12 scale-x-[-1]" fill="none" height="32" viewBox="0 0 40 28" width="45">
+                        <path d="M36 4C24 16 12 18 4 24M4 24L12 24M4 24L8 16" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
+                      </svg>
+                      <span className="font-label-badge text-label-badge uppercase tracking-widest text-electric-blue font-bold text-right leading-tight">Priority<br/>Entry</span>
                     </div>
                   </div>
                 </div>
@@ -159,7 +126,7 @@ const Home = () => {
 
               {/* Stat Strip below Hero */}
               <div className="w-full mt-16 md:mt-24 bg-near-black/50 backdrop-blur-md rounded-xl p-4 md:p-space-md shadow-lg border border-light-cool-grey/10">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-0 md:divide-x divide-light-cool-grey/20">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-0 md:divide-x divide-light-cool-grey/20">
                   {/* Stat Item 1 */}
                   <div className="flex flex-col items-center justify-center py-2 px-2 md:px-4 text-center">
                     <span className="font-display-section text-4xl md:text-display-section text-tedx-red leading-none">50+</span>
@@ -178,14 +145,7 @@ const Home = () => {
                     <span className="font-label-lg text-sm md:text-label-lg text-white mt-1">High-Impact Day</span>
                     <span className="font-body-sm text-xs md:text-body-sm text-light-cool-grey">On-Campus Interviews &amp; Offers</span>
                   </div>
-                  {/* Stat Item 4 */}
-                  <div className="flex flex-col items-center justify-center py-2 px-2 md:px-4 text-center">
-                    <div className="flex items-center gap-1 text-tedx-red">
-                      <span className="material-symbols-outlined text-[24px] md:text-[26px]">connect_without_contact</span>
-                    </div>
-                    <span className="font-label-lg text-xs md:text-label-lg text-white mt-1 uppercase tracking-tight">Students · Ideas · Networks</span>
-                    <span className="font-body-sm text-xs md:text-body-sm text-electric-blue font-medium">Discover What's Next</span>
-                  </div>
+
                 </div>
               </div>
             </div>
@@ -197,7 +157,7 @@ const Home = () => {
 <section className="w-full max-w-[1440px] mx-auto px-4 md:px-margin py-12 md:py-20 bg-surface" id="about">
 <div className="flex flex-col md:grid md:grid-cols-12 gap-8 md:gap-gutter items-start">
 {/* Left: Narrative & Mission */}
-<div className="w-full md:col-span-5 flex flex-col md:pr-6">
+<ScrollReveal className="w-full md:col-span-5 flex flex-col md:pr-6" staggerDelay={0.15}>
 <div className="flex items-center gap-2 mb-2">
 <span className="w-4 h-[2px] bg-secondary"></span>
 <span className="font-label-badge text-[10px] md:text-label-badge uppercase tracking-widest text-secondary font-bold">Curated Ambition</span>
@@ -208,22 +168,12 @@ const Home = () => {
 <p className="font-body-lg text-base md:text-body-lg text-on-surface-variant mb-4 md:mb-space-md">
           The TEDxCRCE Internship Expo 2026 is Bandra’s signature collegiate career convergence. We connect high-caliber engineering, AI, data science, and design undergraduates directly with forward-looking industry pioneers.
         </p>
-<p className="font-body-md text-sm md:text-body-md text-on-surface-variant mb-6 md:mb-space-lg">
-          Rooted in the TED ethos of “ideas worth spreading,” our format strips away traditional placement bureaucracy to cultivate authentic technical dialogue, live technical showcases, and instant offer letters.
-        </p>
-{/* Quote Tag */}
-<div className="p-4 md:p-space-md bg-secondary-fixed/50 rounded-lg shadow-[2px_2px_0px_rgba(48,48,48,0.1)] relative">
-<div className="font-label-badge text-[10px] md:text-label-badge uppercase tracking-wider text-on-secondary-fixed mb-1 font-bold">The CRCE Edge</div>
-<p className="font-body-md text-sm md:text-body-md text-on-secondary-container italic">
-            “Bridging intellectual classroom theory with immediate engineering execution across India's industrial capitals.”
-          </p>
-</div>
-</div>
+</ScrollReveal>
 {/* Right: Three Structured Pillar Cards */}
-<div className="w-full md:col-span-7 grid grid-cols-1 gap-4 md:gap-space-md mt-8 md:mt-0">
+<AnimatedContent className="w-full md:col-span-7 grid grid-cols-1 gap-4 md:gap-space-md mt-8 md:mt-0" staggerDelay={0.12}>
 {/* Pillar 1 */}
-<div className="group p-4 md:p-space-lg rounded-xl bg-surface-container-lowest shadow-[3px_3px_0px_rgba(48,48,48,0.08)] hover:shadow-[5px_5px_0px_rgba(48,48,48,0.14)] hover:-translate-y-1 transition-all duration-200 flex flex-col sm:flex-row items-start gap-4 md:gap-space-md">
-<div className="w-12 h-12 md:w-14 md:h-14 shrink-0 rounded-xl bg-primary-fixed text-primary flex items-center justify-center shadow-inner">
+<SpotlightCard className="group p-4 md:p-space-lg rounded-xl bg-surface-container-lowest shadow-[3px_3px_0px_rgba(48,48,48,0.08)] hover:shadow-[5px_5px_0px_rgba(48,48,48,0.14)] transition-all duration-200 flex flex-col sm:flex-row items-start gap-4 md:gap-space-md">
+<div className="w-12 h-12 md:w-14 md:h-14 shrink-0 rounded-xl bg-surface-container-high text-on-surface flex items-center justify-center shadow-inner">
 <span className="material-symbols-outlined text-2xl md:text-3xl">psychology</span>
 </div>
 <div className="flex flex-col">
@@ -232,13 +182,13 @@ const Home = () => {
 <span className="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-label-badge text-[10px] md:text-label-badge font-bold shrink-0">Fast-Track</span>
 </div>
 <p className="font-body-md text-sm md:text-body-md text-on-surface-variant">
-              Engage directly with HR leaders, engineering directors, and product teams on-site at FCRCE. Complete on-spot assessments and secure accredited internship roles for 2026/2027 academic terms.
+              Complete on-spot assessments and secure accredited internship roles.
             </p>
 </div>
-</div>
+</SpotlightCard>
 {/* Pillar 2 */}
-<div className="group p-4 md:p-space-lg rounded-xl bg-surface-container-lowest shadow-[3px_3px_0px_rgba(48,48,48,0.08)] hover:shadow-[5px_5px_0px_rgba(48,48,48,0.14)] hover:-translate-y-1 transition-all duration-200 flex flex-col sm:flex-row items-start gap-4 md:gap-space-md">
-<div className="w-12 h-12 md:w-14 md:h-14 shrink-0 rounded-xl bg-secondary-fixed text-secondary flex items-center justify-center shadow-inner">
+<SpotlightCard className="group p-4 md:p-space-lg rounded-xl bg-surface-container-lowest shadow-[3px_3px_0px_rgba(48,48,48,0.08)] hover:shadow-[5px_5px_0px_rgba(48,48,48,0.14)] transition-all duration-200 flex flex-col sm:flex-row items-start gap-4 md:gap-space-md">
+<div className="w-12 h-12 md:w-14 md:h-14 shrink-0 rounded-xl bg-surface-container-high text-on-surface flex items-center justify-center shadow-inner">
 <span className="material-symbols-outlined text-2xl md:text-3xl">rocket_launch</span>
 </div>
 <div className="flex flex-col">
@@ -247,12 +197,12 @@ const Home = () => {
 <span className="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-label-badge text-[10px] md:text-label-badge font-bold shrink-0">1-on-1 Access</span>
 </div>
 <p className="font-body-md text-sm md:text-body-md text-on-surface-variant">
-              Receive live feedback on GitHub repositories, UX design dossiers, and robotics prototypes from veteran senior architects and technology consultants before your final evaluations.
+              Receive live feedback from veteran senior architects and technology consultants.
             </p>
 </div>
-</div>
+</SpotlightCard>
 {/* Pillar 3 */}
-<div className="group p-4 md:p-space-lg rounded-xl bg-surface-container-lowest shadow-[3px_3px_0px_rgba(48,48,48,0.08)] hover:shadow-[5px_5px_0px_rgba(48,48,48,0.14)] hover:-translate-y-1 transition-all duration-200 flex flex-col sm:flex-row items-start gap-4 md:gap-space-md">
+<SpotlightCard className="group p-4 md:p-space-lg rounded-xl bg-surface-container-lowest shadow-[3px_3px_0px_rgba(48,48,48,0.08)] hover:shadow-[5px_5px_0px_rgba(48,48,48,0.14)] transition-all duration-200 flex flex-col sm:flex-row items-start gap-4 md:gap-space-md">
 <div className="w-12 h-12 md:w-14 md:h-14 shrink-0 rounded-xl bg-surface-container-high text-on-surface flex items-center justify-center shadow-inner">
 <span className="material-symbols-outlined text-2xl md:text-3xl">hub</span>
 </div>
@@ -262,11 +212,11 @@ const Home = () => {
 <span className="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-label-badge text-[10px] md:text-label-badge font-bold shrink-0">Cutting Edge</span>
 </div>
 <p className="font-body-md text-sm md:text-body-md text-on-surface-variant">
-              Targeted openings across Artificial Intelligence, Web3 Infrastructure, Embedded Electronics, Cloud Compute, Fintech Engineering, and Sustainable CleanTech Systems.
+              Targeted openings across emerging technology domains.
             </p>
 </div>
-</div>
-</div>
+</SpotlightCard>
+</AnimatedContent>
 </div>
 </section>
 {/* ========================================================= */}
@@ -646,7 +596,12 @@ const Home = () => {
 {/* ========================================================= */}
 {/* SECTION 5: EVENT INFO & CONTACT                          */}
 {/* ========================================================= */}
-<section className="w-full max-w-[1440px] mx-auto px-4 md:px-margin py-12 md:py-20 bg-surface" id="contact">
+<section className="w-full max-w-[1440px] mx-auto px-4 md:px-margin py-12 md:py-20 bg-surface" id="event-details">
+<div className="flex flex-col mb-8 md:mb-12">
+<h2 className="font-display-section text-4xl md:text-display-section text-on-surface leading-tight">
+          Event Details
+        </h2>
+</div>
 {/* 4 Structured Event Info Blocks */}
 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-gutter mb-12 md:mb-20">
 {/* Block 1: Event Date */}
@@ -715,7 +670,7 @@ const Home = () => {
 </div>
 </div>
 {/* Integrated Contact & Registration Layout */}
-<div className="flex flex-col md:grid md:grid-cols-12 gap-8 md:gap-gutter items-stretch bg-surface-container-low p-6 md:p-space-xl rounded-xl shadow-[4px_4px_0px_rgba(48,48,48,0.08)]" id="register">
+<div className="flex flex-col md:grid md:grid-cols-12 gap-8 md:gap-gutter items-stretch bg-surface-container-low p-6 md:p-space-xl rounded-xl shadow-[4px_4px_0px_rgba(48,48,48,0.08)]" id="contact">
 {/* Left: Contact & Institutional Info */}
 <div className="w-full md:col-span-5 flex flex-col justify-between md:pr-6">
 <div>
@@ -726,9 +681,7 @@ const Home = () => {
 <h2 className="font-headline-lg text-2xl md:text-headline-lg text-on-surface leading-tight mb-4 md:mb-space-md">
             Get in Touch with the Organizers
           </h2>
-<p className="font-body-md text-sm md:text-body-md text-on-surface-variant mb-6 md:mb-space-lg">
-            Have queries regarding company booth allocations, candidate eligibility, or day-of logistics? Reach out to the student organizing team or visit the campus office.
-          </p>
+
 {/* Contact details list */}
 <div className="flex flex-col gap-4 md:gap-space-md">
 <div className="flex items-center gap-3 md:gap-space-sm">
@@ -760,12 +713,7 @@ const Home = () => {
 </div>
 </div>
 </div>
-{/* Little Taped Card Accent */}
-<div className="mt-8 p-3.5 bg-secondary-fixed text-on-secondary-fixed rounded shadow-sm relative">
-<p className="font-body-sm text-xs md:text-body-sm font-medium">
-            Student volunteers will be stationed at the Bandstand entrance gates from 8:00 AM onwards to assist visiting corporate delegates.
-          </p>
-</div>
+
 </div>
 {/* Right: Inquiry / Registration Form */}
 <div className="w-full md:col-span-7 bg-surface-container-lowest p-5 md:p-space-xl rounded-xl shadow-[3px_3px_0px_rgba(48,48,48,0.06)] flex flex-col justify-between mt-8 md:mt-0">
@@ -809,7 +757,7 @@ const Home = () => {
 <input checked="" className="accent-primary w-4 h-4 rounded" id="consent" type="checkbox"/>
 <label className="font-body-sm text-body-sm text-on-surface-variant" for="consent">Notify me about pre-expo workshops and slot updates.</label>
 </div>
-<button className="inline-flex items-center gap-2 px-8 py-3 bg-primary-container text-on-primary font-label-lg text-label-lg rounded-xl shadow-[3px_3px_0px_#1b1c1c] hover:bg-primary transition-all duration-150 hover:-translate-y-0.5" type="submit">
+<button className="inline-flex items-center gap-2 px-8 py-3 bg-tedx-red text-white font-label-lg text-label-lg rounded-xl shadow-[3px_3px_0px_#1b1c1c] hover:bg-tedx-red/80 transition-all duration-150 hover:-translate-y-0.5" type="submit">
 <span>Send Message</span>
 <span className="material-symbols-outlined text-[18px]">send</span>
 </button>
@@ -819,7 +767,62 @@ const Home = () => {
 </div>
 </div>
 </section>
-</div></main><footer className="w-full bg-transparent text-inverse-on-surface py-space-xl"><div className="max-w-[1440px] mx-auto px-margin flex flex-col gap-space-xl"><div className="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start"><div className="md:col-span-5 flex flex-col gap-space-md"><div className="flex items-center gap-space-sm"><img alt="TEDxCRCE Logo" className="h-8 w-auto object-contain brightness-0 invert" src="https://lh3.googleusercontent.com/aida/AEtjO1Wv17fPGZaLmQXq7a6amA4WbWcLH5hhV1oOotGWaoJyu7BBK5QpPXRJVVHyUfqU6hlIRA0KgAXweESkb3tTpGbayr8SEhKEjGHVX16vdNMfTTCwMS3JQHPJJzYqXqBYYPiH4h88wEZWanWCB3hY9QFIypC9rtQbra8GBwzAaR5WoJTupcm3yuMxbo_ucCmW4oBpaYB2Kkbg35Mx8NCnVsTkKkSWKH66aoTVzSwA5hSN8ZCvCX-noY28eCs"/><span className="font-headline-sm text-headline-sm uppercase tracking-tight text-white">TEDxCRCE</span></div><p className="font-body-md text-body-md text-white max-w-sm">Internship Expo 2026. Empowering collegiate talent, intellectual curiosity, and high-growth opportunities under the spirit of ideas worth spreading.</p></div><div className="md:col-span-4 flex flex-col gap-space-sm"><span className="font-label-badge text-label-badge uppercase tracking-widest text-primary-fixed">Quick Navigation</span><div className="flex flex-col gap-space-xs"><a className="font-body-md text-body-md text-white hover:text-white transition-colors" data-path="home" href="#/" onClick={(e) => e.preventDefault()}>Home</a><a className="font-body-md text-body-md text-white hover:text-white transition-colors" data-path="about" href="#/" onClick={(e) => e.preventDefault()}>About the Summit</a><a className="font-body-md text-body-md text-white hover:text-white transition-colors" data-path="companies" href="#/" onClick={(e) => e.preventDefault()}>Participating Companies</a><a className="font-body-md text-body-md text-white hover:text-white transition-colors" data-path="sponsors" href="#/" onClick={(e) => e.preventDefault()}>Our Sponsors</a><a className="font-body-md text-body-md text-white hover:text-white transition-colors" data-path="contact" href="#/" onClick={(e) => e.preventDefault()}>Get In Touch</a></div></div><div className="md:col-span-3 flex flex-col gap-space-sm"><span className="font-label-badge text-label-badge uppercase tracking-widest text-primary-fixed">Connect &amp; Follow</span><div className="flex flex-col gap-space-xs"><a className="font-body-md text-body-md text-white hover:text-white transition-colors" href="#/" onClick={(e) => e.preventDefault()}>LinkedIn Official</a><a className="font-body-md text-body-md text-white hover:text-white transition-colors" href="#/" onClick={(e) => e.preventDefault()}>Instagram Community</a><a className="font-body-md text-body-md text-white hover:text-white transition-colors" href="#/" onClick={(e) => e.preventDefault()}>YouTube Channel</a><a className="font-body-md text-body-md text-white hover:text-white transition-colors" href="#/" onClick={(e) => e.preventDefault()}>Student Portal</a></div></div></div><div className="pt-space-md border-t border-inverse-surface/40 flex flex-col md:flex-row justify-between items-center gap-space-sm font-body-sm text-body-sm text-white"><span>This independent TEDx event is operated under license from TED.</span><span>© 2026 TEDxCRCE Internship Expo. All rights reserved.</span></div></div></footer>
+</div></main>      <footer className="w-full bg-transparent text-inverse-on-surface py-space-xl pt-16 md:pt-24 border-t border-light-cool-grey/10">
+        <div className="max-w-[1440px] mx-auto px-4 md:px-margin flex flex-col gap-space-xl">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-gutter items-start">
+            {/* Logo and Description */}
+            <div className="md:col-span-5 flex flex-col gap-space-md">
+              <div className="flex items-center gap-2">
+                <img src={tedxLogo} alt="TEDx Logo" className="h-12 md:h-16 w-auto object-contain" />
+                <span className="font-[Helvetica,Arial,sans-serif] text-[40px] uppercase tracking-tighter text-white font-bold leading-none">CRCE</span>
+              </div>
+              <p className="font-body-md text-body-md text-light-cool-grey max-w-sm mt-2">
+                Internship Expo 2026. Empowering collegiate talent, intellectual curiosity, and high-growth opportunities under the spirit of ideas worth spreading.
+              </p>
+            </div>
+            
+            {/* Quick Navigation */}
+            <div className="md:col-span-4 flex flex-col gap-space-sm mt-8 md:mt-0">
+              <span className="font-label-badge text-label-badge uppercase tracking-widest text-light-cool-grey font-bold">Quick Navigation</span>
+              <div className="flex flex-col gap-3 mt-2">
+                <a className="font-body-md text-body-md text-white hover:text-tedx-red transition-colors" href="#/" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>Home</a>
+                <a className="font-body-md text-body-md text-white hover:text-tedx-red transition-colors" href="#about" onClick={(e) => { e.preventDefault(); document.getElementById('about')?.scrollIntoView({behavior: 'smooth'}) }}>About</a>
+                <a className="font-body-md text-body-md text-white hover:text-tedx-red transition-colors" href="#companies" onClick={(e) => { e.preventDefault(); document.getElementById('companies')?.scrollIntoView({behavior: 'smooth'}) }}>Companies</a>
+                <a className="font-body-md text-body-md text-white hover:text-tedx-red transition-colors" href="#event-details" onClick={(e) => { e.preventDefault(); document.getElementById('event-details')?.scrollIntoView({behavior: 'smooth'}) }}>Event Details</a>
+                <a className="font-body-md text-body-md text-white hover:text-tedx-red transition-colors" href="#contact" onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'}) }}>Contact</a>
+              </div>
+            </div>
+            
+            {/* Connect & Follow */}
+            <div className="md:col-span-3 flex flex-col gap-space-sm mt-8 md:mt-0">
+              <span className="font-label-badge text-label-badge uppercase tracking-widest text-light-cool-grey font-bold">Connect & Follow</span>
+              <div className="flex flex-col gap-4 mt-2">
+                <a className="flex items-center gap-3 font-body-md text-body-md text-white hover:text-tedx-red transition-colors" href="#/" onClick={(e) => e.preventDefault()}>
+                  <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                  LinkedIn
+                </a>
+                <a className="flex items-center gap-3 font-body-md text-body-md text-white hover:text-tedx-red transition-colors" href="#/" onClick={(e) => e.preventDefault()}>
+                  <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                  Instagram
+                </a>
+                <a className="flex items-center gap-3 font-body-md text-body-md text-white hover:text-tedx-red transition-colors" href="mailto:contact@tedxcrce.com">
+                  <span className="material-symbols-outlined text-[20px]">mail</span>
+                  contact@tedxcrce.com
+                </a>
+                <a className="flex items-center gap-3 font-body-md text-body-md text-white hover:text-tedx-red transition-colors" href="https://tedxcrce.com" target="_blank" rel="noopener noreferrer">
+                  <span className="material-symbols-outlined text-[20px]">language</span>
+                  tedxcrce.com
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div className="pt-8 border-t border-light-cool-grey/20 flex flex-col md:flex-row justify-between items-center gap-4 font-body-sm text-sm text-light-cool-grey mt-8">
+            <span>This independent TEDx event is operated under license from TED.</span>
+            <span>© 2026 TEDxCRCE Internship Expo. All rights reserved.</span>
+          </div>
+        </div>
+      </footer>
       <CompanyDetailModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
