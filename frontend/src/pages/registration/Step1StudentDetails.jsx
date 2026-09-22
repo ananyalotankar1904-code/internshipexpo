@@ -1,4 +1,5 @@
 import React from 'react';
+import tedxLogo from '../../tedx-logo.png';
 import { useNavigate } from 'react-router-dom';
 import { useRegistration } from '../../context/RegistrationContext';
 import SmokedHeader from '../../components/SmokedHeader';

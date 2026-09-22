@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import tedxLogo from '../../tedx-logo.png';
 import { useNavigate } from 'react-router-dom';
 import { useRegistration } from '../../context/RegistrationContext';
 import { companiesApi } from '../../api/client';

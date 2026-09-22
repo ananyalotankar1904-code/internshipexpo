@@ -250,8 +250,8 @@ const Home = () => {
 <span className="text-peach-accent">OCTOBER 03</span>
 </div>
 </div>
-</div>
-</div>
+</SpotlightCard>
+</AnimatedContent>
 </div>
 </section>
 {/* ========================================================================= */}
