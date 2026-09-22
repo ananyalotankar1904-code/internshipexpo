@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useRegistration } from '../../context/RegistrationContext';
 import SmokedHeader from '../../components/SmokedHeader';
 import SmokedFooter from '../../components/SmokedFooter';
-import CrimsonDither from '../../components/CrimsonDither';
+
 
 const Step1StudentDetails = () => {
   const navigate = useNavigate();
@@ -16,15 +16,13 @@ const Step1StudentDetails = () => {
   };
 
   return (
-    <div className="bg-void text-text-cream font-body antialiased min-h-screen flex flex-col relative overflow-hidden">
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <CrimsonDither />
-      </div>
+    <div className="bg-transparent text-text-cream font-body antialiased min-h-screen flex flex-col relative">
+
       
       <SmokedHeader />
 
-      <main className="relative z-10 flex-grow flex items-center justify-center px-6 py-6 mb-24">
-        <div className="w-full max-w-[620px] smoked-glass rounded-xl p-9 shadow-2xl border border-border-hairline relative bg-surface-raised/40 backdrop-blur-xl">
+      <main className="relative z-10 flex-grow flex items-center justify-center px-4 sm:px-6 py-6 mb-20 md:mb-24">
+        <div className="w-full max-w-[620px] smoked-glass rounded-xl p-6 sm:p-9 shadow-2xl border border-border-hairline relative bg-surface-raised/40 backdrop-blur-sm">
           {/* Top Accent Tag */}
           <div className="flex items-center justify-between mb-4">
             <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-peach-accent/10 border border-peach-accent/20 text-peach-accent text-[11px] font-mono uppercase tracking-wider font-semibold">
@@ -35,8 +33,7 @@ const Step1StudentDetails = () => {
             </span>
           </div>
 
-          {/* Card Title & Subtext */}
-          <h1 className="font-display font-bold text-3xl uppercase tracking-tight text-text-cream leading-tight">
+          <h1 className="font-display font-bold text-2xl sm:text-3xl uppercase tracking-tight text-text-cream leading-tight">
             Tell us about yourself
           </h1>
           <p className="font-body text-sm text-text-cream/70 mt-2 mb-8 leading-relaxed">
@@ -51,7 +48,7 @@ const Step1StudentDetails = () => {
                 Full Name <span className="text-primary">*</span>
               </label>
               <input 
-                className="w-full px-4 py-3 rounded-md bg-void text-text-cream placeholder-text-cream/30 border border-border-hairline text-sm font-body transition-all focus:border-primary focus:outline-none" 
+                className="w-full px-4 py-3 rounded-md bg-transparent text-text-cream placeholder-text-cream/30 border border-border-hairline text-sm font-body transition-all focus:border-primary focus:outline-none" 
                 placeholder="e.g. Aarav Sharma" 
                 required
                 type="text" 
@@ -70,7 +67,7 @@ const Step1StudentDetails = () => {
               </div>
               <div className="relative">
                 <input 
-                  className="w-full px-4 py-3 rounded-md bg-void/50 text-text-cream/50 border border-border-hairline text-sm font-body cursor-not-allowed select-none pl-10" 
+                  className="w-full px-4 py-3 rounded-md bg-transparent/50 text-text-cream/50 border border-border-hairline text-sm font-body cursor-not-allowed select-none pl-10" 
                   disabled 
                   type="text" 
                   value="Fr. Conceicao Rodrigues College of Engineering (CRCE), Bandra"
@@ -90,7 +87,7 @@ const Step1StudentDetails = () => {
                   </label>
                   <div className="relative">
                     <select 
-                      className="w-full px-4 py-3 rounded-md bg-void text-text-cream border border-border-hairline text-sm font-body appearance-none cursor-pointer pr-10 transition-all focus:border-primary focus:outline-none"
+                      className="w-full px-4 py-3 rounded-md bg-transparent text-text-cream border border-border-hairline text-sm font-body appearance-none cursor-pointer pr-10 transition-all focus:border-primary focus:outline-none"
                       value={studentDetails.branch}
                       required
                       onChange={(e) => updateStudentDetails({branch: e.target.value})}
@@ -113,7 +110,7 @@ const Step1StudentDetails = () => {
                       Year of Study <span className="text-primary">*</span>
                     </label>
                   </div>
-                  <div className="grid grid-cols-4 gap-1 p-1 rounded-lg bg-void border border-border-hairline">
+                  <div className="grid grid-cols-4 gap-1 p-1 rounded-lg bg-transparent border border-border-hairline">
                     {[1, 2, 3, 4].map((year) => (
                       <button 
                         key={year}
@@ -139,7 +136,7 @@ const Step1StudentDetails = () => {
                   Class <span className="text-primary">*</span>
                 </label>
                 <input 
-                  className="w-full px-4 py-3 rounded-md bg-void text-text-cream placeholder-text-cream/30 border border-border-hairline text-sm font-body transition-all focus:border-primary focus:outline-none" 
+                  className="w-full px-4 py-3 rounded-md bg-transparent text-text-cream placeholder-text-cream/30 border border-border-hairline text-sm font-body transition-all focus:border-primary focus:outline-none" 
                   placeholder="e.g. TE-COMPS" 
                   required
                   type="text" 
@@ -152,7 +149,7 @@ const Step1StudentDetails = () => {
                   Division <span className="text-primary">*</span>
                 </label>
                 <input 
-                  className="w-full px-4 py-3 rounded-md bg-void text-text-cream placeholder-text-cream/30 border border-border-hairline text-sm font-body transition-all focus:border-primary focus:outline-none" 
+                  className="w-full px-4 py-3 rounded-md bg-transparent text-text-cream placeholder-text-cream/30 border border-border-hairline text-sm font-body transition-all focus:border-primary focus:outline-none" 
                   placeholder="e.g. A" 
                   required
                   type="text" 
@@ -168,7 +165,7 @@ const Step1StudentDetails = () => {
                 Email Address <span className="text-primary">*</span>
               </label>
               <input 
-                className="w-full px-4 py-3 rounded-md bg-void text-text-cream placeholder-text-cream/30 border border-border-hairline text-sm font-body transition-all focus:border-primary focus:outline-none" 
+                className="w-full px-4 py-3 rounded-md bg-transparent text-text-cream placeholder-text-cream/30 border border-border-hairline text-sm font-body transition-all focus:border-primary focus:outline-none" 
                 placeholder="name@fcrce.ac.in" 
                 required
                 type="email" 
@@ -193,7 +190,7 @@ const Step1StudentDetails = () => {
                   <span className="text-xs font-mono text-text-cream/70">+91</span>
                 </div>
                 <input 
-                  className="w-full pl-16 pr-4 py-3 rounded-md bg-void text-text-cream placeholder-text-cream/30 border border-border-hairline text-sm font-body tracking-wider transition-all focus:border-primary focus:outline-none" 
+                  className="w-full pl-16 pr-4 py-3 rounded-md bg-transparent text-text-cream placeholder-text-cream/30 border border-border-hairline text-sm font-body tracking-wider transition-all focus:border-primary focus:outline-none" 
                   placeholder="98765 43210" 
                   required
                   type="tel" 
@@ -223,7 +220,7 @@ const Step1StudentDetails = () => {
         </div>
       </main>
       
-      <SmokedFooter />
+      <SmokedFooter showContinue={false} showBack={false} currentStep={1} totalSteps={5} />
     </div>
   );
 };

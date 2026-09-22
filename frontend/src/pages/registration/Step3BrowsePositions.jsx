@@ -5,7 +5,7 @@ import { useRegistration } from '../../context/RegistrationContext';
 import { companiesApi } from '../../api/client';
 import SmokedHeader from '../../components/SmokedHeader';
 import SmokedFooter from '../../components/SmokedFooter';
-import CrimsonDither from '../../components/CrimsonDither';
+
 
 const Step3BrowsePositions = () => {
   const navigate = useNavigate();
@@ -44,10 +44,8 @@ const Step3BrowsePositions = () => {
   });
 
   return (
-    <div className="bg-void text-text-cream font-body antialiased min-h-screen flex flex-col relative overflow-hidden">
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <CrimsonDither />
-      </div>
+    <div className="bg-transparent text-text-cream font-body antialiased min-h-screen flex flex-col relative">
+
       
       <SmokedHeader />
 
@@ -69,16 +67,16 @@ const Step3BrowsePositions = () => {
                 placeholder="Search roles, companies..." 
                 value={searchTerm} 
                 onChange={e => setSearchTerm(e.target.value)}
-                className="w-full pl-9 pr-3 py-2 bg-void rounded-md border border-border-hairline text-xs font-medium text-text-cream placeholder-text-cream/40 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" 
+                className="w-full pl-9 pr-3 py-2 bg-transparent rounded-md border border-border-hairline text-xs font-medium text-text-cream placeholder-text-cream/40 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" 
               />
             </div>
 
             {/* Filter: Domain Dropdown */}
-            <div className="relative">
+            <div className="relative w-full sm:w-auto flex-grow sm:flex-grow-0">
               <select 
                 value={domainFilter}
                 onChange={e => setDomainFilter(e.target.value)}
-                className="appearance-none bg-void border border-border-hairline rounded-md px-3.5 py-2 pr-8 text-xs font-sans font-medium text-text-cream hover:border-text-cream/40 focus:outline-none focus:border-primary cursor-pointer"
+                className="w-full appearance-none bg-transparent border border-border-hairline rounded-md px-3.5 py-2 pr-8 text-xs font-sans font-medium text-text-cream hover:border-text-cream/40 focus:outline-none focus:border-primary cursor-pointer"
               >
                 <option value="All">Domain: All Domains</option>
                 <option value="Software Engineering">Software Engineering</option>
@@ -92,11 +90,11 @@ const Step3BrowsePositions = () => {
             </div>
 
             {/* Filter: Paid / Unpaid Dropdown */}
-            <div className="relative">
+            <div className="relative w-full sm:w-auto flex-grow sm:flex-grow-0">
               <select 
                 value={stipendFilter}
                 onChange={e => setStipendFilter(e.target.value)}
-                className="appearance-none bg-void border border-border-hairline rounded-md px-3.5 py-2 pr-8 text-xs font-sans font-medium text-text-cream hover:border-text-cream/40 focus:outline-none focus:border-primary cursor-pointer"
+                className="w-full appearance-none bg-transparent border border-border-hairline rounded-md px-3.5 py-2 pr-8 text-xs font-sans font-medium text-text-cream hover:border-text-cream/40 focus:outline-none focus:border-primary cursor-pointer"
               >
                 <option value="All">Stipend: All</option>
                 <option value="Paid Only">Paid Only</option>
@@ -109,14 +107,14 @@ const Step3BrowsePositions = () => {
           </div>
 
           {/* Prominent Sticky Application Counter Chip */}
-          <div className="flex items-center gap-3 self-end xl:self-auto">
+          <div className="flex items-center justify-between w-full xl:w-auto xl:justify-start gap-3 mt-2 xl:mt-0 pt-3 xl:pt-0 border-t border-border-hairline xl:border-none">
             <div className="text-right">
               <div className="text-[10px] font-bold tracking-wider uppercase text-text-cream/60">Application Roster</div>
               <div className="text-xs font-semibold text-text-cream">{3 - selectedPositions.length} spots remaining</div>
             </div>
 
             {/* Highlighted Pill-Shaped Badge in #D96F2B */}
-            <div className={`flex items-center gap-2 ${selectedPositions.length === 3 ? 'bg-primary text-white' : 'bg-void border border-primary text-primary'} px-4 py-2 rounded-full shadow-md font-sans font-bold text-sm tracking-wide`}>
+            <div className={`flex items-center gap-2 ${selectedPositions.length === 3 ? 'bg-primary text-white' : 'bg-transparent border border-primary text-primary'} px-4 py-2 rounded-full shadow-md font-sans font-bold text-sm tracking-wide`}>
               {selectedPositions.length === 3 ? (
                  <span className="w-2 h-2 rounded-full bg-white animate-pulse"></span>
               ) : (
@@ -138,7 +136,7 @@ const Step3BrowsePositions = () => {
               <span className="w-2 h-2 rounded-full bg-primary"></span>
               <span>Opportunity Matchmaker • Cohort 2026</span>
             </div>
-            <h1 className="text-3xl font-display font-bold tracking-tight text-white uppercase">Browse Internship Positions</h1>
+            <h1 className="text-2xl md:text-3xl font-display font-bold tracking-tight text-white uppercase">Browse Internship Positions</h1>
             <p className="text-sm text-text-cream/70 mt-1 max-w-2xl font-normal">
               Select up to <strong className="text-white font-semibold">3 internship positions</strong> that match your career goals and technical strengths.
             </p>
@@ -164,7 +162,7 @@ const Step3BrowsePositions = () => {
                 <div>
                   <div className="flex items-start justify-between gap-3 mb-4">
                     <div className="flex items-center gap-3">
-                      <div className="w-11 h-11 rounded-lg bg-void border border-border-hairline flex items-center justify-center p-2 shadow-sm text-primary font-display font-bold text-lg">
+                      <div className="w-11 h-11 rounded-lg bg-transparent border border-border-hairline flex items-center justify-center p-2 shadow-sm text-primary font-display font-bold text-lg">
                         {company.logoUrl ? (
                            <img src={company.logoUrl} alt={company.name} className="w-full h-full object-contain" />
                         ) : (
@@ -193,12 +191,12 @@ const Step3BrowsePositions = () => {
                       {position.domain}
                     </span>
 
-                    <span className="px-2.5 py-1 rounded bg-void border border-border-hairline text-text-cream/80 font-sans text-[11px] flex items-center gap-1">
+                    <span className="px-2.5 py-1 rounded bg-transparent border border-border-hairline text-text-cream/80 font-sans text-[11px] flex items-center gap-1">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
                       Eligible: Year {position.eligibleYears}
                     </span>
 
-                    <span className="px-2 py-1 rounded bg-void border border-border-hairline text-text-cream/70 font-mono text-[11px]">
+                    <span className="px-2 py-1 rounded bg-transparent border border-border-hairline text-text-cream/70 font-mono text-[11px]">
                       {position.duration}
                     </span>
 
@@ -216,7 +214,7 @@ const Step3BrowsePositions = () => {
                     type="button" 
                     onClick={() => togglePosition(position.id)}
                     disabled={isMaxReached}
-                    className={`flex-grow py-2.5 px-4 rounded-md font-sans text-xs font-semibold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 ${isSelected ? 'text-white bg-primary hover:bg-primary-hover shadow-lg shadow-primary/30' : 'text-text-cream bg-void border border-border-hairline hover:bg-white/5'} ${isMaxReached ? 'cursor-not-allowed opacity-50' : ''}`}
+                    className={`flex-grow py-2.5 px-4 rounded-md font-sans text-xs font-semibold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 ${isSelected ? 'text-white bg-primary hover:bg-primary-hover shadow-lg shadow-primary/30' : 'text-text-cream bg-transparent border border-border-hairline hover:bg-white/5'} ${isMaxReached ? 'cursor-not-allowed opacity-50' : ''}`}
                   >
                     {isSelected ? (
                       <>
@@ -237,11 +235,11 @@ const Step3BrowsePositions = () => {
         </div>
 
         {/* Action Buttons */}
-        <div className="flex items-center justify-between border-t border-border-hairline pt-6">
+        <div className="flex flex-col-reverse sm:flex-row items-center justify-between gap-4 sm:gap-0 border-t border-border-hairline pt-6">
             <button 
                 type="button"
                 onClick={() => navigate('/register/step2')}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md text-text-cream/70 hover:text-text-cream hover:bg-void/50 transition-all font-sans text-sm font-semibold border border-transparent hover:border-border-hairline"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 sm:py-2.5 rounded-md text-text-cream/70 hover:text-text-cream hover:bg-transparent/50 transition-all font-sans text-sm font-semibold border border-transparent hover:border-border-hairline"
             >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
                 <span>Back</span>
@@ -250,7 +248,7 @@ const Step3BrowsePositions = () => {
             <button 
                 type="button"
                 onClick={() => navigate('/register/step4')}
-                className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-md bg-primary hover:bg-primary-hover text-white font-sans font-semibold text-sm shadow-lg shadow-primary/20 transition-all"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-md bg-primary hover:bg-primary-hover text-white font-sans font-semibold text-sm shadow-lg shadow-primary/20 transition-all"
             >
                 <span>Review &amp; Continue</span>
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
@@ -259,7 +257,7 @@ const Step3BrowsePositions = () => {
 
       </main>
 
-      <SmokedFooter />
+      <SmokedFooter showContinue={false} showBack={false} currentStep={3} totalSteps={5} />
     </div>
   );
 };

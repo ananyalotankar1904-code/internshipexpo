@@ -149,34 +149,27 @@ void main() {
     const uMouse = gl.getUniformLocation(prog, 'u_mouse');
 
     let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
-    
-    const handleMouseMove = (event) => {
-      const rect = canvas.getBoundingClientRect();
-      if (rect.width && rect.height) {
-        const nx = (event.clientX - rect.left) / rect.width;
-        const ny = 1.0 - (event.clientY - rect.top) / rect.height;
-        mouse.x = nx * canvas.width;
-        mouse.y = ny * canvas.height;
-      }
-    };
-    
-    window.addEventListener('mousemove', handleMouseMove);
     let animationFrameId;
+    let lastTime = 0;
+    const fps = 24;
+    const interval = 1000 / fps;
 
     function render(t) {
+      animationFrameId = requestAnimationFrame(render);
+      if (t - lastTime < interval) return;
+      lastTime = t - (t % interval);
+
       if (typeof ResizeObserver === 'undefined') syncSize();
       gl.viewport(0, 0, canvas.width, canvas.height);
       if (uTime) gl.uniform1f(uTime, t * 0.001);
       if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
       if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-      animationFrameId = requestAnimationFrame(render);
     }
     
     animationFrameId = requestAnimationFrame(render);
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
       cancelAnimationFrame(animationFrameId);
       if (observer) observer.disconnect();
     };

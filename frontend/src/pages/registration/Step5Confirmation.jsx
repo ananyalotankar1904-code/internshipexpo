@@ -4,7 +4,7 @@ import { useRegistration } from '../../context/RegistrationContext';
 import { companiesApi } from '../../api/client';
 import SmokedHeader from '../../components/SmokedHeader';
 import SmokedFooter from '../../components/SmokedFooter';
-import CrimsonDither from '../../components/CrimsonDither';
+
 
 const Step5Confirmation = () => {
   const navigate = useNavigate();
@@ -18,14 +18,12 @@ const Step5Confirmation = () => {
   }, []);
 
   return (
-    <div className="bg-void text-text-cream font-body antialiased min-h-screen flex flex-col relative overflow-hidden">
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <CrimsonDither />
-      </div>
+    <div className="bg-transparent text-text-cream font-body antialiased min-h-screen flex flex-col relative">
+
       
       <SmokedHeader />
 
-      <main className="w-full pt-32 md:pt-20 bg-void min-h-screen relative z-10 flex-grow">
+      <main className="w-full pt-32 md:pt-20 bg-transparent min-h-screen relative z-10 flex-grow">
         <div className="flex flex-col w-full items-center justify-start relative overflow-hidden py-12">
             
             {/* Subtle Editorial Grain & Ambient Glows */}
@@ -45,7 +43,7 @@ const Step5Confirmation = () => {
 
             {/* Primary Centered Dossier Container */}
             <div className="w-full max-w-[580px] px-4 md:px-6 flex flex-col items-center">
-                <div className="w-full bg-void border border-border-hairline rounded-xl shadow-2xl p-4 md:p-10 relative flex flex-col items-center smoked-glass">
+                <div className="w-full bg-transparent border border-border-hairline rounded-xl shadow-2xl p-4 md:p-10 relative flex flex-col items-center smoked-glass">
                     {/* Decorative Washi Tape Accent pinned top right */}
                     <div className="absolute -top-3.5 right-8 bg-peach-accent text-void px-4 py-0.5 rounded-sm shadow-sm rotate-[2.5deg] font-mono text-[10px] font-bold tracking-widest uppercase pointer-events-none">
                         PASSPORT VERIFIED
@@ -53,13 +51,13 @@ const Step5Confirmation = () => {
 
                     {/* Hero Celebration Graphic Node */}
                     <div className="relative mb-8 mt-4 flex items-center justify-center">
-                        <svg className="absolute -inset-6 w-32 h-32 text-primary/30 animate-[spin_24s_linear_infinite]" fill="none" viewBox="0 0 100 100">
+                        <svg className="absolute -inset-4 md:-inset-6 w-24 h-24 md:w-32 md:h-32 text-primary/30 animate-[spin_24s_linear_infinite]" fill="none" viewBox="0 0 100 100">
                             <circle cx="50" cy="50" r="46" stroke="currentColor" strokeDasharray="4 6" strokeWidth="1.5"></circle>
                             <path d="M50 0 L50 10 M50 90 L50 100 M0 50 L10 50 M90 50 L100 50" stroke="currentColor" strokeLinecap="round" strokeWidth="2" />
                         </svg>
                         
-                        <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center p-2 shadow-inner">
-                            <div className="w-20 h-20 rounded-full bg-primary text-white flex items-center justify-center shadow-lg shadow-primary/30 transition-transform hover:scale-105 duration-200">
+                        <div className="w-16 h-16 md:w-24 md:h-24 rounded-full bg-primary/10 flex items-center justify-center p-2 shadow-inner">
+                            <div className="w-12 h-12 md:w-20 md:h-20 rounded-full bg-primary text-white flex items-center justify-center shadow-lg shadow-primary/30 transition-transform hover:scale-105 duration-200">
                                 <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                         </div>
@@ -68,7 +66,7 @@ const Step5Confirmation = () => {
                     {/* Typography Header */}
                     <div className="text-center flex flex-col items-center mb-8">
                         <span className="font-mono text-[10px] text-peach-accent font-bold uppercase tracking-widest mb-2">CANDIDATE DOSSIER DISPATCHED</span>
-                        <h1 className="font-display font-bold text-4xl text-white tracking-tight leading-tight uppercase">
+                        <h1 className="font-display font-bold text-3xl md:text-4xl text-white tracking-tight leading-tight uppercase">
                             You’re All <span className="text-primary underline decoration-peach-accent decoration-wavy decoration-2 underline-offset-4">Set!</span>
                         </h1>
                         <p className="font-body text-sm text-text-cream/70 mt-3 max-w-md text-center leading-relaxed">
@@ -113,7 +111,7 @@ const Step5Confirmation = () => {
                                     if(!selectedComp) return null;
                                     
                                     return (
-                                        <span key={id} className="inline-flex items-center gap-2 bg-void border border-border-hairline text-white px-3 py-1.5 rounded text-xs font-medium">
+                                        <span key={id} className="inline-flex items-center gap-2 bg-transparent border border-border-hairline text-white px-3 py-1.5 rounded text-xs font-medium">
                                             <span className="w-1.5 h-1.5 rounded-full bg-primary"></span> {selectedComp.name}
                                         </span>
                                     );
@@ -127,7 +125,7 @@ const Step5Confirmation = () => {
                                 <span className="font-mono text-[9px] font-bold tracking-wider uppercase opacity-60">Reference Token</span>
                                 <span className="font-mono text-base font-bold tracking-wider" id="refToken">TXC2026-{Math.floor(Math.random() * 90000) + 10000}</span>
                             </div>
-                            <button className="flex items-center gap-1 bg-void/10 hover:bg-void/20 px-3 py-1.5 rounded text-xs font-sans font-bold transition-all active:scale-95" onClick={() => {}}>
+                            <button className="flex items-center gap-1 bg-transparent/10 hover:bg-transparent/20 px-3 py-1.5 rounded text-xs font-sans font-bold transition-all active:scale-95" onClick={() => {}}>
                                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
                                 <span>Copy</span>
                             </button>
@@ -137,7 +135,7 @@ const Step5Confirmation = () => {
 
                 {/* Action Buttons */}
                 <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
-                    <button className="w-full inline-flex items-center justify-center gap-2 bg-void border border-border-hairline hover:border-primary/50 text-white py-3 px-4 rounded-xl font-sans font-semibold text-sm transition-all duration-150">
+                    <button className="w-full inline-flex items-center justify-center gap-2 bg-transparent border border-border-hairline hover:border-primary/50 text-white py-3 px-4 rounded-xl font-sans font-semibold text-sm transition-all duration-150">
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                         <span>Download Dossier (PDF)</span>
                     </button>
@@ -161,7 +159,7 @@ const Step5Confirmation = () => {
         </div>
       </main>
 
-      <SmokedFooter />
+      <SmokedFooter showContinue={false} showBack={false} currentStep={5} totalSteps={5} />
     </div>
   );
 };

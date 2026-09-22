@@ -4,7 +4,7 @@ import { useRegistration } from '../../context/RegistrationContext';
 import { companiesApi } from '../../api/client';
 import SmokedHeader from '../../components/SmokedHeader';
 import SmokedFooter from '../../components/SmokedFooter';
-import CrimsonDither from '../../components/CrimsonDither';
+
 
 const Step4ApplicationSummary = () => {
   const navigate = useNavigate();
@@ -20,26 +20,28 @@ const Step4ApplicationSummary = () => {
 
   const handleSubmit = async () => {
     if(!confirmed) return;
-    await submitApplication();
-    navigate('/register/step5');
+    try {
+      await submitApplication();
+      navigate('/register/step5');
+    } catch (error) {
+      alert('Application submission failed. Please ensure your Google Drive links are valid and try again.');
+    }
   };
 
   return (
-    <div className="bg-void text-text-cream font-body antialiased min-h-screen flex flex-col relative overflow-hidden">
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <CrimsonDither />
-      </div>
+    <div className="bg-transparent text-text-cream font-body antialiased min-h-screen flex flex-col relative">
+
       
       <SmokedHeader />
 
-      <main className="relative z-10 flex-grow flex flex-col items-center justify-center px-6 pt-4 pb-28">
+      <main className="relative z-10 flex-grow flex flex-col items-center justify-center px-4 sm:px-6 pt-4 pb-20 md:pb-28">
         <div className="w-full max-w-[720px] flex flex-col gap-6">
 
           {/* Header intro statement with retro dossier tag */}
           <div className="flex flex-col gap-1.5 text-left mt-8">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <span className="px-2.5 py-0.5 rounded bg-void/50 border border-border-hairline text-peach-accent font-mono text-[10px] tracking-widest uppercase">
+                <span className="px-2.5 py-0.5 rounded bg-transparent/50 border border-border-hairline text-peach-accent font-mono text-[10px] tracking-widest uppercase">
                   FINAL VERIFICATION // BATCH 2026
                 </span>
                 <span className="text-[11px] font-mono text-text-cream/40">STEP 04 OF 05</span>
@@ -67,14 +69,14 @@ const Step4ApplicationSummary = () => {
 
             <div className="flex items-center justify-between pb-4 mb-4 border-b border-border-hairline">
               <div className="flex items-center gap-2.5">
-                <div className="w-7 h-7 rounded-md bg-void flex items-center justify-center text-peach-accent border border-border-hairline">
+                <div className="w-7 h-7 rounded-md bg-transparent flex items-center justify-center text-peach-accent border border-border-hairline">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"></path></svg>
                 </div>
                 <h2 className="font-display font-bold text-lg uppercase text-white tracking-wide">
                   1. Your Details
                 </h2>
               </div>
-              <button onClick={() => navigate('/register/step1')} className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-peach-accent transition-colors py-1 px-2.5 rounded bg-void border border-transparent hover:border-primary/40 group">
+              <button onClick={() => navigate('/register/step1')} className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-peach-accent transition-colors py-1 px-2.5 rounded bg-transparent border border-transparent hover:border-primary/40 group">
                 <svg className="w-3 h-3 transition-transform group-hover:-rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
                 <span className="uppercase tracking-wider font-mono text-[11px]">Edit Details</span>
               </button>
@@ -129,7 +131,7 @@ const Step4ApplicationSummary = () => {
           <div className="smoked-glass border border-border-hairline rounded-xl p-6 md:p-7 shadow-2xl relative overflow-hidden transition-all duration-200">
             <div className="flex items-center justify-between pb-4 mb-4 border-b border-border-hairline">
               <div className="flex items-center gap-2.5">
-                <div className="w-7 h-7 rounded-md bg-void flex items-center justify-center text-peach-accent border border-border-hairline">
+                <div className="w-7 h-7 rounded-md bg-transparent flex items-center justify-center text-peach-accent border border-border-hairline">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
                 </div>
                 <h2 className="font-display font-bold text-lg uppercase text-white tracking-wide">
@@ -137,11 +139,11 @@ const Step4ApplicationSummary = () => {
                 </h2>
               </div>
               <div className="flex items-center gap-2">
-                <a href={resumeLink} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-xs font-semibold text-primary hover:text-peach-accent transition-colors py-1 px-2 rounded bg-void border border-transparent hover:border-primary/40">
+                <a href={resumeLink} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-xs font-semibold text-primary hover:text-peach-accent transition-colors py-1 px-2 rounded bg-transparent border border-transparent hover:border-primary/40">
                   <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                   <span className="uppercase tracking-wider font-mono text-[11px]">View</span>
                 </a>
-                <button onClick={() => navigate('/register/step2')} className="inline-flex items-center gap-1 text-xs font-semibold text-primary hover:text-peach-accent transition-colors py-1 px-2.5 rounded bg-void border border-transparent hover:border-primary/40 group">
+                <button onClick={() => navigate('/register/step2')} className="inline-flex items-center gap-1 text-xs font-semibold text-primary hover:text-peach-accent transition-colors py-1 px-2.5 rounded bg-transparent border border-transparent hover:border-primary/40 group">
                   <svg className="w-3 h-3 transition-transform group-hover:-rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
                   <span className="uppercase tracking-wider font-mono text-[11px]">Edit</span>
                 </button>
@@ -149,7 +151,7 @@ const Step4ApplicationSummary = () => {
             </div>
 
             {/* Link Display */}
-            <div className="flex items-center justify-between p-4 rounded-lg bg-void border border-border-hairline">
+            <div className="flex items-center justify-between p-4 rounded-lg bg-transparent border border-border-hairline">
               <div className="flex items-center gap-3.5 overflow-hidden w-full">
                 <div className="w-12 h-12 rounded-lg bg-primary/20 border border-primary/40 flex flex-col items-center justify-center text-primary flex-shrink-0">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
@@ -171,7 +173,7 @@ const Step4ApplicationSummary = () => {
           <div className="smoked-glass border border-border-hairline rounded-xl p-6 md:p-7 shadow-2xl relative overflow-hidden transition-all duration-200">
             <div className="flex items-center justify-between pb-4 mb-4 border-b border-border-hairline">
               <div className="flex items-center gap-3">
-                <div className="w-7 h-7 rounded-md bg-void flex items-center justify-center text-peach-accent border border-border-hairline">
+                <div className="w-7 h-7 rounded-md bg-transparent flex items-center justify-center text-peach-accent border border-border-hairline">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                 </div>
                 <h2 className="font-display font-bold text-lg uppercase text-white tracking-wide">
@@ -181,7 +183,7 @@ const Step4ApplicationSummary = () => {
                   Selected: <span>{selectedPositions.length}</span>/3
                 </div>
               </div>
-              <button onClick={() => navigate('/register/step3')} className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-peach-accent transition-colors py-1 px-2.5 rounded bg-void border border-transparent hover:border-primary/40 group">
+              <button onClick={() => navigate('/register/step3')} className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-peach-accent transition-colors py-1 px-2.5 rounded bg-transparent border border-transparent hover:border-primary/40 group">
                 <svg className="w-3 h-3 transition-transform group-hover:-rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
                 <span className="uppercase tracking-wider font-mono text-[11px]">Edit Positions</span>
               </button>
@@ -207,10 +209,10 @@ const Step4ApplicationSummary = () => {
                 if (!selectedPos || !selectedComp) return null;
 
                 return (
-                  <div key={id} className="flex flex-col p-3.5 rounded-lg bg-void border border-border-hairline hover:border-primary/40 transition-colors group">
+                  <div key={id} className="flex flex-col p-3.5 rounded-lg bg-transparent border border-border-hairline hover:border-primary/40 transition-colors group">
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-3.5">
-                          <div className="w-10 h-10 rounded-lg bg-void border border-border-hairline flex items-center justify-center text-primary font-display font-bold text-sm">
+                          <div className="w-10 h-10 rounded-lg bg-transparent border border-border-hairline flex items-center justify-center text-primary font-display font-bold text-sm">
                             {selectedComp.logoUrl ? (
                                 <img src={selectedComp.logoUrl} alt={selectedComp.name} className="w-full h-full object-contain" />
                             ) : (
@@ -269,7 +271,7 @@ const Step4ApplicationSummary = () => {
                   type="checkbox" 
                   checked={confirmed}
                   onChange={(e) => setConfirmed(e.target.checked)}
-                  className="w-5 h-5 rounded border-2 border-primary/50 bg-void text-primary focus:ring-0 focus:ring-offset-0 transition-colors cursor-pointer"
+                  className="w-5 h-5 rounded border-2 border-primary/50 bg-transparent text-primary focus:ring-0 focus:ring-offset-0 transition-colors cursor-pointer"
                 />
               </div>
               <div className="flex flex-col">
@@ -284,11 +286,11 @@ const Step4ApplicationSummary = () => {
           </div>
 
           {/* Action Buttons */}
-          <div className="flex items-center justify-between border-t border-border-hairline pt-6 mt-4">
+          <div className="flex flex-col-reverse sm:flex-row items-center justify-between gap-4 sm:gap-0 border-t border-border-hairline pt-6 mt-4">
               <button 
                   type="button"
                   onClick={() => navigate('/register/step3')}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md text-text-cream/70 hover:text-text-cream hover:bg-void/50 transition-all font-sans text-sm font-semibold border border-transparent hover:border-border-hairline"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 sm:py-2.5 rounded-md text-text-cream/70 hover:text-text-cream hover:bg-transparent/50 transition-all font-sans text-sm font-semibold border border-transparent hover:border-border-hairline"
               >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
                   <span>Back to Positions</span>
@@ -298,7 +300,7 @@ const Step4ApplicationSummary = () => {
                   type="button"
                   onClick={handleSubmit}
                   disabled={!confirmed || selectedPositions.length === 0}
-                  className={`inline-flex items-center justify-center gap-2 px-7 py-3 rounded-md font-sans font-semibold text-sm shadow-lg transition-all ${confirmed && selectedPositions.length > 0 ? 'bg-primary hover:bg-primary-hover text-white shadow-primary/20' : 'bg-void border border-border-hairline text-text-cream/30 cursor-not-allowed'}`}
+                  className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-md font-sans font-semibold text-sm shadow-lg transition-all ${confirmed && selectedPositions.length > 0 ? 'bg-primary hover:bg-primary-hover text-white shadow-primary/20' : 'bg-transparent border border-border-hairline text-text-cream/30 cursor-not-allowed'}`}
               >
                   <span>Submit Application</span>
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
@@ -308,7 +310,7 @@ const Step4ApplicationSummary = () => {
         </div>
       </main>
 
-      <SmokedFooter />
+      <SmokedFooter showContinue={false} showBack={false} currentStep={4} totalSteps={5} />
     </div>
   );
 };

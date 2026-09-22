@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useRegistration } from '../../context/RegistrationContext';
 import SmokedHeader from '../../components/SmokedHeader';
 import SmokedFooter from '../../components/SmokedFooter';
-import CrimsonDither from '../../components/CrimsonDither';
+
 
 const Step2ResumeUpload = () => {
   const navigate = useNavigate();
@@ -13,22 +13,24 @@ const Step2ResumeUpload = () => {
   const handleNext = (e) => {
     e.preventDefault();
     if(resumeLink) {
+        if (!resumeLink.toLowerCase().includes('drive.google.com')) {
+            alert('Please enter a valid Google Drive link.');
+            return;
+        }
         navigate('/register/step3');
     }
   };
 
   return (
-    <div className="bg-void text-text-cream font-body antialiased min-h-screen flex flex-col relative overflow-hidden">
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <CrimsonDither />
-      </div>
+    <div className="bg-transparent text-text-cream font-body antialiased min-h-screen flex flex-col relative">
+
       
       <SmokedHeader />
 
-      <main className="relative z-10 flex-grow flex items-center justify-center px-6 py-6 mb-24">
+      <main className="relative z-10 flex-grow flex items-center justify-center px-4 sm:px-6 py-6 mb-20 md:mb-24 w-full">
         <div className="flex flex-col w-full max-w-[820px] mx-auto py-2">
             {/* MAIN DOSSIER SMOKED PANEL */}
-            <div className="relative w-full rounded-xl smoked-glass border border-border-hairline p-8 md:p-10 shadow-2xl overflow-hidden bg-surface-raised/40 backdrop-blur-xl">
+            <div className="relative w-full rounded-xl smoked-glass border border-border-hairline p-5 sm:p-8 md:p-10 shadow-2xl overflow-hidden bg-surface-raised/40 backdrop-blur-sm">
                 {/* Background Ambient Glow & Corner Geometric Markers */}
                 <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-primary/10 blur-3xl pointer-events-none"></div>
                 
@@ -42,7 +44,7 @@ const Step2ResumeUpload = () => {
                 <div className="flex flex-col gap-2 mb-8 mt-2">
                     <div className="flex items-center justify-between flex-wrap gap-2">
                         <div className="flex items-center gap-2">
-                            <span className="px-2.5 py-0.5 rounded bg-void/50 border border-border-hairline text-peach-accent/70 font-mono text-[10px] tracking-wider uppercase">
+                            <span className="px-2.5 py-0.5 rounded bg-transparent/50 border border-border-hairline text-peach-accent/70 font-mono text-[10px] tracking-wider uppercase">
                                 STEP 02 // CANDIDATE DOSSIER
                             </span>
                         </div>
@@ -51,7 +53,7 @@ const Step2ResumeUpload = () => {
                             <span>SECURE INGEST</span>
                         </div>
                     </div>
-                    <h1 className="font-display text-3xl font-bold tracking-tight uppercase mt-2">
+                    <h1 className="font-display font-bold text-2xl sm:text-3xl uppercase tracking-tight text-text-cream leading-tight">
                         Upload Your Resume
                     </h1>
                     <p className="font-body text-sm text-text-cream/70 max-w-[620px]">
@@ -71,7 +73,7 @@ const Step2ResumeUpload = () => {
                             </svg>
                         </div>
                         <input 
-                          className="w-full pl-10 pr-4 py-4 bg-void text-text-cream font-body text-sm rounded-lg focus:outline-none focus:border-primary border border-border-hairline transition-all placeholder:text-text-cream/30" 
+                          className="w-full pl-10 pr-4 py-4 bg-transparent text-text-cream font-body text-sm rounded-lg focus:outline-none focus:border-primary border border-border-hairline transition-all placeholder:text-text-cream/30" 
                           id="resumeLink" 
                           name="resumeLink" 
                           placeholder="https://drive.google.com/file/d/..." 
@@ -99,21 +101,21 @@ const Step2ResumeUpload = () => {
                     
                     {/* Recent Upload / Drag Guidance Mini Strip */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-2 mb-8">
-                        <div className="p-3 rounded bg-void/50 border border-border-hairline flex items-start gap-2.5">
+                        <div className="p-3 rounded bg-transparent/50 border border-border-hairline flex items-start gap-2.5">
                             <svg className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                             <div className="flex flex-col">
                                 <span className="font-mono text-[10px] text-text-cream uppercase">ATS Optimized</span>
                                 <span className="font-body text-[11px] text-text-cream/60">Standard single-column PDFs parse cleanest with partner companies.</span>
                             </div>
                         </div>
-                        <div className="p-3 rounded bg-void/50 border border-border-hairline flex items-start gap-2.5">
+                        <div className="p-3 rounded bg-transparent/50 border border-border-hairline flex items-start gap-2.5">
                             <svg className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
                             <div className="flex flex-col">
                                 <span className="font-mono text-[10px] text-text-cream uppercase">Protected Vault</span>
                                 <span className="font-body text-[11px] text-text-cream/60">Confidential data restricted strictly to accredited recruiter accounts.</span>
                             </div>
                         </div>
-                        <div className="p-3 rounded bg-void/50 border border-border-hairline flex items-start gap-2.5">
+                        <div className="p-3 rounded bg-transparent/50 border border-border-hairline flex items-start gap-2.5">
                             <svg className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                             <div className="flex flex-col">
                                 <span className="font-mono text-[10px] text-text-cream uppercase">Live Revisions</span>
@@ -127,7 +129,7 @@ const Step2ResumeUpload = () => {
                         <button 
                             type="button"
                             onClick={() => navigate('/register/step1')}
-                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md text-text-cream/70 hover:text-text-cream hover:bg-void/50 transition-all font-sans text-sm font-semibold border border-transparent hover:border-border-hairline"
+                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md text-text-cream/70 hover:text-text-cream hover:bg-transparent/50 transition-all font-sans text-sm font-semibold border border-transparent hover:border-border-hairline"
                         >
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
                             <span>Back</span>
@@ -146,7 +148,7 @@ const Step2ResumeUpload = () => {
         </div>
       </main>
 
-      <SmokedFooter />
+      <SmokedFooter showContinue={false} showBack={false} currentStep={2} totalSteps={5} />
     </div>
   );
 };

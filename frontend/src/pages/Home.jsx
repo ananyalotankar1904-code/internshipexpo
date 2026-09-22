@@ -1,29 +1,69 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import CrimsonDither from '../components/CrimsonDither';
+import { companiesApi } from '../api/client';
+import Carousel from '../components/Carousel';
+import { FiBriefcase, FiUsers, FiFileText } from 'react-icons/fi';
+import CompanyDetailModal from '../components/CompanyDetailModal';
+import tedxLogo from '../tedx-logo.png';
+
+const expoSteps = [
+  {
+    title: '01 Direct Hiring',
+    description: 'Fast-track interview pipelines for summer & winter cohorts.',
+    id: 1,
+    icon: <FiBriefcase className="carousel-icon" />
+  },
+  {
+    title: '02 Exclusive Access',
+    description: 'Meet founders, engineering leads, and talent strategists.',
+    id: 2,
+    icon: <FiUsers className="carousel-icon" />
+  },
+  {
+    title: '03 Portfolio Reviews',
+    description: 'Instant critique and resume feedback from seasoned pros.',
+    id: 3,
+    icon: <FiFileText className="carousel-icon" />
+  }
+];
 
 const Home = () => {
   const navigate = useNavigate();
+  const [isCompanyModalOpen, setIsCompanyModalOpen] = useState(false);
+  const [companies, setCompanies] = useState([]);
+  const [selectedCompany, setSelectedCompany] = useState(null);
+
+  useEffect(() => {
+    companiesApi.getAll()
+      .then(res => setCompanies(res.data.companies))
+      .catch(console.error);
+  }, []);
+
+  const handleOpenModal = (company) => {
+    setSelectedCompany(company);
+    setIsCompanyModalOpen(true);
+  };
 
   return (
-    <div className="bg-void text-text-cream font-body antialiased selection:bg-primary selection:text-text-cream overflow-x-hidden w-full max-w-[1440px] mx-auto min-h-screen relative">
+    <div className="bg-transparent text-text-cream font-body antialiased selection:bg-primary selection:text-text-cream w-full max-w-[1440px] mx-auto min-h-screen relative">
+      <CompanyDetailModal isOpen={isCompanyModalOpen} onClose={() => setIsCompanyModalOpen(false)} company={selectedCompany} />
       {/* The converted HTML content */}
       
 {/* ========================================================================= */}
 {/* STICKY TOP NAVBAR */}
 {/* ========================================================================= */}
 <header className="sticky top-0 z-50 w-full bg-black/75 backdrop-blur-md border-b border-border-hairline transition-all duration-300">
-<div className="w-full px-10 h-20 flex items-center justify-between">
+<div className="w-full px-4 md:px-10 h-20 flex items-center justify-between">
 {/* TEDxCRCE Brand Logo */}
-<a className="flex items-center gap-3 group" href="#hero">
-<div className="flex items-center tracking-tighter text-xl font-display font-bold text-text-cream">
-<span>TED</span><span className="text-primary text-2xl font-extrabold mx-[1px]">x</span><span>CRCE</span>
+<a className="flex items-center gap-2 md:gap-3 group" href="#hero">
+<div className="flex items-center tracking-tighter text-lg md:text-xl font-display font-bold text-text-cream">
+<img src={tedxLogo} alt="TEDx" className="h-10 md:h-12 object-contain mr-0.5 -mt-1" /><span>CRCE</span>
 </div>
-<div className="h-4 w-[1px] bg-text-cream/20"></div>
-<span className="font-sans text-xs tracking-widest text-text-cream/60 uppercase font-medium">Internship Expo '26</span>
+<div className="hidden sm:block h-4 w-[1px] bg-text-cream/20"></div>
+<span className="hidden sm:inline font-sans text-xs tracking-widest text-text-cream/60 uppercase font-medium">Internship Expo '26</span>
 </a>
 {/* Navigation Links (Center) */}
-<nav className="flex items-center space-x-9 font-sans text-sm font-medium tracking-wide">
+<nav className="hidden lg:flex items-center space-x-9 font-sans text-sm font-medium tracking-wide">
 <a className="text-text-cream/80 hover:text-text-cream transition-colors duration-200" href="#hero">Home</a>
 <a className="text-text-cream/70 hover:text-text-cream transition-colors duration-200" href="#about">About</a>
 <a className="text-text-cream/70 hover:text-text-cream transition-colors duration-200" href="#companies">Companies</a>
@@ -32,9 +72,6 @@ const Home = () => {
 </nav>
 {/* CTA Register Button (Far Right) */}
 <div className="flex items-center gap-4">
-<span className="text-xs font-sans text-peach-accent bg-peach-accent/10 px-3 py-1 rounded-full border border-peach-accent/20 hidden lg:inline-block">
-          3 Oct 2026 · Bandra
-        </span>
 <Link className="bg-primary hover:bg-primary-hover text-text-cream font-sans font-semibold text-sm px-6 py-2.5 rounded-md transition-all duration-200 shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-[0.98]" to="/register">
           Register
         </Link>
@@ -48,13 +85,12 @@ const Home = () => {
 {/* Procedural Bayer Ordered-Dither Shader Canvas Layer (z-index 0) */}
 <div className="absolute inset-0 z-0 pointer-events-none">
 
-<CrimsonDither />
 </div>
 {/* Scrim Gradient Overlay (Solid black left fade to clear right dither) */}
-<div className="absolute inset-0 z-[1] bg-gradient-to-r from-void via-void/90 via-55% to-transparent pointer-events-none"></div>
-<div className="absolute inset-x-0 bottom-0 h-40 z-[1] bg-gradient-to-t from-void to-transparent pointer-events-none"></div>
+<div className="absolute inset-0 z-[1] bg-gradient-to-r from-transparent via-transparent via-55% to-transparent pointer-events-none"></div>
+<div className="absolute inset-x-0 bottom-0 h-40 z-[1] bg-gradient-to-t from-transparent to-transparent pointer-events-none"></div>
 {/* Hero Content Container (z-index 10) */}
-<div className="relative z-10 w-full px-12 pt-20 flex-1 flex items-center justify-between">
+<div className="relative z-10 w-full px-6 md:px-12 pb-20 pt-10 md:pt-0 flex-1 flex flex-col md:flex-row items-center justify-between gap-10 md:gap-0">
 {/* Left Column: Typographic Statements & CTAs */}
 <div className="max-w-[760px] flex flex-col items-start space-y-7">
 {/* Eyebrow Tag */}
@@ -65,7 +101,7 @@ const Home = () => {
           </span>
 </div>
 {/* Oversized Clash Display Headline */}
-<h1 className="font-display font-bold text-[72px] leading-[0.96] tracking-tight uppercase text-text-cream">
+<h1 className="font-display font-bold text-5xl md:text-[72px] leading-[1.1] md:leading-[0.96] tracking-tight uppercase text-text-cream">
           TEDxCRCE<br/>
 <span className="text-primary inline-block relative">
             INTERNSHIP EXPO
@@ -81,14 +117,14 @@ const Home = () => {
           A platform for FCRCE students to explore opportunities, connect with leading organizations and take the next step towards their future.
         </p>
 {/* CTAs with Hand-Drawn Arrow */}
-<div className="pt-4 flex items-center gap-6 relative">
-<a className="bg-primary hover:bg-primary-hover text-text-cream font-sans font-semibold text-base px-8 py-4 rounded-md transition-all duration-200 shadow-xl shadow-primary/30 flex items-center gap-3 group" href="#companies">
+<div className="pt-4 flex flex-col sm:flex-row items-center gap-4 md:gap-6 relative w-full sm:w-auto">
+<a className="w-full sm:w-auto bg-primary hover:bg-primary-hover text-text-cream font-sans font-semibold text-sm md:text-base px-6 md:px-8 py-3 md:py-4 rounded-md transition-all duration-200 shadow-xl shadow-primary/30 flex items-center justify-center gap-3 group" href="#companies">
 <span>Explore Opportunities</span>
 <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 <path d="M14 5l7 7m0 0l-7 7m7-7H3" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
 </svg>
 </a>
-<Link className="border border-text-cream/30 hover:border-text-cream text-text-cream font-sans font-semibold text-base px-8 py-4 rounded-md transition-all duration-200 bg-void/40 hover:bg-surface-raised" to="/register">
+<Link className="w-full sm:w-auto text-center border border-text-cream/30 hover:border-text-cream text-text-cream font-sans font-semibold text-sm md:text-base px-6 md:px-8 py-3 md:py-4 rounded-md transition-all duration-200 bg-transparent/40 hover:bg-surface-raised" to="/register">
             Register Now
           </Link>
 {/* Creative Hand-drawn Arrow pointing to CTA */}
@@ -101,24 +137,33 @@ const Home = () => {
 </div>
 </div>
 {/* Right Column: Hero Visual Anchor & Taped Sticky-Note Badge */}
-<div className="relative flex flex-col items-end justify-center pr-6">
-{/* Taped Peach Sticky-Note Style Badge */}
-<div className="relative bg-peach-accent text-void p-5 rounded-sm shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-300 w-64 border border-peach-accent/80 group cursor-default">
-{/* Tape effect */}
-<div className="absolute -top-3 left-1/2 transform -translate-x-1/2 w-16 h-5 bg-text-cream/40 backdrop-blur-sm rotate-2 border-t border-b border-void/10"></div>
-<div className="flex items-center gap-2 mb-2">
-<span className="w-2 h-2 rounded-full bg-primary"></span>
-<span className="font-sans text-[11px] font-bold tracking-widest uppercase text-void/80">CONFIRMED DATE</span>
+<div className="relative flex flex-col items-center md:items-end justify-center pr-0 md:pr-6 mt-10 md:mt-0">
+{/* Pinned Note Badge */}
+<div className="relative bg-red-50 text-red-950 p-6 rounded shadow-[2px_4px_16px_rgba(0,0,0,0.5)] transform rotate-3 hover:rotate-1 transition-transform duration-300 w-72 border border-red-200 group cursor-default backdrop-blur-none">
+{/* Push Pin effect */}
+<div className="absolute -top-3 left-1/2 transform -translate-x-1/2 w-5 h-5 rounded-full bg-red-600 shadow-[0_4px_6px_rgba(0,0,0,0.4),inset_0_2px_4px_rgba(255,255,255,0.4)] border border-red-800 z-10 flex items-center justify-center">
+  <div className="w-1.5 h-1.5 bg-white/60 rounded-full blur-[0.5px] -mt-1 -ml-1"></div>
 </div>
-<p className="font-display font-bold text-xl leading-tight text-void">
-            3 OCT 2026
-          </p>
-<p className="font-sans text-xs font-semibold text-void/90 mt-1 uppercase tracking-wide">
-            FCRCE · Bandra, Mumbai
-          </p>
-<div className="mt-3 pt-2 border-t border-void/20 flex justify-between items-center text-[10px] font-mono uppercase text-void/70">
-<span>Main Campus Auditorium</span>
-<span>9:00 AM IST</span>
+{/* Pin shadow on paper */}
+<div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-2 h-4 bg-black/40 rounded-full blur-[2px]"></div>
+
+<div className="flex items-center justify-center gap-2 mb-4 border-b border-red-900/10 pb-3">
+<span className="w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
+<span className="font-sans text-[10px] font-bold tracking-widest uppercase text-red-900/60">CONFIRMED DATE</span>
+</div>
+
+<div className="flex flex-col items-center justify-center py-2">
+  <p className="font-display font-black text-6xl tracking-tighter text-black">
+    3 OCT
+  </p>
+  <p className="font-display font-bold text-xl tracking-[0.3em] text-red-700 mt-1 pl-2">
+    2026
+  </p>
+</div>
+
+<div className="mt-5 pt-3 border-t border-red-900/10 flex flex-col items-center gap-1.5 text-[10px] font-sans font-bold uppercase text-red-900/80 text-center tracking-wider">
+  <span>FCRCE · Bandra, Mumbai</span>
+  <span className="text-red-700/90 font-semibold">Auditorium @ 9:00 AM IST</span>
 </div>
 </div>
 {/* Fine Reticle / Coordinates Label */}
@@ -129,21 +174,21 @@ const Home = () => {
 </div>
 </div>
 {/* Smoked Glass Stat Strip (Bottom of Hero) */}
-<div className="relative z-10 w-full px-12 pb-6">
-<div className="smoked-glass rounded-lg py-5 px-8 grid grid-cols-4 divide-x divide-border-hairline shadow-2xl">
-<div className="px-6 flex flex-col">
+<div className="relative z-10 w-full px-4 md:px-12 pb-6">
+<div className="smoked-glass rounded-lg py-5 px-4 md:px-8 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-0 md:divide-x divide-border-hairline shadow-2xl">
+<div className="md:px-6 flex flex-col">
 <span className="font-display font-bold text-3xl text-text-cream">50+</span>
 <span className="font-sans text-xs tracking-wider uppercase text-text-cream/60 mt-1">Companies Participating</span>
 </div>
-<div className="px-6 flex flex-col">
-<span className="font-display font-bold text-3xl text-text-cream">200+</span>
+<div className="md:px-6 flex flex-col border-l border-border-hairline md:border-none pl-4 md:pl-0">
+<span className="font-display font-bold text-2xl md:text-3xl text-text-cream">200+</span>
 <span className="font-sans text-xs tracking-wider uppercase text-text-cream/60 mt-1">Stipend Opportunities</span>
 </div>
-<div className="px-6 flex flex-col">
-<span className="font-display font-bold text-3xl text-primary">1</span>
+<div className="md:px-6 flex flex-col">
+<span className="font-display font-bold text-2xl md:text-3xl text-primary">1</span>
 <span className="font-sans text-xs tracking-wider uppercase text-text-cream/60 mt-1">Powerful Transformative Day</span>
 </div>
-<div className="px-6 flex flex-col justify-center">
+<div className="md:px-6 flex flex-col justify-center border-l border-border-hairline md:border-none pl-4 md:pl-0">
 <div className="flex items-center gap-2 text-peach-accent text-xs font-mono font-medium tracking-tight">
 <span>Students</span>
 <span className="text-text-cream/30">·</span>
@@ -159,10 +204,10 @@ const Home = () => {
 {/* ========================================================================= */}
 {/* SECTION 2 — ABOUT SECTION (Solid #000000, Dither Fades Out) */}
 {/* ========================================================================= */}
-<section className="w-full bg-void py-28 px-12 border-b border-border-hairline relative" id="about">
-<div className="max-w-[1320px] mx-auto grid grid-cols-12 gap-16 items-center">
+<section className="w-full bg-transparent py-20 md:py-28 px-6 md:px-12 border-b border-border-hairline relative" id="about">
+<div className="max-w-[1320px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-center">
 {/* Left Column: About Narrative */}
-<div className="col-span-7 space-y-6">
+<div className="col-span-1 md:col-span-7 space-y-6">
 <div className="inline-flex items-center gap-2">
 <span className="h-[2px] w-6 bg-secondary"></span>
 <span className="font-sans text-xs font-semibold tracking-widest text-peach-accent uppercase">Context &amp; Purpose</span>
@@ -172,92 +217,35 @@ const Home = () => {
 </h2>
 <div className="space-y-5 text-text-cream/80 text-lg leading-relaxed font-body">
 <p>
-            The <strong className="text-text-cream font-semibold">TEDxCRCE Internship Expo 2026</strong> bridges academic excellence with industry innovation at Fr. Conceicao Rodrigues College of Engineering in Bandra. Designed to unlock direct career avenues, the fair gives emerging engineers and creative thinkers face-to-face access to dynamic organizations.
-          </p>
-<p>
-            Whether you are pursuing roles in software architecture, AI research, product design, robotics, or high-growth tech ventures, the Expo creates a friction-free ecosystem for student-recruiter conversations, rapid resume reviews, and direct interview shortlists.
-          </p>
-</div>
-<div className="pt-4 grid grid-cols-3 gap-4">
-<div className="p-4 rounded-md bg-surface-raised border border-border-hairline">
-<span className="text-secondary font-display font-bold text-xl block mb-1">01</span>
-<h4 className="font-sans text-sm font-semibold text-text-cream">Direct Hiring</h4>
-<p className="font-body text-xs text-text-cream/60 mt-1">Fast-track interview pipelines for summer &amp; winter cohorts.</p>
-</div>
-<div className="p-4 rounded-md bg-surface-raised border border-border-hairline">
-<span className="text-primary font-display font-bold text-xl block mb-1">02</span>
-<h4 className="font-sans text-sm font-semibold text-text-cream">Exclusive Access</h4>
-<p className="font-body text-xs text-text-cream/60 mt-1">Meet founders, engineering leads, and talent strategists.</p>
-</div>
-<div className="p-4 rounded-md bg-surface-raised border border-border-hairline">
-<span className="text-peach-accent font-display font-bold text-xl block mb-1">03</span>
-<h4 className="font-sans text-sm font-semibold text-text-cream">Portfolio Reviews</h4>
-<p className="font-body text-xs text-text-cream/60 mt-1">Instant critique and resume feedback from seasoned pros.</p>
+  The <strong className="text-text-cream font-semibold">TEDxCRCE Internship Expo 2026</strong> directly connects ambitious students with leading organizations. Skip the traditional application process with face-to-face recruiter conversations, rapid resume reviews, and on-the-spot interview shortlists to kickstart your career.
+</p>
 </div>
 </div>
-</div>
-{/* Right Column: Stippled Dithered Crimson Abstract Graphic Container */}
-<div className="col-span-5 flex justify-center">
-<div className="w-full aspect-square rounded-xl p-3 bg-surface-raised border border-border-hairline shadow-2xl relative overflow-hidden group">
-{/* Inner SVG Graphic with Stippled Halftone Dither Nodes */}
-<div className="w-full h-full rounded-lg bg-void border border-border-hairline/60 p-6 flex flex-col justify-between relative overflow-hidden">
-{/* Halftone / Bayer Matrix Pattern Overlay */}
-<svg className="absolute inset-0 w-full h-full opacity-60 pointer-events-none" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<pattern height="16" id="bayerGrid" patternUnits="userSpaceOnUse" width="16">
-<circle cx="2" cy="2" fill="#8C1A1A" r="1" />
-<circle cx="10" cy="2" fill="#B91C1C" r="1.5" />
-<circle cx="6" cy="6" fill="#8C1A1A" r="0.8" />
-<circle cx="14" cy="6" fill="#D96F2B" r="1.2" />
-<circle cx="2" cy="10" fill="#8C1A1A" r="1.4" />
-<circle cx="10" cy="10" fill="#8C1A1A" r="1" />
-<circle cx="6" cy="14" fill="#B91C1C" r="1.8" />
-<circle cx="14" cy="14" fill="#8C1A1A" r="0.6" />
-</pattern>
-<linearGradient id="crimsonGradient" x1="0%" x2="100%" y1="0%" y2="100%">
-<stop offset="0%" stopColor="#B91C1C" stopOpacity="0.9" />
-<stop offset="60%" stopColor="#8C1A1A" stopOpacity="0.4" />
-<stop offset="100%" stopColor="#000000" stopOpacity="0.1" />
-</linearGradient>
-</defs>
-<rect fill="url(#bayerGrid)" height="100%" width="100%" />
-{/* Abstract dynamic wave contours */}
-<path d="M -20 220 C 80 140, 160 300, 260 180 S 380 90, 480 200 L 480 400 L -20 400 Z" fill="url(#crimsonGradient)" />
-<path d="M 0 160 C 120 80, 200 240, 320 140 S 420 60, 500 120" fill="none" opacity="0.4" stroke="#FFF4E1" strokeDasharray="4 6" strokeWidth="1.5" />
-</svg>
-{/* Card Header Badge inside frame */}
-<div className="relative z-10 flex justify-between items-center">
-<span className="font-mono text-xs text-text-cream/50 uppercase tracking-wider">Fig. 01 // Convergence</span>
-<span className="px-2 py-0.5 rounded text-[10px] font-mono bg-wave-crimson/30 text-peach-accent border border-wave-crimson/50">
-                CAMPUS ARCHIVE
-              </span>
-</div>
-{/* Card Center Icon Graphic */}
-<div className="relative z-10 flex flex-col items-center justify-center my-auto">
-<div className="w-20 h-20 rounded-full border border-primary/50 flex items-center justify-center bg-void/80 backdrop-blur-sm group-hover:scale-110 transition-transform duration-500 shadow-xl shadow-primary/20">
-<svg className="w-10 h-10 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-<path d="M13 10V3L4 14h7v7l9-11h-7z" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" />
-</svg>
-</div>
-<p className="font-display font-bold text-lg text-text-cream mt-4 tracking-wide uppercase">
-                CRCE Innovation Cell
-              </p>
-<p className="font-mono text-xs text-text-cream/60">Fr. Agnel Ashram · Bandra West</p>
-</div>
-{/* Card Footer details */}
-<div className="relative z-10 pt-4 border-t border-border-hairline flex justify-between text-xs font-mono text-text-cream/60">
-<span>STATUS: ADMISSION OPEN</span>
-<span className="text-peach-accent">OCTOBER 03</span>
+{/* Right Column: Carousel for the 3 steps */}
+<div className="col-span-1 md:col-span-5 flex flex-col items-center justify-center w-full">
+<div className="w-full max-w-[400px] flex flex-col items-center">
+  <div style={{ position: 'relative', width: '100%', display: 'flex', justifyContent: 'center' }}>
+    <Carousel
+      items={expoSteps}
+      baseWidth={320}
+      autoplay={true}
+      autoplayDelay={3000}
+      pauseOnHover={true}
+      loop={true}
+      round={false}
+    />
+  </div>
+  <p className="mt-6 font-mono text-[10px] text-text-cream/50 uppercase tracking-widest text-center">
+    Drag the card to view next step <br/>or wait for auto-scroll
+  </p>
 </div>
 </div>
-</SpotlightCard>
-</AnimatedContent>
 </div>
 </section>
 {/* ========================================================================= */}
 {/* SECTION 3 — COMPANIES SECTION (4-Column Grid with Modal Triggers) */}
 {/* ========================================================================= */}
-<section className="w-full bg-void py-28 px-12 border-b border-border-hairline relative" id="companies">
+<section className="w-full bg-transparent py-28 px-12 border-b border-border-hairline relative" id="companies">
 <div className="max-w-[1320px] mx-auto">
 {/* Section Header */}
 <div className="flex flex-col md:flex-row md:items-end justify-between mb-14">
@@ -274,240 +262,34 @@ const Home = () => {
           Click any company tile to review eligibility criteria, open internship roles, and interview formats.
         </p>
 </div>
-{/* 4-Column Grid of Smoked-Glass Cards */}
-<div className="grid grid-cols-4 gap-5">
-{/* Company 1: Razorpay */}
-<div className="group cursor-pointer smoked-glass rounded-md p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-2xl hover:shadow-primary/20 relative overflow-hidden flex flex-col justify-between min-h-[170px]">
-<div className="absolute inset-0 bg-gradient-to-br from-wave-crimson/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-<div className="flex items-center justify-between relative z-10">
-<div className="w-10 h-10 rounded bg-surface-raised border border-border-hairline flex items-center justify-center font-display font-bold text-primary text-base">
-              RZ
-            </div>
-<span className="text-[11px] font-mono text-peach-accent opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
-              View Details →
-            </span>
-</div>
-<div className="relative z-10 mt-4">
-<h3 className="font-sans font-bold text-base text-text-cream group-hover:text-text-cream">Razorpay</h3>
-<p className="font-body text-xs text-text-cream/60 mt-0.5">Fintech &amp; Payments</p>
-<div className="mt-2.5 flex items-center gap-1.5">
-<span className="px-2 py-0.5 bg-surface-raised border border-border-hairline rounded text-[10px] text-text-cream/70 font-mono">3 Roles</span>
-<span className="px-2 py-0.5 bg-primary/10 border border-primary/30 rounded text-[10px] text-peach-accent font-mono">High Stipend</span>
-</div>
-</div>
-</div>
-{/* Company 2: Morgan Stanley */}
-<div className="group cursor-pointer smoked-glass rounded-md p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-2xl hover:shadow-primary/20 relative overflow-hidden flex flex-col justify-between min-h-[170px]">
-<div className="absolute inset-0 bg-gradient-to-br from-wave-crimson/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-<div className="flex items-center justify-between relative z-10">
-<div className="w-10 h-10 rounded bg-surface-raised border border-border-hairline flex items-center justify-center font-display font-bold text-text-cream text-base">
-              MS
-            </div>
-<span className="text-[11px] font-mono text-peach-accent opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
-              View Details →
-            </span>
-</div>
-<div className="relative z-10 mt-4">
-<h3 className="font-sans font-bold text-base text-text-cream">Morgan Stanley</h3>
-<p className="font-body text-xs text-text-cream/60 mt-0.5">Investment Banking &amp; Tech</p>
-<div className="mt-2.5 flex items-center gap-1.5">
-<span className="px-2 py-0.5 bg-surface-raised border border-border-hairline rounded text-[10px] text-text-cream/70 font-mono">2 Roles</span>
-<span className="px-2 py-0.5 bg-primary/10 border border-primary/30 rounded text-[10px] text-peach-accent font-mono">Tier 1</span>
-</div>
-</div>
-</div>
-{/* Company 3: Larsen & Toubro Infotech */}
-<div className="group cursor-pointer smoked-glass rounded-md p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-2xl hover:shadow-primary/20 relative overflow-hidden flex flex-col justify-between min-h-[170px]">
-<div className="absolute inset-0 bg-gradient-to-br from-wave-crimson/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-<div className="flex items-center justify-between relative z-10">
-<div className="w-10 h-10 rounded bg-surface-raised border border-border-hairline flex items-center justify-center font-display font-bold text-secondary text-base">
-              LT
-            </div>
-<span className="text-[11px] font-mono text-peach-accent opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
-              View Details →
-            </span>
-</div>
-<div className="relative z-10 mt-4">
-<h3 className="font-sans font-bold text-base text-text-cream">L&amp;T Tech Services</h3>
-<p className="font-body text-xs text-text-cream/60 mt-0.5">Engineering R&amp;D &amp; IoT</p>
-<div className="mt-2.5 flex items-center gap-1.5">
-<span className="px-2 py-0.5 bg-surface-raised border border-border-hairline rounded text-[10px] text-text-cream/70 font-mono">4 Roles</span>
-</div>
-</div>
-</div>
-{/* Company 4: Fractal Analytics */}
-<div className="group cursor-pointer smoked-glass rounded-md p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-2xl hover:shadow-primary/20 relative overflow-hidden flex flex-col justify-between min-h-[170px]">
-<div className="absolute inset-0 bg-gradient-to-br from-wave-crimson/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-<div className="flex items-center justify-between relative z-10">
-<div className="w-10 h-10 rounded bg-surface-raised border border-border-hairline flex items-center justify-center font-display font-bold text-primary text-base">
-              FA
-            </div>
-<span className="text-[11px] font-mono text-peach-accent opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
-              View Details →
-            </span>
-</div>
-<div className="relative z-10 mt-4">
-<h3 className="font-sans font-bold text-base text-text-cream">Fractal Analytics</h3>
-<p className="font-body text-xs text-text-cream/60 mt-0.5">Artificial Intelligence</p>
-<div className="mt-2.5 flex items-center gap-1.5">
-<span className="px-2 py-0.5 bg-surface-raised border border-border-hairline rounded text-[10px] text-text-cream/70 font-mono">2 Roles</span>
-<span className="px-2 py-0.5 bg-peach-accent/10 border border-peach-accent/30 rounded text-[10px] text-peach-accent font-mono">GenAI</span>
-</div>
-</div>
-</div>
-{/* Company 5: Zepto */}
-<div className="group cursor-pointer smoked-glass rounded-md p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-2xl hover:shadow-primary/20 relative overflow-hidden flex flex-col justify-between min-h-[170px]">
-<div className="absolute inset-0 bg-gradient-to-br from-wave-crimson/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-<div className="flex items-center justify-between relative z-10">
-<div className="w-10 h-10 rounded bg-surface-raised border border-border-hairline flex items-center justify-center font-display font-bold text-secondary text-base">
-              ZP
-            </div>
-<span className="text-[11px] font-mono text-peach-accent opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
-              View Details →
-            </span>
-</div>
-<div className="relative z-10 mt-4">
-<h3 className="font-sans font-bold text-base text-text-cream">Zepto</h3>
-<p className="font-body text-xs text-text-cream/60 mt-0.5">Quick Commerce Tech</p>
-<div className="mt-2.5 flex items-center gap-1.5">
-<span className="px-2 py-0.5 bg-surface-raised border border-border-hairline rounded text-[10px] text-text-cream/70 font-mono">3 Roles</span>
-</div>
-</div>
-</div>
-{/* Company 6: Jio Platforms */}
-<div className="group cursor-pointer smoked-glass rounded-md p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-2xl hover:shadow-primary/20 relative overflow-hidden flex flex-col justify-between min-h-[170px]">
-<div className="absolute inset-0 bg-gradient-to-br from-wave-crimson/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-<div className="flex items-center justify-between relative z-10">
-<div className="w-10 h-10 rounded bg-surface-raised border border-border-hairline flex items-center justify-center font-display font-bold text-primary text-base">
-              JIO
-            </div>
-<span className="text-[11px] font-mono text-peach-accent opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
-              View Details →
-            </span>
-</div>
-<div className="relative z-10 mt-4">
-<h3 className="font-sans font-bold text-base text-text-cream">Jio Platforms</h3>
-<p className="font-body text-xs text-text-cream/60 mt-0.5">Cloud &amp; Telecom</p>
-<div className="mt-2.5 flex items-center gap-1.5">
-<span className="px-2 py-0.5 bg-surface-raised border border-border-hairline rounded text-[10px] text-text-cream/70 font-mono">5 Roles</span>
-</div>
-</div>
-</div>
-{/* Company 7: Tata Elxsi */}
-<div className="group cursor-pointer smoked-glass rounded-md p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-2xl hover:shadow-primary/20 relative overflow-hidden flex flex-col justify-between min-h-[170px]">
-<div className="absolute inset-0 bg-gradient-to-br from-wave-crimson/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-<div className="flex items-center justify-between relative z-10">
-<div className="w-10 h-10 rounded bg-surface-raised border border-border-hairline flex items-center justify-center font-display font-bold text-text-cream text-base">
-              TE
-            </div>
-<span className="text-[11px] font-mono text-peach-accent opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
-              View Details →
-            </span>
-</div>
-<div className="relative z-10 mt-4">
-<h3 className="font-sans font-bold text-base text-text-cream">Tata Elxsi</h3>
-<p className="font-body text-xs text-text-cream/60 mt-0.5">Automotive Tech &amp; Design</p>
-<div className="mt-2.5 flex items-center gap-1.5">
-<span className="px-2 py-0.5 bg-surface-raised border border-border-hairline rounded text-[10px] text-text-cream/70 font-mono">2 Roles</span>
-</div>
-</div>
-</div>
-{/* Company 8: BrowserStack */}
-<div className="group cursor-pointer smoked-glass rounded-md p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-2xl hover:shadow-primary/20 relative overflow-hidden flex flex-col justify-between min-h-[170px]">
-<div className="absolute inset-0 bg-gradient-to-br from-wave-crimson/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-<div className="flex items-center justify-between relative z-10">
-<div className="w-10 h-10 rounded bg-surface-raised border border-border-hairline flex items-center justify-center font-display font-bold text-primary text-base">
-              BS
-            </div>
-<span className="text-[11px] font-mono text-peach-accent opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
-              View Details →
-            </span>
-</div>
-<div className="relative z-10 mt-4">
-<h3 className="font-sans font-bold text-base text-text-cream">BrowserStack</h3>
-<p className="font-body text-xs text-text-cream/60 mt-0.5">Developer Cloud</p>
-<div className="mt-2.5 flex items-center gap-1.5">
-<span className="px-2 py-0.5 bg-surface-raised border border-border-hairline rounded text-[10px] text-text-cream/70 font-mono">2 Roles</span>
-<span className="px-2 py-0.5 bg-primary/10 border border-primary/30 rounded text-[10px] text-peach-accent font-mono">SaaS</span>
-</div>
-</div>
-</div>
-{/* Company 9: HDFC Bank Digital */}
-<div className="group cursor-pointer smoked-glass rounded-md p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-2xl hover:shadow-primary/20 relative overflow-hidden flex flex-col justify-between min-h-[170px]">
-<div className="absolute inset-0 bg-gradient-to-br from-wave-crimson/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-<div className="flex items-center justify-between relative z-10">
-<div className="w-10 h-10 rounded bg-surface-raised border border-border-hairline flex items-center justify-center font-display font-bold text-secondary text-base">
-              HD
-            </div>
-<span className="text-[11px] font-mono text-peach-accent opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
-              View Details →
-            </span>
-</div>
-<div className="relative z-10 mt-4">
-<h3 className="font-sans font-bold text-base text-text-cream">HDFC Digital</h3>
-<p className="font-body text-xs text-text-cream/60 mt-0.5">Banking &amp; Cybersec</p>
-<div className="mt-2.5 flex items-center gap-1.5">
-<span className="px-2 py-0.5 bg-surface-raised border border-border-hairline rounded text-[10px] text-text-cream/70 font-mono">3 Roles</span>
-</div>
-</div>
-</div>
-{/* Company 10: Ather Energy */}
-<div className="group cursor-pointer smoked-glass rounded-md p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-2xl hover:shadow-primary/20 relative overflow-hidden flex flex-col justify-between min-h-[170px]">
-<div className="absolute inset-0 bg-gradient-to-br from-wave-crimson/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-<div className="flex items-center justify-between relative z-10">
-<div className="w-10 h-10 rounded bg-surface-raised border border-border-hairline flex items-center justify-center font-display font-bold text-text-cream text-base">
-              AT
-            </div>
-<span className="text-[11px] font-mono text-peach-accent opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
-              View Details →
-            </span>
-</div>
-<div className="relative z-10 mt-4">
-<h3 className="font-sans font-bold text-base text-text-cream">Ather Energy</h3>
-<p className="font-body text-xs text-text-cream/60 mt-0.5">CleanTech &amp; EV Hardware</p>
-<div className="mt-2.5 flex items-center gap-1.5">
-<span className="px-2 py-0.5 bg-surface-raised border border-border-hairline rounded text-[10px] text-text-cream/70 font-mono">2 Roles</span>
-</div>
-</div>
-</div>
-{/* Company 11: Nykaa */}
-<div className="group cursor-pointer smoked-glass rounded-md p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-2xl hover:shadow-primary/20 relative overflow-hidden flex flex-col justify-between min-h-[170px]">
-<div className="absolute inset-0 bg-gradient-to-br from-wave-crimson/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-<div className="flex items-center justify-between relative z-10">
-<div className="w-10 h-10 rounded bg-surface-raised border border-border-hairline flex items-center justify-center font-display font-bold text-primary text-base">
-              NY
-            </div>
-<span className="text-[11px] font-mono text-peach-accent opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
-              View Details →
-            </span>
-</div>
-<div className="relative z-10 mt-4">
-<h3 className="font-sans font-bold text-base text-text-cream">Nykaa Tech</h3>
-<p className="font-body text-xs text-text-cream/60 mt-0.5">E-Commerce &amp; Mobile</p>
-<div className="mt-2.5 flex items-center gap-1.5">
-<span className="px-2 py-0.5 bg-surface-raised border border-border-hairline rounded text-[10px] text-text-cream/70 font-mono">3 Roles</span>
-</div>
-</div>
-</div>
-{/* Company 12: Godrej Infotech */}
-<div className="group cursor-pointer smoked-glass rounded-md p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-2xl hover:shadow-primary/20 relative overflow-hidden flex flex-col justify-between min-h-[170px]">
-<div className="absolute inset-0 bg-gradient-to-br from-wave-crimson/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-<div className="flex items-center justify-between relative z-10">
-<div className="w-10 h-10 rounded bg-surface-raised border border-border-hairline flex items-center justify-center font-display font-bold text-secondary text-base">
-              GD
-            </div>
-<span className="text-[11px] font-mono text-peach-accent opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
-              View Details →
-            </span>
-</div>
-<div className="relative z-10 mt-4">
-<h3 className="font-sans font-bold text-base text-text-cream">Godrej Industry</h3>
-<p className="font-body text-xs text-text-cream/60 mt-0.5">Smart Automation &amp; Robotics</p>
-<div className="mt-2.5 flex items-center gap-1.5">
-<span className="px-2 py-0.5 bg-surface-raised border border-border-hairline rounded text-[10px] text-text-cream/70 font-mono">2 Roles</span>
-</div>
-</div>
-</div>
+{/* Dynamic Grid of Smoked-Glass Cards */}
+<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
+  {companies.map(company => (
+    <div key={company.id} onClick={() => handleOpenModal(company)} className="group cursor-pointer smoked-glass rounded-md p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-2xl hover:shadow-primary/20 relative overflow-hidden flex flex-col justify-between min-h-[170px]">
+      <div className="absolute inset-0 bg-gradient-to-br from-wave-crimson/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      <div className="flex items-center justify-between relative z-10">
+        <div className="w-10 h-10 rounded bg-surface-raised border border-border-hairline flex items-center justify-center font-display font-bold text-primary text-base">
+          {company.logoUrl ? (
+             <img src={company.logoUrl} alt={company.name} className="w-full h-full object-contain" />
+          ) : (
+             company.name.substring(0, 2).toUpperCase()
+          )}
+        </div>
+        <span className="text-[11px] font-mono text-peach-accent opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+          View Details →
+        </span>
+      </div>
+      <div className="relative z-10 mt-4">
+        <h3 className="font-sans font-bold text-base text-text-cream group-hover:text-text-cream">{company.name}</h3>
+        <p className="font-body text-xs text-text-cream/60 mt-0.5 truncate">{company.tags && company.tags[0]}</p>
+        <div className="mt-2.5 flex items-center gap-1.5 flex-wrap">
+          <span className="px-2 py-0.5 bg-surface-raised border border-border-hairline rounded text-[10px] text-text-cream/70 font-mono">
+            {company.positions?.length || 0} Roles
+          </span>
+        </div>
+      </div>
+    </div>
+  ))}
 </div>
 {/* Footer Note under Grid */}
 <div className="mt-10 flex items-center justify-between p-4 rounded bg-surface-raised/60 border border-border-hairline">
@@ -523,7 +305,7 @@ const Home = () => {
 {/* ========================================================================= */}
 {/* SECTION 4 — SPONSORS SECTION (Cream-tinted grayscale logos, Dither top edge) */}
 {/* ========================================================================= */}
-<section className="w-full bg-void py-24 px-12 border-b border-border-hairline relative" id="sponsors">
+<section className="w-full bg-transparent py-16 md:py-24 px-6 md:px-12 border-b border-border-hairline relative" id="sponsors">
 {/* Thin Dithered Crimson Edge along top border for visual variety */}
 <div className="absolute top-0 inset-x-0 h-1 dither-strip-top"></div>
 <div className="max-w-[1320px] mx-auto">
@@ -534,15 +316,15 @@ const Home = () => {
 <span className="h-[2px] w-6 bg-secondary"></span>
 <span className="font-sans text-xs font-semibold tracking-widest text-peach-accent uppercase">Institutional Partners</span>
 </div>
-<h2 className="font-display font-bold text-4xl uppercase tracking-tight text-text-cream">
+<h2 className="font-display font-bold text-3xl md:text-4xl uppercase tracking-tight text-text-cream">
             Our <span className="text-primary">Sponsors</span>
 </h2>
 </div>
-<span className="font-mono text-xs text-text-cream/40 uppercase">2026 Edition Patrons</span>
+<span className="font-mono text-[10px] md:text-xs text-text-cream/40 uppercase">2026 Edition Patrons</span>
 </div>
 {/* Single-row logo strip on lighter #140A0A smoked-glass band */}
-<div className="w-full smoked-glass rounded-lg py-8 px-10 border border-border-hairline">
-<div className="grid grid-cols-5 gap-8 items-center justify-items-center">
+<div className="w-full smoked-glass rounded-lg py-6 md:py-8 px-4 md:px-10 border border-border-hairline">
+<div className="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-8 items-center justify-items-center">
 {/* Sponsor 1 */}
 <div className="group flex flex-col items-center justify-center p-4 transition-all duration-300 cursor-pointer">
 <div className="font-display font-bold text-xl tracking-tighter text-text-cream/50 grayscale group-hover:grayscale-0 group-hover:text-primary transition-all">
@@ -595,12 +377,12 @@ const Home = () => {
 {/* ========================================================================= */}
 {/* SECTION 5 — EVENT INFO / CONTACT / FOOTER */}
 {/* ========================================================================= */}
-<section className="w-full bg-void pt-24 pb-12 px-12 relative overflow-hidden" id="event-info">
+<section className="w-full bg-transparent pt-16 md:pt-24 pb-8 md:pb-12 px-6 md:px-12 relative overflow-hidden" id="event-info">
 {/* Subtle dither glow anchor on bottom edge */}
 <div className="absolute bottom-0 right-0 w-96 h-96 bg-wave-crimson/10 rounded-full blur-3xl pointer-events-none"></div>
 <div className="max-w-[1320px] mx-auto">
-{/* 4 Info Blocks on Smoked Glass */}
-<div className="grid grid-cols-4 gap-6 mb-20">
+{/* 3 Info Blocks on Smoked Glass */}
+<div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 md:mb-20">
 {/* Block 1: Event Date */}
 <div className="smoked-glass rounded-lg p-6 flex flex-col justify-between border border-border-hairline">
 <div>
@@ -622,47 +404,28 @@ const Home = () => {
             Sam Claude Rd, Bandstand, Mumbai
           </div>
 </div>
-{/* Block 3: Download Brochure Button */}
+{/* Block 3: Updates */}
 <div className="smoked-glass rounded-lg p-6 flex flex-col justify-between border border-border-hairline">
 <div>
-<span className="font-mono text-[10px] text-peach-accent uppercase tracking-widest block mb-1">Resources</span>
-<h3 className="font-display font-bold text-xl text-text-cream">Official Guidebook</h3>
+<span className="font-mono text-[10px] text-peach-accent uppercase tracking-widest block mb-1">Live Updates</span>
+<h3 className="font-display font-bold text-xl text-text-cream">Interview Rooms</h3>
 </div>
-<div className="pt-4 mt-4 border-t border-border-hairline">
-<a className="w-full inline-flex items-center justify-center gap-2 border border-secondary hover:bg-secondary text-secondary hover:text-void font-sans font-semibold text-xs px-4 py-2.5 rounded transition-colors duration-200" href="#event-info">
-<svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-<path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
-</svg>
-<span>Download Brochure</span>
-</a>
-</div>
-</div>
-{/* Block 4: View Schedule Link */}
-<div className="smoked-glass rounded-lg p-6 flex flex-col justify-between border border-border-hairline">
-<div>
-<span className="font-mono text-[10px] text-peach-accent uppercase tracking-widest block mb-1">Time Table</span>
-<h3 className="font-display font-bold text-xl text-text-cream">Master Timeline</h3>
-</div>
-<div className="pt-4 mt-4 border-t border-border-hairline flex items-center justify-between">
-<a className="text-text-cream hover:text-peach-accent font-sans font-semibold text-xs inline-flex items-center gap-1.5 transition-colors" href="#event-info">
-<span>View Full Schedule</span>
-<span>→</span>
-</a>
-<span className="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+<div className="pt-4 mt-4 border-t border-border-hairline text-xs text-text-cream/70 font-mono leading-relaxed">
+The interview rooms will be posted on the WhatsApp community.
 </div>
 </div>
 </div>
 {/* Contact Block & Simple Contact Form */}
-<div className="grid grid-cols-12 gap-12 bg-surface-solid rounded-xl p-10 border border-border-hairline relative">
+<div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 bg-surface-solid rounded-xl p-6 md:p-10 border border-border-hairline relative">
 {/* Left Contact Info Details */}
-<div className="col-span-5 flex flex-col justify-between space-y-8">
+<div className="col-span-1 md:col-span-5 flex flex-col justify-between space-y-8">
 <div>
 <div className="inline-flex items-center gap-2 mb-2">
 <span className="h-[2px] w-6 bg-primary"></span>
 <span className="font-sans text-xs font-semibold tracking-widest text-peach-accent uppercase">Get In Touch</span>
 </div>
-<h2 className="font-display font-bold text-4xl uppercase tracking-tight text-text-cream">
-              Questions About <br/>The <span className="text-primary">Internship Fair?</span>
+<h2 className="font-display font-bold text-3xl md:text-4xl uppercase tracking-tight text-text-cream">
+              Questions About <br/>The <span className="text-primary">Expo?</span>
 </h2>
 <p className="font-body text-text-cream/70 text-sm mt-4 leading-relaxed">
               Reach out to our student coordination council or placement cell representatives. We are here to answer booth queries, schedule clearances, and student verification passes.
@@ -673,14 +436,7 @@ const Home = () => {
 <span className="w-8 h-8 rounded bg-surface-raised border border-border-hairline flex items-center justify-center text-primary">@</span>
 <div>
 <p className="text-[10px] uppercase text-text-cream/40 font-sans">Official Email</p>
-<p className="font-semibold text-text-cream">tedxcrce@frcrce.ac.in</p>
-</div>
-</div>
-<div className="flex items-center gap-3">
-<span className="w-8 h-8 rounded bg-surface-raised border border-border-hairline flex items-center justify-center text-secondary">#</span>
-<div>
-<p className="text-[10px] uppercase text-text-cream/40 font-sans">Campus Helpline</p>
-<p className="font-semibold text-text-cream">+91 22 6711 4000 / Ext: 2026</p>
+<p className="font-semibold text-text-cream">tedxcrce.expo@gmail.com</p>
 </div>
 </div>
 </div>
@@ -689,9 +445,9 @@ const Home = () => {
           </div>
 </div>
 {/* Right Contact Form */}
-<div className="col-span-7 pl-6 border-l border-border-hairline">
+<div className="col-span-1 md:col-span-7 pl-0 md:pl-6 pt-6 md:pt-0 border-t md:border-t-0 md:border-l border-border-hairline">
 <form className="space-y-5">
-<div className="grid grid-cols-2 gap-4">
+<div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 <div>
 <label className="block font-sans text-xs font-medium text-text-cream/80 uppercase tracking-wider mb-2">Your Name</label>
 <input className="w-full bg-surface-raised border border-border-hairline focus:border-primary focus:outline-none text-text-cream text-sm px-4 py-3 rounded transition-colors placeholder:text-text-cream/30" placeholder="Aarav Sharma" required="" type="text"/>
@@ -719,20 +475,20 @@ const Home = () => {
 </div>
 </div>
 {/* Footer Bar */}
-<footer className="mt-24 pt-8 border-t border-border-hairline relative flex items-center justify-between">
+<footer className="mt-16 md:mt-24 pt-8 border-t border-border-hairline relative flex flex-col md:flex-row items-center justify-between gap-6 md:gap-0">
 {/* Fading Dither Strip along top edge of footer */}
 <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-wave-crimson to-transparent"></div>
 {/* Left Logo */}
-<div className="flex items-center gap-3">
+<div className="flex flex-col md:flex-row items-center gap-3 text-center md:text-left">
 <div className="flex items-center tracking-tighter text-lg font-display font-bold text-text-cream">
-<span>TED</span><span className="text-primary text-xl font-extrabold mx-[1px]">x</span><span>CRCE</span>
+<img src={tedxLogo} alt="TEDx" className="h-10 object-contain mr-0.5 -mt-1" /><span>CRCE</span>
 </div>
-<span className="font-mono text-[11px] text-text-cream/40">
+<span className="font-mono text-[10px] md:text-[11px] text-text-cream/40 max-w-[250px] md:max-w-none">
             © 2026 This independent TEDx event is operated under license from TED.
           </span>
 </div>
 {/* Quick Links */}
-<div className="flex items-center space-x-6 font-sans text-xs text-text-cream/60">
+<div className="flex flex-wrap items-center justify-center gap-4 md:space-x-6 font-sans text-xs text-text-cream/60">
 <a className="hover:text-text-cream transition-colors" href="#hero">Privacy Policy</a>
 <a className="hover:text-text-cream transition-colors" href="#about">Terms of Entry</a>
 <a className="hover:text-text-cream transition-colors" href="#companies">Code of Conduct</a>

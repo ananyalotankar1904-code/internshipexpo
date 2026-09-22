@@ -29,23 +29,28 @@ model Student {
 model Company {
   id          String     @id @default(uuid())
   name        String
-  description String?
+  websiteUrl  String?
   logoUrl     String?
+  tags        String[]   @default([])
+  highlights  String[]   @default([])
   positions   Position[]
 }
 
 model Position {
-  id             String        @id @default(uuid())
-  title          String
-  companyId      String
-  domain         String
-  eligibleYears  String
-  isPaid         Boolean
-  duration       String
-  requiresTask   Boolean       @default(false)
+  id                   String        @id @default(uuid())
+  title                String
+  companyId            String
+  domain               String
+  eligibleYears        String
+  isPaid               Boolean
+  stipend              String?
+  duration             String
+  description          String?
+  jobDescriptionPdfUrl String?
+  requiresTask         Boolean       @default(false)
   
-  company        Company       @relation(fields: [companyId], references: [id])
-  applications   Application[]
+  company              Company       @relation(fields: [companyId], references: [id])
+  applications         Application[]
 }
 
 model Application {
