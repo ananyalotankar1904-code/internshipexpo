@@ -1,331 +1,314 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRegistration } from '../../context/RegistrationContext';
+import { companiesApi } from '../../api/client';
+import SmokedHeader from '../../components/SmokedHeader';
+import SmokedFooter from '../../components/SmokedFooter';
+import CrimsonDither from '../../components/CrimsonDither';
 
 const Step4ApplicationSummary = () => {
   const navigate = useNavigate();
-  const { studentDetails, resumeLink, selectedPositions, submitApplication } = useRegistration();
+  const { studentDetails, resumeLink, selectedPositions, submitApplication, taskLinks, setTaskLinks } = useRegistration();
+  const [companies, setCompanies] = useState([]);
+  const [confirmed, setConfirmed] = useState(false);
+
+  useEffect(() => {
+    companiesApi.getAll()
+      .then(res => setCompanies(res.data.companies))
+      .catch(console.error);
+  }, []);
+
+  const handleSubmit = async () => {
+    if(!confirmed) return;
+    await submitApplication();
+    navigate('/register/step5');
+  };
 
   return (
-    <div className="bg-surface font-body-md text-on-surface antialiased min-h-screen">
-      {/* Original Body Content */}
-      <header className="fixed top-0 left-0 right-0 w-full z-50 bg-background/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div className="h-20 max-w-[1440px] mx-auto px-margin flex items-center justify-between"><div className="flex items-center gap-space-lg"><span className="font-headline-sm text-headline-sm font-bold text-on-surface">TEDx<span className="text-primary">CRCE</span></span><div className="hidden sm:flex flex-col"><span className="font-label-lg text-label-lg tracking-wide uppercase text-on-surface font-bold">Internship Expo 2026</span><span className="font-label-badge text-label-badge text-outline uppercase tracking-wider">Student Candidate Portal</span></div></div><nav className="hidden lg:flex items-center gap-space-lg" data-active-classes="text-primary font-bold"><a aria-current="page" className="transition-colors uppercase tracking-wider text-primary font-bold" data-path="candidate-overview" href="/">Overview</a><a className="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-wider" data-path="application-guidelines" href="/#about">Guidelines</a><a className="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-wider" data-path="partner-companies" href="/#companies">Companies</a><a className="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors uppercase tracking-wider" data-path="application-faq" href="/#contact">Support &amp; FAQ</a></nav><div className="flex items-center gap-space-md"><button className="inline-flex items-center gap-space-xs px-space-md py-space-sm rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors" type="button"><span className="material-symbols-outlined text-[18px] text-on-surface-variant">bookmark_border</span><span>Save &amp; Exit</span></button><div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span className="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main className="w-full max-w-[1440px] mx-auto px-margin pt-20 flex-1"><div className="flex flex-col w-full pb-36">
-{/* Top Application Flow Stepper */}
-<section className="w-full py-space-xl overflow-x-auto hide-scrollbar">
-<div className="relative flex items-center justify-between max-w-[840px] mx-auto px-4 min-w-[600px]">
-{/* Continuous connecting track bar */}
-<div className="absolute top-1/2 left-0 right-0 -translate-y-1/2 h-[3px] bg-surface-container-highest z-0"></div>
-<div className="absolute top-1/2 left-0 w-3/4 -translate-y-1/2 h-[3px] bg-primary z-0 transition-all duration-500"></div>
-{/* Step 1: Completed */}
-<div className="relative z-10 flex flex-col items-center group cursor-pointer">
-<div className="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-md transition-transform group-hover:scale-105">
-<span className="material-symbols-outlined text-[20px]" style={{}} /* font-variation-settings: 'FILL' 1; */>check</span>
-</div>
-<span className="mt-space-xs font-label-md text-label-md text-on-surface">Candidate Info</span>
-<span className="font-label-badge text-label-badge text-primary uppercase">Completed</span>
-</div>
-{/* Step 2: Completed */}
-<div className="relative z-10 flex flex-col items-center group cursor-pointer">
-<div className="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-md transition-transform group-hover:scale-105">
-<span className="material-symbols-outlined text-[20px]" style={{}} /* font-variation-settings: 'FILL' 1; */>check</span>
-</div>
-<span className="mt-space-xs font-label-md text-label-md text-on-surface">Credentials</span>
-<span className="font-label-badge text-label-badge text-primary uppercase">Completed</span>
-</div>
-{/* Step 3: Completed */}
-<div className="relative z-10 flex flex-col items-center group cursor-pointer">
-<div className="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-md transition-transform group-hover:scale-105">
-<span className="material-symbols-outlined text-[20px]" style={{}} /* font-variation-settings: 'FILL' 1; */>check</span>
-</div>
-<span className="mt-space-xs font-label-md text-label-md text-on-surface">Role Selections</span>
-<span className="font-label-badge text-label-badge text-primary uppercase">Completed</span>
-</div>
-{/* Step 4: Active */}
-<div className="relative z-10 flex flex-col items-center">
-<div className="w-11 h-11 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-lg ring-4 ring-primary-fixed">
-<span className="font-headline-sm text-headline-sm font-bold text-on-primary">4</span>
-</div>
-<span className="mt-space-xs font-label-md text-label-md text-primary font-bold">Verification</span>
-<span className="font-label-badge text-label-badge bg-primary text-on-primary px-2 py-0.5 rounded-full uppercase tracking-wider mt-0.5 shadow-sm">In Progress</span>
-</div>
-{/* Step 5: Locked */}
-<div className="relative z-10 flex flex-col items-center opacity-60">
-<div className="w-10 h-10 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center shadow-inner">
-<span className="material-symbols-outlined text-[18px]">lock</span>
-</div>
-<span className="mt-space-xs font-label-md text-label-md text-on-surface-variant">Confirmed</span>
-<span className="font-label-badge text-label-badge text-outline uppercase">Locked</span>
-</div>
-</div>
-</section>
-{/* Editorial Main Review Layout (Centered Column) */}
-<div className="w-full max-w-[780px] mx-auto px-4 md:px-0 flex flex-col gap-space-lg">
-{/* Title & Eyebrow Module */}
-<header className="flex flex-col gap-space-xs">
-<div className="flex items-center gap-space-sm">
-<span className="w-2.5 h-2.5 rounded-full bg-primary inline-block animate-pulse"></span>
-<span className="font-label-badge text-label-badge text-primary uppercase tracking-widest font-bold">Application Phase 4 • Pre-Submission Verification</span>
-</div>
-<h1 className="font-display-section text-display-section text-on-surface tracking-tight leading-none">
-        Review Your Application
-      </h1>
-<p className="font-body-lg text-body-lg text-on-surface-variant mt-space-xs max-w-2xl">
-        Please carefully inspect all verified academic details and selected placement tracks prior to irreversible credential generation.
-      </p>
-</header>
-{/* CARD 1: Candidate Profile & Academic Details */}
-<article className="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm transition-all hover:shadow-md">
-<div className="flex items-center justify-between pb-space-md">
-<div className="flex items-center gap-space-sm">
-<span className="w-7 h-7 rounded-lg bg-surface-container-high text-primary flex items-center justify-center font-label-md text-label-md font-bold">1</span>
-<h2 className="font-headline-sm text-headline-sm text-on-surface font-bold">Candidate Profile &amp; Details</h2>
-</div>
-<button className="inline-flex items-center gap-1 font-label-md text-label-md text-secondary hover:text-on-secondary-container transition-colors uppercase tracking-wider" onClick={() => navigate('/register/step1')} type="button">
-<span className="material-symbols-outlined text-[16px]">edit</span>
-<span>Edit Step 1</span>
-</button>
-</div>
-<div className="grid grid-cols-1 md:grid-cols-2 gap-space-md pt-space-xs">
-<div className="flex flex-col bg-surface-container-low p-space-md rounded-lg">
-<span className="font-label-badge text-label-badge text-outline uppercase tracking-wider">Full Legal Name</span>
-<span className="font-headline-sm text-headline-sm text-on-surface mt-0.5 font-bold">Neil Fernandes</span>
-<div className="flex items-center gap-1.5 mt-2 text-primary font-label-badge text-label-badge">
-<span className="material-symbols-outlined text-[14px]">verified_user</span>
-<span>CRCE Candidate Identity Validated</span>
-</div>
-</div>
-<div className="flex flex-col bg-surface-container-low p-space-md rounded-lg">
-<span className="font-label-badge text-label-badge text-outline uppercase tracking-wider">Academic Institution</span>
-<span className="font-body-md text-body-md text-on-surface font-semibold mt-0.5">Fr. Conceicao Rodrigues College of Engineering</span>
-<span className="font-body-sm text-body-sm text-on-surface-variant">Bandra West, Mumbai</span>
-</div>
-<div className="flex flex-col bg-surface-container-low p-space-md rounded-lg">
-<span className="font-label-badge text-label-badge text-outline uppercase tracking-wider">Department &amp; Cohort</span>
-<span className="font-body-md text-body-md text-on-surface font-semibold mt-0.5">Computer Engineering (TE)</span>
-<span className="font-body-sm text-body-sm text-on-surface-variant">3rd Year • Semester VI Matriculated</span>
-</div>
-<div className="flex flex-col bg-surface-container-low p-space-md rounded-lg">
-<span className="font-label-badge text-label-badge text-outline uppercase tracking-wider">Recruiting Clearance</span>
-<span className="font-body-md text-body-md text-on-surface font-semibold mt-0.5">Tier-1 Institutional Track</span>
-<div className="inline-flex items-center gap-1 mt-1 text-on-tertiary-fixed font-label-badge text-label-badge">
-<span className="w-1.5 h-1.5 rounded-full bg-secondary inline-block"></span>
-<span>Unrestricted Campus Expo Access</span>
-</div>
-</div>
-<div className="flex flex-col bg-surface-container-low p-space-md rounded-lg">
-<span className="font-label-badge text-label-badge text-outline uppercase tracking-wider">Verified Institutional Email</span>
-<span className="font-body-md text-body-md text-on-surface font-semibold mt-0.5">neil.fernandes@crce.ac.in</span>
-<span className="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mt-1">
-<span className="material-symbols-outlined text-[14px] text-primary">check_circle</span>
-            Institutional Domain Active
-          </span>
-</div>
-<div className="flex flex-col bg-surface-container-low p-space-md rounded-lg">
-<span className="font-label-badge text-label-badge text-outline uppercase tracking-wider">Direct WhatsApp / Telephony</span>
-<span className="font-body-md text-body-md text-on-surface font-semibold mt-0.5">+91 98201 23456</span>
-<span className="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mt-1">
-<span className="material-symbols-outlined text-[14px] text-primary">notifications_active</span>
-            Interview Alerts Enabled
-          </span>
-</div>
-</div>
-</article>
-{/* CARD 2: Resume & Portfolio Verification */}
-<article className="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm transition-all hover:shadow-md">
-<div className="flex items-center justify-between pb-space-md">
-<div className="flex items-center gap-space-sm">
-<span className="w-7 h-7 rounded-lg bg-surface-container-high text-primary flex items-center justify-center font-label-md text-label-md font-bold">2</span>
-<h2 className="font-headline-sm text-headline-sm text-on-surface font-bold">Resume Verification &amp; ATS Parsing</h2>
-</div>
-<button className="inline-flex items-center gap-1 font-label-md text-label-md text-secondary hover:text-on-secondary-container transition-colors uppercase tracking-wider" onClick={() => navigate('/register/step2')} type="button">
-<span className="material-symbols-outlined text-[16px]">edit</span>
-<span>Edit Step 2</span>
-</button>
-</div>
-<div className="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-space-md">
-<div className="flex items-start justify-between">
-<div className="flex flex-col md:flex-row md:items-center gap-space-md">
-<div className="w-12 h-14 rounded-lg bg-primary-fixed flex flex-col items-center justify-center text-primary shadow-sm flex-shrink-0 self-start md:self-auto">
-<span className="material-symbols-outlined text-[24px]">description</span>
-<span className="font-label-badge text-[9px] uppercase font-bold tracking-tight">PDF</span>
-</div>
-<div className="flex flex-col items-start overflow-hidden">
-<div className="flex items-center gap-space-sm">
-<span className="font-headline-sm text-headline-sm text-on-surface font-bold">Neil_Fernandes_Resume.pdf</span>
-<span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-badge text-label-badge">
-<span className="material-symbols-outlined text-[13px] text-secondary">verified</span>
-                  ATS Validated
+    <div className="bg-void text-text-cream font-body antialiased min-h-screen flex flex-col relative overflow-hidden">
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <CrimsonDither />
+      </div>
+      
+      <SmokedHeader />
+
+      <main className="relative z-10 flex-grow flex flex-col items-center justify-center px-6 pt-4 pb-28">
+        <div className="w-full max-w-[720px] flex flex-col gap-6">
+
+          {/* Header intro statement with retro dossier tag */}
+          <div className="flex flex-col gap-1.5 text-left mt-8">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <span className="px-2.5 py-0.5 rounded bg-void/50 border border-border-hairline text-peach-accent font-mono text-[10px] tracking-widest uppercase">
+                  FINAL VERIFICATION // BATCH 2026
                 </span>
-</div>
-<div className="flex flex-wrap items-center gap-2 mt-2 text-on-surface-variant font-body-sm text-body-sm">
-<span>2.4 MB</span>
-<span>•</span>
-<span>Uploaded Today at 14:22 IST</span>
-<span>•</span>
-<span className="text-primary font-semibold">100% Parsing Integrity</span>
-</div>
-</div>
-</div>
-<div className="flex items-center gap-space-sm">
-<button className="inline-flex items-center gap-1 px-space-md py-space-xs rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors" type="button">
-<span className="material-symbols-outlined text-[16px]">visibility</span>
-<span>Inspect Preview</span>
-</button>
-<button className="inline-flex items-center gap-1 px-space-md py-space-xs rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-secondary font-label-md text-label-md transition-colors" type="button">
-<span className="material-symbols-outlined text-[16px]">sync</span>
-<span>Replace</span>
-</button>
-</div>
-</div>
-{/* ATS Extracted Competencies Micro-Bar */}
-<div className="bg-surface-container-lowest p-space-sm rounded-lg flex flex-col md:flex-row md:items-center justify-between gap-3 md:gap-0">
-<div className="flex items-start md:items-center gap-space-sm">
-<span className="material-symbols-outlined text-[18px] text-primary">auto_awesome</span>
-<span className="font-body-sm text-body-sm text-on-surface"><strong>12 Extracted Skills:</strong> Go, C++, Kubernetes, PyTorch, Distributed Systems, Terraform, Docker</span>
-</div>
-<div className="flex items-center gap-space-sm text-on-surface-variant font-label-badge text-label-badge uppercase">
-<span className="inline-flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-secondary"></span>GitHub Verified</span>
-<span className="inline-flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-secondary"></span>LinkedIn Active</span>
-</div>
-</div>
-</div>
-</article>
-{/* CARD 3: Selected Positions Module */}
-<article className="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm transition-all hover:shadow-md">
-<div className="flex items-center justify-between pb-space-md">
-<div className="flex items-center gap-space-sm">
-<span className="w-7 h-7 rounded-lg bg-surface-container-high text-primary flex items-center justify-center font-label-md text-label-md font-bold">3</span>
-<h2 className="font-headline-sm text-headline-sm text-on-surface font-bold">Selected Internship Positions</h2>
-</div>
-<div className="flex items-center gap-space-md">
-<span className="px-space-md py-1 rounded-full bg-primary text-on-primary font-label-badge text-label-badge uppercase tracking-wider font-bold shadow-sm">
-            Selected: 3 / 3 Max Roles
-          </span>
-<button className="inline-flex items-center gap-1 font-label-md text-label-md text-secondary hover:text-on-secondary-container transition-colors uppercase tracking-wider" onClick={() => navigate('/register/step3')} type="button">
-<span className="material-symbols-outlined text-[16px]">edit</span>
-<span>Edit Step 3</span>
-</button>
-</div>
-</div>
-<div className="flex flex-col gap-space-sm">
-{/* Role 1: Google Cloud */}
-<div className="flex flex-col md:flex-row md:items-center justify-between bg-surface-container-low p-space-md rounded-xl hover:bg-surface-container transition-colors group gap-3 md:gap-0">
-<div className="flex items-start md:items-center gap-space-md">
-<div className="w-12 h-12 rounded-lg bg-surface-container-lowest flex items-center justify-center p-2 shadow-sm">
-<span className="material-symbols-outlined text-[28px] text-primary">cloud</span>
-</div>
-<div className="flex flex-col">
-<div className="flex items-center gap-space-sm">
-<span className="font-headline-sm text-headline-sm text-on-surface font-bold">Google Cloud</span>
-<span className="text-on-surface-variant">•</span>
-<span className="font-body-md text-sm md:text-body-md text-on-surface font-medium">Cloud Solutions &amp; SRE Intern</span>
-</div>
-<div className="flex flex-wrap items-center gap-space-sm mt-2 md:mt-1">
-<span className="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-label-badge text-label-badge">Cloud &amp; Infrastructure</span>
-<span className="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-badge text-label-badge font-semibold">₹45,000 / month</span>
-<span className="text-on-surface-variant font-body-sm text-body-sm">3 Months Duration • Hybrid (BKC)</span>
-</div>
-</div>
-</div>
-<button className="text-on-surface-variant hover:text-error p-space-xs rounded-lg hover:bg-surface-container-high transition-colors" title="Remove application slot" type="button">
-<span className="material-symbols-outlined text-[20px]">close</span>
-</button>
-</div>
-{/* Role 2: Morgan Stanley */}
-<div className="flex flex-col md:flex-row md:items-center justify-between bg-surface-container-low p-space-md rounded-xl hover:bg-surface-container transition-colors group gap-3 md:gap-0">
-<div className="flex items-start md:items-center gap-space-md">
-<div className="w-12 h-12 rounded-lg bg-surface-container-lowest flex items-center justify-center p-2 shadow-sm">
-<span className="material-symbols-outlined text-[28px] text-secondary">trending_up</span>
-</div>
-<div className="flex flex-col">
-<div className="flex items-center gap-space-sm">
-<span className="font-headline-sm text-headline-sm text-on-surface font-bold">Morgan Stanley</span>
-<span className="text-on-surface-variant">•</span>
-<span className="font-body-md text-sm md:text-body-md text-on-surface font-medium">Quantitative Tech &amp; DevOps Intern</span>
-</div>
-<div className="flex flex-wrap items-center gap-space-sm mt-2 md:mt-1">
-<span className="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-label-badge text-label-badge">Fintech &amp; High-Frequency</span>
-<span className="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-badge text-label-badge font-semibold">₹65,000 / month</span>
-<span className="text-on-surface-variant font-body-sm text-body-sm">6 Months Duration • On-site (NESCO)</span>
-</div>
-</div>
-</div>
-<button className="text-on-surface-variant hover:text-error p-space-xs rounded-lg hover:bg-surface-container-high transition-colors" title="Remove application slot" type="button">
-<span className="material-symbols-outlined text-[20px]">close</span>
-</button>
-</div>
-{/* Role 3: NVIDIA */}
-<div className="flex flex-col md:flex-row md:items-center justify-between bg-surface-container-low p-space-md rounded-xl hover:bg-surface-container transition-colors group gap-3 md:gap-0">
-<div className="flex items-start md:items-center gap-space-md">
-<div className="w-12 h-12 rounded-lg bg-surface-container-lowest flex items-center justify-center p-2 shadow-sm">
-<span className="material-symbols-outlined text-[28px] text-primary">memory</span>
-</div>
-<div className="flex flex-col">
-<div className="flex items-center gap-space-sm">
-<span className="font-headline-sm text-headline-sm text-on-surface font-bold">Nvidia</span>
-<span className="text-on-surface-variant">•</span>
-<span className="font-body-md text-sm md:text-body-md text-on-surface font-medium">CUDA &amp; Graphics Pipeline Intern</span>
-</div>
-<div className="flex flex-wrap items-center gap-space-sm mt-2 md:mt-1">
-<span className="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-label-badge text-label-badge">Hardware &amp; AI Systems</span>
-<span className="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-badge text-label-badge font-semibold">₹50,000 / month</span>
-<span className="text-on-surface-variant font-body-sm text-body-sm">Summer 2026 • Pune Campus</span>
-</div>
-</div>
-</div>
-<button className="text-on-surface-variant hover:text-error p-space-xs rounded-lg hover:bg-surface-container-high transition-colors" title="Remove application slot" type="button">
-<span className="material-symbols-outlined text-[20px]">close</span>
-</button>
-</div>
-</div>
-<div className="mt-space-md p-space-md bg-surface-container-low rounded-lg flex items-center gap-space-sm text-on-surface-variant">
-<span className="material-symbols-outlined text-[20px] text-primary flex-shrink-0">event_available</span>
-<p className="font-body-sm text-body-sm">
-<strong>Non-conflicting scheduling:</strong> You have utilized all 3 allocated application credits. In-person interviews on 3 October 2026 will automatically stagger to prevent timetable clashes.
-        </p>
-</div>
-</article>
-{/* Verification Legal Acknowledgement Callout */}
-<section className="bg-secondary-fixed/50 rounded-xl p-space-lg shadow-sm">
-<label className="flex items-start gap-space-md cursor-pointer select-none">
-<input checked="" className="w-5 h-5 mt-0.5 accent-primary rounded cursor-pointer" id="termsCheckbox" type="checkbox"/>
-<div className="flex flex-col">
-<span className="font-body-md text-body-md text-on-surface font-semibold">
-            I confirm all above information is authentic and authorize the TEDxCRCE Career Placement Cell to broadcast my verified dossier to interview panels.
-          </span>
-<div className="flex items-center gap-space-md mt-2">
-<span className="font-label-badge text-label-badge text-outline uppercase tracking-wider">Digital Hash Verification</span>
-<span className="font-body-sm text-body-sm text-on-surface-variant font-mono">CRCE-ENG-2026-8841-AUTH-OK</span>
-</div>
-</div>
-</label>
-</section>
-</div>
-{/* Sticky Bottom Submission Bar (Pinned Footer Action) */}
-<aside className="fixed bottom-0 left-0 right-0 w-full bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_-4px_24px_rgba(0,0,0,0.08)] z-40">
-<div className="max-w-[1440px] mx-auto px-4 md:px-margin py-4 md:py-0 md:h-24 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0">
-{/* Back Button */}
-<button className="w-full md:w-auto justify-center inline-flex items-center gap-space-sm px-space-lg py-space-sm rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-lg text-label-lg transition-colors" onClick={() => navigate('/register/step3')} type="button">
-<span className="material-symbols-outlined text-[18px]">arrow_back</span>
-<span>Back to Positions</span>
-</button>
-{/* Center Status Pill */}
-<div className="hidden md:flex items-center gap-space-sm px-space-md py-1.5 rounded-full bg-surface-container-low text-on-surface">
-<span className="w-2.5 h-2.5 rounded-full bg-primary inline-block"></span>
-<span className="font-label-badge text-label-badge uppercase tracking-wider font-semibold">3 Steps Verified • Final Roster Ready</span>
-</div>
-{/* Final Submission Action Group */}
-<div className="w-full md:w-auto flex flex-col items-center md:items-end">
-<button className="w-full md:w-auto justify-center inline-flex items-center gap-space-sm px-space-xl py-3 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg font-bold shadow-md transition-all hover:scale-[1.02]" id="submitBtn" onClick={async () => { await submitApplication(); navigate('/register/step5'); }} type="button">
-<span>Submit Application</span>
-<span className="material-symbols-outlined text-[20px]">arrow_forward</span>
-</button>
-<span className="font-body-sm text-[11px] text-on-surface-variant mt-1 text-center md:text-right">Application locks permanently upon submission</span>
-</div>
-</div>
-</aside>
-</div>
-</main><footer className="w-full bg-surface-container-low shadow-[0_-1px_8px_rgba(0,0,0,0.03)]"><div className="max-w-[1440px] mx-auto px-margin py-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md"><div className="flex items-center gap-space-md"><span className="font-headline-sm text-headline-sm text-primary font-bold">TEDx<span className="text-on-surface">CRCE</span></span><span className="font-body-sm text-body-sm text-on-surface-variant">This independent TEDx event is operated under license from TED.</span></div><div className="flex items-center gap-space-lg"><span className="font-body-sm text-body-sm text-on-surface-variant">© 2026 TEDxCRCE Internship Expo. All rights reserved.</span><div className="flex items-center gap-space-sm text-on-surface-variant font-label-badge text-label-badge uppercase tracking-wider"><span className="w-2 h-2 rounded-full bg-primary inline-block"></span>Session Secured</div></div></div></footer>
+                <span className="text-[11px] font-mono text-text-cream/40">STEP 04 OF 05</span>
+              </div>
+              <div className="flex items-center gap-1.5 text-xs text-emerald-400 font-mono">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>ALL DOSSIERS ATTACHED</span>
+              </div>
+            </div>
+
+            <h1 className="font-display font-bold text-3xl md:text-4xl text-white tracking-tight uppercase mt-1">
+              REVIEW YOUR <span className="text-primary">APPLICATION</span>
+            </h1>
+            <p className="font-sans text-sm text-text-cream/70 leading-relaxed">
+              Please cross-examine your student credentials, uploaded resume dossier, and shortlisted internship positions before dispatching to enterprise recruiters.
+            </p>
+          </div>
+
+          {/* CARD 1: YOUR DETAILS */}
+          <div className="smoked-glass border border-border-hairline rounded-xl p-6 md:p-7 shadow-2xl relative overflow-hidden transition-all duration-200">
+            {/* Corner notch accent */}
+            <div className="absolute top-0 right-0 w-12 h-12 overflow-hidden pointer-events-none">
+              <div className="absolute transform rotate-45 bg-primary/15 w-16 h-4 -top-1 -right-4"></div>
+            </div>
+
+            <div className="flex items-center justify-between pb-4 mb-4 border-b border-border-hairline">
+              <div className="flex items-center gap-2.5">
+                <div className="w-7 h-7 rounded-md bg-void flex items-center justify-center text-peach-accent border border-border-hairline">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"></path></svg>
+                </div>
+                <h2 className="font-display font-bold text-lg uppercase text-white tracking-wide">
+                  1. Your Details
+                </h2>
+              </div>
+              <button onClick={() => navigate('/register/step1')} className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-peach-accent transition-colors py-1 px-2.5 rounded bg-void border border-transparent hover:border-primary/40 group">
+                <svg className="w-3 h-3 transition-transform group-hover:-rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+                <span className="uppercase tracking-wider font-mono text-[11px]">Edit Details</span>
+              </button>
+            </div>
+
+            {/* 2-Column Key/Value Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-6 text-sm">
+              <div className="flex flex-col">
+                <span className="font-mono text-[10px] uppercase text-text-cream/50 tracking-wider">Candidate Name</span>
+                <span className="font-sans font-medium text-white mt-0.5 text-base">{studentDetails.fullName || 'Not provided'}</span>
+              </div>
+
+              <div className="flex flex-col">
+                <span className="font-mono text-[10px] uppercase text-text-cream/50 tracking-wider">College Institution</span>
+                <div className="flex items-center gap-1.5 mt-0.5">
+                  <span className="font-sans font-medium text-white">FCRCE, Bandra</span>
+                  <svg className="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" title="Verified Campus"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+              </div>
+
+              <div className="flex flex-col">
+                <span className="font-mono text-[10px] uppercase text-text-cream/50 tracking-wider">Branch / Department</span>
+                <span className="font-sans font-medium text-white mt-0.5">{studentDetails.branch || 'Not provided'}</span>
+              </div>
+
+              <div className="flex flex-col">
+                <span className="font-mono text-[10px] uppercase text-text-cream/50 tracking-wider">Year of Study</span>
+                <div className="flex items-center gap-2 mt-0.5">
+                  <span className="font-sans font-semibold text-white">{studentDetails.year || 'Not provided'}</span>
+                  <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-primary/25 text-peach-accent border border-primary/40">
+                    DRIVES ELIGIBILITY
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex flex-col">
+                <span className="font-mono text-[10px] uppercase text-text-cream/50 tracking-wider">College Email Address</span>
+                <span className="font-mono text-xs text-text-cream mt-1">{studentDetails.email || 'Not provided'}</span>
+              </div>
+
+              <div className="flex flex-col">
+                <span className="font-mono text-[10px] uppercase text-text-cream/50 tracking-wider">Phone / WhatsApp</span>
+                <div className="flex items-center gap-1.5 mt-1 font-mono text-xs text-text-cream">
+                  <span className="text-emerald-400">●</span>
+                  <span>{studentDetails.phone || 'Not provided'}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* CARD 2: RESUME */}
+          <div className="smoked-glass border border-border-hairline rounded-xl p-6 md:p-7 shadow-2xl relative overflow-hidden transition-all duration-200">
+            <div className="flex items-center justify-between pb-4 mb-4 border-b border-border-hairline">
+              <div className="flex items-center gap-2.5">
+                <div className="w-7 h-7 rounded-md bg-void flex items-center justify-center text-peach-accent border border-border-hairline">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                </div>
+                <h2 className="font-display font-bold text-lg uppercase text-white tracking-wide">
+                  2. Resume Link
+                </h2>
+              </div>
+              <div className="flex items-center gap-2">
+                <a href={resumeLink} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-xs font-semibold text-primary hover:text-peach-accent transition-colors py-1 px-2 rounded bg-void border border-transparent hover:border-primary/40">
+                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                  <span className="uppercase tracking-wider font-mono text-[11px]">View</span>
+                </a>
+                <button onClick={() => navigate('/register/step2')} className="inline-flex items-center gap-1 text-xs font-semibold text-primary hover:text-peach-accent transition-colors py-1 px-2.5 rounded bg-void border border-transparent hover:border-primary/40 group">
+                  <svg className="w-3 h-3 transition-transform group-hover:-rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+                  <span className="uppercase tracking-wider font-mono text-[11px]">Edit</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Link Display */}
+            <div className="flex items-center justify-between p-4 rounded-lg bg-void border border-border-hairline">
+              <div className="flex items-center gap-3.5 overflow-hidden w-full">
+                <div className="w-12 h-12 rounded-lg bg-primary/20 border border-primary/40 flex flex-col items-center justify-center text-primary flex-shrink-0">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+                </div>
+                <div className="flex flex-col flex-grow truncate">
+                  <div className="flex items-center gap-2">
+                    <span className="font-sans font-semibold text-sm text-white truncate">{resumeLink || 'No link provided'}</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 mt-1">
+                    <svg className="w-3 h-3 text-emerald-400 font-bold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+                    <span className="font-mono text-[11px] text-emerald-400">Google Drive Link Validated</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* CARD 3: SELECTED POSITIONS */}
+          <div className="smoked-glass border border-border-hairline rounded-xl p-6 md:p-7 shadow-2xl relative overflow-hidden transition-all duration-200">
+            <div className="flex items-center justify-between pb-4 mb-4 border-b border-border-hairline">
+              <div className="flex items-center gap-3">
+                <div className="w-7 h-7 rounded-md bg-void flex items-center justify-center text-peach-accent border border-border-hairline">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                </div>
+                <h2 className="font-display font-bold text-lg uppercase text-white tracking-wide">
+                  3. Selected Positions
+                </h2>
+                <div className="px-2.5 py-0.5 rounded-full bg-primary text-white font-mono text-xs font-bold shadow-lg shadow-primary/40">
+                  Selected: <span>{selectedPositions.length}</span>/3
+                </div>
+              </div>
+              <button onClick={() => navigate('/register/step3')} className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-peach-accent transition-colors py-1 px-2.5 rounded bg-void border border-transparent hover:border-primary/40 group">
+                <svg className="w-3 h-3 transition-transform group-hover:-rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+                <span className="uppercase tracking-wider font-mono text-[11px]">Edit Positions</span>
+              </button>
+            </div>
+
+            <div className="flex flex-col gap-3">
+              {selectedPositions.length === 0 && (
+                <p className="text-center py-6 text-xs font-mono text-text-cream/50">
+                  No positions selected. Please return to Step 3 to select at least 1 internship position.
+                </p>
+              )}
+              {selectedPositions.map(id => {
+                let selectedPos = null;
+                let selectedComp = null;
+                companies.forEach(company => {
+                  const pos = company.positions.find(p => p.id === id);
+                  if (pos) {
+                    selectedPos = pos;
+                    selectedComp = company;
+                  }
+                });
+
+                if (!selectedPos || !selectedComp) return null;
+
+                return (
+                  <div key={id} className="flex flex-col p-3.5 rounded-lg bg-void border border-border-hairline hover:border-primary/40 transition-colors group">
+                    <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-3.5">
+                          <div className="w-10 h-10 rounded-lg bg-void border border-border-hairline flex items-center justify-center text-primary font-display font-bold text-sm">
+                            {selectedComp.logoUrl ? (
+                                <img src={selectedComp.logoUrl} alt={selectedComp.name} className="w-full h-full object-contain" />
+                            ) : (
+                                <span>{selectedComp.name.substring(0, 2).toUpperCase()}</span>
+                            )}
+                          </div>
+                          <div className="flex flex-col">
+                            <div className="flex items-center gap-2">
+                              <span className="font-sans text-xs text-text-cream/65 uppercase font-semibold">{selectedComp.name}</span>
+                              <svg className="w-3 h-3 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </div>
+                            <h3 className="font-sans font-semibold text-sm text-white mt-0.5">
+                              {selectedPos.title}
+                            </h3>
+                            <div className="flex items-center gap-2 mt-1.5 flex-wrap">
+                              <span className="px-2 py-0.5 rounded bg-primary/20 text-peach-accent text-[10px] font-mono border border-primary/30">
+                                {selectedPos.domain}
+                              </span>
+                              {selectedPos.isPaid && (
+                                  <span className="px-2 py-0.5 rounded bg-emerald-900/30 text-emerald-400 text-[10px] font-mono border border-emerald-500/30">
+                                    Paid
+                                  </span>
+                              )}
+                              <span className="text-[10px] font-mono text-white/40">{selectedPos.duration}</span>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    {selectedPos.requiresTask && (
+                        <div className="mt-3 pt-3 border-t border-border-hairline w-full">
+                          <label className="font-sans text-xs font-semibold text-primary flex items-center gap-1 mb-1.5" htmlFor={`task-${id}`}>
+                             Pre-screening Task Link <span className="text-primary">*</span>
+                          </label>
+                          <input 
+                            type="url"
+                            required
+                            placeholder="e.g. GitHub or Google Drive Link"
+                            className="w-full px-3 py-2 bg-black/40 border border-border-hairline text-white text-xs rounded focus:outline-none focus:border-primary"
+                            id={`task-${id}`}
+                            value={taskLinks[id] || ''}
+                            onChange={(e) => setTaskLinks(prev => ({ ...prev, [id]: e.target.value }))}
+                          />
+                        </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* CARD 4: FINAL CONFIRMATION CHECKBOX */}
+          <div className="smoked-glass rounded-xl p-5 md:p-6 shadow-2xl relative overflow-hidden border border-primary/30 bg-primary/5">
+            <label className="flex items-start gap-3.5 cursor-pointer select-none">
+              <div className="relative flex items-center pt-0.5">
+                <input 
+                  type="checkbox" 
+                  checked={confirmed}
+                  onChange={(e) => setConfirmed(e.target.checked)}
+                  className="w-5 h-5 rounded border-2 border-primary/50 bg-void text-primary focus:ring-0 focus:ring-offset-0 transition-colors cursor-pointer"
+                />
+              </div>
+              <div className="flex flex-col">
+                <span className="font-sans font-semibold text-sm text-white leading-snug">
+                  I confirm the above information is accurate and authentic
+                </span>
+                <p className="font-sans text-xs text-text-cream/65 mt-1 leading-relaxed">
+                  I understand that submitting this application authorizes TEDxCRCE Placement Coordination Cell to transmit my academic details and verified resume dossier to selected corporate recruiters for interview slotting.
+                </p>
+              </div>
+            </label>
+          </div>
+
+          {/* Action Buttons */}
+          <div className="flex items-center justify-between border-t border-border-hairline pt-6 mt-4">
+              <button 
+                  type="button"
+                  onClick={() => navigate('/register/step3')}
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md text-text-cream/70 hover:text-text-cream hover:bg-void/50 transition-all font-sans text-sm font-semibold border border-transparent hover:border-border-hairline"
+              >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                  <span>Back to Positions</span>
+              </button>
+              
+              <button 
+                  type="button"
+                  onClick={handleSubmit}
+                  disabled={!confirmed || selectedPositions.length === 0}
+                  className={`inline-flex items-center justify-center gap-2 px-7 py-3 rounded-md font-sans font-semibold text-sm shadow-lg transition-all ${confirmed && selectedPositions.length > 0 ? 'bg-primary hover:bg-primary-hover text-white shadow-primary/20' : 'bg-void border border-border-hairline text-text-cream/30 cursor-not-allowed'}`}
+              >
+                  <span>Submit Application</span>
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </button>
+          </div>
+
+        </div>
+      </main>
+
+      <SmokedFooter />
     </div>
   );
 };

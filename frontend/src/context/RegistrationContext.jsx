@@ -7,53 +7,64 @@ export const useRegistration = () => useContext(RegistrationContext);
 
 export const RegistrationProvider = ({ children }) => {
   const [studentDetails, setStudentDetails] = useState(() => {
-    const saved = localStorage.getItem('studentDetails');
+    const saved = sessionStorage.getItem('studentDetails');
     return saved ? JSON.parse(saved) : {
       fullName: '',
       college: 'FCRCE',
       branch: '',
       year: '3',
+      studentClass: '',
+      division: '',
       email: '',
       phone: '',
     };
   });
 
   const [resumeLink, setResumeLink] = useState(() => {
-    return localStorage.getItem('resumeLink') || '';
+    return sessionStorage.getItem('resumeLink') || '';
   });
 
   const [selectedPositions, setSelectedPositions] = useState(() => {
-    const saved = localStorage.getItem('selectedPositions');
+    const saved = sessionStorage.getItem('selectedPositions');
     return saved ? JSON.parse(saved) : [];
+  });
+
+  const [taskLinks, setTaskLinks] = useState(() => {
+    const saved = sessionStorage.getItem('taskLinks');
+    return saved ? JSON.parse(saved) : {};
   });
 
   const [editModeReturnUrl, setEditModeReturnUrl] = useState('');
 
   useEffect(() => {
-    localStorage.setItem('studentDetails', JSON.stringify(studentDetails));
+    sessionStorage.setItem('studentDetails', JSON.stringify(studentDetails));
   }, [studentDetails]);
 
   useEffect(() => {
-    localStorage.setItem('resumeLink', resumeLink);
+    sessionStorage.setItem('resumeLink', resumeLink);
   }, [resumeLink]);
 
   useEffect(() => {
-    localStorage.setItem('selectedPositions', JSON.stringify(selectedPositions));
+    sessionStorage.setItem('selectedPositions', JSON.stringify(selectedPositions));
   }, [selectedPositions]);
+
+  useEffect(() => {
+    sessionStorage.setItem('taskLinks', JSON.stringify(taskLinks));
+  }, [taskLinks]);
 
   const hasCompletedDetails = studentDetails.fullName.trim() !== '' && studentDetails.email.trim() !== '';
   const hasUploadedResume = resumeLink.trim() !== '';
 
   const updateStudentDetails = (details) => setStudentDetails((prev) => ({ ...prev, ...details }));
   
-  const togglePosition = (position) => {
+  const togglePosition = (positionId) => {
     setSelectedPositions((prev) => {
-      const isSelected = prev.find((p) => p.id === position.id);
+      const isSelected = prev.includes(positionId);
       if (isSelected) {
-        return prev.filter((p) => p.id !== position.id);
+        return prev.filter((id) => id !== positionId);
       } else {
         if (prev.length >= 3) return prev;
-        return [...prev, position];
+        return [...prev, positionId];
       }
     });
   };
@@ -61,12 +72,18 @@ export const RegistrationProvider = ({ children }) => {
   const submitApplication = async () => {
     try {
       // Create student entry
-      await applicationsApi.start({
+      const response = await applicationsApi.start({
         email: studentDetails.email,
         fullName: studentDetails.fullName,
         branch: studentDetails.branch,
-        year: parseInt(studentDetails.year) || 3
+        year: parseInt(studentDetails.year) || 3,
+        class: studentDetails.studentClass,
+        division: studentDetails.division
       });
+      
+      if (response.data?.sessionToken) {
+        sessionStorage.setItem('studentToken', response.data.sessionToken);
+      }
       
       // Update with phone/step
       if (studentDetails.phone) {
@@ -84,17 +101,22 @@ export const RegistrationProvider = ({ children }) => {
          });
       }
 
-      const positionIds = selectedPositions.map(p => p.id);
+      const applications = selectedPositions.map(id => ({
+        positionId: id,
+        taskLink: taskLinks[id] || ''
+      }));
       
       // Final submit
       await applicationsApi.submit({
         email: studentDetails.email,
-        positionIds
+        applications
       });
 
-      localStorage.removeItem('studentDetails');
-      localStorage.removeItem('resumeLink');
-      localStorage.removeItem('selectedPositions');
+      sessionStorage.removeItem('studentDetails');
+      sessionStorage.removeItem('resumeLink');
+      sessionStorage.removeItem('selectedPositions');
+      sessionStorage.removeItem('taskLinks');
+      sessionStorage.removeItem('studentToken');
       return true;
     } catch (error) {
       console.error('Submission error:', error);
@@ -111,6 +133,8 @@ export const RegistrationProvider = ({ children }) => {
         setResumeLink,
         selectedPositions,
         togglePosition,
+        taskLinks,
+        setTaskLinks,
         hasCompletedDetails,
         hasUploadedResume,
         editModeReturnUrl,

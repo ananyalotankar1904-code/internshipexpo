@@ -5,6 +5,9 @@ import RegistrationFlow from './pages/RegistrationFlow';
 import { RegistrationProvider } from './context/RegistrationContext';
 import Dither from './components/Dither';
 
+import AdminLogin from './pages/AdminLogin';
+import AdminDashboard from './pages/AdminDashboard';
+
 function App() {
   return (
     <RegistrationProvider>
@@ -25,6 +28,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/register/*" element={<RegistrationFlow />} />
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin" element={<AdminDashboard />} />
         </Routes>
       </Router>
     </RegistrationProvider>

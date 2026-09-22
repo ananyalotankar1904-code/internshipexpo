@@ -7,6 +7,18 @@ const api = axios.create({
   },
 });
 
+api.interceptors.request.use((config) => {
+  const adminToken = localStorage.getItem('adminToken');
+  const studentToken = sessionStorage.getItem('studentToken');
+  
+  if (adminToken && config.url?.startsWith('/admin')) {
+    config.headers.Authorization = `Bearer ${adminToken}`;
+  } else if (studentToken) {
+    config.headers.Authorization = `Bearer ${studentToken}`;
+  }
+  return config;
+});
+
 export const applicationsApi = {
   start: (data) => api.post('/applications/start', data),
   step: (data) => api.patch('/applications/step', data),

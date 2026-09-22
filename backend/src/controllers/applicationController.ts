@@ -1,13 +1,17 @@
-import { Request, Response } from 'express';
+import { Request, Response, NextFunction } from 'express';
 import { z, ZodError } from 'zod';
 import { prisma } from '../index';
-import { google } from 'googleapis';
+import jwt from 'jsonwebtoken';
+
+const JWT_SECRET = process.env.JWT_SECRET || 'fallback_secret';
 
 const startSchema = z.object({
-  email: z.string().email(),
-  fullName: z.string().min(1),
-  branch: z.string().min(1),
+  email: z.string().email().trim().max(255),
+  fullName: z.string().min(1).max(100).trim(),
+  branch: z.string().min(1).max(50).trim(),
   year: z.number().int().min(1).max(4),
+  class: z.string().max(50).trim().optional(),
+  division: z.string().max(10).trim().optional(),
 });
 
 export const startApplication = async (req: Request, res: Response): Promise<void> => {
@@ -30,6 +34,8 @@ export const startApplication = async (req: Request, res: Response): Promise<voi
           fullName: data.fullName,
           branch: data.branch,
           year: data.year,
+          class: data.class,
+          division: data.division,
         }
       });
     } else {
@@ -39,17 +45,37 @@ export const startApplication = async (req: Request, res: Response): Promise<voi
           fullName: data.fullName,
           branch: data.branch,
           year: data.year,
+          class: data.class,
+          division: data.division,
         }
       });
     }
 
-    res.status(200).json({ student });
+    const sessionToken = jwt.sign({ email: student.email }, JWT_SECRET, { expiresIn: '2h' });
+    res.status(200).json({ student, sessionToken });
   } catch (error) {
     if (error instanceof ZodError) {
       res.status(400).json({ error: error.issues });
     } else {
       res.status(500).json({ error: 'Internal server error' });
     }
+  }
+};
+
+export const verifyStudentSession = (req: Request, res: Response, next: NextFunction): void => {
+  const authHeader = req.headers.authorization;
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    res.status(401).json({ error: 'Unauthorized: No session token provided' });
+    return;
+  }
+  
+  const token = authHeader.split(' ')[1];
+  try {
+    const decoded = jwt.verify(token, JWT_SECRET) as { email: string };
+    (req as any).studentEmail = decoded.email;
+    next();
+  } catch (e) {
+    res.status(401).json({ error: 'Unauthorized: Session expired or invalid' });
   }
 };
 
@@ -62,6 +88,12 @@ const updateSchema = z.object({
 export const updateStep = async (req: Request, res: Response): Promise<void> => {
   try {
     const data = updateSchema.parse(req.body);
+    const sessionEmail = (req as any).studentEmail;
+
+    if (data.email !== sessionEmail) {
+      res.status(403).json({ error: 'Email mismatch with session' });
+      return;
+    }
 
     const student = await prisma.student.update({
       where: { email: data.email },
@@ -85,6 +117,12 @@ const verifySchema = z.object({
 export const verifyResume = async (req: Request, res: Response): Promise<void> => {
   try {
     const { email, driveLink } = verifySchema.parse(req.body);
+    const sessionEmail = (req as any).studentEmail;
+
+    if (email !== sessionEmail) {
+      res.status(403).json({ error: 'Email mismatch with session' });
+      return;
+    }
     
     // Simple regex to extract file ID
     const match = driveLink.match(/[-\w]{25,}/);
@@ -110,12 +148,21 @@ export const verifyResume = async (req: Request, res: Response): Promise<void> =
 
 const submitSchema = z.object({
   email: z.string().email(),
-  positionIds: z.array(z.string().uuid()).max(3).min(1),
+  applications: z.array(z.object({
+    positionId: z.string().uuid(),
+    taskLink: z.string().url().optional().or(z.literal(''))
+  })).max(3).min(1),
 });
 
 export const submitApplication = async (req: Request, res: Response): Promise<void> => {
   try {
-    const { email, positionIds } = submitSchema.parse(req.body);
+    const { email, applications } = submitSchema.parse(req.body);
+    const sessionEmail = (req as any).studentEmail;
+
+    if (email !== sessionEmail) {
+      res.status(403).json({ error: 'Email mismatch with session' });
+      return;
+    }
 
     // Run transaction
     const result = await prisma.$transaction(async (tx: any) => {
@@ -133,11 +180,12 @@ export const submitApplication = async (req: Request, res: Response): Promise<vo
       }
 
       // 2. Create applications
-      for (const posId of positionIds) {
+      for (const app of applications) {
         await tx.application.create({
           data: {
             studentId: student.id,
-            positionId: posId,
+            positionId: app.positionId,
+            taskLink: app.taskLink || null,
           }
         });
       }
@@ -154,6 +202,8 @@ export const submitApplication = async (req: Request, res: Response): Promise<vo
 
     res.status(200).json(result);
   } catch (error: any) {
-    res.status(400).json({ error: error.message || 'Submission failed' });
+    const knownErrors = ['Student not found', 'Application already submitted'];
+    const message = knownErrors.includes(error.message) ? error.message : 'Submission failed';
+    res.status(400).json({ error: message });
   }
 };
