@@ -154,7 +154,7 @@ const Home = () => {
 
 <div className="flex flex-col items-center justify-center py-2">
   <p className="font-display font-black text-6xl tracking-tighter text-black">
-    3 OCT
+    3rd OCT
   </p>
   <p className="font-display font-bold text-xl tracking-[0.3em] text-red-700 mt-1 pl-2">
     2026
@@ -254,7 +254,7 @@ const Home = () => {
 <span className="h-[2px] w-6 bg-primary"></span>
 <span className="font-sans text-xs font-semibold tracking-widest text-peach-accent uppercase">Career Pathways</span>
 </div>
-<h2 className="font-display font-bold text-5xl uppercase tracking-tight text-text-cream">
+<h2 className="font-display font-bold text-4xl sm:text-5xl uppercase tracking-tight text-text-cream break-words">
             Participating <span className="text-primary">Companies</span>
 </h2>
 </div>
@@ -324,7 +324,7 @@ const Home = () => {
 </div>
 {/* Single-row logo strip on lighter #140A0A smoked-glass band */}
 <div className="w-full smoked-glass rounded-lg py-6 md:py-8 px-4 md:px-10 border border-border-hairline">
-<div className="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-8 items-center justify-items-center">
+<div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 items-center justify-items-center">
 {/* Sponsor 1 */}
 <div className="group flex flex-col items-center justify-center p-4 transition-all duration-300 cursor-pointer">
 <div className="font-display font-bold text-xl tracking-tighter text-text-cream/50 grayscale group-hover:grayscale-0 group-hover:text-primary transition-all">
@@ -350,24 +350,6 @@ const Home = () => {
             </div>
 <span className="font-mono text-[10px] text-text-cream/40 mt-1 uppercase group-hover:text-peach-accent transition-colors">
               Student Outreach
-            </span>
-</div>
-{/* Sponsor 4 */}
-<div className="group flex flex-col items-center justify-center p-4 transition-all duration-300 cursor-pointer">
-<div className="font-display font-bold text-xl tracking-tighter text-text-cream/50 grayscale group-hover:grayscale-0 group-hover:text-primary transition-all">
-              MAHARASHTRA AI
-            </div>
-<span className="font-mono text-[10px] text-text-cream/40 mt-1 uppercase group-hover:text-peach-accent transition-colors">
-              Knowledge Patron
-            </span>
-</div>
-{/* Sponsor 5 */}
-<div className="group flex flex-col items-center justify-center p-4 transition-all duration-300 cursor-pointer">
-<div className="font-display font-bold text-xl tracking-tighter text-text-cream/50 grayscale group-hover:grayscale-0 group-hover:text-secondary transition-all">
-              CRCE ALUMNI FUND
-            </div>
-<span className="font-mono text-[10px] text-text-cream/40 mt-1 uppercase group-hover:text-peach-accent transition-colors">
-              Grant Support
             </span>
 </div>
 </div>
@@ -418,14 +400,14 @@ The interview rooms will be posted on the WhatsApp community.
 {/* Contact Block & Simple Contact Form */}
 <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 bg-surface-solid rounded-xl p-6 md:p-10 border border-border-hairline relative">
 {/* Left Contact Info Details */}
-<div className="col-span-1 md:col-span-5 flex flex-col justify-between space-y-8">
+<div className="col-span-1 md:col-span-5 flex flex-col justify-start space-y-6">
 <div>
 <div className="inline-flex items-center gap-2 mb-2">
 <span className="h-[2px] w-6 bg-primary"></span>
 <span className="font-sans text-xs font-semibold tracking-widest text-peach-accent uppercase">Get In Touch</span>
 </div>
 <h2 className="font-display font-bold text-3xl md:text-4xl uppercase tracking-tight text-text-cream">
-              Questions About <br/>The <span className="text-primary">Expo?</span>
+              Queries
 </h2>
 <p className="font-body text-text-cream/70 text-sm mt-4 leading-relaxed">
               Reach out to our student coordination council or placement cell representatives. We are here to answer booth queries, schedule clearances, and student verification passes.

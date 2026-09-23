@@ -87,18 +87,16 @@ const Step1StudentDetails = () => {
                   </label>
                   <div className="relative">
                     <select 
-                      className="w-full px-4 py-3 rounded-md bg-transparent text-text-cream border border-border-hairline text-sm font-body appearance-none cursor-pointer pr-10 transition-all focus:border-primary focus:outline-none"
+                      className="w-full px-4 py-3 rounded-md bg-black text-text-cream border border-border-hairline text-sm font-body appearance-none cursor-pointer pr-10 transition-all focus:border-primary focus:outline-none"
                       value={studentDetails.branch}
                       required
                       onChange={(e) => updateStudentDetails({branch: e.target.value})}
                     >
                       <option disabled value="">Select Department</option>
-                      <option value="comps">Computer Engineering (COMP)</option>
-                      <option value="aids">Artificial Intelligence &amp; Data Science (AI &amp; DS)</option>
-                      <option value="it">Information Technology (IT)</option>
+                      <option value="comps">Computer Engineering (COMPS)</option>
+                      <option value="cse">Computer Science Engineering (CSE)</option>
                       <option value="mech">Mechanical Engineering (MECH)</option>
-                      <option value="ecs">Electronics &amp; Computer Science (ECS)</option>
-                      <option value="extc">Electronics &amp; Telecommunication (EXTC)</option>
+                      <option value="ecs">Electronics & Computer Science Engineering (ECS)</option>
                     </select>
                   </div>
                 </div>
@@ -110,8 +108,8 @@ const Step1StudentDetails = () => {
                       Year of Study <span className="text-primary">*</span>
                     </label>
                   </div>
-                  <div className="grid grid-cols-4 gap-1 p-1 rounded-lg bg-transparent border border-border-hairline">
-                    {[1, 2, 3, 4].map((year) => (
+                  <div className="grid grid-cols-3 gap-1 p-1 rounded-lg bg-transparent border border-border-hairline">
+                    {[2, 3, 4].map((year) => (
                       <button 
                         key={year}
                         type="button"
@@ -122,7 +120,7 @@ const Step1StudentDetails = () => {
                             : 'font-medium text-text-cream/60 hover:bg-surface-raised hover:text-text-cream'
                         }`}
                       >
-                        {year === 1 ? 'FE' : year === 2 ? 'SE' : year === 3 ? 'TE' : 'BE'}
+                        {year === 2 ? 'SE' : year === 3 ? 'TE' : 'BE'}
                       </button>
                     ))}
                   </div>
