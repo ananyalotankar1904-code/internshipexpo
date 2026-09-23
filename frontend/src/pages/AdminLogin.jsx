@@ -57,7 +57,7 @@ const AdminLogin = () => {
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="w-full px-4 py-3 rounded-xl bg-surface-container-high border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"
+              className="w-full px-4 py-3 rounded-xl bg-surface-container-high text-on-surface border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"
               required
             />
           </div>
@@ -71,7 +71,7 @@ const AdminLogin = () => {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-3 rounded-xl bg-surface-container-high border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"
+              className="w-full px-4 py-3 rounded-xl bg-surface-container-high text-on-surface border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"
               required
             />
           </div>

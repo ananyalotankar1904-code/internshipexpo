@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { companiesApi } from '../api/client';
 import Carousel from '../components/Carousel';
-import { FiBriefcase, FiUsers, FiFileText } from 'react-icons/fi';
+import { FiBriefcase, FiUsers, FiFileText, FiUser } from 'react-icons/fi';
 import CompanyDetailModal from '../components/CompanyDetailModal';
 import tedxLogo from '../tedx-logo.png';
 
@@ -475,7 +475,7 @@ The interview rooms will be posted on the WhatsApp community.
 <a className="hover:text-text-cream transition-colors" href="#about">Terms of Entry</a>
 <a className="hover:text-text-cream transition-colors" href="#companies">Code of Conduct</a>
 <a className="hover:text-text-cream transition-colors" href="#event-info">Press &amp; Media</a>
-<Link className="hover:text-text-cream transition-colors" to="/admin/login">Admin Login</Link>
+<Link className="hover:text-text-cream transition-colors flex items-center gap-1" to="/admin/login"><FiUser /> Admin Login</Link>
 </div>
 {/* Cream Social Icons */}
 <div className="flex items-center space-x-4">
