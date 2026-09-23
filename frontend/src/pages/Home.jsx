@@ -475,6 +475,7 @@ The interview rooms will be posted on the WhatsApp community.
 <a className="hover:text-text-cream transition-colors" href="#about">Terms of Entry</a>
 <a className="hover:text-text-cream transition-colors" href="#companies">Code of Conduct</a>
 <a className="hover:text-text-cream transition-colors" href="#event-info">Press &amp; Media</a>
+<Link className="hover:text-text-cream transition-colors" to="/admin/login">Admin Login</Link>
 </div>
 {/* Cream Social Icons */}
 <div className="flex items-center space-x-4">
