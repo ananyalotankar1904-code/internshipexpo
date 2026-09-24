@@ -7,9 +7,8 @@ async function main() {
     data: {
       name: 'Google Cloud India',
       websiteUrl: 'https://cloud.google.com/',
-      logoUrl: 'https://cdn.iconscout.com/icon/free/png-256/google-1772223-1507807.png',
+      logoUrl: '/logos/google.png',
       tags: ['Cloud Computing', 'Enterprise Tech', '100,000+ Employees', 'HQ: Mountain View'],
-      highlights: ['Global Scale', 'AI & ML', 'Open Source'],
       positions: {
         create: [
           {
@@ -31,9 +30,8 @@ async function main() {
     data: {
       name: 'Morgan Stanley',
       websiteUrl: 'https://www.morganstanley.com/',
-      logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/3/34/Morgan_Stanley_Logo_1.png',
+      logoUrl: '/logos/morgan-stanley.png',
       tags: ['Investment Banking', 'Financial Services', 'HQ: New York'],
-      highlights: ['Fintech', 'Global Markets', 'Pre-Placement Offers'],
       positions: {
         create: [
           {
