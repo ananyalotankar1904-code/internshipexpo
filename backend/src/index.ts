@@ -20,8 +20,16 @@ if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma;
 app.set('trust proxy', 1);
 app.use(helmet());
 app.use(cors({
-  origin: process.env.ALLOWED_ORIGINS?.split(',') || ['http://localhost:5173', 'https://internship-expo26-frcrce.vercel.app'],
-  methods: ['GET', 'POST', 'PATCH'],
+  origin: function (origin, callback) {
+    const allowed = process.env.ALLOWED_ORIGINS?.split(',') || [];
+    const defaults = ['http://localhost:5173', 'https://internship-expo26-frcrce.vercel.app', 'https://internshipexpo.vercel.app'];
+    if (!origin || allowed.includes(origin) || defaults.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ['GET', 'POST', 'PATCH', 'OPTIONS'],
   credentials: true,
 }));
 app.use(express.json({ limit: '100kb' }));
