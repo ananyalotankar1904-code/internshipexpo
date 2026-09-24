@@ -17,6 +17,7 @@ const globalForPrisma = globalThis as unknown as { prisma: PrismaClient };
 export const prisma = globalForPrisma.prisma ?? new PrismaClient();
 if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma;
 
+app.set('trust proxy', 1);
 app.use(helmet());
 app.use(cors({
   origin: process.env.ALLOWED_ORIGINS?.split(',') || ['http://localhost:5173'],
