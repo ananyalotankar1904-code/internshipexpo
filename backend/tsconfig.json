@@ -17,6 +17,5 @@
       "node"
     ]
   },
-  "include": ["src/**/*"],
-  "exclude": ["src/prisma/**/*"]
+  "include": ["src/**/*"]
 }
