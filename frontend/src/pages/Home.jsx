@@ -267,7 +267,7 @@ const Home = () => {
 </div>
 {/* Dynamic Grid of Logo Cards */}
 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-5">
-  {companies.map(company => (
+  {(companies || []).map(company => (
     <div key={company.id} onClick={() => handleOpenModal(company)} className="group cursor-pointer smoked-glass rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-2xl hover:shadow-primary/20 relative overflow-hidden flex flex-col items-center justify-center aspect-square h-auto">
       <div className="absolute inset-0 bg-gradient-to-br from-wave-crimson/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
       
