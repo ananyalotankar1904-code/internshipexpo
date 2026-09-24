@@ -71,7 +71,10 @@ const Home = () => {
 <a className="text-text-cream/70 hover:text-text-cream transition-colors duration-200" href="#event-info">Contact &amp; Info</a>
 </nav>
 {/* CTA Register Button (Far Right) */}
-<div className="flex items-center gap-4">
+<div className="flex items-center gap-3">
+<Link className="text-text-cream/70 hover:text-text-cream font-sans font-medium text-xs px-3 py-1.5 border border-text-cream/20 hover:border-text-cream/50 rounded-md transition-all duration-200 flex items-center gap-1.5" to="/admin/login">
+  <FiUser className="w-3.5 h-3.5" /> Admin
+</Link>
 <Link className="bg-primary hover:bg-primary-hover text-text-cream font-sans font-semibold text-sm px-6 py-2.5 rounded-md transition-all duration-200 shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-[0.98]" to="/register">
           Register
         </Link>
@@ -262,31 +265,25 @@ const Home = () => {
           Click any company tile to review eligibility criteria, open internship roles, and interview formats.
         </p>
 </div>
-{/* Dynamic Grid of Smoked-Glass Cards */}
-<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
+{/* Dynamic Grid of Logo Cards */}
+<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-5">
   {companies.map(company => (
-    <div key={company.id} onClick={() => handleOpenModal(company)} className="group cursor-pointer smoked-glass rounded-md p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-2xl hover:shadow-primary/20 relative overflow-hidden flex flex-col justify-between min-h-[170px]">
+    <div key={company.id} onClick={() => handleOpenModal(company)} className="group cursor-pointer smoked-glass rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-2xl hover:shadow-primary/20 relative overflow-hidden flex flex-col items-center justify-center aspect-square h-auto">
       <div className="absolute inset-0 bg-gradient-to-br from-wave-crimson/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-      <div className="flex items-center justify-between relative z-10">
-        <div className="w-10 h-10 rounded bg-surface-raised border border-border-hairline flex items-center justify-center font-display font-bold text-primary text-base">
-          {company.logoUrl ? (
-             <img src={company.logoUrl} alt={company.name} className="w-full h-full object-contain" />
-          ) : (
-             company.name.substring(0, 2).toUpperCase()
-          )}
-        </div>
-        <span className="text-[11px] font-mono text-peach-accent opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
-          View Details →
-        </span>
+      
+      <div className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center relative z-10">
+        {company.logoUrl ? (
+           <img src={company.logoUrl} alt={company.name} className="max-w-full max-h-full object-contain filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 scale-95 group-hover:scale-100" />
+        ) : (
+           <span className="font-display font-bold text-3xl text-text-cream/50 group-hover:text-primary transition-colors duration-300">
+             {company.name.substring(0, 2).toUpperCase()}
+           </span>
+        )}
       </div>
-      <div className="relative z-10 mt-4">
-        <h3 className="font-sans font-bold text-base text-text-cream group-hover:text-text-cream">{company.name}</h3>
-        <p className="font-body text-xs text-text-cream/60 mt-0.5 truncate">{company.tags && company.tags[0]}</p>
-        <div className="mt-2.5 flex items-center gap-1.5 flex-wrap">
-          <span className="px-2 py-0.5 bg-surface-raised border border-border-hairline rounded text-[10px] text-text-cream/70 font-mono">
-            {company.positions?.length || 0} Roles
-          </span>
-        </div>
+      
+      {/* Label appearing on hover */}
+      <div className="absolute bottom-4 left-0 right-0 text-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 z-10">
+        <span className="text-[10px] font-mono font-medium text-peach-accent tracking-widest uppercase bg-black/60 px-2 py-1 rounded">View Details</span>
       </div>
     </div>
   ))}
