@@ -20,7 +20,7 @@ if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma;
 app.set('trust proxy', 1);
 app.use(helmet());
 app.use(cors({
-  origin: process.env.ALLOWED_ORIGINS?.split(',') || ['http://localhost:5173'],
+  origin: process.env.ALLOWED_ORIGINS?.split(',') || ['http://localhost:5173', 'https://internship-expo26-frcrce.vercel.app'],
   methods: ['GET', 'POST', 'PATCH'],
   credentials: true,
 }));
