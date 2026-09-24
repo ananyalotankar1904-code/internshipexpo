@@ -34,7 +34,8 @@ const AdminDashboard = () => {
           navigate('/admin/login');
           return;
         }
-        setError(err.response?.data?.error || 'Connection error');
+        const errorData = err.response?.data?.error;
+        setError(typeof errorData === 'string' ? errorData : (errorData?.message || 'Connection error'));
       } finally {
         setLoading(false);
       }

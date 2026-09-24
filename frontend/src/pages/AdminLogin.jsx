@@ -24,7 +24,8 @@ const AdminLogin = () => {
       }
     } catch (err) {
       if (err.response) {
-        setError(err.response.data?.error || 'Invalid credentials');
+        const errorData = err.response.data?.error;
+        setError(typeof errorData === 'string' ? errorData : (errorData?.message || 'Invalid credentials'));
       } else {
         setError('Failed to connect to the server');
       }
