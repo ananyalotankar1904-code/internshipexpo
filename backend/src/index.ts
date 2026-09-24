@@ -41,11 +41,9 @@ app.use((err: any, req: express.Request, res: express.Response, next: express.Ne
 });
 
 // Only listen on a port if not running on Vercel
-if (process.env.NODE_ENV !== 'production' || process.env.VERCEL !== '1') {
-  app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
-  });
-}
+app.listen(port as number, '0.0.0.0', () => {
+  console.log(`Server running on port ${port} and listening on 0.0.0.0`);
+});
 
 // Export the app for Vercel Serverless Functions
 export default app;
