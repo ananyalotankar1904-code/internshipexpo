@@ -271,7 +271,7 @@ const Home = () => {
     <div key={company.id} onClick={() => handleOpenModal(company)} className="group cursor-pointer smoked-glass rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-2xl hover:shadow-primary/20 relative overflow-hidden flex flex-col items-center justify-center aspect-square h-auto">
       <div className="absolute inset-0 bg-gradient-to-br from-wave-crimson/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
       
-      <div className="w-24 h-24 md:w-36 md:h-36 flex items-center justify-center relative z-10">
+      <div className="w-24 h-24 md:w-[190px] md:h-[190px] flex items-center justify-center relative z-10">
         {company.logoUrl ? (
            <img src={company.logoUrl} alt={company.name} className="max-w-full max-h-full object-contain filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 scale-95 group-hover:scale-100" />
         ) : (
