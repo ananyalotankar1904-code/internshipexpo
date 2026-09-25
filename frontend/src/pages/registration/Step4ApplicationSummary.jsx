@@ -24,7 +24,7 @@ const Step4ApplicationSummary = () => {
       await submitApplication();
       navigate('/register/step5');
     } catch (error) {
-      alert('Application submission failed. Please ensure your Google Drive links are valid and try again.');
+      alert('Application submission failed: ' + (error.response?.data?.error || error.message) + '. Please check your details and try again.');
     }
   };
 

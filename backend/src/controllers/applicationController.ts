@@ -124,13 +124,10 @@ export const verifyResume = async (req: Request, res: Response): Promise<void> =
       return;
     }
     
-    // Simple regex to extract file ID
-    const match = driveLink.match(/[-\w]{25,}/);
-    if (!match) {
+    if (!driveLink.includes('drive.google.com') && !driveLink.includes('docs.google.com')) {
       res.status(400).json({ error: 'Invalid Google Drive link format.' });
       return;
     }
-    const fileId = match[0];
 
     // TODO: Authenticate using googleapis and credentials.json to check file metadata
     // For now, we simulate a successful validation.
@@ -141,8 +138,12 @@ export const verifyResume = async (req: Request, res: Response): Promise<void> =
     });
 
     res.status(200).json({ success: true, message: 'Resume verified and saved.' });
-  } catch (error) {
-    res.status(400).json({ error: 'Validation failed' });
+  } catch (error: any) {
+    if (error instanceof z.ZodError) {
+      res.status(400).json({ error: 'Validation failed', details: error.errors });
+      return;
+    }
+    res.status(400).json({ error: error.message || 'Validation failed' });
   }
 };
 
@@ -204,8 +205,12 @@ export const submitApplication = async (req: Request, res: Response): Promise<vo
 
     res.status(200).json(result);
   } catch (error: any) {
+    if (error instanceof z.ZodError) {
+      res.status(400).json({ error: 'Validation failed', details: error.errors });
+      return;
+    }
     const knownErrors = ['Student not found', 'Application already submitted'];
-    const message = knownErrors.includes(error.message) ? error.message : 'Submission failed';
+    const message = knownErrors.includes(error.message) ? error.message : (error.message || 'Submission failed');
     res.status(400).json({ error: message });
   }
 };
