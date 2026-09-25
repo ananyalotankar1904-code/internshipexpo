@@ -99,30 +99,6 @@ const Step2ResumeUpload = () => {
                       </div>
                     )}
                     
-                    {/* Recent Upload / Drag Guidance Mini Strip */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-2 mb-8">
-                        <div className="p-3 rounded bg-transparent/50 border border-border-hairline flex items-start gap-2.5">
-                            <svg className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                            <div className="flex flex-col">
-                                <span className="font-mono text-[10px] text-text-cream uppercase">ATS Optimized</span>
-                                <span className="font-body text-[11px] text-text-cream/60">Standard single-column PDFs parse cleanest with partner companies.</span>
-                            </div>
-                        </div>
-                        <div className="p-3 rounded bg-transparent/50 border border-border-hairline flex items-start gap-2.5">
-                            <svg className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-                            <div className="flex flex-col">
-                                <span className="font-mono text-[10px] text-text-cream uppercase">Protected Vault</span>
-                                <span className="font-body text-[11px] text-text-cream/60">Confidential data restricted strictly to accredited recruiter accounts.</span>
-                            </div>
-                        </div>
-                        <div className="p-3 rounded bg-transparent/50 border border-border-hairline flex items-start gap-2.5">
-                            <svg className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                            <div className="flex flex-col">
-                                <span className="font-mono text-[10px] text-text-cream uppercase">Live Revisions</span>
-                                <span className="font-body text-[11px] text-text-cream/60">Update project links or achievements until window closes March 15.</span>
-                            </div>
-                        </div>
-                    </div>
                     
                     {/* Action Buttons */}
                     <div className="flex items-center justify-between border-t border-border-hairline pt-6">

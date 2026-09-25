@@ -124,15 +124,16 @@ const Step3BrowsePositions = () => {
               <div className="absolute top-full right-0 mt-2 w-64 bg-surface-solid border border-border-hairline rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 p-3">
                 <div className="text-[10px] uppercase tracking-wider text-text-cream/50 mb-2">Currently Selected</div>
                 <div className="flex flex-col gap-2">
-                  {selectedPositions.map(id => {
+                  {selectedPositions.map(item => {
+                    const actualId = (typeof item === 'object' && item !== null) ? item.id : item;
                     let posTitle = 'Unknown';
                     let compName = 'Unknown';
                     companies.forEach(c => {
-                      const p = c.positions.find(pos => pos.id === id);
+                      const p = c.positions.find(pos => pos.id === actualId);
                       if (p) { posTitle = p.title; compName = c.name; }
                     });
                     return (
-                      <div key={id} className="text-xs bg-surface-raised p-2 rounded border border-border-hairline">
+                      <div key={actualId} className="text-xs bg-surface-raised p-2 rounded border border-border-hairline">
                         <div className="font-bold text-text-cream truncate">{compName}</div>
                         <div className="text-text-cream/70 truncate">{posTitle}</div>
                       </div>
