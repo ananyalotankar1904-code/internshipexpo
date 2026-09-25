@@ -58,6 +58,8 @@ export const getExtraInfoForCompany = (companyName, positionTitle) => {
 
 export const COMPANY_JD_LINKS = {
   // CSV 1: Individual JDs
+  "Creatify": null,
+  "CAD CAM GALAXY": null,
   "DATEN&WISSEN": "https://drive.google.com/file/d/116Mzi54Jtj9gSS5KcExWke6rIK59x0Tj/view?usp=drive_link",
   "AdHive & Rundown Creative": "https://drive.google.com/file/d/1bbLv4IuUkcss1-OiW3wgDz0xWO_8FzqO/view?usp=drive_web",
   "AVPSTACK TECHNOLOGIES": "https://drive.google.com/file/d/1RjR1G7k0MhnW642VOwxHGt45Hv9aeGjF/view?usp=drive_web",
@@ -97,5 +99,6 @@ export const COMPANY_JD_LINKS = {
 };
 
 export const getJdLinkForCompany = (companyName, originalLink) => {
+  if (COMPANY_JD_LINKS[companyName] === null) return null;
   return COMPANY_JD_LINKS[companyName] || originalLink;
 };

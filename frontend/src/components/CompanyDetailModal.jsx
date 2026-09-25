@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRegistration } from '../context/RegistrationContext';
 import { getDomainForCompany } from '../utils/domainMapping';
-import { getExtraInfoForCompany } from '../utils/jobExtraInfo';
+import { getExtraInfoForCompany, getJdLinkForCompany } from '../utils/jobExtraInfo';
 
 const CompanyDetailModal = ({ isOpen, onClose, company }) => {
   const navigate = useNavigate();
@@ -137,10 +137,14 @@ const CompanyDetailModal = ({ isOpen, onClose, company }) => {
                   <button onClick={() => handleApply(pos)} className={`flex-1 py-2.5 font-bold text-xs uppercase tracking-wider rounded-lg transition-all ${isPositionSelected(pos.id) ? 'bg-transparent text-tedx-red border border-tedx-red hover:bg-tedx-red/10' : 'bg-tedx-red text-white hover:bg-white hover:text-black'}`}>
                     {isPositionSelected(pos.id) ? 'Selected ✓' : 'Apply to Position'}
                   </button>
-                  {pos.jobDescriptionPdfUrl && (
-                    <a href={pos.jobDescriptionPdfUrl} target="_blank" rel="noreferrer" className="px-4 py-2.5 font-bold text-xs uppercase tracking-wider rounded-lg border border-white/20 text-white hover:bg-white/10 transition-all flex items-center justify-center">
+                  {getJdLinkForCompany(company.name, pos.jobDescriptionPdfUrl) ? (
+                    <a href={getJdLinkForCompany(company.name, pos.jobDescriptionPdfUrl)} target="_blank" rel="noreferrer" className="px-4 py-2.5 font-bold text-[10px] sm:text-xs uppercase tracking-wider rounded-lg border border-white/20 text-white hover:bg-white/10 transition-all flex items-center justify-center whitespace-nowrap">
                       📄 JD
                     </a>
+                  ) : (
+                    <span className="px-4 py-2.5 font-bold text-[10px] sm:text-xs uppercase tracking-wider rounded-lg border border-white/5 text-white/30 cursor-not-allowed flex items-center justify-center whitespace-nowrap">
+                      JD N/A
+                    </span>
                   )}
                 </div>
               </article>
