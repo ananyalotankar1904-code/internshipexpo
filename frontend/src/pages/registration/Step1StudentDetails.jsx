@@ -18,7 +18,7 @@ const Step1StudentDetails = () => {
   return (
     <div className="bg-transparent text-text-cream font-body antialiased min-h-screen flex flex-col relative">
 
-      
+
       <SmokedHeader />
 
       <main className="relative z-10 flex-grow flex items-center justify-center px-4 sm:px-6 py-6 mb-20 md:mb-24">
@@ -47,13 +47,13 @@ const Step1StudentDetails = () => {
               <label className="block font-sans text-xs font-semibold tracking-wider uppercase text-text-cream mb-2">
                 Full Name <span className="text-primary">*</span>
               </label>
-              <input 
-                className="w-full px-4 py-3 rounded-md bg-transparent text-text-cream placeholder-text-cream/30 border border-border-hairline text-sm font-body transition-all focus:border-primary focus:outline-none" 
-                placeholder="e.g. Aarav Sharma" 
+              <input
+                className="w-full px-4 py-3 rounded-md bg-transparent text-text-cream placeholder-text-cream/30 border border-border-hairline text-sm font-body transition-all focus:border-primary focus:outline-none"
+                placeholder="e.g. Aarav Sharma"
                 required
-                type="text" 
+                type="text"
                 value={studentDetails.fullName}
-                onChange={(e) => updateStudentDetails({fullName: e.target.value})}
+                onChange={(e) => updateStudentDetails({ fullName: e.target.value })}
               />
             </div>
 
@@ -66,10 +66,10 @@ const Step1StudentDetails = () => {
                 <span className="text-[10px] font-mono text-peach-accent uppercase tracking-wider">Verified Institution</span>
               </div>
               <div className="relative">
-                <input 
-                  className="w-full px-4 py-3 rounded-md bg-transparent/50 text-text-cream/50 border border-border-hairline text-sm font-body cursor-not-allowed select-none pl-10" 
-                  disabled 
-                  type="text" 
+                <input
+                  className="w-full px-4 py-3 rounded-md bg-transparent/50 text-text-cream/50 border border-border-hairline text-sm font-body cursor-not-allowed select-none pl-10"
+                  disabled
+                  type="text"
                   value="Fr. Conceicao Rodrigues College of Engineering (CRCE), Bandra"
                 />
                 <svg className="w-4 h-4 text-text-cream/40 absolute left-3.5 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -80,52 +80,51 @@ const Step1StudentDetails = () => {
 
             {/* Two Column Grid for Branch and Year */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                {/* Field 3: Branch / Department */}
-                <div>
-                  <label className="block font-sans text-xs font-semibold tracking-wider uppercase text-text-cream mb-2">
-                    Branch / Department <span className="text-primary">*</span>
-                  </label>
-                  <div className="relative">
-                    <select 
-                      className="w-full px-4 py-3 rounded-md bg-black text-text-cream border border-border-hairline text-sm font-body appearance-none cursor-pointer pr-10 transition-all focus:border-primary focus:outline-none"
-                      value={studentDetails.branch}
-                      required
-                      onChange={(e) => updateStudentDetails({branch: e.target.value})}
-                    >
-                      <option disabled value="">Select Department</option>
-                      <option value="comps">Computer Engineering (COMPS)</option>
-                      <option value="cse">Computer Science Engineering (CSE)</option>
-                      <option value="mech">Mechanical Engineering (MECH)</option>
-                      <option value="ecs">Electronics & Computer Science Engineering (ECS)</option>
-                      <option value="aids">Artificial Intelligence and Data Science (AI DS)</option>
-                    </select>
-                  </div>
+              {/* Field 3: Branch / Department */}
+              <div>
+                <label className="block font-sans text-xs font-semibold tracking-wider uppercase text-text-cream mb-2">
+                  Branch / Department <span className="text-primary">*</span>
+                </label>
+                <div className="relative">
+                  <select
+                    className="w-full px-4 py-3 rounded-md bg-black text-text-cream border border-border-hairline text-sm font-body appearance-none cursor-pointer pr-10 transition-all focus:border-primary focus:outline-none"
+                    value={studentDetails.branch}
+                    required
+                    onChange={(e) => updateStudentDetails({ branch: e.target.value })}
+                  >
+                    <option disabled value="">Select Department</option>
+                    <option value="comps">Computer Engineering (COMPS)</option>
+                    <option value="cse">Computer Science Engineering (CSE)</option>
+                    <option value="mech">Mechanical Engineering (MECH)</option>
+                    <option value="ecs">Electronics & Computer Science Engineering (ECS)</option>
+                    <option value="aids">Artificial Intelligence and Data Science (AI DS)</option>
+                  </select>
                 </div>
+              </div>
 
-                {/* Field 4: Year of Study */}
-                <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <label className="block font-sans text-xs font-semibold tracking-wider uppercase text-text-cream">
-                      Year of Study <span className="text-primary">*</span>
-                    </label>
-                  </div>
-                  <div className="grid grid-cols-3 gap-1 p-1 rounded-lg bg-transparent border border-border-hairline">
-                    {[2, 3, 4].map((year) => (
-                      <button 
-                        key={year}
-                        type="button"
-                        onClick={() => updateStudentDetails({year: year.toString()})}
-                        className={`py-2 px-1 rounded text-center text-[10px] sm:text-xs font-sans transition-all ${
-                          studentDetails.year === year.toString()
-                            ? 'font-bold bg-primary text-white shadow-lg border border-primary/50'
-                            : 'font-medium text-text-cream/60 hover:bg-surface-raised hover:text-text-cream'
-                        }`}
-                      >
-                        {year === 2 ? 'SE' : year === 3 ? 'TE' : 'BE'}
-                      </button>
-                    ))}
-                  </div>
+              {/* Field 4: Year of Study */}
+              <div>
+                <div className="flex items-center justify-between mb-2">
+                  <label className="block font-sans text-xs font-semibold tracking-wider uppercase text-text-cream">
+                    Year of Study <span className="text-primary">*</span>
+                  </label>
                 </div>
+                <div className="grid grid-cols-3 gap-1 p-1 rounded-lg bg-transparent border border-border-hairline">
+                  {[2, 3, 4].map((year) => (
+                    <button
+                      key={year}
+                      type="button"
+                      onClick={() => updateStudentDetails({ year: year.toString() })}
+                      className={`py-2 px-1 rounded text-center text-[10px] sm:text-xs font-sans transition-all ${studentDetails.year === year.toString()
+                          ? 'font-bold bg-primary text-white shadow-lg border border-primary/50'
+                          : 'font-medium text-text-cream/60 hover:bg-surface-raised hover:text-text-cream'
+                        }`}
+                    >
+                      {year === 2 ? 'SE' : year === 3 ? 'TE' : 'BE'}
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
 
             {/* Added Fields: Roll No and Division */}
@@ -134,26 +133,26 @@ const Step1StudentDetails = () => {
                 <label className="block font-sans text-xs font-semibold tracking-wider uppercase text-text-cream mb-2">
                   Roll No <span className="text-primary">*</span>
                 </label>
-                <input 
-                  className="w-full px-4 py-3 rounded-md bg-transparent text-text-cream placeholder-text-cream/30 border border-border-hairline text-sm font-body transition-all focus:border-primary focus:outline-none" 
-                  placeholder="e.g. 9632" 
+                <input
+                  className="w-full px-4 py-3 rounded-md bg-transparent text-text-cream placeholder-text-cream/30 border border-border-hairline text-sm font-body transition-all focus:border-primary focus:outline-none"
+                  placeholder="e.g. 9632"
                   required
-                  type="text" 
+                  type="text"
                   value={studentDetails.rollNo}
-                  onChange={(e) => updateStudentDetails({rollNo: e.target.value})}
+                  onChange={(e) => updateStudentDetails({ rollNo: e.target.value })}
                 />
               </div>
               <div>
                 <label className="block font-sans text-xs font-semibold tracking-wider uppercase text-text-cream mb-2">
                   Division <span className="text-primary">*</span>
                 </label>
-                <input 
-                  className="w-full px-4 py-3 rounded-md bg-transparent text-text-cream placeholder-text-cream/30 border border-border-hairline text-sm font-body transition-all focus:border-primary focus:outline-none" 
-                  placeholder="e.g. A" 
+                <input
+                  className="w-full px-4 py-3 rounded-md bg-transparent text-text-cream placeholder-text-cream/30 border border-border-hairline text-sm font-body transition-all focus:border-primary focus:outline-none"
+                  placeholder="e.g. A"
                   required
-                  type="text" 
+                  type="text"
                   value={studentDetails.division}
-                  onChange={(e) => updateStudentDetails({division: e.target.value})}
+                  onChange={(e) => updateStudentDetails({ division: e.target.value })}
                 />
               </div>
             </div>
@@ -163,13 +162,13 @@ const Step1StudentDetails = () => {
               <label className="block font-sans text-xs font-semibold tracking-wider uppercase text-text-cream mb-2">
                 Email Address <span className="text-primary">*</span>
               </label>
-              <input 
-                className="w-full px-4 py-3 rounded-md bg-transparent text-text-cream placeholder-text-cream/30 border border-border-hairline text-sm font-body transition-all focus:border-primary focus:outline-none" 
-                placeholder="name@gmail.com" 
+              <input
+                className="w-full px-4 py-3 rounded-md bg-transparent text-text-cream placeholder-text-cream/30 border border-border-hairline text-sm font-body transition-all focus:border-primary focus:outline-none"
+                placeholder="name@gmail.com"
                 required
-                type="email" 
+                type="email"
                 value={studentDetails.email}
-                onChange={(e) => updateStudentDetails({email: e.target.value})}
+                onChange={(e) => updateStudentDetails({ email: e.target.value })}
               />
               <p className="text-[11px] text-text-cream/50 font-body mt-1.5 flex items-center gap-1">
                 <svg className="w-3 h-3 text-peach-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -188,24 +187,24 @@ const Step1StudentDetails = () => {
                 <div className="absolute left-3.5 flex items-center gap-2 pr-2 border-r border-border-hairline">
                   <span className="text-xs font-mono text-text-cream/70">+91</span>
                 </div>
-                <input 
-                  className="w-full pl-16 pr-4 py-3 rounded-md bg-transparent text-text-cream placeholder-text-cream/30 border border-border-hairline text-sm font-body tracking-wider transition-all focus:border-primary focus:outline-none" 
-                  placeholder="98765 43210" 
+                <input
+                  className="w-full pl-16 pr-4 py-3 rounded-md bg-transparent text-text-cream placeholder-text-cream/30 border border-border-hairline text-sm font-body tracking-wider transition-all focus:border-primary focus:outline-none"
+                  placeholder="98765 43210"
                   required
-                  type="tel" 
+                  type="tel"
                   value={studentDetails.phone}
-                  onChange={(e) => updateStudentDetails({phone: e.target.value})}
+                  onChange={(e) => updateStudentDetails({ phone: e.target.value })}
                 />
               </div>
               <p className="text-[11px] text-text-cream/50 font-body mt-1.5">
                 You'll receive quick WhatsApp alerts for live booth slot invites on fair day.
               </p>
             </div>
-            
+
             {/* Action Buttons */}
             <div className="mt-8 pt-6 border-t border-border-hairline flex items-center justify-between">
               <span className="text-[11px] font-mono text-text-cream/40 hidden sm:block">ALL DATA ENCRYPTED</span>
-              <button 
+              <button
                 type="submit"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-md bg-primary hover:bg-primary-hover text-white font-sans font-semibold text-sm shadow-lg shadow-primary/20 transition-all"
               >
@@ -218,7 +217,7 @@ const Step1StudentDetails = () => {
           </form>
         </div>
       </main>
-      
+
       <SmokedFooter showContinue={false} showBack={false} currentStep={1} totalSteps={5} />
     </div>
   );

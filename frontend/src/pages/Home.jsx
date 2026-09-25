@@ -83,7 +83,7 @@ const Home = () => {
 <a className="text-text-cream/80 hover:text-text-cream transition-colors duration-200" href="#hero">Home</a>
 <a className="text-text-cream/70 hover:text-text-cream transition-colors duration-200" href="#about">About</a>
 <a className="text-text-cream/70 hover:text-text-cream transition-colors duration-200" href="#companies">Companies</a>
-<a className="text-text-cream/70 hover:text-text-cream transition-colors duration-200" href="#sponsors">Sponsors</a>
+<a className="text-text-cream/70 hover:text-text-cream transition-colors duration-200" href="#sponsors">Digital Partners</a>
 <a className="text-text-cream/70 hover:text-text-cream transition-colors duration-200" href="#event-info">Contact &amp; Info</a>
 </nav>
 {/* CTA Register Button (Far Right) */}
@@ -196,12 +196,12 @@ const Home = () => {
 <div className="relative z-10 w-full px-4 md:px-12 pb-6">
 <div className="smoked-glass rounded-lg py-5 px-4 md:px-8 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-0 md:divide-x divide-border-hairline shadow-2xl">
 <div className="md:px-6 flex flex-col">
-<span className="font-display font-bold text-3xl text-text-cream">50+</span>
+<span className="font-display font-bold text-3xl text-text-cream">30+</span>
 <span className="font-sans text-xs tracking-wider uppercase text-text-cream/60 mt-1">Companies Participating</span>
 </div>
 <div className="md:px-6 flex flex-col border-l border-border-hairline md:border-none pl-4 md:pl-0">
-<span className="font-display font-bold text-2xl md:text-3xl text-text-cream">200+</span>
-<span className="font-sans text-xs tracking-wider uppercase text-text-cream/60 mt-1">Stipend Opportunities</span>
+<span className="font-display font-bold text-2xl md:text-3xl text-text-cream">100+</span>
+<span className="font-sans text-xs tracking-wider uppercase text-text-cream/60 mt-1">Job Role Opportunities</span>
 </div>
 <div className="md:px-6 flex flex-col">
 <span className="font-display font-bold text-2xl md:text-3xl text-primary">1</span>
@@ -322,7 +322,7 @@ const Home = () => {
 <span className="font-sans text-xs font-semibold tracking-widest text-peach-accent uppercase">Institutional Partners</span>
 </div>
 <h2 className="font-display font-bold text-3xl md:text-4xl uppercase tracking-tight text-text-cream">
-            Our <span className="text-primary">Sponsors</span>
+            Digital <span className="text-primary">Partners</span>
 </h2>
 </div>
 <span className="font-mono text-[10px] md:text-xs text-text-cream/40 uppercase">2026 Edition Patrons</span>
