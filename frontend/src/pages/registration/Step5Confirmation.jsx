@@ -4,6 +4,7 @@ import { useRegistration } from '../../context/RegistrationContext';
 import { companiesApi } from '../../api/client';
 import SmokedHeader from '../../components/SmokedHeader';
 import SmokedFooter from '../../components/SmokedFooter';
+import jsPDF from 'jspdf';
 
 
 const Step5Confirmation = () => {
@@ -18,6 +19,77 @@ const Step5Confirmation = () => {
       .then(res => setCompanies(res.data.companies))
       .catch(console.error);
   }, []);
+
+  const handleDownloadPDF = () => {
+    const doc = new jsPDF();
+    
+    // Header
+    doc.setFontSize(22);
+    doc.setFont("helvetica", "bold");
+    doc.text("TEDxCRCE Internship Expo 2026", 105, 20, { align: "center" });
+    
+    // Subheader
+    doc.setFontSize(14);
+    doc.setFont("helvetica", "normal");
+    doc.text("Official Application Pass", 105, 30, { align: "center" });
+    
+    // Divider
+    doc.setLineWidth(0.5);
+    doc.line(20, 35, 190, 35);
+    
+    // Application Successful
+    doc.setFontSize(16);
+    doc.setFont("helvetica", "bold");
+    doc.setTextColor(34, 197, 94); // Green
+    doc.text("Application Successful!", 105, 50, { align: "center" });
+    doc.setTextColor(0, 0, 0);
+    
+    // Details
+    doc.setFontSize(12);
+    doc.setFont("helvetica", "bold");
+    doc.text("Applicant Details:", 20, 70);
+    doc.setFont("helvetica", "normal");
+    doc.text(`Name: ${studentDetails.fullName || 'N/A'}`, 20, 80);
+    doc.text(`Institution: Fr. Conceicao Rodrigues College of Engineering`, 20, 90);
+    
+    // Use the existing token logic or generic one
+    const refToken = document.getElementById("refToken")?.innerText || `TXC2026-${Math.floor(Math.random() * 90000) + 10000}`;
+    doc.text(`Reference Token: ${refToken}`, 20, 100);
+    
+    // Selected Roles
+    doc.setFont("helvetica", "bold");
+    doc.text(`Selected Roles (${selectedPositions.length}):`, 20, 120);
+    
+    doc.setFont("helvetica", "normal");
+    let yPos = 130;
+    
+    selectedPositions.forEach((id) => {
+      let selectedComp = null;
+      let selectedPos = null;
+      companies.forEach(c => {
+          const pos = c.positions.find(p => p.id === id);
+          if(pos) {
+              selectedComp = c;
+              selectedPos = pos;
+          }
+      });
+      if(selectedComp && selectedPos) {
+          // Break text if it's too long
+          const text = `• ${selectedPos.title} at ${selectedComp.name}`;
+          const splitText = doc.splitTextToSize(text, 160);
+          doc.text(splitText, 25, yPos);
+          yPos += (10 * splitText.length);
+      }
+    });
+    
+    // Footer
+    doc.setFontSize(10);
+    doc.setFont("helvetica", "italic");
+    doc.setTextColor(100, 100, 100);
+    doc.text("Please keep this pass for your records. See you at the Expo!", 105, 280, { align: "center" });
+    
+    doc.save("TEDxCRCE_Internship_Pass.pdf");
+  };
 
   return (
     <div className="bg-transparent text-text-cream font-body antialiased min-h-screen flex flex-col relative">
@@ -155,7 +227,7 @@ const Step5Confirmation = () => {
                     </a>
 
                     <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <button onClick={() => window.print()} className="w-full inline-flex items-center justify-center gap-2 bg-transparent border border-border-hairline hover:border-primary/50 text-white py-3 px-4 rounded-xl font-sans font-semibold text-sm transition-all duration-150">
+                        <button onClick={handleDownloadPDF} className="w-full inline-flex items-center justify-center gap-2 bg-transparent border border-border-hairline hover:border-primary/50 text-white py-3 px-4 rounded-xl font-sans font-semibold text-sm transition-all duration-150">
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                             <span>Download Pass (PDF)</span>
                         </button>
