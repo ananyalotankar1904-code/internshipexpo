@@ -15,8 +15,6 @@ model Student {
   fullName           String
   branch             String
   year               Int
-  class              String?
-  division           String?
   phone              String?
   resumeLink         String?
   status             String        @default("DRAFT") // DRAFT, SUBMITTED

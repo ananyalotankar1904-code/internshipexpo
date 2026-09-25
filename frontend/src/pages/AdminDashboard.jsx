@@ -174,7 +174,6 @@ const AdminDashboard = () => {
                       </td>
                       <td className="p-4 font-body-md">
                         <div>{app.branch ? `${app.branch} - Yr ${app.year}` : '-'}</div>
-                        <div className="text-on-surface-variant text-sm mt-1">Class: {app.class || '-'}, Div: {app.division || '-'}</div>
                       </td>
                       <td className="p-4 font-body-md text-sm text-on-surface-variant">
                         {app.createdAt ? new Date(app.createdAt).toLocaleDateString() : '-'}

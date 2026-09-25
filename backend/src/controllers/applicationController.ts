@@ -11,8 +11,6 @@ const startSchema = z.object({
   fullName: z.string().min(1).max(100).trim(),
   branch: z.string().min(1).max(50).trim(),
   year: z.number().int().min(1).max(4),
-  class: z.string().max(50).trim().optional(),
-  division: z.string().max(10).trim().optional(),
 });
 
 export const startApplication = async (req: Request, res: Response): Promise<void> => {
@@ -36,8 +34,6 @@ export const startApplication = async (req: Request, res: Response): Promise<voi
           fullName: data.fullName,
           branch: data.branch,
           year: data.year,
-          class: data.class,
-          division: data.division,
         }
       });
     } else {
@@ -48,8 +44,6 @@ export const startApplication = async (req: Request, res: Response): Promise<voi
           fullName: data.fullName,
           branch: data.branch,
           year: data.year,
-          class: data.class,
-          division: data.division,
         }
       });
     }
