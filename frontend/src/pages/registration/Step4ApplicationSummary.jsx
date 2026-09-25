@@ -282,8 +282,9 @@ const Step4ApplicationSummary = () => {
                     </div>
                     {selectedPos.requiresTask && (
                         <div className="mt-3 pt-3 border-t border-border-hairline w-full">
-                          <label className="font-sans text-xs font-semibold text-primary flex items-center gap-1 mb-1.5" htmlFor={`task-${id}`}>
-                             Pre-screening Task Link <span className="text-primary">*</span>
+                          <label className="font-sans text-xs font-semibold text-primary flex flex-col gap-1 mb-1.5" htmlFor={`task-${id}`}>
+                             <span>Pre-screening Task Link <span className="text-primary">*</span></span>
+                             <span className="text-[10px] text-white/50 font-normal normal-case">If using Google Drive, ensure sharing is set to "Anyone with the link can view".</span>
                           </label>
                           <input 
                             type="url"

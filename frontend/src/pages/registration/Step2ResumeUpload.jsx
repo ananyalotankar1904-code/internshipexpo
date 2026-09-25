@@ -57,7 +57,7 @@ const Step2ResumeUpload = () => {
                         Upload Your Resume
                     </h1>
                     <p className="font-body text-sm text-text-cream/70 max-w-[620px]">
-                        Please provide a public Google Drive link to your resume (PDF). Ensure the sharing settings are set to "Anyone with the link can view".
+                        Please provide a public Google Drive link to your resume (PDF). <strong className="text-primary font-semibold">IMPORTANT: Ensure the sharing settings are set to "Anyone with the link can view" or your application will be rejected.</strong>
                     </p>
                 </div>
                 
