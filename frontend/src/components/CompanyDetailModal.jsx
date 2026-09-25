@@ -23,11 +23,11 @@ const CompanyDetailModal = ({ isOpen, onClose, company }) => {
 
   const handleApply = (position) => {
     // If not already selected and we have room (or if we are toggling off, but modal only has "Apply/Selected")
-    const isSelected = selectedPositions.find(p => p.id === position.id);
+    const isSelected = selectedPositions.includes(position.id);
     if (!isSelected && selectedPositions.length < 3) {
-      togglePosition(position);
+      togglePosition(position.id);
     } else if (isSelected) {
-      togglePosition(position); // Allow removing
+      togglePosition(position.id); // Allow removing
       return; // Don't navigate if just removing
     }
 
@@ -39,7 +39,7 @@ const CompanyDetailModal = ({ isOpen, onClose, company }) => {
     }
   };
 
-  const isPositionSelected = (id) => selectedPositions.some(p => p.id === id);
+  const isPositionSelected = (id) => selectedPositions.includes(id);
 
   return (
     <div aria-labelledby="modal-company-title" aria-modal="true" className="fixed inset-0 z-50 flex items-start sm:items-center justify-center bg-black/80 backdrop-blur-sm p-2 sm:p-6 overflow-y-auto" role="dialog">

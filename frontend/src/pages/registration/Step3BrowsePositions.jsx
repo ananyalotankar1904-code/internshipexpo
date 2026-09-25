@@ -107,21 +107,46 @@ const Step3BrowsePositions = () => {
           </div>
 
           {/* Prominent Sticky Application Counter Chip */}
-          <div className="flex items-center justify-between w-full xl:w-auto xl:justify-start gap-3 mt-2 xl:mt-0 pt-3 xl:pt-0 border-t border-border-hairline xl:border-none">
-            <div className="text-right">
-              <div className="text-[10px] font-bold tracking-wider uppercase text-text-cream/60">Application Roster</div>
-              <div className="text-xs font-semibold text-text-cream">{3 - selectedPositions.length} spots remaining</div>
-            </div>
+          <div className="flex flex-col xl:items-end gap-2 mt-2 xl:mt-0 pt-3 xl:pt-0 border-t border-border-hairline xl:border-none relative group">
+            <div className="flex items-center justify-between w-full xl:w-auto xl:justify-start gap-3">
+              <div className="text-right">
+                <div className="text-[10px] font-bold tracking-wider uppercase text-text-cream/60">Application Roster</div>
+                <div className="text-xs font-semibold text-text-cream">{3 - selectedPositions.length} spots remaining</div>
+              </div>
 
-            {/* Highlighted Pill-Shaped Badge in #D96F2B */}
-            <div className={`flex items-center gap-2 ${selectedPositions.length === 3 ? 'bg-primary text-white' : 'bg-transparent border border-primary text-primary'} px-4 py-2 rounded-full shadow-md font-sans font-bold text-sm tracking-wide`}>
-              {selectedPositions.length === 3 ? (
-                 <span className="w-2 h-2 rounded-full bg-white animate-pulse"></span>
-              ) : (
-                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-              )}
-              <span>Applications: {selectedPositions.length}/3</span>
+              {/* Highlighted Pill-Shaped Badge in #D96F2B */}
+              <div className={`flex items-center gap-2 ${selectedPositions.length === 3 ? 'bg-primary text-white' : 'bg-transparent border border-primary text-primary'} px-4 py-2 rounded-full shadow-md font-sans font-bold text-sm tracking-wide cursor-pointer`}>
+                {selectedPositions.length === 3 ? (
+                   <span className="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+                ) : (
+                   <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                )}
+                <span>Applications: {selectedPositions.length}/3</span>
+              </div>
             </div>
+            
+            {/* Tooltip/Dropdown showing selected positions */}
+            {selectedPositions.length > 0 && (
+              <div className="absolute top-full right-0 mt-2 w-64 bg-surface-solid border border-border-hairline rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 p-3">
+                <div className="text-[10px] uppercase tracking-wider text-text-cream/50 mb-2">Currently Selected</div>
+                <div className="flex flex-col gap-2">
+                  {selectedPositions.map(id => {
+                    let posTitle = 'Unknown';
+                    let compName = 'Unknown';
+                    companies.forEach(c => {
+                      const p = c.positions.find(pos => pos.id === id);
+                      if (p) { posTitle = p.title; compName = c.name; }
+                    });
+                    return (
+                      <div key={id} className="text-xs bg-surface-raised p-2 rounded border border-border-hairline">
+                        <div className="font-bold text-text-cream truncate">{compName}</div>
+                        <div className="text-text-cream/70 truncate">{posTitle}</div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
           </div>
 
         </div>
