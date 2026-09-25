@@ -145,8 +145,8 @@ export const verifyResume = async (req: Request, res: Response): Promise<void> =
 
     res.status(200).json({ success: true, message: 'Resume verified and saved.' });
   } catch (error: any) {
-    if (error instanceof z.ZodError) {
-      res.status(400).json({ error: 'Validation failed', details: (error as z.ZodError).issues });
+    if (error instanceof ZodError) {
+      res.status(400).json({ error: 'Validation failed', details: (error as ZodError).issues });
       return;
     }
     res.status(400).json({ error: error.message || 'Validation failed' });
@@ -241,8 +241,8 @@ export const submitApplication = async (req: Request, res: Response): Promise<vo
 
     res.status(200).json({ success: true });
   } catch (error: any) {
-    if (error instanceof z.ZodError) {
-      res.status(400).json({ error: 'Validation failed', details: (error as z.ZodError).issues });
+    if (error instanceof ZodError) {
+      res.status(400).json({ error: 'Validation failed', details: (error as ZodError).issues });
       return;
     }
     const knownErrors = ['Student not found', 'Application already submitted'];
