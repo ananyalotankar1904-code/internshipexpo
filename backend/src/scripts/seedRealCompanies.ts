@@ -942,6 +942,66 @@ const companiesData = [
         description: 'Research international buyers and distributors, generate B2B leads, and support sales outreach, quotations and CRM management.'
       }
     ]
+  },
+  {
+    name: 'The Kaash Store',
+    websiteUrl: '',
+    logoUrl: '/logos/kaash.png',
+    tags: ['Custom Merchandise', 'B2B Sales', 'Graphic Design'],
+    positions: [
+      {
+        title: 'Merchandise Design & B2B Outreach Intern',
+        domain: 'Graphic Design & Business Development',
+        eligibleYears: 'Not specified (Previous experience not mandatory)',
+        isPaid: false,
+        stipend: 'Performance-based incentives',
+        duration: '3 months',
+        description: 'Focuses on designing merchandise, preparing print artwork, creating client mockups and social media content, along with conducting cold calls, DMs, and outreach to identify business opportunities.'
+      },
+      {
+        title: 'Social Media & B2B Outreach Intern',
+        domain: 'Social Media Marketing & Business Development',
+        eligibleYears: 'Not specified (Previous experience not mandatory)',
+        isPaid: false,
+        stipend: 'Performance-based incentives',
+        duration: '3 months',
+        description: 'Responsible for generating short-form video content (Reels/Stories), managing content calendars, and driving lead generation through cold outreach across LinkedIn and direct messages.'
+      }
+    ]
+  },
+  {
+    name: 'Beeyond',
+    websiteUrl: 'https://www.beeyond.agency/',
+    logoUrl: '/logos/beeyond.png',
+    tags: ['IT & Tech', 'Motion Graphics', 'UI/UX Design'],
+    positions: [
+      {
+        title: 'Video Editor',
+        domain: 'Video Editing & Motion Design',
+        eligibleYears: 'Not specified',
+        isPaid: true,
+        stipend: 'CTC based on prior experience',
+        duration: 'Full Time',
+        description: 'Involves editing raw footage, creating motion graphics, audio refining, color grading, maintaining brand guidelines, and assisting with on-site shoots.'
+      }
+    ]
+  },
+  {
+    name: 'Creatify',
+    websiteUrl: 'https://creatify.ai/',
+    logoUrl: '/logos/creatify.png',
+    tags: ['Mechanical Engineering', 'Manufacturing', 'Industrial Engineering'],
+    positions: [
+      {
+        title: 'Engineering Intern (Mechanical) / Mechanical Intern',
+        domain: 'Mechanical Engineering',
+        eligibleYears: 'Not specified',
+        isPaid: true,
+        stipend: 'Up to ₹5,000/month',
+        duration: '1 month or 6 months',
+        description: 'Offline, in-office mechanical engineering internship with positions available in Thane and Vasai.'
+      }
+    ]
   }
 ];
 
