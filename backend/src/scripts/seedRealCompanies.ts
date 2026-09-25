@@ -17,7 +17,7 @@ const companiesData = [
         stipend: 'On the basis of project',
         duration: '2 months',
         description: 'We are a fast-moving startup looking for enthusiastic college interns to work on real-world web development projects for local businesses. Interns will help us rapidly design, build, test and deploy websites, dashboards and simple web applications using modern technologies and AI-assisted development tools.',
-        jobDescriptionPdfUrl: 'https://docs.google.com/document/d/19YPBKe4j78-ypznnbJgtxtxY4Zj6Pgm33Kl0MY4svS8/edit?usp=sharing'
+        jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing'
       }
     ]
   },
@@ -156,7 +156,7 @@ const companiesData = [
         stipend: '₹15,000/month',
         duration: '6 months',
         description: 'Marketing Executive responsible for meeting clients, attending exhibitions, preparing quotations and order confirmations, generating enquiries.',
-        jobDescriptionPdfUrl: 'https://drive.google.com/file/d/1Qc-hgLpaQ0Z6bvkZZ-cBhJQ_rD4LParO/view?usp=sharing'
+        jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing'
       },
       {
         title: 'Production Executive',
@@ -166,7 +166,7 @@ const companiesData = [
         stipend: '₹15,000/month',
         duration: '6 months',
         description: 'Production Executive responsible for monitoring production targets, coordinating with PPC and Stores, monitoring production/rework/rejection.',
-        jobDescriptionPdfUrl: 'https://drive.google.com/file/d/1NUe9nO7DJcGLWcP7pOEzJlKdxqgN7ULs/view?usp=sharing'
+        jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing'
       }
     ]
   },
@@ -465,7 +465,7 @@ const companiesData = [
         stipend: '₹10,000 per month',
         duration: '6 months',
         description: 'On-site role managing and executing projects while ensuring quality. Requires basic mechanical engineering knowledge.',
-        jobDescriptionPdfUrl: 'https://docs.google.com/document/d/1lVGSqcRDW591oHDQHkfbT1Ox9vJiNPOq_6Qc91wCkvU/edit?usp=sharing'
+        jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing'
       }
     ]
   },
@@ -587,7 +587,7 @@ const companiesData = [
         stipend: 'Depending on interview',
         duration: '3 months',
         description: 'Develop and maintain full-stack web applications.',
-        jobDescriptionPdfUrl: 'https://drive.google.com/file/d/1HhnJzXknnuXicWLuNEv0psOjlE-JKciD/view?usp=drive_link'
+        jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing'
       },
       {
         title: 'Flutter or Mobile App Developer',
@@ -597,7 +597,7 @@ const companiesData = [
         stipend: 'Depending on interview',
         duration: '3 months',
         description: 'Develop and maintain mobile applications using Flutter.',
-        jobDescriptionPdfUrl: 'https://drive.google.com/file/d/1HhnJzXknnuXicWLuNEv0psOjlE-JKciD/view?usp=drive_link'
+        jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing'
       },
       {
         title: 'UI/UX + Graphic Designer',
@@ -607,7 +607,7 @@ const companiesData = [
         stipend: 'Depending on interview',
         duration: '3 months',
         description: 'Design user interfaces and create graphic design assets.',
-        jobDescriptionPdfUrl: 'https://drive.google.com/file/d/1HhnJzXknnuXicWLuNEv0psOjlE-JKciD/view?usp=drive_link'
+        jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing'
       },
       {
         title: 'Digital Marketing Executive',
@@ -617,7 +617,7 @@ const companiesData = [
         stipend: 'Depending on interview',
         duration: '3 months',
         description: 'Support digital marketing activities and campaigns.',
-        jobDescriptionPdfUrl: 'https://drive.google.com/file/d/1HhnJzXknnuXicWLuNEv0psOjlE-JKciD/view?usp=drive_link'
+        jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing'
       },
       {
         title: 'SEO Executive',
@@ -627,7 +627,7 @@ const companiesData = [
         stipend: 'Depending on interview',
         duration: '3 months',
         description: 'Support search engine optimization and website visibility activities.',
-        jobDescriptionPdfUrl: 'https://drive.google.com/file/d/1HhnJzXknnuXicWLuNEv0psOjlE-JKciD/view?usp=drive_link'
+        jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing'
       },
       {
         title: 'Performance Marketing Executive',
@@ -637,7 +637,7 @@ const companiesData = [
         stipend: 'Depending on interview',
         duration: '3 months',
         description: 'Support performance marketing campaigns and digital advertising activities.',
-        jobDescriptionPdfUrl: 'https://drive.google.com/file/d/1HhnJzXknnuXicWLuNEv0psOjlE-JKciD/view?usp=drive_link'
+        jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing'
       },
       {
         title: 'BDE / Sales Executive',
@@ -647,7 +647,7 @@ const companiesData = [
         stipend: 'Depending on interview',
         duration: '3 months',
         description: 'Support business development, sales and client acquisition activities.',
-        jobDescriptionPdfUrl: 'https://drive.google.com/file/d/1HhnJzXknnuXicWLuNEv0psOjlE-JKciD/view?usp=drive_link'
+        jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing'
       }
     ]
   },
@@ -710,7 +710,7 @@ const companiesData = [
         stipend: '₹4,000 for 200 hours',
         duration: 'Approx. 200 hours',
         description: 'Create and support AI-generated video content.',
-        jobDescriptionPdfUrl: 'https://drive.google.com/file/d/1Nqqvppyz0j61fb7c3NR0ffJfGcArnkw4/view?usp=drive_link'
+        jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing'
       }
     ]
   },
@@ -728,7 +728,7 @@ const companiesData = [
         stipend: 'No',
         duration: '3 months',
         description: 'Support recruitment, resource management and HR operations.',
-        jobDescriptionPdfUrl: 'https://docs.google.com/document/d/1a867XCDsAafq1_MX3UoOC26WpwYGpU40bxGjjdNX3Pw/edit?tab=t.0'
+        jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing'
       }
     ]
   },
@@ -746,7 +746,7 @@ const companiesData = [
         stipend: 'No',
         duration: '1 month',
         description: 'Work on applications and solutions involving agentic artificial intelligence.',
-        jobDescriptionPdfUrl: 'https://docs.google.com/document/d/1fBOqJKOB4SFn3kFy8Ph27DF_shU-ucCdwJQtRw5bVhY/edit?usp=sharing'
+        jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing'
       },
       {
         title: 'Digital Marketing Intern',
@@ -756,7 +756,7 @@ const companiesData = [
         stipend: 'No',
         duration: '1 month',
         description: 'Support digital marketing activities and campaigns.',
-        jobDescriptionPdfUrl: 'https://docs.google.com/document/d/1fBOqJKOB4SFn3kFy8Ph27DF_shU-ucCdwJQtRw5bVhY/edit?usp=sharing'
+        jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing'
       }
     ]
   },
@@ -1051,7 +1051,7 @@ const companiesData = [
         stipend: '₹6,000–₹15,000 fixed + ₹2,000–₹10,000 performance-based incentives',
         duration: '3–6 months',
         description: 'Full-time (On-site / Hybrid) role to support growth strategies, build client relationships, assist with partnership negotiations, identify opportunities, and work with CRM/AI tools.',
-        jobDescriptionPdfUrl: 'https://drive.google.com/file/d/1muEVesP0HgOtTjnPN9IW6oYoxhnhXUAu/view?usp=sharing'
+        jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing'
       },
       {
         title: 'Hardware Engineering Intern',
@@ -1061,7 +1061,7 @@ const companiesData = [
         stipend: '₹6,000–₹15,000 fixed + ₹2,000–₹10,000 performance-based incentives',
         duration: '3–6 months',
         description: 'Based in Mumbai / Nagpur. Involves working on hardware architecture, circuits, prototypes, microcontrollers (Raspberry Pi/ESP32/STM32), powermanagement, audio I/O, MIDI, DSP, PCB debugging, and soldering.',
-        jobDescriptionPdfUrl: 'https://drive.google.com/file/d/1Z8f3DnPkDPN8bON_cTkd-f0b2JkvqMa7/view?usp=sharing'
+        jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing'
       },
       {
         title: 'Customer Support Intern',
@@ -1071,7 +1071,7 @@ const companiesData = [
         stipend: '₹6,000–₹15,000 fixed + ₹2,000–₹10,000 performance-based incentives',
         duration: '3 months',
         description: 'Based in Nagpur. Requires responding to customer inquiries via email/phone/chat, resolving product issues, documenting CRM interactions, and contributing to knowledge-base articles.',
-        jobDescriptionPdfUrl: 'https://drive.google.com/file/d/1muEVesP0HgOtTjnPN9IW6oYoxhnhXUAu/view?usp=sharing'
+        jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing'
       }
     ]
   }

@@ -304,15 +304,7 @@ const Home = () => {
     </div>
   ))}
 </div>
-{/* Footer Note under Grid */}
-<div className="mt-10 flex items-center justify-between p-4 rounded bg-surface-raised/60 border border-border-hairline">
-<span className="font-mono text-xs text-text-cream/60">
-          Showing 12 highlighted partner companies. Complete directory of 50+ firms will be available on physical event badges.
-        </span>
-<button className="font-sans text-xs font-semibold text-peach-accent hover:text-text-cream flex items-center gap-1">
-<span>Filter by Dept</span> <span>↓</span>
-</button>
-</div>
+
 </div>
 </section>
 {/* ========================================================================= */}
@@ -337,33 +329,14 @@ const Home = () => {
 </div>
 {/* Single-row logo strip on lighter #140A0A smoked-glass band */}
 <div className="w-full smoked-glass rounded-lg py-6 md:py-8 px-4 md:px-10 border border-border-hairline">
-<div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 items-center justify-items-center">
+<div className="flex flex-row justify-center items-center gap-12 md:gap-24">
 {/* Sponsor 1 */}
-<div className="group flex flex-col items-center justify-center p-4 transition-all duration-300 cursor-pointer">
-<div className="font-display font-bold text-xl tracking-tighter text-text-cream/50 grayscale group-hover:grayscale-0 group-hover:text-primary transition-all">
-              AGNILABS
-            </div>
-<span className="font-mono text-[10px] text-text-cream/40 mt-1 uppercase group-hover:text-peach-accent transition-colors">
-              Title Sponsor
-            </span>
+<div className="group flex flex-col items-center justify-center p-4 transition-all duration-300">
+  <img src="/logos/avpstack.png" alt="AVP Stack Technologies" className="h-20 md:h-24 object-contain transition-all duration-300 scale-95 group-hover:scale-100" />
 </div>
 {/* Sponsor 2 */}
-<div className="group flex flex-col items-center justify-center p-4 transition-all duration-300 cursor-pointer">
-<div className="font-display font-bold text-xl tracking-tighter text-text-cream/50 grayscale group-hover:grayscale-0 group-hover:text-secondary transition-all">
-              BANDRA TECH HUB
-            </div>
-<span className="font-mono text-[10px] text-text-cream/40 mt-1 uppercase group-hover:text-peach-accent transition-colors">
-              Ecosystem Partner
-            </span>
-</div>
-{/* Sponsor 3 */}
-<div className="group flex flex-col items-center justify-center p-4 transition-all duration-300 cursor-pointer">
-<div className="font-display font-bold text-xl tracking-tighter text-text-cream/50 grayscale group-hover:grayscale-0 group-hover:text-text-cream transition-all">
-              DEVCOMMUNITY
-            </div>
-<span className="font-mono text-[10px] text-text-cream/40 mt-1 uppercase group-hover:text-peach-accent transition-colors">
-              Student Outreach
-            </span>
+<div className="group flex flex-col items-center justify-center p-4 transition-all duration-300">
+  <img src="/logos/medidivision.png" alt="Medivision" className="h-20 md:h-24 object-contain transition-all duration-300 scale-95 group-hover:scale-100" />
 </div>
 </div>
 </div>
@@ -492,13 +465,10 @@ The interview rooms will be posted on the WhatsApp community.
 </div>
 {/* Cream Social Icons */}
 <div className="flex items-center space-x-4">
-<a className="w-8 h-8 rounded bg-surface-raised border border-border-hairline flex items-center justify-center text-text-cream/70 hover:text-text-cream hover:border-text-cream transition-all" href="#event-info">
-<span className="text-xs font-mono font-bold">𝕏</span>
-</a>
-<a className="w-8 h-8 rounded bg-surface-raised border border-border-hairline flex items-center justify-center text-text-cream/70 hover:text-text-cream hover:border-text-cream transition-all" href="#event-info">
+<a className="w-8 h-8 rounded bg-surface-raised border border-border-hairline flex items-center justify-center text-text-cream/70 hover:text-text-cream hover:border-text-cream transition-all" href="https://www.linkedin.com/company/tedxcrce/" target="_blank" rel="noreferrer">
 <span className="text-xs font-mono font-bold">in</span>
 </a>
-<a className="w-8 h-8 rounded bg-surface-raised border border-border-hairline flex items-center justify-center text-text-cream/70 hover:text-text-cream hover:border-text-cream transition-all" href="#event-info">
+<a className="w-8 h-8 rounded bg-surface-raised border border-border-hairline flex items-center justify-center text-text-cream/70 hover:text-text-cream hover:border-text-cream transition-all" href="https://www.instagram.com/tedxcrce/" target="_blank" rel="noreferrer">
 <span className="text-xs font-mono font-bold">ig</span>
 </a>
 </div>
