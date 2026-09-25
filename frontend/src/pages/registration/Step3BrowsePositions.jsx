@@ -6,6 +6,7 @@ import { companiesApi } from '../../api/client';
 import SmokedHeader from '../../components/SmokedHeader';
 import SmokedFooter from '../../components/SmokedFooter';
 import { getDomainForCompany } from '../../utils/domainMapping';
+import { getExtraInfoForCompany } from '../../utils/jobExtraInfo';
 const Step3BrowsePositions = () => {
   const navigate = useNavigate();
   const { selectedPositions, togglePosition } = useRegistration();
@@ -134,6 +135,7 @@ const Step3BrowsePositions = () => {
             const isSelected = selectedPositions.includes(position.id);
             const isMaxReached = selectedPositions.length >= 3 && !isSelected;
             const company = position.company;
+            const extraInfo = getExtraInfoForCompany(company.name, position.title);
 
             return (
               <div key={position.id} className={`smoked-panel rounded-lg p-6 flex flex-col justify-between relative transition-all duration-200 ${isSelected ? 'border-primary ring-1 ring-primary/50' : 'border-border-hairline'} ${isMaxReached ? 'opacity-60' : ''}`}>
@@ -174,6 +176,12 @@ const Step3BrowsePositions = () => {
                   <div className="flex flex-wrap gap-2 mb-5">
                     <span className="px-2.5 py-1 rounded bg-primary/10 border border-primary/20 text-peach-accent font-sans font-medium text-[11px]">
                       {getDomainForCompany(company.name, position.domain)}
+                    </span>
+                    <span className="px-2.5 py-1 rounded bg-tedx-red/20 text-tedx-red font-sans font-medium text-[11px] border border-tedx-red/20">
+                      {extraInfo.type}
+                    </span>
+                    <span className="px-2.5 py-1 rounded bg-blue-500/20 text-blue-400 font-sans font-medium text-[11px] border border-blue-500/20">
+                      {extraInfo.mode} Interview
                     </span>
 
                     <span className="px-2.5 py-1 rounded bg-transparent border border-border-hairline text-text-cream/80 font-sans text-[11px] flex items-center gap-1">

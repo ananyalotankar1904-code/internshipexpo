@@ -33,7 +33,8 @@ export const COMPANY_EXTRA_INFO = {
   "TrafficHQ Digital Media LLP": { mode: "Online", type: "Onsite" },
   "Virtue Crennovative Solutions (VCS)": { mode: "Offline", type: "Remote / Work from home / Hybrid / Onsite" },
   "THE xDEVS": { mode: "Offline", type: "Remote / Work from home / Onsite / Hybrid" },
-  "Yogi Software": { mode: "Offline", type: "Onsite" }
+  "Yogi Software": { mode: "Offline", type: "Onsite" },
+  "Choira Musictech Pvt. Ltd.": { mode: "Offline", type: "Onsite" }
 };
 
 export const getExtraInfoForCompany = (companyName, positionTitle) => {
