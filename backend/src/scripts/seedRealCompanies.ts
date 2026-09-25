@@ -650,6 +650,69 @@ const companiesData = [
         jobDescriptionPdfUrl: 'https://drive.google.com/file/d/1HhnJzXknnuXicWLuNEv0psOjlE-JKciD/view?usp=drive_link'
       }
     ]
+  },
+  {
+    name: 'Scoreazy',
+    websiteUrl: 'https://www.scoreazy.com/',
+    logoUrl: '/logos/scoreazy.png',
+    tags: ['EdTech & Personalized Learning', 'Educational Psychology & Mentorship', 'Data Analytics & Skill Assessment'],
+    positions: [
+      {
+        title: 'Sales Intern',
+        domain: 'Sales & Business Development',
+        eligibleYears: 'All 4 Years',
+        isPaid: true,
+        stipend: '₹10,000 for 200 hours (Performance based)',
+        duration: 'Approx. 200 hours',
+        description: 'Support sales and business development activities.'
+      },
+      {
+        title: 'Survey & Field Research',
+        domain: 'Market Research',
+        eligibleYears: 'All 4 Years',
+        isPaid: false,
+        stipend: 'None',
+        duration: 'Approx. 200 hours',
+        description: 'Conduct surveys and support market research activities.'
+      },
+      {
+        title: 'Mentors',
+        domain: 'Mentorship & Education',
+        eligibleYears: 'All 4 Years',
+        isPaid: true,
+        stipend: '₹200/session (Freelancing role after training)',
+        duration: 'Approx. 200 hours',
+        description: 'Provide mentorship and educational support.'
+      },
+      {
+        title: 'Camera Operator',
+        domain: 'Media & Video Production',
+        eligibleYears: 'All 4 Years',
+        isPaid: false,
+        stipend: 'None',
+        duration: 'Approx. 200 hours',
+        description: 'Operate cameras and support video production activities.'
+      },
+      {
+        title: 'Content Creator',
+        domain: 'Content Creation',
+        eligibleYears: 'All 4 Years',
+        isPaid: false,
+        stipend: 'None',
+        duration: 'Approx. 200 hours',
+        description: 'Create content for digital and educational platforms.'
+      },
+      {
+        title: 'AI Video Generator',
+        domain: 'AI & Video Production',
+        eligibleYears: 'All 4 Years',
+        isPaid: true,
+        stipend: '₹4,000 for 200 hours',
+        duration: 'Approx. 200 hours',
+        description: 'Create and support AI-generated video content.',
+        jobDescriptionPdfUrl: 'https://drive.google.com/file/d/1Nqqvppyz0j61fb7c3NR0ffJfGcArnkw4/view?usp=drive_link'
+      }
+    ]
   }
 ];
 
