@@ -52,16 +52,22 @@ const Step5Confirmation = () => {
     doc.text(`Name: ${studentDetails.fullName || 'N/A'}`, 20, 80);
     doc.text(`Institution: Fr. Conceicao Rodrigues College of Engineering`, 20, 90);
     
+    doc.text(`Email: ${studentDetails.email || 'N/A'}`, 20, 100);
+    doc.text(`Phone: +91 ${studentDetails.phone || 'N/A'}`, 20, 110);
+    
+    let yearStr = studentDetails.year === '2' ? 'SE' : studentDetails.year === '3' ? 'TE' : studentDetails.year === '4' ? 'BE' : studentDetails.year || 'N/A';
+    doc.text(`Class/Branch: ${yearStr} - ${studentDetails.branch?.toUpperCase() || 'N/A'} (Div: ${studentDetails.division || 'N/A'}, Roll: ${studentDetails.rollNo || 'N/A'})`, 20, 120);
+
     // Use the existing token logic or generic one
     const refToken = document.getElementById("refToken")?.innerText || `TXC2026-${Math.floor(Math.random() * 90000) + 10000}`;
-    doc.text(`Reference Token: ${refToken}`, 20, 100);
+    doc.text(`Reference Token: ${refToken}`, 20, 130);
     
     // Selected Roles
     doc.setFont("helvetica", "bold");
-    doc.text(`Selected Roles (${selectedPositions.length}):`, 20, 120);
+    doc.text(`Selected Roles (${selectedPositions.length}):`, 20, 150);
     
     doc.setFont("helvetica", "normal");
-    let yPos = 130;
+    let yPos = 160;
     
     selectedPositions.forEach((id) => {
       let selectedComp = null;
