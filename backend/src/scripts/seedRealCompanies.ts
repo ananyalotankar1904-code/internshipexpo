@@ -537,6 +537,41 @@ const companiesData = [
         description: 'Revamp and maintain the existing app using AI and no-code development tools while automating data feeds and managing backend services on Supabase and AWS.'
       }
     ]
+  },
+  {
+    name: 'Digital Dose',
+    websiteUrl: 'https://in.linkedin.com/company/digitaldose',
+    logoUrl: '/logos/digitaldose.png',
+    tags: ['Digital Marketing', 'Software Development', 'Technology'],
+    positions: [
+      {
+        title: 'MERN Stack Developer Intern',
+        domain: 'Full Stack Web Development / MERN Stack',
+        eligibleYears: 'Not specified',
+        isPaid: false,
+        stipend: 'No stipend — Certification Program',
+        duration: '3 months',
+        description: 'Develop and maintain web applications using MongoDB, Express.js, React.js and Node.js while gaining practical experience in full stack development.'
+      },
+      {
+        title: 'ReactJS Developer Intern',
+        domain: 'Frontend Development / ReactJS',
+        eligibleYears: 'Not specified',
+        isPaid: false,
+        stipend: 'No stipend — Certification Program',
+        duration: '3 months',
+        description: 'Develop responsive and interactive user interfaces using ReactJS, reusable components and modern frontend development practices.'
+      },
+      {
+        title: 'NodeJS Developer Intern',
+        domain: 'Backend Development / NodeJS',
+        eligibleYears: 'Not specified',
+        isPaid: false,
+        stipend: 'No stipend — Certification Program',
+        duration: '3 months',
+        description: 'Develop backend applications and APIs using NodeJS while working with databases, server-side logic and application integrations.'
+      }
+    ]
   }
 ];
 
