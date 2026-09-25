@@ -120,8 +120,8 @@ const CompanyDetailModal = ({ isOpen, onClose, company }) => {
                   </span>
                 </div>
 
-                <div className={`w-full text-center py-2.5 rounded border border-white/5 font-bold text-xs mb-6 ${pos.isPaid ? 'bg-tedx-red/10 text-tedx-red' : 'bg-white/5 text-white/60'}`}>
-                  {pos.isPaid ? `Stipend: ${pos.stipend || 'Paid'}` : 'Unpaid Position'}
+                <div className={`w-full text-center py-2.5 rounded border border-white/5 font-bold text-xs mb-6 ${pos.isPaid ? 'bg-tedx-red/10 text-tedx-red' : (pos.stipend?.toLowerCase().includes("incentive") || company.name === "The Kaash Store") ? 'bg-yellow-500/10 text-yellow-400' : 'bg-white/5 text-white/60'}`}>
+                  {pos.isPaid ? `Stipend: ${pos.stipend || 'Paid'}` : (pos.stipend?.toLowerCase().includes("incentive") || company.name === "The Kaash Store") ? 'Based on Incentive' : 'Unpaid Position'}
                 </div>
 
                 <div className="flex-grow space-y-4">
