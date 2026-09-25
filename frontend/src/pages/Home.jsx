@@ -32,11 +32,27 @@ const Home = () => {
   const [isCompanyModalOpen, setIsCompanyModalOpen] = useState(false);
   const [companies, setCompanies] = useState([]);
   const [selectedCompany, setSelectedCompany] = useState(null);
+  const [showNavbar, setShowNavbar] = useState(true);
 
   useEffect(() => {
     companiesApi.getAll()
       .then(res => setCompanies(res.data.companies))
       .catch(console.error);
+  }, []);
+
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setShowNavbar(false);
+      } else {
+        setShowNavbar(true);
+      }
+      lastScrollY = currentScrollY;
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const handleOpenModal = (company) => {
@@ -52,7 +68,7 @@ const Home = () => {
 {/* ========================================================================= */}
 {/* STICKY TOP NAVBAR */}
 {/* ========================================================================= */}
-<header className="sticky top-0 z-50 w-full bg-black/75 backdrop-blur-md border-b border-border-hairline transition-all duration-300">
+<header className={`sticky top-0 z-50 w-full bg-black/75 backdrop-blur-md border-b border-border-hairline transition-transform duration-300 ${showNavbar ? 'translate-y-0' : '-translate-y-full'}`}>
 <div className="w-full px-4 md:px-10 h-20 flex items-center justify-between">
 {/* TEDxCRCE Brand Logo */}
 <a className="flex items-center gap-2 md:gap-3 group" href="#hero">
