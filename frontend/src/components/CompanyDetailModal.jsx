@@ -120,8 +120,8 @@ const CompanyDetailModal = ({ isOpen, onClose, company }) => {
                     {isPositionSelected(pos.id) ? 'Selected ✓' : 'Apply to Position'}
                   </button>
                   {pos.jobDescriptionPdfUrl && (
-                    <a href={pos.jobDescriptionPdfUrl} target="_blank" rel="noreferrer" className="px-4 py-2.5 font-bold text-xs uppercase tracking-wider rounded-lg border border-white/20 text-white hover:bg-white/10 transition-all flex items-center justify-center">
-                      📄 JD
+                    <a href={pos.jobDescriptionPdfUrl} target="_blank" rel="noreferrer" className="px-4 py-2.5 font-bold text-xs uppercase tracking-wider rounded-lg border border-white/20 text-white hover:bg-white/10 transition-all flex items-center justify-center whitespace-nowrap">
+                      📄 Job Description
                     </a>
                   )}
                 </div>

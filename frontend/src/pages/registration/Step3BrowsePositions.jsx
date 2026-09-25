@@ -233,20 +233,25 @@ const Step3BrowsePositions = () => {
                     type="button"
                     onClick={() => togglePosition(position.id)}
                     disabled={isMaxReached}
-                    className={`flex-grow py-2.5 px-4 rounded-md font-sans text-xs font-semibold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 ${isSelected ? 'text-white bg-primary hover:bg-primary-hover shadow-lg shadow-primary/30' : 'text-text-cream bg-transparent border border-border-hairline hover:bg-white/5'} ${isMaxReached ? 'cursor-not-allowed opacity-50' : ''}`}
+                    className={`flex-1 py-2.5 px-4 rounded-md font-sans text-xs font-semibold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 ${isSelected ? 'text-white bg-primary hover:bg-primary-hover shadow-lg shadow-primary/30' : 'text-text-cream bg-transparent border border-border-hairline hover:bg-white/5'} ${isMaxReached ? 'cursor-not-allowed opacity-50' : ''}`}
                   >
                     {isSelected ? (
                       <>
                         <svg className="w-4 h-4 font-bold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" /></svg>
-                        <span>Selected (Click to Remove)</span>
+                        <span>Selected</span>
                       </>
                     ) : (
                       <>
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" /></svg>
-                        <span>{isMaxReached ? 'Max 3 Selected' : 'Apply for Position'}</span>
+                        <span>{isMaxReached ? 'Max 3 Selected' : 'Apply'}</span>
                       </>
                     )}
                   </button>
+                  {position.jobDescriptionPdfUrl && (
+                    <a href={position.jobDescriptionPdfUrl} target="_blank" rel="noreferrer" className="px-3 py-2.5 font-sans font-semibold text-xs uppercase tracking-wider rounded-md border border-border-hairline text-text-cream hover:bg-white/5 transition-all flex items-center justify-center whitespace-nowrap">
+                      📄 Job Description
+                    </a>
+                  )}
                 </div>
               </div>
             );
