@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import tedxLogo from '../../tedx-logo.png';
 import { useNavigate } from 'react-router-dom';
 import { useRegistration } from '../../context/RegistrationContext';
@@ -11,6 +11,7 @@ const Step3BrowsePositions = () => {
   const navigate = useNavigate();
   const { selectedPositions, togglePosition } = useRegistration();
   const [companies, setCompanies] = useState([]);
+  const [headerHeight, setHeaderHeight] = useState(73);
 
   // Search and filter states
   const [searchTerm, setSearchTerm] = useState('');
@@ -24,19 +25,46 @@ const Step3BrowsePositions = () => {
       .catch(err => console.error('Failed to fetch companies', err));
   }, []);
 
-  // Filter positions
-  const filteredPositions = [];
-  companies.forEach(company => {
-    company.positions.forEach(position => {
-      // simple search
-      if (searchTerm && !position.title.toLowerCase().includes(searchTerm.toLowerCase()) && !company.name.toLowerCase().includes(searchTerm.toLowerCase())) {
-        return;
+  useEffect(() => {
+    const updateHeaderHeight = () => {
+      const header = document.querySelector('.smoked-header');
+      if (header) {
+        setHeaderHeight(header.offsetHeight);
       }
-      if (yearFilter !== 'All' && !position.eligibleYears.toString().includes(yearFilter)) return;
+    };
+    
+    updateHeaderHeight();
+    window.addEventListener('resize', updateHeaderHeight);
+    return () => window.removeEventListener('resize', updateHeaderHeight);
+  }, []);
 
-      filteredPositions.push({ ...position, company });
+  // Build a position lookup map
+  const positionMap = useMemo(() => {
+    const map = new Map();
+    companies.forEach(company => {
+      company.positions.forEach(position => {
+        map.set(position.id, { ...position, company });
+      });
     });
-  });
+    return map;
+  }, [companies]);
+
+  // Filter positions
+  const filteredPositions = useMemo(() => {
+    const results = [];
+    companies.forEach(company => {
+      company.positions.forEach(position => {
+        // simple search
+        if (searchTerm && !position.title.toLowerCase().includes(searchTerm.toLowerCase()) && !company.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+          return;
+        }
+        if (yearFilter !== 'All' && !position.eligibleYears.toString().includes(yearFilter)) return;
+
+        results.push({ ...position, company });
+      });
+    });
+    return results;
+  }, [companies, searchTerm, yearFilter]);
 
   return (
     <div className="bg-transparent text-text-cream font-body antialiased min-h-screen flex flex-col relative">
@@ -45,7 +73,10 @@ const Step3BrowsePositions = () => {
       <SmokedHeader />
 
       {/* STICKY FILTER SUB-HEADER */}
-      <div className="w-full smoked-glass border-b border-border-hairline sticky top-[73px] z-40 py-4 shadow-sm">
+      <div 
+        className="w-full smoked-glass border-b border-border-hairline sticky z-40 py-4 shadow-sm"
+        style={{ top: `${headerHeight}px` }}
+      >
         <div className="max-w-[1440px] mx-auto px-4 md:px-10 flex flex-col xl:flex-row items-start xl:items-center justify-between gap-4">
 
           {/* Filter Controls Left/Center */}
@@ -92,12 +123,10 @@ const Step3BrowsePositions = () => {
                 <div className="text-[10px] uppercase tracking-wider text-text-cream/50 mb-2">Currently Selected</div>
                 <div className="flex flex-col gap-2">
                   {selectedPositions.map(id => {
-                    let posTitle = 'Unknown';
-                    let compName = 'Unknown';
-                    companies.forEach(c => {
-                      const p = c.positions.find(pos => pos.id === id);
-                      if (p) { posTitle = p.title; compName = c.name; }
-                    });
+                    const data = positionMap.get(id);
+                    if (!data) return null;
+                    const posTitle = data.title;
+                    const compName = data.company.name;
                     return (
                       <div key={id} className="text-xs bg-surface-raised p-2 rounded border border-border-hairline">
                         <div className="font-bold text-text-cream truncate">{compName}</div>
@@ -151,7 +180,7 @@ const Step3BrowsePositions = () => {
                     <div className="flex items-center gap-3">
                       <div className="w-11 h-11 rounded-lg bg-transparent border border-border-hairline flex items-center justify-center p-2 shadow-sm text-primary font-display font-bold text-lg">
                         {company.logoUrl ? (
-                          <img src={company.logoUrl} alt={company.name} className="w-full h-full object-contain" />
+                          <img src={company.logoUrl} alt={company.name} className="w-full h-full object-contain" loading="lazy" decoding="async" />
                         ) : (
                           <span>{company.name.substring(0, 2).toUpperCase()}</span>
                         )}

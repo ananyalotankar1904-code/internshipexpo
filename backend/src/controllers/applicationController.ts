@@ -3,7 +3,15 @@ import { z, ZodError } from 'zod';
 import { prisma } from '../index';
 import jwt from 'jsonwebtoken';
 import nodemailer from 'nodemailer';
-const JWT_SECRET = process.env.JWT_SECRET || 'fallback_secret';
+if (!process.env.JWT_SECRET) {
+  throw new Error('FATAL ERROR: JWT_SECRET environment variable is missing.');
+}
+const JWT_SECRET = process.env.JWT_SECRET;
+
+type StudentTokenPayload = {
+  email: string;
+  role: 'student';
+};
 
 const startSchema = z.object({
   email: z.string().email().trim().max(255),
@@ -48,7 +56,7 @@ export const startApplication = async (req: Request, res: Response): Promise<voi
       });
     }
 
-    const sessionToken = jwt.sign({ email: student.email }, JWT_SECRET, { expiresIn: '2h' });
+    const sessionToken = jwt.sign({ email: student.email, role: 'student' }, JWT_SECRET, { expiresIn: '2h' });
     res.status(200).json({ student, sessionToken });
   } catch (error) {
     if (error instanceof ZodError) {
@@ -71,7 +79,13 @@ export const verifyStudentSession = (req: Request, res: Response, next: NextFunc
 
   const token = authHeader.split(' ')[1];
   try {
-    const decoded = jwt.verify(token, JWT_SECRET) as { email: string };
+    const decoded = jwt.verify(token, JWT_SECRET) as StudentTokenPayload;
+    
+    if (decoded.role !== 'student' || !decoded.email) {
+      res.status(401).json({ error: 'Unauthorized: Invalid token role' });
+      return;
+    }
+    
     (req as any).studentEmail = decoded.email;
     next();
   } catch (e) {
@@ -245,5 +259,55 @@ export const submitApplication = async (req: Request, res: Response): Promise<vo
     const knownErrors = ['Student not found', 'Application already submitted'];
     const message = knownErrors.includes(error.message) ? error.message : (error.message || 'Submission failed');
     res.status(400).json({ error: message });
+  }
+};
+
+export const getCurrentStudent = async (req: Request, res: Response): Promise<void> => {
+  try {
+    const sessionEmail = (req as any).studentEmail;
+
+    const student = await prisma.student.findUnique({
+      where: { email: sessionEmail },
+      include: {
+        applications: {
+          include: {
+            position: {
+              include: {
+                company: true
+              }
+            }
+          }
+        }
+      }
+    });
+
+    if (!student) {
+      res.status(404).json({ error: 'Student not found' });
+      return;
+    }
+
+    if (student.status !== 'SUBMITTED') {
+      res.status(403).json({ error: 'Application not submitted' });
+      return;
+    }
+
+    res.status(200).json({
+      success: true,
+      student: {
+        id: student.id,
+        email: student.email,
+        fullName: student.fullName,
+        rollNo: student.rollNo,
+        branch: student.branch,
+        year: student.year,
+        phone: student.phone,
+        resumeLink: student.resumeLink,
+        status: student.status,
+        lastStepCompleted: student.lastStepCompleted
+      },
+      applications: student.applications
+    });
+  } catch (error) {
+    res.status(500).json({ error: 'Internal server error' });
   }
 };

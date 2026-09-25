@@ -1,18 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import tedxLogo from '../../tedx-logo.png';
 import { useNavigate } from 'react-router-dom';
 import { useRegistration } from '../../context/RegistrationContext';
 import SmokedHeader from '../../components/SmokedHeader';
 import SmokedFooter from '../../components/SmokedFooter';
+import { applicationsApi } from '../../api/client';
 
 
 const Step1StudentDetails = () => {
   const navigate = useNavigate();
   const { studentDetails, updateStudentDetails } = useRegistration();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleNext = (e) => {
+  const handleNext = async (e) => {
     e.preventDefault();
-    navigate('/register/step2');
+    if (isSubmitting) return;
+
+    try {
+      setIsSubmitting(true);
+      const payload = {
+        email: studentDetails.email,
+        rollNo: studentDetails.rollNo,
+        fullName: studentDetails.fullName,
+        branch: studentDetails.branch,
+        year: parseInt(studentDetails.year, 10),
+      };
+      
+      const response = await applicationsApi.start(payload);
+      if (response.data && response.data.sessionToken) {
+        sessionStorage.setItem('studentToken', response.data.sessionToken);
+      }
+      
+      navigate('/register/step2');
+    } catch (error) {
+      console.error("Failed to start session:", error);
+      alert(error.response?.data?.message || "Failed to continue. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -214,9 +239,10 @@ const Step1StudentDetails = () => {
               <span className="text-[11px] font-mono text-text-cream/40 hidden sm:block">ALL DATA ENCRYPTED</span>
               <button
                 type="submit"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-md bg-primary hover:bg-primary-hover text-white font-sans font-semibold text-sm shadow-lg shadow-primary/20 transition-all"
+                disabled={isSubmitting}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-md bg-primary hover:bg-primary-hover text-white font-sans font-semibold text-sm shadow-lg shadow-primary/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <span>Continue</span>
+                <span>{isSubmitting ? 'Please wait...' : 'Continue'}</span>
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>

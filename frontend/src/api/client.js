@@ -10,7 +10,7 @@ const api = axios.create({
 api.interceptors.request.use((config) => {
   const adminToken = localStorage.getItem('adminToken');
   const studentToken = sessionStorage.getItem('studentToken');
-  
+
   if (adminToken && config.url?.startsWith('/admin')) {
     config.headers.Authorization = `Bearer ${adminToken}`;
   } else if (studentToken) {
@@ -27,7 +27,20 @@ export const applicationsApi = {
 };
 
 export const companiesApi = {
-  getAll: () => api.get('/companies'),
+  getAll: async () => {
+    const cached = sessionStorage.getItem('companiesCache');
+    const cacheTime = sessionStorage.getItem('companiesCacheTime');
+    const now = Date.now();
+
+    if (cached && cacheTime && now - parseInt(cacheTime) < 5 * 60 * 1000) {
+      return { data: JSON.parse(cached) };
+    }
+
+    const response = await api.get('/companies');
+    sessionStorage.setItem('companiesCache', JSON.stringify(response.data));
+    sessionStorage.setItem('companiesCacheTime', now.toString());
+    return response;
+  },
 };
 
 export default api;

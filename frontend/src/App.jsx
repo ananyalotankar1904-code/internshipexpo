@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import RegistrationFlow from './pages/RegistrationFlow';
 import { RegistrationProvider } from './context/RegistrationContext';
 import Dither from './components/Dither';
+import RegistrationErrorBoundary from './components/RegistrationErrorBoundary';
 
 import AdminLogin from './pages/AdminLogin';
 import AdminDashboard from './pages/AdminDashboard';
@@ -27,7 +28,11 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/register/*" element={<RegistrationFlow />} />
+          <Route path="/register/*" element={
+            <RegistrationErrorBoundary>
+              <RegistrationFlow />
+            </RegistrationErrorBoundary>
+          } />
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/admin" element={<AdminDashboard />} />
         </Routes>

@@ -28,7 +28,7 @@ const Step2ResumeUpload = () => {
       <SmokedHeader />
 
       <main className="relative z-10 flex-grow flex items-center justify-center px-4 sm:px-6 py-6 mb-20 md:mb-24 w-full">
-        <div className="flex flex-col w-full max-w-[820px] mx-auto py-2">
+        <div className="flex flex-col w-full min-w-0 max-w-[820px] mx-auto py-2">
             {/* MAIN APP SMOKED PANEL */}
             <div className="relative w-full rounded-xl smoked-glass border border-border-hairline p-5 sm:p-8 md:p-10 shadow-2xl overflow-hidden bg-surface-raised/40 backdrop-blur-sm">
                 {/* Background Ambient Glow & Corner Geometric Markers */}
@@ -73,8 +73,9 @@ const Step2ResumeUpload = () => {
                             </svg>
                         </div>
                         <input 
-                          className="w-full pl-10 pr-4 py-4 bg-transparent text-text-cream font-body text-sm rounded-lg focus:outline-none focus:border-primary border border-border-hairline transition-all placeholder:text-text-cream/30" 
+                          className="w-full min-w-0 pl-10 pr-4 py-4 bg-transparent text-text-cream font-body text-sm rounded-lg focus:outline-none focus:border-primary border border-border-hairline transition-all placeholder:text-text-cream/30" 
                           id="resumeLink" 
+
                           name="resumeLink" 
                           placeholder="https://drive.google.com/file/d/..." 
                           required 

@@ -1,26 +1,43 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useRegistration } from '../../context/RegistrationContext';
-import { companiesApi } from '../../api/client';
+import api from '../../api/client';
 import SmokedHeader from '../../components/SmokedHeader';
 import SmokedFooter from '../../components/SmokedFooter';
 import jsPDF from 'jspdf';
 
-
 const Step5Confirmation = () => {
     const navigate = useNavigate();
-    const location = useLocation();
-    const { studentDetails, selectedPositions } = location.state || { studentDetails: {}, selectedPositions: [] };
     const { clearRegistration } = useRegistration();
-    const [companies, setCompanies] = useState([]);
+    const [submissionData, setSubmissionData] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        companiesApi.getAll()
-            .then(res => setCompanies(res.data.companies))
-            .catch(console.error);
-    }, []);
+        const token = sessionStorage.getItem('studentToken');
+        if (!token) {
+            navigate('/register/step1', { replace: true });
+            return;
+        }
+
+        api.get('/applications/me')
+            .then(res => {
+                const sortedApps = res.data.applications.sort((a, b) => (a.priority || 0) - (b.priority || 0));
+                setSubmissionData({ ...res.data, applications: sortedApps });
+                setIsLoading(false);
+            })
+            .catch(err => {
+                console.error(err);
+                if (err.response && [401, 403, 404].includes(err.response.status)) {
+                    navigate('/register/step1', { replace: true });
+                } else {
+                    setIsLoading(false);
+                }
+            });
+    }, [navigate]);
 
     const handleDownloadPDF = () => {
+        if (!submissionData) return;
+        const { student, applications } = submissionData;
         const doc = new jsPDF();
 
         // Header
@@ -49,14 +66,14 @@ const Step5Confirmation = () => {
         doc.setFont("helvetica", "bold");
         doc.text("Applicant Details:", 20, 70);
         doc.setFont("helvetica", "normal");
-        doc.text(`Name: ${studentDetails.fullName || 'N/A'}`, 20, 80);
+        doc.text(`Name: ${student.fullName || 'N/A'}`, 20, 80);
         doc.text(`Institution: Fr. Conceicao Rodrigues College of Engineering`, 20, 90);
 
-        doc.text(`Email: ${studentDetails.email || 'N/A'}`, 20, 100);
-        doc.text(`Phone: +91 ${studentDetails.phone || 'N/A'}`, 20, 110);
+        doc.text(`Email: ${student.email || 'N/A'}`, 20, 100);
+        doc.text(`Phone: +91 ${student.phone || 'N/A'}`, 20, 110);
 
-        let yearStr = studentDetails.year === '2' ? 'SE' : studentDetails.year === '3' ? 'TE' : studentDetails.year === '4' ? 'BE' : studentDetails.year || 'N/A';
-        doc.text(`Class/Branch: ${yearStr} - ${studentDetails.branch?.toUpperCase() || 'N/A'} (Div: ${studentDetails.division || 'N/A'}, Roll: ${studentDetails.rollNo || 'N/A'})`, 20, 120);
+        let yearStr = student.year === 2 ? 'SE' : student.year === 3 ? 'TE' : student.year === 4 ? 'BE' : student.year || 'N/A';
+        doc.text(`Class/Branch: ${yearStr} - ${student.branch?.toUpperCase() || 'N/A'} (Roll: ${student.rollNo || 'N/A'})`, 20, 120);
 
         // Use the existing token logic or generic one
         const refToken = document.getElementById("refToken")?.innerText || `TXC2026-${Math.floor(Math.random() * 90000) + 10000}`;
@@ -64,23 +81,15 @@ const Step5Confirmation = () => {
 
         // Selected Roles
         doc.setFont("helvetica", "bold");
-        doc.text(`Selected Roles (${selectedPositions.length}):`, 20, 150);
+        doc.text(`Selected Roles (${applications.length}):`, 20, 150);
 
         doc.setFont("helvetica", "normal");
         let yPos = 160;
 
-        selectedPositions.forEach((id) => {
-            let selectedComp = null;
-            let selectedPos = null;
-            companies.forEach(c => {
-                const pos = c.positions.find(p => p.id === id);
-                if (pos) {
-                    selectedComp = c;
-                    selectedPos = pos;
-                }
-            });
+        applications.forEach((app) => {
+            const selectedComp = app.position?.company;
+            const selectedPos = app.position;
             if (selectedComp && selectedPos) {
-                // Break text if it's too long
                 const text = `• ${selectedPos.title} at ${selectedComp.name}`;
                 const splitText = doc.splitTextToSize(text, 160);
                 doc.text(splitText, 25, yPos);
@@ -97,10 +106,34 @@ const Step5Confirmation = () => {
         doc.save("TEDxCRCE_Internship_Pass.pdf");
     };
 
+    if (isLoading) {
+        return (
+            <div className="bg-transparent text-text-cream font-body antialiased min-h-screen flex flex-col relative justify-center items-center">
+                <SmokedHeader />
+                <div className="flex flex-col items-center gap-4 relative z-10">
+                    <span className="w-8 h-8 rounded-full border-2 border-primary border-t-transparent animate-spin"></span>
+                    <p className="font-mono text-sm uppercase tracking-widest text-text-cream/50">Loading Confirmation...</p>
+                </div>
+            </div>
+        );
+    }
+
+    if (!submissionData) {
+        return (
+            <div className="bg-transparent text-text-cream font-body antialiased min-h-screen flex flex-col relative justify-center items-center">
+                <SmokedHeader />
+                <div className="text-center px-4 relative z-10">
+                    <p className="font-sans text-white text-lg mb-4">Unable to load confirmation data.</p>
+                    <button onClick={() => window.location.reload()} className="bg-primary px-6 py-2 rounded-md text-white text-sm font-semibold hover:bg-primary-hover">Retry</button>
+                </div>
+            </div>
+        );
+    }
+
+    const { student, applications } = submissionData;
+
     return (
         <div className="bg-transparent text-text-cream font-body antialiased min-h-screen flex flex-col relative">
-
-
             <SmokedHeader />
 
             <main className="w-full pt-32 md:pt-20 bg-transparent min-h-screen relative z-10 flex-grow">
@@ -167,7 +200,7 @@ const Step5Confirmation = () => {
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 font-body text-sm mb-6">
                                     <div className="flex flex-col">
                                         <span className="text-text-cream/50 font-sans text-xs uppercase tracking-wider mb-1">Applicant Name</span>
-                                        <span className="font-sans font-bold text-base text-white">{studentDetails.fullName || 'Not Provided'}</span>
+                                        <span className="font-sans font-bold text-base text-white">{student.fullName || 'Not Provided'}</span>
                                     </div>
                                     <div className="flex flex-col">
                                         <span className="text-text-cream/50 font-sans text-xs uppercase tracking-wider mb-1">Academic Institution</span>
@@ -179,23 +212,16 @@ const Step5Confirmation = () => {
                                 <div className="mt-4 pt-4 border-t border-border-hairline">
                                     <div className="flex items-center justify-between mb-3">
                                         <span className="font-sans text-xs text-text-cream/70">Selected Roles</span>
-                                        <span className="bg-primary/20 text-peach-accent font-mono text-[10px] px-2 py-0.5 rounded-full font-bold">{selectedPositions.length} / 3 Roles Locked</span>
+                                        <span className="bg-primary/20 text-peach-accent font-mono text-[10px] px-2 py-0.5 rounded-full font-bold">{applications.length} / 3 Roles Locked</span>
                                     </div>
                                     <div className="flex flex-col gap-2">
-                                        {selectedPositions.map(id => {
-                                            let selectedComp = null;
-                                            let selectedPos = null;
-                                            companies.forEach(c => {
-                                                const pos = c.positions.find(p => p.id === id);
-                                                if (pos) {
-                                                    selectedComp = c;
-                                                    selectedPos = pos;
-                                                }
-                                            });
+                                        {applications.map(app => {
+                                            const selectedPos = app.position;
+                                            const selectedComp = selectedPos?.company;
                                             if (!selectedComp || !selectedPos) return null;
 
                                             return (
-                                                <div key={id} className="flex flex-col bg-transparent border border-border-hairline text-white px-3 py-2 rounded">
+                                                <div key={app.id} className="flex flex-col bg-transparent border border-border-hairline text-white px-3 py-2 rounded">
                                                     <span className="text-xs font-semibold text-text-cream/90">{selectedPos.title}</span>
                                                     <span className="text-[10px] text-text-cream/60 flex items-center gap-1.5 mt-0.5">
                                                         <span className="w-1.5 h-1.5 rounded-full bg-primary"></span> {selectedComp.name}

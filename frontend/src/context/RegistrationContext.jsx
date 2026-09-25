@@ -143,7 +143,12 @@ export const RegistrationProvider = ({ children }) => {
     setResumeLink('');
     setSelectedPositions([]);
     setTaskLinks({});
-    sessionStorage.clear();
+    sessionStorage.removeItem('studentDetails');
+    sessionStorage.removeItem('resumeLink');
+    sessionStorage.removeItem('selectedPositions');
+    sessionStorage.removeItem('taskLinks');
+    sessionStorage.removeItem('editModeReturnUrl');
+    sessionStorage.removeItem('studentToken');
   };
 
   return (
