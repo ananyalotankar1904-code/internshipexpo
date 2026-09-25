@@ -572,6 +572,84 @@ const companiesData = [
         description: 'Develop backend applications and APIs using NodeJS while working with databases, server-side logic and application integrations.'
       }
     ]
+  },
+  {
+    name: 'Cognify Solutions',
+    websiteUrl: 'https://www.cognify-solutions.com/',
+    logoUrl: '/logos/cognify.png',
+    tags: ['Software Development', 'IT Services', 'Digital Transformation'],
+    positions: [
+      {
+        title: 'Full-Stack/Web Developer',
+        domain: 'Web Development',
+        eligibleYears: 'All 4 Years',
+        isPaid: true,
+        stipend: 'Depending on interview',
+        duration: '3 months',
+        description: 'Develop and maintain full-stack web applications.',
+        jobDescriptionPdfUrl: 'https://drive.google.com/file/d/1HhnJzXknnuXicWLuNEv0psOjlE-JKciD/view?usp=drive_link'
+      },
+      {
+        title: 'Flutter or Mobile App Developer',
+        domain: 'Mobile App Development',
+        eligibleYears: 'All 4 Years',
+        isPaid: true,
+        stipend: 'Depending on interview',
+        duration: '3 months',
+        description: 'Develop and maintain mobile applications using Flutter.',
+        jobDescriptionPdfUrl: 'https://drive.google.com/file/d/1HhnJzXknnuXicWLuNEv0psOjlE-JKciD/view?usp=drive_link'
+      },
+      {
+        title: 'UI/UX + Graphic Designer',
+        domain: 'UI/UX & Graphic Design',
+        eligibleYears: 'All 4 Years',
+        isPaid: true,
+        stipend: 'Depending on interview',
+        duration: '3 months',
+        description: 'Design user interfaces and create graphic design assets.',
+        jobDescriptionPdfUrl: 'https://drive.google.com/file/d/1HhnJzXknnuXicWLuNEv0psOjlE-JKciD/view?usp=drive_link'
+      },
+      {
+        title: 'Digital Marketing Executive',
+        domain: 'Digital Marketing',
+        eligibleYears: 'All 4 Years',
+        isPaid: true,
+        stipend: 'Depending on interview',
+        duration: '3 months',
+        description: 'Support digital marketing activities and campaigns.',
+        jobDescriptionPdfUrl: 'https://drive.google.com/file/d/1HhnJzXknnuXicWLuNEv0psOjlE-JKciD/view?usp=drive_link'
+      },
+      {
+        title: 'SEO Executive',
+        domain: 'Search Engine Optimization',
+        eligibleYears: 'All 4 Years',
+        isPaid: true,
+        stipend: 'Depending on interview',
+        duration: '3 months',
+        description: 'Support search engine optimization and website visibility activities.',
+        jobDescriptionPdfUrl: 'https://drive.google.com/file/d/1HhnJzXknnuXicWLuNEv0psOjlE-JKciD/view?usp=drive_link'
+      },
+      {
+        title: 'Performance Marketing Executive',
+        domain: 'Performance Marketing',
+        eligibleYears: 'All 4 Years',
+        isPaid: true,
+        stipend: 'Depending on interview',
+        duration: '3 months',
+        description: 'Support performance marketing campaigns and digital advertising activities.',
+        jobDescriptionPdfUrl: 'https://drive.google.com/file/d/1HhnJzXknnuXicWLuNEv0psOjlE-JKciD/view?usp=drive_link'
+      },
+      {
+        title: 'BDE / Sales Executive',
+        domain: 'Business Development & Sales',
+        eligibleYears: 'All 4 Years',
+        isPaid: true,
+        stipend: 'Depending on interview',
+        duration: '3 months',
+        description: 'Support business development, sales and client acquisition activities.',
+        jobDescriptionPdfUrl: 'https://drive.google.com/file/d/1HhnJzXknnuXicWLuNEv0psOjlE-JKciD/view?usp=drive_link'
+      }
+    ]
   }
 ];
 
