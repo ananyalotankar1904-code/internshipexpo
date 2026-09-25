@@ -97,6 +97,7 @@ const Step1StudentDetails = () => {
                       <option value="cse">Computer Science Engineering (CSE)</option>
                       <option value="mech">Mechanical Engineering (MECH)</option>
                       <option value="ecs">Electronics & Computer Science Engineering (ECS)</option>
+                      <option value="aids">Artificial Intelligence and Data Science (AI DS)</option>
                     </select>
                   </div>
                 </div>

@@ -42,25 +42,25 @@ const CompanyDetailModal = ({ isOpen, onClose, company }) => {
   const isPositionSelected = (id) => selectedPositions.some(p => p.id === id);
 
   return (
-    <div aria-labelledby="modal-company-title" aria-modal="true" className="fixed inset-0 z-50 flex items-center justify-center bg-black/65 backdrop-blur-[6px] p-2 sm:p-6" role="dialog">
-      <div className="relative w-full max-w-[920px] max-h-[95vh] sm:max-h-[88vh] bg-[#050505] border border-white/20 rounded-2xl shadow-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+    <div aria-labelledby="modal-company-title" aria-modal="true" className="fixed inset-0 z-50 flex items-start sm:items-center justify-center bg-black/65 backdrop-blur-[6px] p-2 sm:p-6 overflow-y-auto" role="dialog">
+      <div className="relative w-full max-w-[920px] max-h-[95vh] sm:max-h-[88vh] mt-4 sm:mt-0 bg-[#050505] border border-white/20 rounded-2xl shadow-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200">
         {/* Top Accent Stripe */}
         <div className="h-1.5 w-full bg-gradient-to-r from-tedx-red via-tedx-red to-tedx-red"></div>
         
         {/* Modal Header */}
-        <header className="px-7 pt-6 pb-5 bg-[#050505] border-b border-white/10 flex-shrink-0">
-          <div className="flex items-start justify-between gap-4">
-            <div className="flex items-start gap-3 sm:gap-4">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl bg-white flex items-center justify-center shadow-md flex-shrink-0 border border-white/30 overflow-hidden">
+        <header className="px-5 sm:px-7 pt-4 sm:pt-6 pb-4 sm:pb-5 bg-[#050505] border-b border-white/10 flex-shrink-0">
+          <div className="flex items-start justify-between gap-2 sm:gap-4">
+            <div className="flex items-start gap-2 sm:gap-4">
+              <div className="w-10 h-10 sm:w-16 sm:h-16 rounded-xl bg-white flex items-center justify-center shadow-md flex-shrink-0 border border-white/30 overflow-hidden mt-1 sm:mt-0">
                 {company.logoUrl ? (
                   <img src={company.logoUrl} alt={company.name} className="w-full h-full object-contain p-1 sm:p-2" />
                 ) : (
-                  <span className="font-bold text-xl sm:text-2xl text-tedx-red">{company.name.substring(0, 2).toUpperCase()}</span>
+                  <span className="font-bold text-lg sm:text-2xl text-tedx-red">{company.name.substring(0, 2).toUpperCase()}</span>
                 )}
               </div>
               <div>
                 <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2.5 mb-1">
-                  <h2 className="font-clash text-xl sm:text-3xl font-bold tracking-tight text-white" id="modal-company-title">
+                  <h2 className="font-clash text-[1.1rem] sm:text-3xl font-bold tracking-tight text-white leading-tight" id="modal-company-title">
                     {company.name}
                   </h2>
                   <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-general font-bold bg-tedx-red text-white uppercase tracking-wider">

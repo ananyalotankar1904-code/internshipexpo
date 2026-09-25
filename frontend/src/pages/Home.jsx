@@ -273,7 +273,7 @@ const Home = () => {
       
       <div className="w-24 h-24 md:w-[190px] md:h-[190px] flex items-center justify-center relative z-10">
         {company.logoUrl ? (
-           <img src={company.logoUrl} alt={company.name} className="max-w-full max-h-full object-contain filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 scale-95 group-hover:scale-100" />
+           <img src={company.logoUrl} alt={company.name} className="max-w-full max-h-full object-contain filter transition-all duration-500 scale-95 group-hover:scale-100" />
         ) : (
            <span className="font-display font-bold text-4xl text-text-cream/50 group-hover:text-primary transition-colors duration-300">
              {company.name.substring(0, 2).toUpperCase()}
