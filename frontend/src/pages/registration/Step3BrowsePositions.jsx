@@ -248,11 +248,9 @@ const Step3BrowsePositions = () => {
                       </>
                     )}
                   </button>
-                  {position.jobDescriptionPdfUrl && (
-                    <a href={position.jobDescriptionPdfUrl} target="_blank" rel="noreferrer" className="px-3 py-2.5 font-sans font-semibold text-xs uppercase tracking-wider rounded-md border border-border-hairline text-text-cream hover:bg-white/5 transition-all flex items-center justify-center whitespace-nowrap">
-                      📄 Job Description
-                    </a>
-                  )}
+                  <a href={position.jobDescriptionPdfUrl || 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing'} target="_blank" rel="noreferrer" className="px-3 py-2.5 font-sans font-semibold text-xs uppercase tracking-wider rounded-md border border-border-hairline text-text-cream hover:bg-white/5 transition-all flex items-center justify-center whitespace-nowrap">
+                    📄 Job Description
+                  </a>
                 </div>
               </div>
             );

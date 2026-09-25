@@ -35,7 +35,7 @@ const companiesData = [
         stipend: '₹6,000/month',
         duration: '2 months',
         description: 'Hands-on internship working on an ESP32-based product, including PCB assembly, soldering, testing, troubleshooting, basic electronics, and Gerber file generation.'
-      }
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' }
     ]
   },
   {
@@ -52,7 +52,7 @@ const companiesData = [
         stipend: '₹6,000–₹15,000/month',
         duration: '6 months',
         description: 'Assist with on-page, off-page and technical SEO, keyword research, competitor analysis, link-building, content strategy and SEO implementation for client websites.'
-      },
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Business Development Intern (Sales)',
         domain: 'Sales / Business Development',
@@ -61,7 +61,7 @@ const companiesData = [
         stipend: '₹8,000–₹12,000/month',
         duration: '6 months',
         description: 'Identify potential clients, conduct outbound calls and cold outreach, build prospect databases, communicate company services, maintain CRM records, handle client objections.'
-      }
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' }
     ]
   },
   {
@@ -78,7 +78,7 @@ const companiesData = [
         stipend: '₹12,500/month',
         duration: '6 months, starting January 2027',
         description: 'Gain hands-on exposure to machine design, production engineering, CNC manufacturing, quality engineering, product development, hydraulics, automation, project engineering.'
-      }
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' }
     ]
   },
   {
@@ -95,7 +95,7 @@ const companiesData = [
         stipend: '₹10,000 – ₹14,000/month',
         duration: '6 months',
         description: 'Develop internal software applications, automation processes, and AI-enabled solutions to improve business efficiency. The role involves understanding user requirements, redesigning workflows.'
-      }
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' }
     ]
   },
   {
@@ -112,7 +112,7 @@ const companiesData = [
         stipend: '₹5,000 fixed + incentives, up to ₹10,000/month',
         duration: 'Minimum 6 months',
         description: 'Work on circuit, schematic and PCB development; firmware, IoT and embedded software; microcontrollers and embedded C/C++; sensors, actuators, displays.'
-      },
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Mechanical R&D & Product Design Intern',
         domain: 'Mechanical R&D / Product Design',
@@ -121,7 +121,7 @@ const companiesData = [
         stipend: '₹5,000 fixed + incentives, up to ₹10,000/month',
         duration: 'Minimum 6 months',
         description: 'Work on 3D CAD, product and enclosure design, mechanisms, fixtures, assemblies, packaging, 3D printing, rapid prototyping, electronics-mechanical integration.'
-      },
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Technical Business Development & Solutions Intern',
         domain: 'Technical Business Development / Sales / IoT',
@@ -130,7 +130,7 @@ const companiesData = [
         stipend: '₹5,000 fixed + incentives, up to ₹15,000/month',
         duration: 'Minimum 6 months',
         description: 'B2B lead generation and prospect research, identifying customer needs and opportunities, presenting 1Accord\'s product development and IoT capabilities.'
-      },
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Growth Automation & Digital Marketing Intern',
         domain: 'Digital Marketing / Business Growth / Automation',
@@ -139,7 +139,7 @@ const companiesData = [
         stipend: '₹5,000 fixed + incentives, up to ₹10,000/month',
         duration: 'Minimum 6 months',
         description: 'B2B lead generation, LinkedIn/email outreach, campaign management, lead-generation automation, CRM workflows, AI/no-code automation.'
-      }
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' }
     ]
   },
   {
@@ -184,7 +184,7 @@ const companiesData = [
         stipend: 'Performance based',
         duration: '3 months',
         description: 'Work on modern websites and web applications, including front-end and back-end development, APIs, databases, third-party integrations.'
-      },
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'UI/UX Design',
         domain: 'UI/UX Design',
@@ -193,7 +193,7 @@ const companiesData = [
         stipend: 'Performance based',
         duration: '3 months',
         description: 'Design intuitive and user-friendly digital experiences through wireframes, user flows, prototypes, website and application interfaces.'
-      },
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Graphic Design',
         domain: 'Graphic Design / Branding',
@@ -202,7 +202,7 @@ const companiesData = [
         stipend: 'Performance based',
         duration: '3 months',
         description: 'Create social media creatives, advertisements, branding and identity materials, presentations, brochures, marketing materials.'
-      },
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Video Editing',
         domain: 'Video Editing / Media',
@@ -211,7 +211,7 @@ const companiesData = [
         stipend: 'Performance based',
         duration: '3 months',
         description: 'Edit Reels, YouTube videos and promotional videos, including transitions, subtitles, music, sound effects, colour correction and audio enhancement.'
-      },
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Videography & Film Development',
         domain: 'Videography / Film Production',
@@ -220,7 +220,7 @@ const companiesData = [
         stipend: 'Performance based',
         duration: '3 months',
         description: 'Assist with videography, filmmaking and cinematography from planning through production and post-production.'
-      },
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Motion Graphics Video Editor / Developer',
         domain: 'Motion Graphics / Animation / Video',
@@ -229,7 +229,7 @@ const companiesData = [
         stipend: 'Performance based',
         duration: '3 months',
         description: 'Create motion graphics, animations, animated social media content, text and graphic animations, visual effects and transitions.'
-      },
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Content Writing / Story Writing',
         domain: 'Content Writing / Copywriting',
@@ -238,7 +238,7 @@ const companiesData = [
         stipend: 'Performance based',
         duration: '3 months',
         description: 'Create written content, scripts and story concepts for brands, campaigns, websites, social media and video projects.'
-      },
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Content Strategy',
         domain: 'Content Strategy / Digital Marketing',
@@ -247,7 +247,7 @@ const companiesData = [
         stipend: 'Performance based',
         duration: '3 months',
         description: 'Assist in planning content strategies through audience and competitor research, content ideas, content calendars, social media planning.'
-      },
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Performance Marketing',
         domain: 'Performance Marketing / Digital Advertising',
@@ -256,7 +256,7 @@ const companiesData = [
         stipend: 'Performance based',
         duration: '3 months',
         description: 'Gain practical exposure to paid advertising, campaign planning, audience targeting, lead generation and performance analysis.'
-      },
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Business Growth & Development',
         domain: 'Business Development / Sales',
@@ -265,7 +265,7 @@ const companiesData = [
         stipend: 'Performance based',
         duration: '3 months',
         description: 'Support business growth through potential client and market research, identifying opportunities, lead generation, business development activities.'
-      },
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Data Analytics',
         domain: 'Data Analytics / Business Analytics',
@@ -274,7 +274,7 @@ const companiesData = [
         stipend: 'Performance based',
         duration: '3 months',
         description: 'Collect, clean and analyse business and marketing data, identify trends and patterns, create reports and dashboards.'
-      },
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Business / Market Research',
         domain: 'Business / Market Research',
@@ -283,7 +283,7 @@ const companiesData = [
         stipend: 'Performance based',
         duration: '3 months',
         description: 'Conduct industry, market, company and competitor research, collect and analyse publicly available business information.'
-      },
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Founder\'s Office',
         domain: 'Strategy / Operations / Business',
@@ -292,7 +292,7 @@ const companiesData = [
         stipend: 'Performance based',
         duration: '3 months',
         description: 'Work with the Founder/management team on business, strategy, operations, research and growth initiatives.'
-      },
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Project Coordination',
         domain: 'Project Management / Coordination',
@@ -301,7 +301,7 @@ const companiesData = [
         stipend: 'Performance based',
         duration: '3 months',
         description: 'Support project planning and coordination between internal teams, clients and stakeholders.'
-      }
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' }
     ]
   },
   {
@@ -318,7 +318,7 @@ const companiesData = [
         stipend: '₹6,000/month',
         duration: '3 months',
         description: 'Support the Client Acquisition and Partnerships team in identifying, engaging and onboarding potential clients and collaborators in the education sector.'
-      }
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' }
     ]
   },
   {
@@ -335,7 +335,7 @@ const companiesData = [
         stipend: '₹5,000/month or ₹12,300/month (NATS)',
         duration: '6 months',
         description: 'Data Science Intern role'
-      },
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Business Development Executive',
         domain: 'Business Development',
@@ -344,7 +344,7 @@ const companiesData = [
         stipend: '₹5,000–₹10,000/month',
         duration: '6 months',
         description: 'Business Development Executive role'
-      },
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Founder\'s Office Intern',
         domain: 'Founder\'s Office / Business Strategy',
@@ -353,7 +353,7 @@ const companiesData = [
         stipend: '₹5,000–₹10,000/month',
         duration: '6 months',
         description: 'Founder\'s Office Intern role'
-      }
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' }
     ]
   },
   {
@@ -370,7 +370,7 @@ const companiesData = [
         stipend: '₹15,000–₹25,000/month',
         duration: '3 months',
         description: 'Support sales and business development activities, including lead generation, prospect research, client acquisition and relationship management.'
-      },
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Digital Marketing Intern',
         domain: 'Digital Marketing',
@@ -379,7 +379,7 @@ const companiesData = [
         stipend: '₹15,000–₹25,000/month',
         duration: '3 months',
         description: 'Support digital marketing activities across social media, email, WhatsApp, webinars, campaigns, content and performance marketing.'
-      }
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' }
     ]
   },
   {
@@ -396,7 +396,7 @@ const companiesData = [
         stipend: 'No stipend',
         duration: '3 months',
         description: 'Develop and maintain backend systems, APIs and server-side functionality for software applications.'
-      },
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Frontend Developer Intern',
         domain: 'Frontend Development / Software Development',
@@ -405,7 +405,7 @@ const companiesData = [
         stipend: 'No stipend',
         duration: '3 months',
         description: 'Develop and maintain user-facing interfaces and frontend functionality for software applications.'
-      }
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' }
     ]
   },
   {
@@ -422,7 +422,7 @@ const companiesData = [
         stipend: '₹5,000–₹8,000/month',
         duration: '6 months',
         description: 'Work on real-world web applications using React and FastAPI, with hands-on experience in frontend and backend development.'
-      }
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' }
     ]
   },
   {
@@ -439,7 +439,7 @@ const companiesData = [
         stipend: '₹10,000 to ₹40,000',
         duration: 'Full-time',
         description: 'Responsibilities include schematic and PCB design as per standards using KiCad, updating designs, maintaining footprint and symbol libraries.'
-      },
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Embedded Systems Engineer',
         domain: 'Embedded Systems / Firmware',
@@ -448,7 +448,7 @@ const companiesData = [
         stipend: 'Depends on interview',
         duration: 'Full-time',
         description: 'Involves developing and maintaining advanced embedded systems based products, hardware planning, code planning, tech support, client coordination.'
-      }
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' }
     ]
   },
   {
@@ -483,7 +483,7 @@ const companiesData = [
         stipend: '₹8,000 per month',
         duration: '6 months',
         description: 'The role involves working in the software sales team. It requires excellent communication skills, a positive attitude, an interest in business development.'
-      }
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' }
     ]
   },
   {
@@ -500,7 +500,7 @@ const companiesData = [
         stipend: 'Up to ₹8,000 per month',
         duration: 'Full-time',
         description: 'A hands-on role supporting digital product design (wireframes, app and web screens, prototypes) and brand/visual design.'
-      }
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' }
     ]
   },
   {
@@ -517,7 +517,7 @@ const companiesData = [
         stipend: 'Not specified',
         duration: '3 or 6 months',
         description: 'Research and approach brands, creators, communities and media for collaborations and organic placements, including outreach, follow-ups and tracking results.'
-      },
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Email Marketing Intern',
         domain: 'Email Marketing / Digital Marketing',
@@ -526,7 +526,7 @@ const companiesData = [
         stipend: 'Not specified',
         duration: '3 or 6 months',
         description: 'Grow and manage the email database through lead capture, contact segmentation, campaign creation, scheduling and performance tracking.'
-      },
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'App Developer Intern (AI / No-Code)',
         domain: 'App Development / AI / No-Code',
@@ -535,7 +535,7 @@ const companiesData = [
         stipend: 'Not specified',
         duration: '3 or 6 months',
         description: 'Revamp and maintain the existing app using AI and no-code development tools while automating data feeds and managing backend services on Supabase and AWS.'
-      }
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' }
     ]
   },
   {
@@ -552,7 +552,7 @@ const companiesData = [
         stipend: 'No stipend — Certification Program',
         duration: '3 months',
         description: 'Develop and maintain web applications using MongoDB, Express.js, React.js and Node.js while gaining practical experience in full stack development.'
-      },
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'ReactJS Developer Intern',
         domain: 'Frontend Development / ReactJS',
@@ -561,7 +561,7 @@ const companiesData = [
         stipend: 'No stipend — Certification Program',
         duration: '3 months',
         description: 'Develop responsive and interactive user interfaces using ReactJS, reusable components and modern frontend development practices.'
-      },
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'NodeJS Developer Intern',
         domain: 'Backend Development / NodeJS',
@@ -570,7 +570,7 @@ const companiesData = [
         stipend: 'No stipend — Certification Program',
         duration: '3 months',
         description: 'Develop backend applications and APIs using NodeJS while working with databases, server-side logic and application integrations.'
-      }
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' }
     ]
   },
   {
@@ -665,7 +665,7 @@ const companiesData = [
         stipend: '₹10,000 for 200 hours (Performance based)',
         duration: 'Approx. 200 hours',
         description: 'Support sales and business development activities.'
-      },
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Survey & Field Research',
         domain: 'Market Research',
@@ -674,7 +674,7 @@ const companiesData = [
         stipend: 'None',
         duration: 'Approx. 200 hours',
         description: 'Conduct surveys and support market research activities.'
-      },
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Mentors',
         domain: 'Mentorship & Education',
@@ -683,7 +683,7 @@ const companiesData = [
         stipend: '₹200/session (Freelancing role after training)',
         duration: 'Approx. 200 hours',
         description: 'Provide mentorship and educational support.'
-      },
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Camera Operator',
         domain: 'Media & Video Production',
@@ -692,7 +692,7 @@ const companiesData = [
         stipend: 'None',
         duration: 'Approx. 200 hours',
         description: 'Operate cameras and support video production activities.'
-      },
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Content Creator',
         domain: 'Content Creation',
@@ -701,7 +701,7 @@ const companiesData = [
         stipend: 'None',
         duration: 'Approx. 200 hours',
         description: 'Create content for digital and educational platforms.'
-      },
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'AI Video Generator',
         domain: 'AI & Video Production',
@@ -774,7 +774,7 @@ const companiesData = [
         stipend: 'Performance-based',
         duration: '3–6 months',
         description: 'Build and deploy web applications and APIs across frontend, backend, databases and cloud services.'
-      },
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Business Development & Sales Intern',
         domain: 'Business Development / Sales',
@@ -783,7 +783,7 @@ const companiesData = [
         stipend: 'Performance-based',
         duration: '3–6 months',
         description: 'Research potential clients, generate and qualify leads, support outreach, prepare proposals and assist with client relationship management.'
-      },
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Social Media Intern',
         domain: 'Social Media / Digital Marketing',
@@ -792,7 +792,7 @@ const companiesData = [
         stipend: 'Performance-based',
         duration: '3–6 months',
         description: 'Plan and create social media content, manage online communities, track analytics and support the brand\'s digital presence.'
-      },
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Design & Video Editing Intern',
         domain: 'Graphic Design / Video Editing',
@@ -801,7 +801,7 @@ const companiesData = [
         stipend: 'Performance-based',
         duration: '3–6 months',
         description: 'Create social media creatives, brand materials, videos, motion graphics and UI/UX visuals.'
-      }
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' }
     ]
   },
   {
@@ -818,7 +818,7 @@ const companiesData = [
         stipend: '₹3,000 – ₹7,000/month',
         duration: '3 months',
         description: 'Communicate with clients, coordinate project deliverables with internal creative teams, manage project timelines, and track pending tasks.'
-      },
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Sales Executive Intern',
         domain: 'Sales / Lead Generation',
@@ -827,7 +827,7 @@ const companiesData = [
         stipend: '₹3,000 – ₹7,000/month + Commission',
         duration: '3 months',
         description: 'Conduct daily Instagram outreach to potential clients, maintain outreach records, and follow up with interested leads.'
-      },
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Graphic Designer Intern',
         domain: 'Graphic Design',
@@ -836,7 +836,7 @@ const companiesData = [
         stipend: '₹3,000 – ₹7,000/month',
         duration: '3 months',
         description: 'Create social media posts, carousels, reel covers, and marketing artwork following brand guidelines using Canva or Adobe Creative Suite.'
-      },
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Video Editor Intern',
         domain: 'Video Editing',
@@ -845,7 +845,7 @@ const companiesData = [
         stipend: '₹3,000 – ₹7,000/month',
         duration: '3 months',
         description: 'Edit short-form content and Instagram Reels with transitions, subtitles, music, and sound design.'
-      }
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' }
     ]
   },
   {
@@ -862,7 +862,7 @@ const companiesData = [
         stipend: 'Performance-based',
         duration: 'Full-time',
         description: 'B2B outbound international sales position focused on driving delegate enrollments and corporate training contracts in banking, risk, compliance, and leadership across overseas markets.'
-      }
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' }
     ]
   },
   {
@@ -879,7 +879,7 @@ const companiesData = [
         stipend: '₹5,000/month + Conveyance Allowance up to ₹1,500/month',
         duration: 'Internship / Fresher Program',
         description: 'Develop responsive web interfaces using React.js, HTML5, CSS3, integrate REST APIs, and maintain clean component architecture.'
-      },
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Full Stack Developer – Fresher Program',
         domain: 'Full Stack Development',
@@ -888,7 +888,7 @@ const companiesData = [
         stipend: '₹5,000/month + Conveyance Allowance up to ₹1,500/month',
         duration: 'Internship / Fresher Program',
         description: 'Build web application modules across frontend (React), backend (Python/FastAPI), and database (PostgreSQL) components.'
-      }
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' }
     ]
   },
   {
@@ -905,7 +905,7 @@ const companiesData = [
         stipend: '₹8,000 – ₹15,000/month',
         duration: 'Internship',
         description: 'Manage Instagram and LinkedIn handles, generate creative post ideas, research trends, and assist with client social media campaigns and influencer outreach.'
-      },
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Business Development / Sales Intern',
         domain: 'Sales / Business Development',
@@ -914,7 +914,7 @@ const companiesData = [
         stipend: 'Performance-based',
         duration: 'Internship',
         description: 'Research prospective brand clients, execute lead-generation campaigns through social channels and email, and maintain client interaction databases.'
-      }
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' }
     ]
   },
   {
@@ -931,7 +931,7 @@ const companiesData = [
         stipend: '₹3,000–₹5,000/month',
         duration: '3–6 months',
         description: 'Assist with export documentation, international market research, shipment coordination and export-related records.'
-      },
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'International Sales / Business Development Intern',
         domain: 'International Sales / Business Development',
@@ -940,7 +940,7 @@ const companiesData = [
         stipend: '₹3,000–₹5,000/month',
         duration: '3–6 months',
         description: 'Research international buyers and distributors, generate B2B leads, and support sales outreach, quotations and CRM management.'
-      }
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' }
     ]
   },
   {
@@ -957,7 +957,7 @@ const companiesData = [
         stipend: 'Performance-based incentives',
         duration: '3 months',
         description: 'Focuses on designing merchandise, preparing print artwork, creating client mockups and social media content, along with conducting cold calls, DMs, and outreach to identify business opportunities.'
-      },
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Social Media & B2B Outreach Intern',
         domain: 'Social Media Marketing & Business Development',
@@ -966,7 +966,7 @@ const companiesData = [
         stipend: 'Performance-based incentives',
         duration: '3 months',
         description: 'Responsible for generating short-form video content (Reels/Stories), managing content calendars, and driving lead generation through cold outreach across LinkedIn and direct messages.'
-      }
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' }
     ]
   },
   {
@@ -983,7 +983,7 @@ const companiesData = [
         stipend: 'CTC based on prior experience',
         duration: 'Full Time',
         description: 'Involves editing raw footage, creating motion graphics, audio refining, color grading, maintaining brand guidelines, and assisting with on-site shoots.'
-      }
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' }
     ]
   },
   {
@@ -1000,7 +1000,7 @@ const companiesData = [
         stipend: 'Up to ₹5,000/month',
         duration: '1 month or 6 months',
         description: 'Offline, in-office mechanical engineering internship with positions available in Thane and Vasai.'
-      }
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' }
     ]
   },
   {
@@ -1017,7 +1017,7 @@ const companiesData = [
         stipend: 'Not specified',
         duration: 'Not specified',
         description: 'A flexible opportunity focused on gaining real-world experience and working on practical projects. Exact responsibilities are tailored to the candidate. Prior knowledge isn\'t strictly required; the focus is on a willingness to learn, take responsibility, solve problems, and contribute.'
-      }
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' }
     ]
   },
   {
@@ -1034,7 +1034,7 @@ const companiesData = [
         stipend: 'Not specified',
         duration: '6 Months',
         description: 'This is an on-site, hands-on role contributing to production-grade applications. Responsibilities include designing backend APIs, working with PostgreSQL and Drizzle ORM, building full-stack features using Next.js/React, and exploring AI/LLM capabilities.'
-      }
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' }
     ]
   },
   {
