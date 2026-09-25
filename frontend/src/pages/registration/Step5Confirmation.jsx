@@ -41,7 +41,7 @@ const Step5Confirmation = () => {
                 </div>
             </div>
 
-            {/* Primary Centered Dossier Container */}
+            {/* Primary Centered Container */}
             <div className="w-full max-w-[580px] px-4 md:px-6 flex flex-col items-center">
                 <div className="w-full bg-transparent border border-border-hairline rounded-xl shadow-2xl p-4 md:p-10 relative flex flex-col items-center smoked-glass">
                     {/* Decorative Washi Tape Accent pinned top right */}
@@ -65,16 +65,16 @@ const Step5Confirmation = () => {
 
                     {/* Typography Header */}
                     <div className="text-center flex flex-col items-center mb-8">
-                        <span className="font-mono text-[10px] text-peach-accent font-bold uppercase tracking-widest mb-2">CANDIDATE DOSSIER DISPATCHED</span>
+                        <span className="font-mono text-[10px] text-peach-accent font-bold uppercase tracking-widest mb-2">APPLICATION SUBMITTED</span>
                         <h1 className="font-display font-bold text-3xl md:text-4xl text-white tracking-tight leading-tight uppercase">
                             You’re All <span className="text-primary underline decoration-peach-accent decoration-wavy decoration-2 underline-offset-4">Set!</span>
                         </h1>
                         <p className="font-body text-sm text-text-cream/70 mt-3 max-w-md text-center leading-relaxed">
-                            Your official application has been recorded in the central recruiter pool. Participating engineering and product teams will evaluate your dossier directly for on-campus interviews on <strong className="text-white font-semibold">3 October 2026</strong>.
+                            Your official application has been recorded in the central recruiter pool. Participating engineering and product teams will evaluate your application directly for on-campus interviews on <strong className="text-white font-semibold">3 October 2026</strong>.
                         </p>
                     </div>
 
-                    {/* Ticket / Dossier Confirmation Strip */}
+                    {/* Ticket / Confirmation Strip */}
                     <div className="w-full bg-black/40 border border-border-hairline rounded-lg p-6 relative overflow-hidden shadow-sm">
                         <div className="flex items-center justify-between pb-4 mb-4 border-b border-border-hairline">
                             <div className="flex items-center gap-1.5">
@@ -105,15 +105,23 @@ const Step5Confirmation = () => {
                             <div className="flex flex-col gap-2">
                                 {selectedPositions.map(id => {
                                     let selectedComp = null;
+                                    let selectedPos = null;
                                     companies.forEach(c => {
-                                        if(c.positions.find(p => p.id === id)) selectedComp = c;
+                                        const pos = c.positions.find(p => p.id === id);
+                                        if(pos) {
+                                            selectedComp = c;
+                                            selectedPos = pos;
+                                        }
                                     });
-                                    if(!selectedComp) return null;
+                                    if(!selectedComp || !selectedPos) return null;
                                     
                                     return (
-                                        <span key={id} className="inline-flex items-center gap-2 bg-transparent border border-border-hairline text-white px-3 py-1.5 rounded text-xs font-medium">
-                                            <span className="w-1.5 h-1.5 rounded-full bg-primary"></span> {selectedComp.name}
-                                        </span>
+                                        <div key={id} className="flex flex-col bg-transparent border border-border-hairline text-white px-3 py-2 rounded">
+                                            <span className="text-xs font-semibold text-text-cream/90">{selectedPos.title}</span>
+                                            <span className="text-[10px] text-text-cream/60 flex items-center gap-1.5 mt-0.5">
+                                                <span className="w-1.5 h-1.5 rounded-full bg-primary"></span> {selectedComp.name}
+                                            </span>
+                                        </div>
                                     );
                                 })}
                             </div>
@@ -135,9 +143,9 @@ const Step5Confirmation = () => {
 
                 {/* Action Buttons */}
                 <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
-                    <button className="w-full inline-flex items-center justify-center gap-2 bg-transparent border border-border-hairline hover:border-primary/50 text-white py-3 px-4 rounded-xl font-sans font-semibold text-sm transition-all duration-150">
+                    <button onClick={() => window.print()} className="w-full inline-flex items-center justify-center gap-2 bg-transparent border border-border-hairline hover:border-primary/50 text-white py-3 px-4 rounded-xl font-sans font-semibold text-sm transition-all duration-150">
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                        <span>Download Dossier (PDF)</span>
+                        <span>Download Pass (PDF)</span>
                     </button>
                     <button className="w-full inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-hover text-white py-3 px-4 rounded-xl font-sans font-semibold text-sm shadow-lg shadow-primary/20 transition-all duration-150" onClick={() => navigate('/')}>
                         <span>Back to Homepage</span>

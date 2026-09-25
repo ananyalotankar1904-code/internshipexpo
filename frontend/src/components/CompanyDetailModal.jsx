@@ -122,7 +122,7 @@ const CompanyDetailModal = ({ isOpen, onClose, company }) => {
                   </h3>
                 </div>
                 <p className="text-xs text-white/70 font-inter mt-0.5">
-                  Select up to 3 positions across the expo. Tracked in your real-time candidate dossier.
+                  Select up to 3 positions across the expo. Tracked in your real-time candidate profile.
                 </p>
               </div>
             </div>
@@ -132,7 +132,7 @@ const CompanyDetailModal = ({ isOpen, onClose, company }) => {
                 <article key={pos.id} className={`bg-[#0A0A0A] border ${isPositionSelected(pos.id) ? 'border-tedx-red border-2 shadow-md' : 'border-white/10 shadow-sm'} rounded-xl p-4.5 transition-all relative overflow-hidden`}>
                   {isPositionSelected(pos.id) && (
                     <div className="absolute top-0 right-0 bg-tedx-red text-white text-[10px] font-general font-bold px-3 py-0.5 rounded-bl-lg tracking-wider flex items-center gap-1">
-                      SELECTED IN DOSSIER
+                      SELECTED
                     </div>
                   )}
                   <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mt-2">
@@ -175,7 +175,7 @@ const CompanyDetailModal = ({ isOpen, onClose, company }) => {
               </span>
             </div>
             <span className="text-xs text-white/70 font-inter hidden md:inline">
-              {3 - selectedPositions.length} spots remaining in your TEDxCRCE dossier
+              {3 - selectedPositions.length} spots remaining in your application
             </span>
           </div>
           <div className="flex items-center gap-3 w-full sm:w-auto justify-end">

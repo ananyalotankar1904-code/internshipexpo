@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import { z, ZodError } from 'zod';
 import { prisma } from '../index';
 import jwt from 'jsonwebtoken';
-
+import nodemailer from 'nodemailer';
 const JWT_SECRET = process.env.JWT_SECRET || 'fallback_secret';
 
 const startSchema = z.object({
@@ -199,11 +199,41 @@ export const submitApplication = async (req: Request, res: Response): Promise<vo
         data: { status: 'SUBMITTED' }
       });
 
-      return { success: true };
+      return { success: true, student };
     });
 
+    // Send confirmation email
+    if (process.env.SMTP_USER && process.env.SMTP_PASS) {
+      try {
+        const transporter = nodemailer.createTransport({
+          service: 'gmail',
+          auth: {
+            user: process.env.SMTP_USER,
+            pass: process.env.SMTP_PASS
+          }
+        });
 
-    res.status(200).json(result);
+        await transporter.sendMail({
+          from: `"TEDxCRCE Internship Expo" <${process.env.SMTP_USER}>`,
+          to: email,
+          subject: 'Application Submitted Successfully - TEDxCRCE Internship Expo',
+          html: `
+            <div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
+              <h2 style="color: #d1121c;">Application Submitted Successfully!</h2>
+              <p>Hi ${result.student.fullName},</p>
+              <p>Your application for the TEDxCRCE Internship Expo has been successfully recorded in our central recruiter pool.</p>
+              <p>Your selected roles have been securely logged.</p>
+              <p>Thank you for applying, and we look forward to seeing you at the expo!</p>
+              <p>Best regards,<br/>TEDxCRCE Team</p>
+            </div>
+          `
+        });
+      } catch (err) {
+        console.error('Failed to send email:', err);
+      }
+    }
+
+    res.status(200).json({ success: true });
   } catch (error: any) {
     if (error instanceof z.ZodError) {
       res.status(400).json({ error: 'Validation failed', details: (error as z.ZodError).issues });

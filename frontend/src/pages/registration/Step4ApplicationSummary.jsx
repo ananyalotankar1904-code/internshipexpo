@@ -37,7 +37,7 @@ const Step4ApplicationSummary = () => {
       <main className="relative z-10 flex-grow flex flex-col items-center justify-center px-4 sm:px-6 pt-4 pb-20 md:pb-28">
         <div className="w-full max-w-[720px] flex flex-col gap-6">
 
-          {/* Header intro statement with retro dossier tag */}
+          {/* Header intro statement with retro tag */}
           <div className="flex flex-col gap-1.5 text-left mt-8">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
@@ -48,7 +48,7 @@ const Step4ApplicationSummary = () => {
               </div>
               <div className="flex items-center gap-1.5 text-xs text-emerald-400 font-mono">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                <span>ALL DOSSIERS ATTACHED</span>
+                <span>ALL FILES ATTACHED</span>
               </div>
             </div>
 
@@ -56,7 +56,7 @@ const Step4ApplicationSummary = () => {
               REVIEW YOUR <span className="text-primary">APPLICATION</span>
             </h1>
             <p className="font-sans text-sm text-text-cream/70 leading-relaxed">
-              Please cross-examine your student credentials, uploaded resume dossier, and shortlisted internship positions before dispatching to enterprise recruiters.
+              Please cross-examine your student credentials, uploaded resume, and shortlisted internship positions before dispatching to enterprise recruiters.
             </p>
           </div>
 
@@ -319,7 +319,7 @@ const Step4ApplicationSummary = () => {
                   I confirm the above information is accurate and authentic
                 </span>
                 <p className="font-sans text-xs text-text-cream/65 mt-1 leading-relaxed">
-                  I understand that submitting this application authorizes TEDxCRCE Placement Coordination Cell to transmit my academic details and verified resume dossier to selected corporate recruiters for interview slotting.
+                  I understand that submitting this application authorizes TEDxCRCE Placement Coordination Cell to transmit my academic details and verified resume to selected corporate recruiters for interview slotting.
                 </p>
               </div>
             </label>

@@ -29,7 +29,7 @@ const Step2ResumeUpload = () => {
 
       <main className="relative z-10 flex-grow flex items-center justify-center px-4 sm:px-6 py-6 mb-20 md:mb-24 w-full">
         <div className="flex flex-col w-full max-w-[820px] mx-auto py-2">
-            {/* MAIN DOSSIER SMOKED PANEL */}
+            {/* MAIN APP SMOKED PANEL */}
             <div className="relative w-full rounded-xl smoked-glass border border-border-hairline p-5 sm:p-8 md:p-10 shadow-2xl overflow-hidden bg-surface-raised/40 backdrop-blur-sm">
                 {/* Background Ambient Glow & Corner Geometric Markers */}
                 <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-primary/10 blur-3xl pointer-events-none"></div>
@@ -37,7 +37,7 @@ const Step2ResumeUpload = () => {
                 {/* Corner Hardware Notches */}
                 <div className="absolute top-3 left-3 flex gap-1 items-center opacity-40 select-none">
                     <span className="w-1.5 h-1.5 bg-peach-accent rounded-none"></span>
-                    <span className="font-mono text-[9px] text-peach-accent tracking-widest">DOSSIER-SEC-02</span>
+                    <span className="font-mono text-[9px] text-peach-accent tracking-widest">APP-SEC-02</span>
                 </div>
                 
                 {/* HEADER CLUSTER */}
@@ -45,7 +45,7 @@ const Step2ResumeUpload = () => {
                     <div className="flex items-center justify-between flex-wrap gap-2">
                         <div className="flex items-center gap-2">
                             <span className="px-2.5 py-0.5 rounded bg-transparent/50 border border-border-hairline text-peach-accent/70 font-mono text-[10px] tracking-wider uppercase">
-                                STEP 02 // CANDIDATE DOSSIER
+                                STEP 02 // CANDIDATE PROFILE
                             </span>
                         </div>
                         <div className="flex items-center gap-1.5 text-primary font-mono text-[10px]">
