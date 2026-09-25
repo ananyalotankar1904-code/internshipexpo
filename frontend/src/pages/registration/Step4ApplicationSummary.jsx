@@ -24,7 +24,6 @@ const Step4ApplicationSummary = () => {
     try {
       await submitApplication();
       navigate('/register/step5', { state: { studentDetails, selectedPositions } });
-      clearRegistration();
     } catch (error) {
       alert('Application submission failed: ' + (error.response?.data?.error || error.message) + '. Please check your details and try again.');
     }
