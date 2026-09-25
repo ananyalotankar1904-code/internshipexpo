@@ -759,6 +759,50 @@ const companiesData = [
         jobDescriptionPdfUrl: 'https://docs.google.com/document/d/1fBOqJKOB4SFn3kFy8Ph27DF_shU-ucCdwJQtRw5bVhY/edit?usp=sharing'
       }
     ]
+  },
+  {
+    name: 'THE xDEVS',
+    websiteUrl: 'https://linkedin.com/company/the-xdevs',
+    logoUrl: '/logos/xdevs.png',
+    tags: ['Software Development', 'Artificial Intelligence', 'Cloud Technology'],
+    positions: [
+      {
+        title: 'Full-Stack Developer Intern',
+        domain: 'Web Development / Full-Stack Development',
+        eligibleYears: 'Students, fresh graduates & early-career candidates',
+        isPaid: true,
+        stipend: 'Performance-based',
+        duration: '3–6 months',
+        description: 'Build and deploy web applications and APIs across frontend, backend, databases and cloud services.'
+      },
+      {
+        title: 'Business Development & Sales Intern',
+        domain: 'Business Development / Sales',
+        eligibleYears: 'Students, fresh graduates & early-career candidates',
+        isPaid: true,
+        stipend: 'Performance-based',
+        duration: '3–6 months',
+        description: 'Research potential clients, generate and qualify leads, support outreach, prepare proposals and assist with client relationship management.'
+      },
+      {
+        title: 'Social Media Intern',
+        domain: 'Social Media / Digital Marketing',
+        eligibleYears: 'Students, fresh graduates & early-career candidates',
+        isPaid: true,
+        stipend: 'Performance-based',
+        duration: '3–6 months',
+        description: 'Plan and create social media content, manage online communities, track analytics and support the brand\'s digital presence.'
+      },
+      {
+        title: 'Design & Video Editing Intern',
+        domain: 'Graphic Design / Video Editing',
+        eligibleYears: 'Students, fresh graduates & early-career candidates',
+        isPaid: true,
+        stipend: 'Performance-based',
+        duration: '3–6 months',
+        description: 'Create social media creatives, brand materials, videos, motion graphics and UI/UX visuals.'
+      }
+    ]
   }
 ];
 
