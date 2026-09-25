@@ -731,6 +731,34 @@ const companiesData = [
         jobDescriptionPdfUrl: 'https://docs.google.com/document/d/1a867XCDsAafq1_MX3UoOC26WpwYGpU40bxGjjdNX3Pw/edit?tab=t.0'
       }
     ]
+  },
+  {
+    name: 'LiveTech India',
+    websiteUrl: 'https://livetechindia.com/',
+    logoUrl: '/logos/livetech.png',
+    tags: ['Software Training', 'IT Education', 'Technology'],
+    positions: [
+      {
+        title: 'Agentic AI Intern',
+        domain: 'Artificial Intelligence',
+        eligibleYears: 'All 4 Years',
+        isPaid: false,
+        stipend: 'No',
+        duration: '1 month',
+        description: 'Work on applications and solutions involving agentic artificial intelligence.',
+        jobDescriptionPdfUrl: 'https://docs.google.com/document/d/1fBOqJKOB4SFn3kFy8Ph27DF_shU-ucCdwJQtRw5bVhY/edit?usp=sharing'
+      },
+      {
+        title: 'Digital Marketing Intern',
+        domain: 'Digital Marketing',
+        eligibleYears: 'All 4 Years',
+        isPaid: false,
+        stipend: 'No',
+        duration: '1 month',
+        description: 'Support digital marketing activities and campaigns.',
+        jobDescriptionPdfUrl: 'https://docs.google.com/document/d/1fBOqJKOB4SFn3kFy8Ph27DF_shU-ucCdwJQtRw5bVhY/edit?usp=sharing'
+      }
+    ]
   }
 ];
 
