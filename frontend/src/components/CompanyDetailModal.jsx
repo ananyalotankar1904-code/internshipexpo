@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRegistration } from '../context/RegistrationContext';
 import { getDomainForCompany } from '../utils/domainMapping';
+import { getExtraInfoForCompany } from '../utils/jobExtraInfo';
 
 const CompanyDetailModal = ({ isOpen, onClose, company }) => {
   const navigate = useNavigate();
@@ -89,7 +90,9 @@ const CompanyDetailModal = ({ isOpen, onClose, company }) => {
           )}
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-            {positions.map((pos) => (
+            {positions.map((pos) => {
+              const extraInfo = getExtraInfoForCompany(company.name, pos.title);
+              return (
               <article key={pos.id} className={`bg-[#0A0A0A] border ${isPositionSelected(pos.id) ? 'border-tedx-red shadow-[0_0_15px_rgba(235,0,40,0.2)]' : 'border-white/10'} rounded-xl p-6 transition-all relative flex flex-col h-full`}>
                 {isPositionSelected(pos.id) && (
                   <div className="absolute top-0 right-0 bg-tedx-red text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider">
@@ -97,11 +100,25 @@ const CompanyDetailModal = ({ isOpen, onClose, company }) => {
                   </div>
                 )}
 
-                <h4 className="font-clash text-lg sm:text-xl font-bold text-white uppercase tracking-wide mb-1.5">{pos.title}</h4>
+                <h4 className="font-clash text-lg sm:text-xl font-bold text-white uppercase tracking-wide mb-3">{pos.title}</h4>
 
-                <p className="text-white/70 text-xs font-semibold mb-4 tracking-wide uppercase">
-                  {getDomainForCompany(company.name, pos.domain)} | {pos.duration} | Eligible: {pos.eligibleYears} Year
-                </p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <span className="bg-white/10 text-white px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider">
+                    {getDomainForCompany(company.name, pos.domain)}
+                  </span>
+                  <span className="bg-tedx-red/20 text-tedx-red px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider">
+                    {extraInfo.type}
+                  </span>
+                  <span className="bg-blue-500/20 text-blue-400 px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider">
+                    {extraInfo.mode} Interview
+                  </span>
+                  <span className="bg-white/10 text-white/80 px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider">
+                    {pos.duration}
+                  </span>
+                  <span className="bg-white/10 text-white/80 px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider">
+                    Eligible: {pos.eligibleYears}
+                  </span>
+                </div>
 
                 <div className={`w-full text-center py-2.5 rounded border border-white/5 font-bold text-xs mb-6 ${pos.isPaid ? 'bg-tedx-red/10 text-tedx-red' : 'bg-white/5 text-white/60'}`}>
                   {pos.isPaid ? `Stipend: ${pos.stipend || 'Paid'}` : 'Unpaid Position'}
@@ -127,7 +144,7 @@ const CompanyDetailModal = ({ isOpen, onClose, company }) => {
                   )}
                 </div>
               </article>
-            ))}
+            )})}
           </div>
         </div>
 
