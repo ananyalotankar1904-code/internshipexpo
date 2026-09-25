@@ -713,6 +713,24 @@ const companiesData = [
         jobDescriptionPdfUrl: 'https://drive.google.com/file/d/1Nqqvppyz0j61fb7c3NR0ffJfGcArnkw4/view?usp=drive_link'
       }
     ]
+  },
+  {
+    name: 'Search India',
+    websiteUrl: 'https://www.hrinternational.in/',
+    logoUrl: '/logos/searchindia.png',
+    tags: ['Recruitment', 'Human Resources', 'Consulting'],
+    positions: [
+      {
+        title: 'Resource Executive',
+        domain: 'Human Resources & Operations',
+        eligibleYears: 'All 4 Years',
+        isPaid: false,
+        stipend: 'No',
+        duration: '3 months',
+        description: 'Support recruitment, resource management and HR operations.',
+        jobDescriptionPdfUrl: 'https://docs.google.com/document/d/1a867XCDsAafq1_MX3UoOC26WpwYGpU40bxGjjdNX3Pw/edit?tab=t.0'
+      }
+    ]
   }
 ];
 
