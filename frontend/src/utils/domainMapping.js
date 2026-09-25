@@ -1,7 +1,7 @@
 export const DOMAIN_MAP = {
   "Information Technology & Software Engineering": ["Yogi Software", "THE xDEVS", "Decagon Software Pvt. Ltd.", "AVPSTACK TECHNOLOGIES", "Virtue Crennovative Solutions", "1Accord", "Axentra"],
   "Artificial Intelligence & Data Science": ["DATEN&WISSEN", "STECHGROW INTELLIGENCE AI", "Cognify Solutions"],
-  "Engineering, Manufacturing & CAD/CAM": ["Pratishna Engineers Limited", "Thermolabs", "Pro CADCAM Services", "STARCAD Design Solutions", "Scad Technologies"],
+  "Engineering, Manufacturing & CAD/CAM": ["Pratishna Engineers Limited", "Thermolabs", "Pro CADCAM Services", "STARCAD Design Solutions", "Scad Technologies", "CAD CAM GALAXY"],
   "Digital Marketing, Media & Advertising": ["TrafficHQ Digital Media LLP", "Digital Dose", "Search India", "AdHive & Rundown Creative", "Insiverse Media", "Beeyond"],
   "EdTech & Education Consultancy": ["Gyansthan Education Services LLP", "Immibook Pty Ltd", "Scoreazy", "GradGuide"],
   "Creative Design & UI/UX": ["Ideafactor Design", "Creatify", "Kreare"],

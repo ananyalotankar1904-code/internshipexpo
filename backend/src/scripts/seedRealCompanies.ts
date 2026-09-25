@@ -1074,6 +1074,24 @@ const companiesData = [
         jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing'
       }
     ]
+  },
+  {
+    name: 'CAD CAM GALAXY',
+    websiteUrl: 'https://cadcamgalaxy.com/',
+    logoUrl: '/logos/cadcamgalaxy.png',
+    tags: ['CAD/CAM Software', 'Engineering Training', 'Manufacturing Services'],
+    positions: [
+      {
+        title: 'Cad cam Software application engineer',
+        domain: 'CAD/CAM / Software Application',
+        eligibleYears: '1, 2, 3, 4',
+        isPaid: true,
+        stipend: '₹12,000 - ₹15,000',
+        duration: '6 months',
+        description: 'This is an onsite internship role. The interview will be conducted online. The company expects to select 1 candidate for the position.',
+        jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing'
+      }
+    ]
   }
 ];
 
