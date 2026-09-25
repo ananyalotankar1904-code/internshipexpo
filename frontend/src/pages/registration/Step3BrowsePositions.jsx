@@ -5,8 +5,6 @@ import { useRegistration } from '../../context/RegistrationContext';
 import { companiesApi } from '../../api/client';
 import SmokedHeader from '../../components/SmokedHeader';
 import SmokedFooter from '../../components/SmokedFooter';
-import { DOMAIN_MAP, getDomainForCompany } from '../../utils/domainMapping';
-
 
 const Step3BrowsePositions = () => {
   const navigate = useNavigate();
@@ -15,9 +13,7 @@ const Step3BrowsePositions = () => {
 
   // Search and filter states
   const [searchTerm, setSearchTerm] = useState('');
-  const [domainFilter, setDomainFilter] = useState('All');
   const [yearFilter, setYearFilter] = useState('All');
-  const [stipendFilter, setStipendFilter] = useState('All');
 
   useEffect(() => {
     companiesApi.getAll()
@@ -35,13 +31,7 @@ const Step3BrowsePositions = () => {
       if (searchTerm && !position.title.toLowerCase().includes(searchTerm.toLowerCase()) && !company.name.toLowerCase().includes(searchTerm.toLowerCase())) {
         return;
       }
-      if (domainFilter !== 'All') {
-        const allowedCompanies = DOMAIN_MAP[domainFilter] || [];
-        if (!allowedCompanies.includes(company.name)) return;
-      }
       if (yearFilter !== 'All' && !position.eligibleYears.toString().includes(yearFilter)) return;
-      if (stipendFilter === 'Paid Only' && !position.isPaid) return;
-      if (stipendFilter === 'Unpaid Only' && position.isPaid) return;
 
       filteredPositions.push({ ...position, company });
     });
@@ -73,33 +63,6 @@ const Step3BrowsePositions = () => {
                 onChange={e => setSearchTerm(e.target.value)}
                 className="w-full pl-9 pr-3 py-2 bg-transparent rounded-md border border-border-hairline text-xs font-medium text-text-cream placeholder-text-cream/40 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
               />
-            </div>
-
-            {/* Filter: Domain Dropdown */}
-            <div className="relative w-full sm:w-auto flex-grow sm:flex-grow-0">
-              <select
-                value={domainFilter}
-                onChange={e => setDomainFilter(e.target.value)}
-                className="w-full appearance-none bg-transparent border border-border-hairline rounded-md px-3.5 py-2 pr-8 text-xs font-sans font-medium text-text-cream hover:border-text-cream/40 focus:outline-none focus:border-primary cursor-pointer"
-              >
-                <option value="All" className="bg-[#140a0a] text-[#FFF4E1]">Domain: All Domains</option>
-                {Object.keys(DOMAIN_MAP).map(domain => (
-                  <option key={domain} value={domain} className="bg-[#140a0a] text-[#FFF4E1]">{domain}</option>
-                ))}
-              </select>
-            </div>
-
-            {/* Filter: Paid / Unpaid Dropdown */}
-            <div className="relative w-full sm:w-auto flex-grow sm:flex-grow-0">
-              <select
-                value={stipendFilter}
-                onChange={e => setStipendFilter(e.target.value)}
-                className="w-full appearance-none bg-transparent border border-border-hairline rounded-md px-3.5 py-2 pr-8 text-xs font-sans font-medium text-text-cream hover:border-text-cream/40 focus:outline-none focus:border-primary cursor-pointer"
-              >
-                <option value="All" className="bg-[#140a0a] text-[#FFF4E1]">Stipend: All</option>
-                <option value="Paid Only" className="bg-[#140a0a] text-[#FFF4E1]">Paid Only</option>
-                <option value="Unpaid Only" className="bg-[#140a0a] text-[#FFF4E1]">Unpaid Only</option>
-              </select>
             </div>
           </div>
 
