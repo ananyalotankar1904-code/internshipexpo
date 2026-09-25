@@ -332,11 +332,11 @@ const Home = () => {
 <div className="flex flex-row justify-center items-center gap-12 md:gap-24">
 {/* Sponsor 1 */}
 <div className="group flex flex-col items-center justify-center p-4 transition-all duration-300">
-  <img src="/logos/avpstack.png" alt="AVP Stack Technologies" className="h-20 md:h-24 object-contain transition-all duration-300 scale-95 group-hover:scale-100" />
+  <img src="/logos/avpstack.png" alt="AVP Stack Technologies" className="h-28 md:h-36 object-contain transition-all duration-300 scale-95 group-hover:scale-100" />
 </div>
 {/* Sponsor 2 */}
 <div className="group flex flex-col items-center justify-center p-4 transition-all duration-300">
-  <img src="/logos/medidivision.png" alt="Medivision" className="h-20 md:h-24 object-contain transition-all duration-300 scale-95 group-hover:scale-100" />
+  <img src="/logos/medidivision.png" alt="Medivision" className="h-28 md:h-36 object-contain transition-all duration-300 scale-95 group-hover:scale-100" />
 </div>
 </div>
 </div>

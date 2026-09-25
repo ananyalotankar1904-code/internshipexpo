@@ -77,6 +77,7 @@ const Step3BrowsePositions = () => {
                 value={domainFilter}
                 onChange={e => setDomainFilter(e.target.value)}
                 className="w-full appearance-none bg-transparent border border-border-hairline rounded-md px-3.5 py-2 pr-8 text-xs font-sans font-medium text-text-cream hover:border-text-cream/40 focus:outline-none focus:border-primary cursor-pointer"
+                style={{ backgroundImage: 'none' }}
               >
                 <option value="All">Domain: All Domains</option>
                 <option value="Software Engineering">Software Engineering</option>
@@ -95,6 +96,7 @@ const Step3BrowsePositions = () => {
                 value={stipendFilter}
                 onChange={e => setStipendFilter(e.target.value)}
                 className="w-full appearance-none bg-transparent border border-border-hairline rounded-md px-3.5 py-2 pr-8 text-xs font-sans font-medium text-text-cream hover:border-text-cream/40 focus:outline-none focus:border-primary cursor-pointer"
+                style={{ backgroundImage: 'none' }}
               >
                 <option value="All">Stipend: All</option>
                 <option value="Paid Only">Paid Only</option>
@@ -207,7 +209,7 @@ const Step3BrowsePositions = () => {
                     {position.title}
                   </h3>
 
-                  <p className="font-body text-xs text-text-cream/70 leading-relaxed mb-4 line-clamp-2">
+                  <p className="font-body text-xs text-text-cream/70 leading-relaxed mb-4">
                     {position.description || company.description}
                   </p>
 
@@ -239,20 +241,25 @@ const Step3BrowsePositions = () => {
                     type="button" 
                     onClick={() => togglePosition(position.id)}
                     disabled={isMaxReached}
-                    className={`flex-grow py-2.5 px-4 rounded-md font-sans text-xs font-semibold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 ${isSelected ? 'text-white bg-primary hover:bg-primary-hover shadow-lg shadow-primary/30' : 'text-text-cream bg-transparent border border-border-hairline hover:bg-white/5'} ${isMaxReached ? 'cursor-not-allowed opacity-50' : ''}`}
+                    className={`flex-1 py-2.5 px-4 rounded-md font-sans text-xs font-semibold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 ${isSelected ? 'text-white bg-primary hover:bg-primary-hover shadow-lg shadow-primary/30' : 'text-text-cream bg-transparent border border-border-hairline hover:bg-white/5'} ${isMaxReached ? 'cursor-not-allowed opacity-50' : ''}`}
                   >
                     {isSelected ? (
                       <>
                         <svg className="w-4 h-4 font-bold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7"/></svg>
-                        <span>Selected (Click to Remove)</span>
+                        <span>Selected</span>
                       </>
                     ) : (
                       <>
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4"/></svg>
-                        <span>{isMaxReached ? 'Max 3 Selected' : 'Apply for Position'}</span>
+                        <span>{isMaxReached ? 'Max 3 Selected' : 'Apply'}</span>
                       </>
                     )}
                   </button>
+                  {position.jobDescriptionPdfUrl && (
+                    <a href={position.jobDescriptionPdfUrl} target="_blank" rel="noreferrer" className="px-4 py-2.5 font-sans font-semibold text-xs uppercase tracking-wider rounded-md border border-border-hairline text-text-cream hover:bg-white/5 transition-all flex items-center justify-center">
+                      📄 JD
+                    </a>
+                  )}
                 </div>
               </div>
             );
