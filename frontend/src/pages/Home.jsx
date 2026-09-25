@@ -88,9 +88,6 @@ const Home = () => {
           </nav>
           {/* CTA Register Button (Far Right) */}
           <div className="flex items-center gap-3">
-            <Link className="text-text-cream/70 hover:text-text-cream font-sans font-medium text-xs px-3 py-1.5 border border-text-cream/20 hover:border-text-cream/50 rounded-md transition-all duration-200 flex items-center gap-1.5" to="/admin/login">
-              <FiUser className="w-3.5 h-3.5" /> Admin
-            </Link>
             <Link className="bg-primary hover:bg-primary-hover text-text-cream font-sans font-semibold text-sm px-6 py-2.5 rounded-md transition-all duration-200 shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-[0.98]" to="/register">
               Register
             </Link>
@@ -461,7 +458,6 @@ const Home = () => {
               <a className="hover:text-text-cream transition-colors" href="#about">Terms of Entry</a>
               <a className="hover:text-text-cream transition-colors" href="#companies">Code of Conduct</a>
               <a className="hover:text-text-cream transition-colors" href="#event-info">Press &amp; Media</a>
-              <Link className="hover:text-text-cream transition-colors flex items-center gap-1" to="/admin/login"><FiUser /> Admin Login</Link>
             </div>
             {/* Cream Social Icons */}
             <div className="flex items-center space-x-4">
