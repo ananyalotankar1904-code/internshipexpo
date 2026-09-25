@@ -52,7 +52,7 @@ export const RegistrationProvider = ({ children }) => {
     sessionStorage.setItem('taskLinks', JSON.stringify(taskLinks));
   }, [taskLinks]);
 
-  const hasCompletedDetails = studentDetails.fullName.trim() !== '' && studentDetails.email.trim() !== '';
+  const hasCompletedDetails = studentDetails.fullName.trim() !== '' && studentDetails.email.trim() !== '' && studentDetails.rollNo?.trim() !== '';
   const hasUploadedResume = resumeLink.trim() !== '';
 
   const updateStudentDetails = (details) => setStudentDetails((prev) => ({ ...prev, ...details }));
@@ -78,6 +78,7 @@ export const RegistrationProvider = ({ children }) => {
       // Create student entry
       const response = await applicationsApi.start({
         email: studentDetails.email,
+        rollNo: studentDetails.rollNo,
         fullName: studentDetails.fullName,
         branch: studentDetails.branch,
         year: parseInt(studentDetails.year) || 3,
@@ -117,16 +118,29 @@ export const RegistrationProvider = ({ children }) => {
         applications
       });
 
-      sessionStorage.removeItem('studentDetails');
-      sessionStorage.removeItem('resumeLink');
-      sessionStorage.removeItem('selectedPositions');
-      sessionStorage.removeItem('taskLinks');
-      sessionStorage.removeItem('studentToken');
       return true;
     } catch (error) {
       console.error('Submission error:', error);
       throw error;
     }
+  };
+
+  const clearRegistration = () => {
+    setStudentDetails({
+      fullName: '',
+      rollNo: '',
+      college: 'FRCRCE',
+      branch: '',
+      year: '3',
+      studentClass: '',
+      division: '',
+      email: '',
+      phone: '',
+    });
+    setResumeLink('');
+    setSelectedPositions([]);
+    setTaskLinks({});
+    sessionStorage.clear();
   };
 
   return (
@@ -146,6 +160,7 @@ export const RegistrationProvider = ({ children }) => {
         editModeReturnUrl,
         setEditModeReturnUrl,
         submitApplication,
+        clearRegistration,
       }}
     >
       {children}

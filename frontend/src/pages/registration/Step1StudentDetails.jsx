@@ -128,8 +128,21 @@ const Step1StudentDetails = () => {
                 </div>
             </div>
 
-            {/* Added Fields: Class and Division */}
+            {/* Added Fields: Roll No and Division */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div>
+                <label className="block font-sans text-xs font-semibold tracking-wider uppercase text-text-cream mb-2">
+                  Roll No <span className="text-primary">*</span>
+                </label>
+                <input 
+                  className="w-full px-4 py-3 rounded-md bg-transparent text-text-cream placeholder-text-cream/30 border border-border-hairline text-sm font-body transition-all focus:border-primary focus:outline-none" 
+                  placeholder="e.g. 9632" 
+                  required
+                  type="text" 
+                  value={studentDetails.rollNo}
+                  onChange={(e) => updateStudentDetails({rollNo: e.target.value})}
+                />
+              </div>
               <div>
                 <label className="block font-sans text-xs font-semibold tracking-wider uppercase text-text-cream mb-2">
                   Division <span className="text-primary">*</span>

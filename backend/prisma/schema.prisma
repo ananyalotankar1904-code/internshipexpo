@@ -11,6 +11,7 @@ datasource db {
 model Student {
   id                 String        @id @default(uuid())
   email              String        @unique
+  rollNo             String?       @unique
   fullName           String
   branch             String
   year               Int

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useRegistration } from '../../context/RegistrationContext';
 import { companiesApi } from '../../api/client';
 import SmokedHeader from '../../components/SmokedHeader';
@@ -8,7 +8,9 @@ import SmokedFooter from '../../components/SmokedFooter';
 
 const Step5Confirmation = () => {
   const navigate = useNavigate();
-  const { studentDetails, selectedPositions } = useRegistration();
+  const location = useLocation();
+  const { studentDetails, selectedPositions } = location.state || { studentDetails: {}, selectedPositions: [] };
+  const { clearRegistration } = useRegistration();
   const [companies, setCompanies] = useState([]);
 
   useEffect(() => {
@@ -147,7 +149,7 @@ const Step5Confirmation = () => {
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                         <span>Download Pass (PDF)</span>
                     </button>
-                    <button className="w-full inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-hover text-white py-3 px-4 rounded-xl font-sans font-semibold text-sm shadow-lg shadow-primary/20 transition-all duration-150" onClick={() => navigate('/')}>
+                    <button className="w-full inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-hover text-white py-3 px-4 rounded-xl font-sans font-semibold text-sm shadow-lg shadow-primary/20 transition-all duration-150" onClick={() => { clearRegistration(); navigate('/'); }}>
                         <span>Back to Homepage</span>
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                     </button>

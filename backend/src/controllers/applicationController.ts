@@ -7,6 +7,7 @@ const JWT_SECRET = process.env.JWT_SECRET || 'fallback_secret';
 
 const startSchema = z.object({
   email: z.string().email().trim().max(255),
+  rollNo: z.string().trim().max(50),
   fullName: z.string().min(1).max(100).trim(),
   branch: z.string().min(1).max(50).trim(),
   year: z.number().int().min(1).max(4),
@@ -31,6 +32,7 @@ export const startApplication = async (req: Request, res: Response): Promise<voi
       student = await prisma.student.update({
         where: { email: data.email },
         data: {
+          rollNo: data.rollNo,
           fullName: data.fullName,
           branch: data.branch,
           year: data.year,
@@ -42,6 +44,7 @@ export const startApplication = async (req: Request, res: Response): Promise<voi
       student = await prisma.student.create({
         data: {
           email: data.email,
+          rollNo: data.rollNo,
           fullName: data.fullName,
           branch: data.branch,
           year: data.year,
@@ -56,7 +59,10 @@ export const startApplication = async (req: Request, res: Response): Promise<voi
   } catch (error) {
     if (error instanceof ZodError) {
       res.status(400).json({ error: error.issues });
+    } else if ((error as any).code === 'P2002') {
+      res.status(400).json({ error: 'Roll number or email is already registered.' });
     } else {
+      console.error(error);
       res.status(500).json({ error: 'Internal server error' });
     }
   }

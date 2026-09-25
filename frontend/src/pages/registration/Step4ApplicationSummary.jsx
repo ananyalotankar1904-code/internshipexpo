@@ -8,7 +8,7 @@ import SmokedFooter from '../../components/SmokedFooter';
 
 const Step4ApplicationSummary = () => {
   const navigate = useNavigate();
-  const { studentDetails, resumeLink, selectedPositions, submitApplication, taskLinks, setTaskLinks, reorderPositions } = useRegistration();
+  const { studentDetails, resumeLink, selectedPositions, submitApplication, taskLinks, setTaskLinks, reorderPositions, clearRegistration } = useRegistration();
   const [companies, setCompanies] = useState([]);
   const [confirmed, setConfirmed] = useState(false);
 
@@ -22,7 +22,8 @@ const Step4ApplicationSummary = () => {
     if(!confirmed) return;
     try {
       await submitApplication();
-      navigate('/register/step5');
+      navigate('/register/step5', { state: { studentDetails, selectedPositions } });
+      clearRegistration();
     } catch (error) {
       alert('Application submission failed: ' + (error.response?.data?.error || error.message) + '. Please check your details and try again.');
     }
