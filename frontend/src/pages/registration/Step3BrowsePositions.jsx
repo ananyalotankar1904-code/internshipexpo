@@ -5,7 +5,7 @@ import { useRegistration } from '../../context/RegistrationContext';
 import { companiesApi } from '../../api/client';
 import SmokedHeader from '../../components/SmokedHeader';
 import SmokedFooter from '../../components/SmokedFooter';
-
+import { getDomainForCompany } from '../../utils/domainMapping';
 const Step3BrowsePositions = () => {
   const navigate = useNavigate();
   const { selectedPositions, togglePosition } = useRegistration();
