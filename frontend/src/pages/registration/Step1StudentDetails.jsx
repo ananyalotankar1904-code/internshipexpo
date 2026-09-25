@@ -165,7 +165,7 @@ const Step1StudentDetails = () => {
               </label>
               <input 
                 className="w-full px-4 py-3 rounded-md bg-transparent text-text-cream placeholder-text-cream/30 border border-border-hairline text-sm font-body transition-all focus:border-primary focus:outline-none" 
-                placeholder="name@frcrce.ac.in" 
+                placeholder="name@gmail.com" 
                 required
                 type="email" 
                 value={studentDetails.email}
