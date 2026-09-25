@@ -1108,15 +1108,27 @@ const companiesData = [
     tags: ['EdTech / Study Abroad', 'Software Engineering'],
     positions: [
       {
-        title: 'Software Engineering Intern',
-        internshipType: 'Onsite',
+        title: 'Full Stack Developer',
+        internshipType: 'On-Site',
         domain: 'Engineering / Full-Stack Development',
         eligibleYears: 'Students or freshers (pursuing or recently completed a degree in Computer Science, IT, or related fields)',
-        isPaid: false,
-        stipend: 'Not specified',
+        isPaid: true,
+        stipend: '₹12,000 / month',
         duration: '6 Months',
-        description: 'This is an on-site, hands-on role contributing to production-grade applications. Responsibilities include designing backend APIs, working with PostgreSQL and Drizzle ORM, building full-stack features using Next.js/React, and exploring AI/LLM capabilities.'
-      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' }
+        description: 'This is an on-site, hands-on role contributing to production-grade applications. Responsibilities include designing backend APIs, working with PostgreSQL and Drizzle ORM, building full-stack features using Next.js/React, and exploring AI/LLM capabilities. Mode of Interview: Hybrid (1st round online - Then offline). Expected Number of Candidates to be Selected: 1.',
+        jobDescriptionPdfUrl: 'https://drive.google.com/file/d/1MJcgNdwDq53iP0zfA301b87nuDqiYfSQ/view?usp=sharing'
+      },
+      {
+        title: 'Business Development Intern',
+        internshipType: 'On-Site',
+        domain: 'Sales / Business Development',
+        eligibleYears: 'Students or freshers',
+        isPaid: true,
+        stipend: '₹12,000 / month',
+        duration: '6 Months',
+        description: 'Mode of Interview: Hybrid (1st round online - Then offline). Expected Number of Candidates to be Selected: 2.',
+        jobDescriptionPdfUrl: 'https://drive.google.com/file/d/1MJcgNdwDq53iP0zfA301b87nuDqiYfSQ/view?usp=sharing'
+      }
     ]
   },
   {
