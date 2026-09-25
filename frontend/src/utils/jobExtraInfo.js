@@ -55,3 +55,46 @@ export const getExtraInfoForCompany = (companyName, positionTitle) => {
 
   return { mode: info.mode, type: finalType };
 };
+
+export const COMPANY_JD_LINKS = {
+  // CSV 1: Individual JDs
+  "AdHive & Rundown Creative": "https://drive.google.com/file/d/1bbLv4IuUkcss1-OiW3wgDz0xWO_8FzqO/view?usp=drive_web",
+  "AVPSTACK TECHNOLOGIES": "https://drive.google.com/file/d/1RjR1G7k0MhnW642VOwxHGt45Hv9aeGjF/view?usp=drive_web",
+  "Axentra": "https://drive.google.com/file/d/1S5zNTnK-mQksXWWMFm3hPWbsEcEcAcVc/view?usp=drive_web",
+  "Beeyond": "https://drive.google.com/file/d/1_987hcy7SnzoJfDerUsGXBYpoVYLHb5v/view?usp=drive_web",
+  "Cognify Solutions": "https://drive.google.com/file/d/1bLOwopGmxu2HA-f5hRCehZC8XidmOWQJ/view?usp=drive_web",
+  "Decagon Software Pvt. Ltd.": "https://drive.google.com/file/d/1H1Xabdm-joAf7i9Qof4Aui0x0Jk_H89B/view?usp=drive_web",
+  "Digital Dose": "https://drive.google.com/file/d/1DV3LI9LqMBZcuHuixAzVPJ5W1fL89ijm/view?usp=drive_web",
+  "GDA Games": "https://drive.google.com/file/d/1bAMNQr85RkV5S8nubQWKGMQvOBXpRqM_/view?usp=drive_web",
+  "GradGuide (Your Study Abroad Mentor by Computrain)": "https://drive.google.com/file/d/1IhpiFofQdvuh1hA9iIt3a3i57nmn6Z-k/view?usp=drive_web",
+  "HNT FOODS": "https://drive.google.com/file/d/1UIZiHbCnpnTPX8Vi3aaOuTM4oc0sCX6W/view?usp=drive_web",
+  "Search India": "https://drive.google.com/file/d/1fLOzHJv0VsQ_hsVbHM-GqFIM47e-VsEg/view?usp=drive_web",
+  "Immibook Pty Ltd": "https://drive.google.com/file/d/1CnAr4JQ0g7Vrgxd8wgVK0ElAGlS0cgfD/view?usp=drive_web",
+  "Insiverse Media": "https://drive.google.com/file/d/1UjnALHRDYfyBHefH5IJ9jAVYYa9DZo_f/view?usp=drive_web",
+  "Kreare": "https://drive.google.com/file/d/1onUyDPQ8gspXazF3PjgFYI4r-y-WzEKi/view?usp=drive_web",
+  "LiveTech India": "https://drive.google.com/file/d/1qWnNlClVLpLle0bxTbb8D5630PbLp92_/view?usp=drive_web",
+  "Nagarkot Forwarders Pvt Ltd": "https://drive.google.com/file/d/1-7QEZr4jjIWiTCl4phXmJqzzOF1FAM5C/view?usp=drive_web",
+  "Pratishna Engineers Limited": "https://drive.google.com/file/d/1P2DtYgiUta5ooLANmA9P8RJNpLiwEfM_/view?usp=drive_web",
+  "Pro CADCAM Services": "https://drive.google.com/file/d/1vRAPhwVUR1o0VdaTcqZvnkgdJA7K-i7T/view?usp=drive_web",
+  "Scad Technologies": "https://drive.google.com/file/d/1o_9K4Pq7lPx4WYWkXsnbmVTW_xDBSEYi/view?usp=drive_web",
+  "Scoreazy": "https://drive.google.com/file/d/1Nqqvppyz0j61fb7c3NR0ffJfGcArnkw4/view?usp=drive_web",
+  "STARCAD Design Solutions": "https://drive.google.com/file/d/1KVlf4i4J8VjCVBhRapUr4TEl515WwY5T/view?usp=drive_web",
+  "The Kaash Store": "https://drive.google.com/file/d/1VxEzqowWREc-iRF4RgbRAXNnRB-DgyJD/view?usp=drive_web",
+  "THE xDEVS": "https://drive.google.com/file/d/1R_pYWvL_I0MzA-xt4OSzxoteqIdXE7sK/view?usp=drive_web",
+  "Virtue Crennovative Solutions (VCS)": "https://drive.google.com/file/d/1he9EEKHks7x8umK0AZROErr3y7U4sdIs/view?usp=drive_web",
+  "Yogi Software": "https://drive.google.com/file/d/1XL2fjHNhPq4ax-jaiyfxdiyE7tELuHlX/view?usp=drive_web",
+  
+  // CSV 2: Folders
+  "1Accord": "https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20",
+  "Choira Musictech Pvt. Ltd.": "https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20",
+  "Gyansthan Education Services LLP": "https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20",
+  "Ideafactor Design": "https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20",
+  "MIDASX": "https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20",
+  "STECHGROW INTELLIGENCE AI": "https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20",
+  "Thermolabs": "https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20",
+  "TrafficHQ Digital Media LLP": "https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20"
+};
+
+export const getJdLinkForCompany = (companyName, originalLink) => {
+  return COMPANY_JD_LINKS[companyName] || originalLink;
+};
