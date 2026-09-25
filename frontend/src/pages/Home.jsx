@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { companiesApi } from '../api/client';
 import Carousel from '../components/Carousel';
-import { FiBriefcase, FiUsers, FiFileText, FiUser } from 'react-icons/fi';
+import { FiBriefcase, FiUsers, FiFileText } from 'react-icons/fi';
 import CompanyDetailModal from '../components/CompanyDetailModal';
 import tedxLogo from '../tedx-logo.png';
 
