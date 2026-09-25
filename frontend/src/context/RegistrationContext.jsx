@@ -106,11 +106,14 @@ export const RegistrationProvider = ({ children }) => {
          });
       }
 
-      const applications = selectedPositions.map((id, index) => ({
-        positionId: id,
-        taskLink: taskLinks[id] || '',
-        priority: index + 1
-      }));
+      const applications = selectedPositions.map((item, index) => {
+        const actualId = (typeof item === 'object' && item !== null) ? item.id : item;
+        return {
+          positionId: actualId,
+          taskLink: taskLinks[actualId] || '',
+          priority: index + 1
+        };
+      });
       
       // Final submit
       await applicationsApi.submit({
