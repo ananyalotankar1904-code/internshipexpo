@@ -1002,6 +1002,78 @@ const companiesData = [
         description: 'Offline, in-office mechanical engineering internship with positions available in Thane and Vasai.'
       }
     ]
+  },
+  {
+    name: 'GDA Games',
+    websiteUrl: '',
+    logoUrl: '/logos/gda.png',
+    tags: ['Gaming', 'Skill Development', 'Real-World Projects'],
+    positions: [
+      {
+        title: 'Flexible / Multi-Role Intern',
+        domain: 'Varied (Decided based on candidate skills, interests, and academic background)',
+        eligibleYears: 'College students and freshers',
+        isPaid: false,
+        stipend: 'Not specified',
+        duration: 'Not specified',
+        description: 'A flexible opportunity focused on gaining real-world experience and working on practical projects. Exact responsibilities are tailored to the candidate. Prior knowledge isn\'t strictly required; the focus is on a willingness to learn, take responsibility, solve problems, and contribute.'
+      }
+    ]
+  },
+  {
+    name: 'GradGuide (Your Study Abroad Mentor by Computrain)',
+    websiteUrl: 'https://www.gradguide.in/',
+    logoUrl: '/logos/gradguide.png',
+    tags: ['EdTech / Study Abroad', 'Software Engineering'],
+    positions: [
+      {
+        title: 'Software Engineering Intern',
+        domain: 'Engineering / Full-Stack Development',
+        eligibleYears: 'Students or freshers (pursuing or recently completed a degree in Computer Science, IT, or related fields)',
+        isPaid: false,
+        stipend: 'Not specified',
+        duration: '6 Months',
+        description: 'This is an on-site, hands-on role contributing to production-grade applications. Responsibilities include designing backend APIs, working with PostgreSQL and Drizzle ORM, building full-stack features using Next.js/React, and exploring AI/LLM capabilities.'
+      }
+    ]
+  },
+  {
+    name: 'Choira Musictech Pvt. Ltd.',
+    websiteUrl: 'https://www.choira.io',
+    logoUrl: '/logos/choira.png',
+    tags: ['Music Technology', 'AI', 'Hardware/Embedded Systems'],
+    positions: [
+      {
+        title: 'Growth & Business Development Intern',
+        domain: 'Business Development / Growth / Sales',
+        eligibleYears: 'Not specified',
+        isPaid: true,
+        stipend: '₹6,000–₹15,000 fixed + ₹2,000–₹10,000 performance-based incentives',
+        duration: '3–6 months',
+        description: 'Full-time (On-site / Hybrid) role to support growth strategies, build client relationships, assist with partnership negotiations, identify opportunities, and work with CRM/AI tools.',
+        jobDescriptionPdfUrl: 'https://drive.google.com/file/d/1muEVesP0HgOtTjnPN9IW6oYoxhnhXUAu/view?usp=sharing'
+      },
+      {
+        title: 'Hardware Engineering Intern',
+        domain: 'Hardware Engineering / Embedded Systems / Audio Electronics / R&D',
+        eligibleYears: 'Not specified',
+        isPaid: true,
+        stipend: '₹6,000–₹15,000 fixed + ₹2,000–₹10,000 performance-based incentives',
+        duration: '3–6 months',
+        description: 'Based in Mumbai / Nagpur. Involves working on hardware architecture, circuits, prototypes, microcontrollers (Raspberry Pi/ESP32/STM32), powermanagement, audio I/O, MIDI, DSP, PCB debugging, and soldering.',
+        jobDescriptionPdfUrl: 'https://drive.google.com/file/d/1Z8f3DnPkDPN8bON_cTkd-f0b2JkvqMa7/view?usp=sharing'
+      },
+      {
+        title: 'Customer Support Intern',
+        domain: 'Customer Support / Customer Experience',
+        eligibleYears: 'Not specified',
+        isPaid: true,
+        stipend: '₹6,000–₹15,000 fixed + ₹2,000–₹10,000 performance-based incentives',
+        duration: '3 months',
+        description: 'Based in Nagpur. Requires responding to customer inquiries via email/phone/chat, resolving product issues, documenting CRM interactions, and contributing to knowledge-base articles.',
+        jobDescriptionPdfUrl: 'https://drive.google.com/file/d/1muEVesP0HgOtTjnPN9IW6oYoxhnhXUAu/view?usp=sharing'
+      }
+    ]
   }
 ];
 
