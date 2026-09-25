@@ -916,6 +916,32 @@ const companiesData = [
         description: 'Research prospective brand clients, execute lead-generation campaigns through social channels and email, and maintain client interaction databases.'
       }
     ]
+  },
+  {
+    name: 'HNT FOODS',
+    websiteUrl: 'https://www.hntfood.com/',
+    logoUrl: '/logos/hntfoods.png',
+    tags: ['Food & Beverages', 'Export & Import', 'International Trade'],
+    positions: [
+      {
+        title: 'Export & Import Intern',
+        domain: 'Export / Import / International Trade',
+        eligibleYears: 'Not specified',
+        isPaid: true,
+        stipend: '₹3,000–₹5,000/month',
+        duration: '3–6 months',
+        description: 'Assist with export documentation, international market research, shipment coordination and export-related records.'
+      },
+      {
+        title: 'International Sales / Business Development Intern',
+        domain: 'International Sales / Business Development',
+        eligibleYears: 'Not specified',
+        isPaid: true,
+        stipend: '₹3,000–₹5,000/month',
+        duration: '3–6 months',
+        description: 'Research international buyers and distributors, generate B2B leads, and support sales outreach, quotations and CRM management.'
+      }
+    ]
   }
 ];
 
