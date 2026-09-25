@@ -10,7 +10,7 @@ async function testSubmit() {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        email: "john.doe3@fcrce.ac.in",
+        email: "john.doe3@frcrce.ac.in",
         fullName: "John Doe",
         branch: "MECH",
         year: 3
@@ -18,7 +18,7 @@ async function testSubmit() {
     });
 
     const payload = {
-      email: "john.doe3@fcrce.ac.in",
+      email: "john.doe3@frcrce.ac.in",
       applications: [
         {
           positionId: positionId,

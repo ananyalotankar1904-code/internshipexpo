@@ -10,7 +10,7 @@ export const RegistrationProvider = ({ children }) => {
     const saved = sessionStorage.getItem('studentDetails');
     return saved ? JSON.parse(saved) : {
       fullName: '',
-      college: 'FCRCE',
+      college: 'FRCRCE',
       branch: '',
       year: '3',
       studentClass: '',

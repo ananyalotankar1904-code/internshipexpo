@@ -803,6 +803,119 @@ const companiesData = [
         description: 'Create social media creatives, brand materials, videos, motion graphics and UI/UX visuals.'
       }
     ]
+  },
+  {
+    name: 'AdHive & Rundown Creative',
+    websiteUrl: 'https://linkedin.com/company/adhive',
+    logoUrl: '/logos/adhive.png',
+    tags: ['Advertising', 'Digital Marketing', 'Social Media'],
+    positions: [
+      {
+        title: 'Client Servicing Intern',
+        domain: 'Client Servicing / Account Management',
+        eligibleYears: 'Students / Freshers',
+        isPaid: true,
+        stipend: '₹3,000 – ₹7,000/month',
+        duration: '3 months',
+        description: 'Communicate with clients, coordinate project deliverables with internal creative teams, manage project timelines, and track pending tasks.'
+      },
+      {
+        title: 'Sales Executive Intern',
+        domain: 'Sales / Lead Generation',
+        eligibleYears: 'Students / Freshers',
+        isPaid: true,
+        stipend: '₹3,000 – ₹7,000/month + Commission',
+        duration: '3 months',
+        description: 'Conduct daily Instagram outreach to potential clients, maintain outreach records, and follow up with interested leads.'
+      },
+      {
+        title: 'Graphic Designer Intern',
+        domain: 'Graphic Design',
+        eligibleYears: 'Students / Freshers',
+        isPaid: true,
+        stipend: '₹3,000 – ₹7,000/month',
+        duration: '3 months',
+        description: 'Create social media posts, carousels, reel covers, and marketing artwork following brand guidelines using Canva or Adobe Creative Suite.'
+      },
+      {
+        title: 'Video Editor Intern',
+        domain: 'Video Editing',
+        eligibleYears: 'Students / Freshers',
+        isPaid: true,
+        stipend: '₹3,000 – ₹7,000/month',
+        duration: '3 months',
+        description: 'Edit short-form content and Instagram Reels with transitions, subtitles, music, and sound design.'
+      }
+    ]
+  },
+  {
+    name: 'Insiverse Media',
+    websiteUrl: 'https://linkedin.com/company/insiverse-media',
+    logoUrl: '/logos/insiverse.png',
+    tags: ['Corporate Training', 'Executive Education', 'International Sales'],
+    positions: [
+      {
+        title: 'Business Developer :: International Sales',
+        domain: 'International Business Development',
+        eligibleYears: 'Freshers / Experienced candidates',
+        isPaid: true,
+        stipend: 'Performance-based',
+        duration: 'Full-time',
+        description: 'B2B outbound international sales position focused on driving delegate enrollments and corporate training contracts in banking, risk, compliance, and leadership across overseas markets.'
+      }
+    ]
+  },
+  {
+    name: 'Axentra',
+    websiteUrl: 'https://linkedin.com/company/axentra',
+    logoUrl: '/logos/axentra.png',
+    tags: ['Web Development', 'Full-Stack Engineering', 'Software Solutions'],
+    positions: [
+      {
+        title: 'React Developer – Fresher Program',
+        domain: 'Frontend Development',
+        eligibleYears: 'Final-year students / Freshers (up to 1 year experience)',
+        isPaid: true,
+        stipend: '₹5,000/month + Conveyance Allowance up to ₹1,500/month',
+        duration: 'Internship / Fresher Program',
+        description: 'Develop responsive web interfaces using React.js, HTML5, CSS3, integrate REST APIs, and maintain clean component architecture.'
+      },
+      {
+        title: 'Full Stack Developer – Fresher Program',
+        domain: 'Full Stack Development',
+        eligibleYears: 'Freshers / Recent graduates',
+        isPaid: true,
+        stipend: '₹5,000/month + Conveyance Allowance up to ₹1,500/month',
+        duration: 'Internship / Fresher Program',
+        description: 'Build web application modules across frontend (React), backend (Python/FastAPI), and database (PostgreSQL) components.'
+      }
+    ]
+  },
+  {
+    name: 'Kreare',
+    websiteUrl: 'https://linkedin.com/company/kreare',
+    logoUrl: '/logos/kreare.png',
+    tags: ['Social Media Marketing', 'Creative Agency', 'Content Creation'],
+    positions: [
+      {
+        title: 'Marketing & Social Media Intern',
+        domain: 'Social Media Management',
+        eligibleYears: 'Students / Freshers',
+        isPaid: true,
+        stipend: '₹8,000 – ₹15,000/month',
+        duration: 'Internship',
+        description: 'Manage Instagram and LinkedIn handles, generate creative post ideas, research trends, and assist with client social media campaigns and influencer outreach.'
+      },
+      {
+        title: 'Business Development / Sales Intern',
+        domain: 'Sales / Business Development',
+        eligibleYears: 'Students / Freshers',
+        isPaid: true,
+        stipend: 'Performance-based',
+        duration: 'Internship',
+        description: 'Research prospective brand clients, execute lead-generation campaigns through social channels and email, and maintain client interaction databases.'
+      }
+    ]
   }
 ];
 

@@ -92,7 +92,7 @@ const Step4ApplicationSummary = () => {
               <div className="flex flex-col">
                 <span className="font-mono text-[10px] uppercase text-text-cream/50 tracking-wider">College Institution</span>
                 <div className="flex items-center gap-1.5 mt-0.5">
-                  <span className="font-sans font-medium text-white">FCRCE, Bandra</span>
+                  <span className="font-sans font-medium text-white">FRCRCE, Bandra</span>
                   <svg className="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" title="Verified Campus"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 </div>
               </div>

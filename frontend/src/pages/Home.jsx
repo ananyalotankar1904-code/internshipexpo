@@ -133,7 +133,7 @@ const Home = () => {
   </h1>
 {/* One-line subtext */}
 <p className="font-body text-text-cream/80 text-lg leading-relaxed max-w-[620px] pt-2">
-          A platform for FCRCE students to explore opportunities, connect with leading organizations and take the next step towards their future.
+          A platform for FRCRCE students to explore opportunities, connect with leading organizations and take the next step towards their future.
         </p>
 {/* CTAs with Hand-Drawn Arrow */}
 <div className="pt-4 flex flex-col sm:flex-row items-center gap-4 md:gap-6 relative w-full sm:w-auto">
@@ -181,7 +181,7 @@ const Home = () => {
 </div>
 
 <div className="mt-5 pt-3 border-t border-red-900/10 flex flex-col items-center gap-1.5 text-[10px] font-sans font-bold uppercase text-red-900/80 text-center tracking-wider">
-  <span>FCRCE · Bandra, Mumbai</span>
+  <span>FRCRCE · Bandra, Mumbai</span>
   <span className="text-red-700/90 font-semibold">Auditorium @ 9:00 AM IST</span>
 </div>
 </div>
@@ -393,7 +393,7 @@ const Home = () => {
 <div className="smoked-glass rounded-lg p-6 flex flex-col justify-between border border-border-hairline">
 <div>
 <span className="font-mono text-[10px] text-peach-accent uppercase tracking-widest block mb-1">Location Campus</span>
-<h3 className="font-display font-bold text-2xl text-text-cream">FCRCE, Bandra</h3>
+<h3 className="font-display font-bold text-2xl text-text-cream">FRCRCE, Bandra</h3>
 </div>
 <div className="pt-4 mt-4 border-t border-border-hairline text-xs text-text-cream/70 font-mono truncate">
             Sam Claude Rd, Bandstand, Mumbai
@@ -436,7 +436,7 @@ The interview rooms will be posted on the WhatsApp community.
 </div>
 </div>
 <div className="pt-4 border-t border-border-hairline text-xs font-body text-text-cream/50">
-            FCRCE Placement Cell · Fr. Agnel Ashram, Bandra West, Mumbai 400050
+            FRCRCE Placement Cell · Fr. Agnel Ashram, Bandra West, Mumbai 400050
           </div>
 </div>
 {/* Right Contact Form */}

@@ -29,7 +29,7 @@ const Step1StudentDetails = () => {
               Step 01 // Baseline Profile
             </span>
             <span className="text-[11px] font-mono text-text-cream/40">
-              FCRCE STUDENT PORTAL
+              FRCRCE STUDENT PORTAL
             </span>
           </div>
 
@@ -132,19 +132,6 @@ const Step1StudentDetails = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <div>
                 <label className="block font-sans text-xs font-semibold tracking-wider uppercase text-text-cream mb-2">
-                  Class <span className="text-primary">*</span>
-                </label>
-                <input 
-                  className="w-full px-4 py-3 rounded-md bg-transparent text-text-cream placeholder-text-cream/30 border border-border-hairline text-sm font-body transition-all focus:border-primary focus:outline-none" 
-                  placeholder="e.g. TE-COMPS" 
-                  required
-                  type="text" 
-                  value={studentDetails.studentClass}
-                  onChange={(e) => updateStudentDetails({studentClass: e.target.value})}
-                />
-              </div>
-              <div>
-                <label className="block font-sans text-xs font-semibold tracking-wider uppercase text-text-cream mb-2">
                   Division <span className="text-primary">*</span>
                 </label>
                 <input 
@@ -165,7 +152,7 @@ const Step1StudentDetails = () => {
               </label>
               <input 
                 className="w-full px-4 py-3 rounded-md bg-transparent text-text-cream placeholder-text-cream/30 border border-border-hairline text-sm font-body transition-all focus:border-primary focus:outline-none" 
-                placeholder="name@fcrce.ac.in" 
+                placeholder="name@frcrce.ac.in" 
                 required
                 type="email" 
                 value={studentDetails.email}
