@@ -150,7 +150,8 @@ const submitSchema = z.object({
   email: z.string().email(),
   applications: z.array(z.object({
     positionId: z.string().uuid(),
-    taskLink: z.string().url().optional().or(z.literal(''))
+    taskLink: z.string().url().optional().or(z.literal('')),
+    priority: z.number().int().optional()
   })).max(3).min(1),
 });
 
@@ -186,6 +187,7 @@ export const submitApplication = async (req: Request, res: Response): Promise<vo
             studentId: student.id,
             positionId: app.positionId,
             taskLink: app.taskLink || null,
+            priority: app.priority || 0,
           }
         });
       }

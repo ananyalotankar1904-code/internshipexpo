@@ -58,6 +58,7 @@ model Application {
   studentId    String
   positionId   String
   taskLink     String?
+  priority     Int      @default(0)
   appliedAt    DateTime @default(now())
 
   student      Student  @relation(fields: [studentId], references: [id])

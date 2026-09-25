@@ -69,6 +69,10 @@ export const RegistrationProvider = ({ children }) => {
     });
   };
 
+  const reorderPositions = (newOrder) => {
+    setSelectedPositions(newOrder);
+  };
+
   const submitApplication = async () => {
     try {
       // Create student entry
@@ -101,9 +105,10 @@ export const RegistrationProvider = ({ children }) => {
          });
       }
 
-      const applications = selectedPositions.map(id => ({
+      const applications = selectedPositions.map((id, index) => ({
         positionId: id,
-        taskLink: taskLinks[id] || ''
+        taskLink: taskLinks[id] || '',
+        priority: index + 1
       }));
       
       // Final submit
@@ -133,6 +138,7 @@ export const RegistrationProvider = ({ children }) => {
         setResumeLink,
         selectedPositions,
         togglePosition,
+        reorderPositions,
         taskLinks,
         setTaskLinks,
         hasCompletedDetails,

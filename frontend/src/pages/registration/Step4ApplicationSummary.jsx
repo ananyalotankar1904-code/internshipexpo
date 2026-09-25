@@ -8,7 +8,7 @@ import SmokedFooter from '../../components/SmokedFooter';
 
 const Step4ApplicationSummary = () => {
   const navigate = useNavigate();
-  const { studentDetails, resumeLink, selectedPositions, submitApplication, taskLinks, setTaskLinks } = useRegistration();
+  const { studentDetails, resumeLink, selectedPositions, submitApplication, taskLinks, setTaskLinks, reorderPositions } = useRegistration();
   const [companies, setCompanies] = useState([]);
   const [confirmed, setConfirmed] = useState(false);
 
@@ -195,7 +195,7 @@ const Step4ApplicationSummary = () => {
                   No positions selected. Please return to Step 3 to select at least 1 internship position.
                 </p>
               )}
-              {selectedPositions.map(id => {
+              {selectedPositions.map((id, index) => {
                 let selectedPos = null;
                 let selectedComp = null;
                 companies.forEach(company => {
@@ -238,6 +238,45 @@ const Step4ApplicationSummary = () => {
                               )}
                               <span className="text-[10px] font-mono text-white/40">{selectedPos.duration}</span>
                             </div>
+                          </div>
+                        </div>
+                        
+                        {/* Priority Controls */}
+                        <div className="flex flex-col items-end gap-1.5">
+                          <span className="text-[10px] font-mono font-bold text-white bg-primary/20 border border-primary/40 px-2 py-0.5 rounded-full uppercase tracking-wider">
+                            Priority {index + 1}
+                          </span>
+                          <div className="flex items-center gap-1">
+                            <button
+                              type="button"
+                              disabled={index === 0}
+                              onClick={() => {
+                                const newOrder = [...selectedPositions];
+                                const temp = newOrder[index - 1];
+                                newOrder[index - 1] = newOrder[index];
+                                newOrder[index] = temp;
+                                reorderPositions(newOrder);
+                              }}
+                              className={`p-1.5 rounded-md border transition-colors ${index === 0 ? 'bg-transparent border-transparent text-white/20 cursor-not-allowed' : 'bg-white/5 border-white/10 hover:bg-white/10 text-white cursor-pointer'}`}
+                              title="Move Up"
+                            >
+                              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 15l7-7 7 7"></path></svg>
+                            </button>
+                            <button
+                              type="button"
+                              disabled={index === selectedPositions.length - 1}
+                              onClick={() => {
+                                const newOrder = [...selectedPositions];
+                                const temp = newOrder[index + 1];
+                                newOrder[index + 1] = newOrder[index];
+                                newOrder[index] = temp;
+                                reorderPositions(newOrder);
+                              }}
+                              className={`p-1.5 rounded-md border transition-colors ${index === selectedPositions.length - 1 ? 'bg-transparent border-transparent text-white/20 cursor-not-allowed' : 'bg-white/5 border-white/10 hover:bg-white/10 text-white cursor-pointer'}`}
+                              title="Move Down"
+                            >
+                              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
                           </div>
                         </div>
                     </div>
