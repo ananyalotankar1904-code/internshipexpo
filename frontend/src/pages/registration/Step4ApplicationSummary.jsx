@@ -4,6 +4,7 @@ import { useRegistration } from '../../context/RegistrationContext';
 import { companiesApi } from '../../api/client';
 import SmokedHeader from '../../components/SmokedHeader';
 import SmokedFooter from '../../components/SmokedFooter';
+import { getDomainForCompany } from '../../utils/domainMapping';
 
 
 const Step4ApplicationSummary = () => {
@@ -19,7 +20,7 @@ const Step4ApplicationSummary = () => {
   }, []);
 
   const handleSubmit = async () => {
-    if(!confirmed) return;
+    if (!confirmed) return;
     try {
       await submitApplication();
       navigate('/register/step5', { state: { studentDetails, selectedPositions } });
@@ -32,7 +33,7 @@ const Step4ApplicationSummary = () => {
   return (
     <div className="bg-transparent text-text-cream font-body antialiased min-h-screen flex flex-col relative">
 
-      
+
       <SmokedHeader />
 
       <main className="relative z-10 flex-grow flex flex-col items-center justify-center px-4 sm:px-6 pt-4 pb-20 md:pb-28">
@@ -212,91 +213,91 @@ const Step4ApplicationSummary = () => {
                 return (
                   <div key={id} className="flex flex-col p-3.5 rounded-lg bg-transparent border border-border-hairline hover:border-primary/40 transition-colors group">
                     <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-3.5">
-                          <div className="w-10 h-10 rounded-lg bg-transparent border border-border-hairline flex items-center justify-center text-primary font-display font-bold text-sm">
-                            {selectedComp.logoUrl ? (
-                                <img src={selectedComp.logoUrl} alt={selectedComp.name} className="w-full h-full object-contain" />
-                            ) : (
-                                <span>{selectedComp.name.substring(0, 2).toUpperCase()}</span>
-                            )}
+                      <div className="flex items-center gap-3.5">
+                        <div className="w-10 h-10 rounded-lg bg-transparent border border-border-hairline flex items-center justify-center text-primary font-display font-bold text-sm">
+                          {selectedComp.logoUrl ? (
+                            <img src={selectedComp.logoUrl} alt={selectedComp.name} className="w-full h-full object-contain" />
+                          ) : (
+                            <span>{selectedComp.name.substring(0, 2).toUpperCase()}</span>
+                          )}
+                        </div>
+                        <div className="flex flex-col">
+                          <div className="flex items-center gap-2">
+                            <span className="font-sans text-xs text-text-cream/65 uppercase font-semibold">{selectedComp.name}</span>
+                            <svg className="w-3 h-3 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                           </div>
-                          <div className="flex flex-col">
-                            <div className="flex items-center gap-2">
-                              <span className="font-sans text-xs text-text-cream/65 uppercase font-semibold">{selectedComp.name}</span>
-                              <svg className="w-3 h-3 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                            </div>
-                            <h3 className="font-sans font-semibold text-sm text-white mt-0.5">
-                              {selectedPos.title}
-                            </h3>
-                            <div className="flex items-center gap-2 mt-1.5 flex-wrap">
-                              <span className="px-2 py-0.5 rounded bg-primary/20 text-peach-accent text-[10px] font-mono border border-primary/30">
-                                {selectedPos.domain}
+                          <h3 className="font-sans font-semibold text-sm text-white mt-0.5">
+                            {selectedPos.title}
+                          </h3>
+                          <div className="flex items-center gap-2 mt-1.5 flex-wrap">
+                            <span className="px-2 py-0.5 rounded bg-primary/20 text-peach-accent text-[10px] font-mono border border-primary/30">
+                              {getDomainForCompany(selectedComp.name, selectedPos.domain)}
+                            </span>
+                            {selectedPos.isPaid && (
+                              <span className="px-2 py-0.5 rounded bg-emerald-900/30 text-emerald-400 text-[10px] font-mono border border-emerald-500/30">
+                                Paid
                               </span>
-                              {selectedPos.isPaid && (
-                                  <span className="px-2 py-0.5 rounded bg-emerald-900/30 text-emerald-400 text-[10px] font-mono border border-emerald-500/30">
-                                    Paid
-                                  </span>
-                              )}
-                              <span className="text-[10px] font-mono text-white/40">{selectedPos.duration}</span>
-                            </div>
+                            )}
+                            <span className="text-[10px] font-mono text-white/40">{selectedPos.duration}</span>
                           </div>
                         </div>
-                        
-                        {/* Priority Controls */}
-                        <div className="flex flex-col items-end gap-1.5">
-                          <span className="text-[10px] font-mono font-bold text-white bg-primary/20 border border-primary/40 px-2 py-0.5 rounded-full uppercase tracking-wider">
-                            Priority {index + 1}
-                          </span>
-                          <div className="flex items-center gap-1">
-                            <button
-                              type="button"
-                              disabled={index === 0}
-                              onClick={() => {
-                                const newOrder = [...selectedPositions];
-                                const temp = newOrder[index - 1];
-                                newOrder[index - 1] = newOrder[index];
-                                newOrder[index] = temp;
-                                reorderPositions(newOrder);
-                              }}
-                              className={`p-1.5 rounded-md border transition-colors ${index === 0 ? 'bg-transparent border-transparent text-white/20 cursor-not-allowed' : 'bg-white/5 border-white/10 hover:bg-white/10 text-white cursor-pointer'}`}
-                              title="Move Up"
-                            >
-                              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 15l7-7 7 7"></path></svg>
-                            </button>
-                            <button
-                              type="button"
-                              disabled={index === selectedPositions.length - 1}
-                              onClick={() => {
-                                const newOrder = [...selectedPositions];
-                                const temp = newOrder[index + 1];
-                                newOrder[index + 1] = newOrder[index];
-                                newOrder[index] = temp;
-                                reorderPositions(newOrder);
-                              }}
-                              className={`p-1.5 rounded-md border transition-colors ${index === selectedPositions.length - 1 ? 'bg-transparent border-transparent text-white/20 cursor-not-allowed' : 'bg-white/5 border-white/10 hover:bg-white/10 text-white cursor-pointer'}`}
-                              title="Move Down"
-                            >
-                              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
-                            </button>
-                          </div>
+                      </div>
+
+                      {/* Priority Controls */}
+                      <div className="flex flex-col items-end gap-1.5">
+                        <span className="text-[10px] font-mono font-bold text-white bg-primary/20 border border-primary/40 px-2 py-0.5 rounded-full uppercase tracking-wider">
+                          Priority {index + 1}
+                        </span>
+                        <div className="flex items-center gap-1">
+                          <button
+                            type="button"
+                            disabled={index === 0}
+                            onClick={() => {
+                              const newOrder = [...selectedPositions];
+                              const temp = newOrder[index - 1];
+                              newOrder[index - 1] = newOrder[index];
+                              newOrder[index] = temp;
+                              reorderPositions(newOrder);
+                            }}
+                            className={`p-1.5 rounded-md border transition-colors ${index === 0 ? 'bg-transparent border-transparent text-white/20 cursor-not-allowed' : 'bg-white/5 border-white/10 hover:bg-white/10 text-white cursor-pointer'}`}
+                            title="Move Up"
+                          >
+                            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 15l7-7 7 7"></path></svg>
+                          </button>
+                          <button
+                            type="button"
+                            disabled={index === selectedPositions.length - 1}
+                            onClick={() => {
+                              const newOrder = [...selectedPositions];
+                              const temp = newOrder[index + 1];
+                              newOrder[index + 1] = newOrder[index];
+                              newOrder[index] = temp;
+                              reorderPositions(newOrder);
+                            }}
+                            className={`p-1.5 rounded-md border transition-colors ${index === selectedPositions.length - 1 ? 'bg-transparent border-transparent text-white/20 cursor-not-allowed' : 'bg-white/5 border-white/10 hover:bg-white/10 text-white cursor-pointer'}`}
+                            title="Move Down"
+                          >
+                            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                          </button>
                         </div>
+                      </div>
                     </div>
                     {selectedPos.requiresTask && (
-                        <div className="mt-3 pt-3 border-t border-border-hairline w-full">
-                          <label className="font-sans text-xs font-semibold text-primary flex flex-col gap-1 mb-1.5" htmlFor={`task-${id}`}>
-                             <span>Pre-screening Task Link <span className="text-primary">*</span></span>
-                             <span className="text-[10px] text-white/50 font-normal normal-case">If using Google Drive, ensure sharing is set to "Anyone with the link can view".</span>
-                          </label>
-                          <input 
-                            type="url"
-                            required
-                            placeholder="e.g. GitHub or Google Drive Link"
-                            className="w-full px-3 py-2 bg-black/40 border border-border-hairline text-white text-xs rounded focus:outline-none focus:border-primary"
-                            id={`task-${id}`}
-                            value={taskLinks[id] || ''}
-                            onChange={(e) => setTaskLinks(prev => ({ ...prev, [id]: e.target.value }))}
-                          />
-                        </div>
+                      <div className="mt-3 pt-3 border-t border-border-hairline w-full">
+                        <label className="font-sans text-xs font-semibold text-primary flex flex-col gap-1 mb-1.5" htmlFor={`task-${id}`}>
+                          <span>Pre-screening Task Link <span className="text-primary">*</span></span>
+                          <span className="text-[10px] text-white/50 font-normal normal-case">If using Google Drive, ensure sharing is set to "Anyone with the link can view".</span>
+                        </label>
+                        <input
+                          type="url"
+                          required
+                          placeholder="e.g. GitHub or Google Drive Link"
+                          className="w-full px-3 py-2 bg-black/40 border border-border-hairline text-white text-xs rounded focus:outline-none focus:border-primary"
+                          id={`task-${id}`}
+                          value={taskLinks[id] || ''}
+                          onChange={(e) => setTaskLinks(prev => ({ ...prev, [id]: e.target.value }))}
+                        />
+                      </div>
                     )}
                   </div>
                 );
@@ -308,8 +309,8 @@ const Step4ApplicationSummary = () => {
           <div className="smoked-glass rounded-xl p-5 md:p-6 shadow-2xl relative overflow-hidden border border-primary/30 bg-primary/5">
             <label className="flex items-start gap-3.5 cursor-pointer select-none">
               <div className="relative flex items-center pt-0.5">
-                <input 
-                  type="checkbox" 
+                <input
+                  type="checkbox"
                   checked={confirmed}
                   onChange={(e) => setConfirmed(e.target.checked)}
                   className="w-5 h-5 rounded border-2 border-primary/50 bg-transparent text-primary focus:ring-0 focus:ring-offset-0 transition-colors cursor-pointer"
@@ -328,24 +329,24 @@ const Step4ApplicationSummary = () => {
 
           {/* Action Buttons */}
           <div className="flex flex-col-reverse sm:flex-row items-center justify-between gap-4 sm:gap-0 border-t border-border-hairline pt-6 mt-4">
-              <button 
-                  type="button"
-                  onClick={() => navigate('/register/step3')}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 sm:py-2.5 rounded-md text-text-cream/70 hover:text-text-cream hover:bg-transparent/50 transition-all font-sans text-sm font-semibold border border-transparent hover:border-border-hairline"
-              >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-                  <span>Back to Positions</span>
-              </button>
-              
-              <button 
-                  type="button"
-                  onClick={handleSubmit}
-                  disabled={!confirmed || selectedPositions.length === 0}
-                  className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-md font-sans font-semibold text-sm shadow-lg transition-all ${confirmed && selectedPositions.length > 0 ? 'bg-primary hover:bg-primary-hover text-white shadow-primary/20' : 'bg-transparent border border-border-hairline text-text-cream/30 cursor-not-allowed'}`}
-              >
-                  <span>Submit Application</span>
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-              </button>
+            <button
+              type="button"
+              onClick={() => navigate('/register/step3')}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 sm:py-2.5 rounded-md text-text-cream/70 hover:text-text-cream hover:bg-transparent/50 transition-all font-sans text-sm font-semibold border border-transparent hover:border-border-hairline"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+              <span>Back to Positions</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={handleSubmit}
+              disabled={!confirmed || selectedPositions.length === 0}
+              className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-md font-sans font-semibold text-sm shadow-lg transition-all ${confirmed && selectedPositions.length > 0 ? 'bg-primary hover:bg-primary-hover text-white shadow-primary/20' : 'bg-transparent border border-border-hairline text-text-cream/30 cursor-not-allowed'}`}
+            >
+              <span>Submit Application</span>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </button>
           </div>
 
         </div>

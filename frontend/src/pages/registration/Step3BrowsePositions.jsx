@@ -5,6 +5,7 @@ import { useRegistration } from '../../context/RegistrationContext';
 import { companiesApi } from '../../api/client';
 import SmokedHeader from '../../components/SmokedHeader';
 import SmokedFooter from '../../components/SmokedFooter';
+import { DOMAIN_MAP, getDomainForCompany } from '../../utils/domainMapping';
 
 
 const Step3BrowsePositions = () => {
@@ -34,7 +35,10 @@ const Step3BrowsePositions = () => {
       if (searchTerm && !position.title.toLowerCase().includes(searchTerm.toLowerCase()) && !company.name.toLowerCase().includes(searchTerm.toLowerCase())) {
         return;
       }
-      if (domainFilter !== 'All' && position.domain !== domainFilter) return;
+      if (domainFilter !== 'All') {
+        const allowedCompanies = DOMAIN_MAP[domainFilter] || [];
+        if (!allowedCompanies.includes(company.name)) return;
+      }
       if (yearFilter !== 'All' && !position.eligibleYears.toString().includes(yearFilter)) return;
       if (stipendFilter === 'Paid Only' && !position.isPaid) return;
       if (stipendFilter === 'Unpaid Only' && position.isPaid) return;
@@ -79,10 +83,9 @@ const Step3BrowsePositions = () => {
                 className="w-full appearance-none bg-transparent border border-border-hairline rounded-md px-3.5 py-2 pr-8 text-xs font-sans font-medium text-text-cream hover:border-text-cream/40 focus:outline-none focus:border-primary cursor-pointer"
               >
                 <option value="All" className="bg-[#140a0a] text-[#FFF4E1]">Domain: All Domains</option>
-                <option value="Software Engineering" className="bg-[#140a0a] text-[#FFF4E1]">Software Engineering</option>
-                <option value="Data Science" className="bg-[#140a0a] text-[#FFF4E1]">Data Science</option>
-                <option value="Product Management" className="bg-[#140a0a] text-[#FFF4E1]">Product Management</option>
-                <option value="Design" className="bg-[#140a0a] text-[#FFF4E1]">Design</option>
+                {Object.keys(DOMAIN_MAP).map(domain => (
+                  <option key={domain} value={domain} className="bg-[#140a0a] text-[#FFF4E1]">{domain}</option>
+                ))}
               </select>
             </div>
 
@@ -124,16 +127,15 @@ const Step3BrowsePositions = () => {
               <div className="absolute top-full right-0 mt-2 w-64 bg-surface-solid border border-border-hairline rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 p-3">
                 <div className="text-[10px] uppercase tracking-wider text-text-cream/50 mb-2">Currently Selected</div>
                 <div className="flex flex-col gap-2">
-                  {selectedPositions.map(item => {
-                    const actualId = (typeof item === 'object' && item !== null) ? item.id : item;
+                  {selectedPositions.map(id => {
                     let posTitle = 'Unknown';
                     let compName = 'Unknown';
                     companies.forEach(c => {
-                      const p = c.positions.find(pos => pos.id === actualId);
+                      const p = c.positions.find(pos => pos.id === id);
                       if (p) { posTitle = p.title; compName = c.name; }
                     });
                     return (
-                      <div key={actualId} className="text-xs bg-surface-raised p-2 rounded border border-border-hairline">
+                      <div key={id} className="text-xs bg-surface-raised p-2 rounded border border-border-hairline">
                         <div className="font-bold text-text-cream truncate">{compName}</div>
                         <div className="text-text-cream/70 truncate">{posTitle}</div>
                       </div>
@@ -208,7 +210,7 @@ const Step3BrowsePositions = () => {
 
                   <div className="flex flex-wrap gap-2 mb-5">
                     <span className="px-2.5 py-1 rounded bg-primary/10 border border-primary/20 text-peach-accent font-sans font-medium text-[11px]">
-                      {position.domain}
+                      {getDomainForCompany(company.name, position.domain)}
                     </span>
 
                     <span className="px-2.5 py-1 rounded bg-transparent border border-border-hairline text-text-cream/80 font-sans text-[11px] flex items-center gap-1">
@@ -234,23 +236,20 @@ const Step3BrowsePositions = () => {
                     type="button"
                     onClick={() => togglePosition(position.id)}
                     disabled={isMaxReached}
-                    className={`flex-1 py-2.5 px-4 rounded-md font-sans text-xs font-semibold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 ${isSelected ? 'text-white bg-primary hover:bg-primary-hover shadow-lg shadow-primary/30' : 'text-text-cream bg-transparent border border-border-hairline hover:bg-white/5'} ${isMaxReached ? 'cursor-not-allowed opacity-50' : ''}`}
+                    className={`flex-grow py-2.5 px-4 rounded-md font-sans text-xs font-semibold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 ${isSelected ? 'text-white bg-primary hover:bg-primary-hover shadow-lg shadow-primary/30' : 'text-text-cream bg-transparent border border-border-hairline hover:bg-white/5'} ${isMaxReached ? 'cursor-not-allowed opacity-50' : ''}`}
                   >
                     {isSelected ? (
                       <>
                         <svg className="w-4 h-4 font-bold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" /></svg>
-                        <span>Selected</span>
+                        <span>Selected (Click to Remove)</span>
                       </>
                     ) : (
                       <>
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" /></svg>
-                        <span>{isMaxReached ? 'Max 3 Selected' : 'Apply'}</span>
+                        <span>{isMaxReached ? 'Max 3 Selected' : 'Apply for Position'}</span>
                       </>
                     )}
                   </button>
-                  <a href={position.jobDescriptionPdfUrl || 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing'} target="_blank" rel="noreferrer" className="px-3 py-2.5 font-sans font-semibold text-xs uppercase tracking-wider rounded-md border border-border-hairline text-text-cream hover:bg-white/5 transition-all flex items-center justify-center whitespace-nowrap">
-                    📄 Job Description
-                  </a>
                 </div>
               </div>
             );

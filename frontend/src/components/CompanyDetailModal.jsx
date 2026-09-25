@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRegistration } from '../context/RegistrationContext';
+import { getDomainForCompany } from '../utils/domainMapping';
 
 const CompanyDetailModal = ({ isOpen, onClose, company }) => {
   const navigate = useNavigate();
@@ -44,7 +45,7 @@ const CompanyDetailModal = ({ isOpen, onClose, company }) => {
   return (
     <div aria-labelledby="modal-company-title" aria-modal="true" className="fixed inset-0 z-50 flex items-start sm:items-center justify-center bg-black/80 backdrop-blur-sm p-2 sm:p-6 overflow-y-auto" role="dialog">
       <div className="relative w-full max-w-[1024px] max-h-[95vh] sm:max-h-[88vh] mt-4 sm:mt-0 bg-[#050505] border border-white/20 rounded-2xl shadow-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200">
-        
+
         {/* Modal Header */}
         <header className="px-5 sm:px-10 pt-8 pb-6 bg-[#050505] border-b border-white/10 flex-shrink-0 relative flex flex-col items-center text-center">
           <button aria-label="Close modal" onClick={onClose} className="absolute top-4 right-4 p-2 rounded-full border border-white/20 text-white hover:bg-white/10 transition-colors focus:outline-none" type="button">
@@ -61,11 +62,11 @@ const CompanyDetailModal = ({ isOpen, onClose, company }) => {
               <span className="font-bold text-3xl text-tedx-red">{company.name.substring(0, 2).toUpperCase()}</span>
             )}
           </div>
-          
+
           <h2 className="font-clash text-2xl sm:text-4xl font-bold tracking-tight text-white uppercase mb-2" id="modal-company-title">
             {company.name}
           </h2>
-          
+
           <div className="flex flex-wrap justify-center items-center gap-2 mt-2 text-xs font-general font-medium">
             {company.tags && company.tags.map((tag, i) => (
               <span key={i} className="px-3 py-1 rounded-full bg-white/5 text-white/80 border border-white/10">
@@ -77,7 +78,7 @@ const CompanyDetailModal = ({ isOpen, onClose, company }) => {
 
         {/* Modal Body */}
         <div className="overflow-y-auto px-5 sm:px-10 py-8 flex-grow bg-[#050505]" style={{ scrollbarWidth: 'thin' }}>
-          
+
           {company.websiteUrl && (
             <div className="flex justify-center mb-8">
               <a href={company.websiteUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-5 py-2 bg-white/5 text-white/80 font-semibold rounded-full hover:bg-white/10 hover:text-white transition-colors text-xs border border-white/10">
@@ -95,11 +96,11 @@ const CompanyDetailModal = ({ isOpen, onClose, company }) => {
                     Selected
                   </div>
                 )}
-                
+
                 <h4 className="font-clash text-lg sm:text-xl font-bold text-white uppercase tracking-wide mb-1.5">{pos.title}</h4>
-                
+
                 <p className="text-white/70 text-xs font-semibold mb-4 tracking-wide uppercase">
-                  {pos.domain} | {pos.duration} | Eligible: {pos.eligibleYears} Year
+                  {getDomainForCompany(company.name, pos.domain)} | {pos.duration} | Eligible: {pos.eligibleYears} Year
                 </p>
 
                 <div className={`w-full text-center py-2.5 rounded border border-white/5 font-bold text-xs mb-6 ${pos.isPaid ? 'bg-tedx-red/10 text-tedx-red' : 'bg-white/5 text-white/60'}`}>
@@ -110,7 +111,7 @@ const CompanyDetailModal = ({ isOpen, onClose, company }) => {
                   <div>
                     <h5 className="text-white text-[11px] font-bold uppercase tracking-widest mb-2 opacity-90">About the Role</h5>
                     <p className="text-white/70 text-xs font-inter leading-relaxed whitespace-pre-wrap">
-                      {pos.description || `Join ${company.name} as a ${pos.title} in the ${pos.domain} department.`}
+                      {pos.description || `Join ${company.name} as a ${pos.title} in the ${getDomainForCompany(company.name, pos.domain)} department.`}
                     </p>
                   </div>
                 </div>
@@ -119,9 +120,11 @@ const CompanyDetailModal = ({ isOpen, onClose, company }) => {
                   <button onClick={() => handleApply(pos)} className={`flex-1 py-2.5 font-bold text-xs uppercase tracking-wider rounded-lg transition-all ${isPositionSelected(pos.id) ? 'bg-transparent text-tedx-red border border-tedx-red hover:bg-tedx-red/10' : 'bg-tedx-red text-white hover:bg-white hover:text-black'}`}>
                     {isPositionSelected(pos.id) ? 'Selected ✓' : 'Apply to Position'}
                   </button>
-                  <a href={pos.jobDescriptionPdfUrl || 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing'} target="_blank" rel="noreferrer" className="px-4 py-2.5 font-bold text-xs uppercase tracking-wider rounded-lg border border-white/20 text-white hover:bg-white/10 transition-all flex items-center justify-center whitespace-nowrap">
-                    📄 Job Description
-                  </a>
+                  {pos.jobDescriptionPdfUrl && (
+                    <a href={pos.jobDescriptionPdfUrl} target="_blank" rel="noreferrer" className="px-4 py-2.5 font-bold text-xs uppercase tracking-wider rounded-lg border border-white/20 text-white hover:bg-white/10 transition-all flex items-center justify-center">
+                      📄 JD
+                    </a>
+                  )}
                 </div>
               </article>
             ))}
