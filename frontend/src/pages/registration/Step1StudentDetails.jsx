@@ -116,8 +116,8 @@ const Step1StudentDetails = () => {
                       type="button"
                       onClick={() => updateStudentDetails({ year: year.toString() })}
                       className={`py-2 px-1 rounded text-center text-[10px] sm:text-xs font-sans transition-all ${studentDetails.year === year.toString()
-                          ? 'font-bold bg-primary text-white shadow-lg border border-primary/50'
-                          : 'font-medium text-text-cream/60 hover:bg-surface-raised hover:text-text-cream'
+                        ? 'font-bold bg-primary text-white shadow-lg border border-primary/50'
+                        : 'font-medium text-text-cream/60 hover:bg-surface-raised hover:text-text-cream'
                         }`}
                     >
                       {year === 2 ? 'SE' : year === 3 ? 'TE' : 'BE'}
@@ -189,11 +189,19 @@ const Step1StudentDetails = () => {
                 </div>
                 <input
                   className="w-full pl-16 pr-4 py-3 rounded-md bg-transparent text-text-cream placeholder-text-cream/30 border border-border-hairline text-sm font-body tracking-wider transition-all focus:border-primary focus:outline-none"
-                  placeholder="98765 43210"
+                  placeholder="9876543210"
                   required
                   type="tel"
-                  value={studentDetails.phone}
-                  onChange={(e) => updateStudentDetails({ phone: e.target.value })}
+                  pattern="[0-9]{10}"
+                  maxLength={10}
+                  title="Please enter exactly 10 digits"
+                  value={studentDetails.phone || ''}
+                  onChange={(e) => {
+                    const value = e.target.value.replace(/\D/g, '');
+                    if (value.length <= 10) {
+                      updateStudentDetails({ phone: value });
+                    }
+                  }}
                 />
               </div>
               <p className="text-[11px] text-text-cream/50 font-body mt-1.5">

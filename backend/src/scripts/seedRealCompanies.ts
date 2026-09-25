@@ -11,6 +11,7 @@ const companiesData = [
     positions: [
       {
         title: 'Full Stack Developer',
+        internshipType: 'Onsite',
         domain: 'Web Apps',
         eligibleYears: '2, 3, 4',
         isPaid: true,
@@ -29,6 +30,7 @@ const companiesData = [
     positions: [
       {
         title: 'Electronics & PCB Design Intern',
+        internshipType: 'Onsite',
         domain: 'Electronics / Embedded Systems',
         eligibleYears: 'Not specified',
         isPaid: true,
@@ -46,6 +48,7 @@ const companiesData = [
     positions: [
       {
         title: 'SEO Intern',
+        internshipType: 'Onsite',
         domain: 'Digital Marketing / SEO',
         eligibleYears: 'Not specified',
         isPaid: true,
@@ -55,6 +58,7 @@ const companiesData = [
       , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Business Development Intern (Sales)',
+        internshipType: 'Onsite',
         domain: 'Sales / Business Development',
         eligibleYears: 'Not specified',
         isPaid: true,
@@ -72,6 +76,7 @@ const companiesData = [
     positions: [
       {
         title: 'Trainee Engineer',
+        internshipType: 'Onsite',
         domain: 'Mechanical Engineering',
         eligibleYears: '4th-year students',
         isPaid: true,
@@ -89,6 +94,7 @@ const companiesData = [
     positions: [
       {
         title: 'Artificial Intelligence Application Developer',
+        internshipType: 'Onsite',
         domain: 'AI / Software Development',
         eligibleYears: '4th Year',
         isPaid: true,
@@ -106,6 +112,7 @@ const companiesData = [
     positions: [
       {
         title: 'Electronics R&D & Embedded Product Development Intern',
+        internshipType: 'Hybrid / Onsite',
         domain: 'Electronics / Embedded Systems / IoT',
         eligibleYears: 'Not specified',
         isPaid: true,
@@ -115,6 +122,7 @@ const companiesData = [
       , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Mechanical R&D & Product Design Intern',
+        internshipType: 'Hybrid / Onsite',
         domain: 'Mechanical R&D / Product Design',
         eligibleYears: 'Not specified',
         isPaid: true,
@@ -124,6 +132,7 @@ const companiesData = [
       , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Technical Business Development & Solutions Intern',
+        internshipType: 'Hybrid / Onsite',
         domain: 'Technical Business Development / Sales / IoT',
         eligibleYears: 'Not specified',
         isPaid: true,
@@ -133,6 +142,7 @@ const companiesData = [
       , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Growth Automation & Digital Marketing Intern',
+        internshipType: 'Hybrid / Onsite',
         domain: 'Digital Marketing / Business Growth / Automation',
         eligibleYears: 'Not specified',
         isPaid: true,
@@ -150,6 +160,7 @@ const companiesData = [
     positions: [
       {
         title: 'Marketing Executive',
+        internshipType: 'Remote / Work from home',
         domain: 'Marketing / Sales',
         eligibleYears: 'Not specified',
         isPaid: true,
@@ -160,6 +171,7 @@ const companiesData = [
       },
       {
         title: 'Production Executive',
+        internshipType: 'Onsite',
         domain: 'Production / Manufacturing',
         eligibleYears: 'Not specified',
         isPaid: true,
@@ -178,6 +190,7 @@ const companiesData = [
     positions: [
       {
         title: 'Full Stack Web Development',
+        internshipType: 'Remote / Work from home / Hybrid / Onsite',
         domain: 'Web Development',
         eligibleYears: 'Students and freshers',
         isPaid: false,
@@ -187,6 +200,7 @@ const companiesData = [
       , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'UI/UX Design',
+        internshipType: 'Remote / Work from home / Hybrid / Onsite',
         domain: 'UI/UX Design',
         eligibleYears: 'Students and freshers',
         isPaid: false,
@@ -196,6 +210,7 @@ const companiesData = [
       , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Graphic Design',
+        internshipType: 'Remote / Work from home / Hybrid / Onsite',
         domain: 'Graphic Design / Branding',
         eligibleYears: 'Students and freshers',
         isPaid: false,
@@ -205,6 +220,7 @@ const companiesData = [
       , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Video Editing',
+        internshipType: 'Remote / Work from home / Hybrid / Onsite',
         domain: 'Video Editing / Media',
         eligibleYears: 'Students and freshers',
         isPaid: false,
@@ -214,6 +230,7 @@ const companiesData = [
       , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Videography & Film Development',
+        internshipType: 'Remote / Work from home / Hybrid / Onsite',
         domain: 'Videography / Film Production',
         eligibleYears: 'Students and freshers',
         isPaid: false,
@@ -223,6 +240,7 @@ const companiesData = [
       , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Motion Graphics Video Editor / Developer',
+        internshipType: 'Remote / Work from home / Hybrid / Onsite',
         domain: 'Motion Graphics / Animation / Video',
         eligibleYears: 'Students and freshers',
         isPaid: false,
@@ -232,6 +250,7 @@ const companiesData = [
       , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Content Writing / Story Writing',
+        internshipType: 'Remote / Work from home / Hybrid / Onsite',
         domain: 'Content Writing / Copywriting',
         eligibleYears: 'Students and freshers',
         isPaid: false,
@@ -241,6 +260,7 @@ const companiesData = [
       , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Content Strategy',
+        internshipType: 'Remote / Work from home / Hybrid / Onsite',
         domain: 'Content Strategy / Digital Marketing',
         eligibleYears: 'Students and freshers',
         isPaid: false,
@@ -250,6 +270,7 @@ const companiesData = [
       , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Performance Marketing',
+        internshipType: 'Remote / Work from home / Hybrid / Onsite',
         domain: 'Performance Marketing / Digital Advertising',
         eligibleYears: 'Students and freshers',
         isPaid: false,
@@ -259,6 +280,7 @@ const companiesData = [
       , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Business Growth & Development',
+        internshipType: 'Remote / Work from home / Hybrid / Onsite',
         domain: 'Business Development / Sales',
         eligibleYears: 'Students and freshers',
         isPaid: false,
@@ -268,6 +290,7 @@ const companiesData = [
       , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Data Analytics',
+        internshipType: 'Remote / Work from home / Hybrid / Onsite',
         domain: 'Data Analytics / Business Analytics',
         eligibleYears: 'Students and freshers',
         isPaid: false,
@@ -277,6 +300,7 @@ const companiesData = [
       , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Business / Market Research',
+        internshipType: 'Remote / Work from home / Hybrid / Onsite',
         domain: 'Business / Market Research',
         eligibleYears: 'Students and freshers',
         isPaid: false,
@@ -295,6 +319,7 @@ const companiesData = [
       , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Project Coordination',
+        internshipType: 'Remote / Work from home / Hybrid / Onsite',
         domain: 'Project Management / Coordination',
         eligibleYears: 'Students and freshers',
         isPaid: false,
@@ -312,6 +337,7 @@ const companiesData = [
     positions: [
       {
         title: 'Intern - Client Acquisition and Partnerships',
+        internshipType: 'Onsite',
         domain: 'Client Acquisition / Business Development / Partnerships',
         eligibleYears: 'Not specified',
         isPaid: true,
@@ -329,6 +355,7 @@ const companiesData = [
     positions: [
       {
         title: 'Data Science Intern',
+        internshipType: 'Hybrid',
         domain: 'Data Science',
         eligibleYears: 'Not specified',
         isPaid: true,
@@ -338,6 +365,7 @@ const companiesData = [
       , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Business Development Executive',
+        internshipType: 'Onsite',
         domain: 'Business Development',
         eligibleYears: 'Not specified',
         isPaid: true,
@@ -347,6 +375,7 @@ const companiesData = [
       , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Founder\'s Office Intern',
+        internshipType: 'Onsite',
         domain: 'Founder\'s Office / Business Strategy',
         eligibleYears: 'Not specified',
         isPaid: true,
@@ -364,6 +393,7 @@ const companiesData = [
     positions: [
       {
         title: 'Sales Intern',
+        internshipType: 'Onsite / Remote / Work from home / Hybrid',
         domain: 'Sales / Business Development',
         eligibleYears: 'Fresher',
         isPaid: true,
@@ -373,6 +403,7 @@ const companiesData = [
       , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Digital Marketing Intern',
+        internshipType: 'Onsite / Remote / Work from home / Hybrid',
         domain: 'Digital Marketing',
         eligibleYears: 'Freshers / Final Year Students',
         isPaid: true,
@@ -390,6 +421,7 @@ const companiesData = [
     positions: [
       {
         title: 'Backend Developer Intern',
+        internshipType: 'Remote / Work from home',
         domain: 'Backend Development / Software Development',
         eligibleYears: 'Not specified',
         isPaid: false,
@@ -399,6 +431,7 @@ const companiesData = [
       , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Frontend Developer Intern',
+        internshipType: 'Remote / Work from home',
         domain: 'Frontend Development / Software Development',
         eligibleYears: 'Not specified',
         isPaid: false,
@@ -416,6 +449,7 @@ const companiesData = [
     positions: [
       {
         title: 'Full Stack Engineering Intern',
+        internshipType: 'Onsite',
         domain: 'Full Stack Development / Software Engineering',
         eligibleYears: 'Pre-final / Final Year',
         isPaid: true,
@@ -433,6 +467,7 @@ const companiesData = [
     positions: [
       {
         title: 'PCB Designer / Hardware Engineer',
+        internshipType: 'Onsite',
         domain: 'Hardware Engineering / PCB Design',
         eligibleYears: '0 to 5 Years',
         isPaid: true,
@@ -442,6 +477,7 @@ const companiesData = [
       , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Embedded Systems Engineer',
+        internshipType: 'Onsite',
         domain: 'Embedded Systems / Firmware',
         eligibleYears: 'Not specified',
         isPaid: true,
@@ -459,6 +495,7 @@ const companiesData = [
     positions: [
       {
         title: 'Engineer Project Leader',
+        internshipType: 'Onsite',
         domain: 'Mechanical Engineering / Project Management',
         eligibleYears: 'Not specified',
         isPaid: true,
@@ -477,6 +514,7 @@ const companiesData = [
     positions: [
       {
         title: 'Techno-Sales / Business Development Executive (Fresher)',
+        internshipType: 'Onsite',
         domain: 'Sales / Business Development',
         eligibleYears: 'Fresher (0 years)',
         isPaid: true,
@@ -494,6 +532,7 @@ const companiesData = [
     positions: [
       {
         title: 'UI/UX & Graphic Designer (Fresher)',
+        internshipType: 'Onsite',
         domain: 'Design / Visual & Product Communication',
         eligibleYears: '0-1 years / Freshers',
         isPaid: true,
@@ -511,6 +550,7 @@ const companiesData = [
     positions: [
       {
         title: 'Partnerships & Outreach Intern',
+        internshipType: 'Remote / Work from home',
         domain: 'Partnerships / Business Development / Outreach',
         eligibleYears: '3rd & 4th Year Students Preferred',
         isPaid: false,
@@ -520,6 +560,7 @@ const companiesData = [
       , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Email Marketing Intern',
+        internshipType: 'Remote / Work from home',
         domain: 'Email Marketing / Digital Marketing',
         eligibleYears: '3rd & 4th Year Students Preferred',
         isPaid: false,
@@ -529,6 +570,7 @@ const companiesData = [
       , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'App Developer Intern (AI / No-Code)',
+        internshipType: 'Remote / Work from home',
         domain: 'App Development / AI / No-Code',
         eligibleYears: '3rd & 4th Year Students Preferred',
         isPaid: false,
@@ -546,6 +588,7 @@ const companiesData = [
     positions: [
       {
         title: 'MERN Stack Developer Intern',
+        internshipType: 'Remote / Work from home',
         domain: 'Full Stack Web Development / MERN Stack',
         eligibleYears: 'Not specified',
         isPaid: false,
@@ -555,6 +598,7 @@ const companiesData = [
       , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'ReactJS Developer Intern',
+        internshipType: 'Remote / Work from home',
         domain: 'Frontend Development / ReactJS',
         eligibleYears: 'Not specified',
         isPaid: false,
@@ -564,6 +608,7 @@ const companiesData = [
       , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'NodeJS Developer Intern',
+        internshipType: 'Remote / Work from home',
         domain: 'Backend Development / NodeJS',
         eligibleYears: 'Not specified',
         isPaid: false,
@@ -581,6 +626,7 @@ const companiesData = [
     positions: [
       {
         title: 'Full-Stack/Web Developer',
+        internshipType: 'Remote / Work from home',
         domain: 'Web Development',
         eligibleYears: 'All 4 Years',
         isPaid: true,
@@ -591,6 +637,7 @@ const companiesData = [
       },
       {
         title: 'Flutter or Mobile App Developer',
+        internshipType: 'Remote / Work from home',
         domain: 'Mobile App Development',
         eligibleYears: 'All 4 Years',
         isPaid: true,
@@ -601,6 +648,7 @@ const companiesData = [
       },
       {
         title: 'UI/UX + Graphic Designer',
+        internshipType: 'Remote / Work from home',
         domain: 'UI/UX & Graphic Design',
         eligibleYears: 'All 4 Years',
         isPaid: true,
@@ -611,6 +659,7 @@ const companiesData = [
       },
       {
         title: 'Digital Marketing Executive',
+        internshipType: 'Remote / Work from home',
         domain: 'Digital Marketing',
         eligibleYears: 'All 4 Years',
         isPaid: true,
@@ -621,6 +670,7 @@ const companiesData = [
       },
       {
         title: 'SEO Executive',
+        internshipType: 'Remote / Work from home',
         domain: 'Search Engine Optimization',
         eligibleYears: 'All 4 Years',
         isPaid: true,
@@ -631,6 +681,7 @@ const companiesData = [
       },
       {
         title: 'Performance Marketing Executive',
+        internshipType: 'Remote / Work from home',
         domain: 'Performance Marketing',
         eligibleYears: 'All 4 Years',
         isPaid: true,
@@ -641,6 +692,7 @@ const companiesData = [
       },
       {
         title: 'BDE / Sales Executive',
+        internshipType: 'Remote / Work from home',
         domain: 'Business Development & Sales',
         eligibleYears: 'All 4 Years',
         isPaid: true,
@@ -659,6 +711,7 @@ const companiesData = [
     positions: [
       {
         title: 'Sales Intern',
+        internshipType: 'Onsite',
         domain: 'Sales & Business Development',
         eligibleYears: 'All 4 Years',
         isPaid: true,
@@ -668,6 +721,7 @@ const companiesData = [
       , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Survey & Field Research',
+        internshipType: 'Onsite',
         domain: 'Market Research',
         eligibleYears: 'All 4 Years',
         isPaid: false,
@@ -677,6 +731,7 @@ const companiesData = [
       , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Mentors',
+        internshipType: 'Onsite',
         domain: 'Mentorship & Education',
         eligibleYears: 'All 4 Years',
         isPaid: true,
@@ -686,6 +741,7 @@ const companiesData = [
       , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Camera Operator',
+        internshipType: 'Onsite',
         domain: 'Media & Video Production',
         eligibleYears: 'All 4 Years',
         isPaid: false,
@@ -695,6 +751,7 @@ const companiesData = [
       , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Content Creator',
+        internshipType: 'Onsite',
         domain: 'Content Creation',
         eligibleYears: 'All 4 Years',
         isPaid: false,
@@ -704,6 +761,7 @@ const companiesData = [
       , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'AI Video Generator',
+        internshipType: 'Onsite',
         domain: 'AI & Video Production',
         eligibleYears: 'All 4 Years',
         isPaid: true,
@@ -722,6 +780,7 @@ const companiesData = [
     positions: [
       {
         title: 'Resource Executive',
+        internshipType: 'Onsite',
         domain: 'Human Resources & Operations',
         eligibleYears: 'All 4 Years',
         isPaid: false,
@@ -740,6 +799,7 @@ const companiesData = [
     positions: [
       {
         title: 'Agentic AI Intern',
+        internshipType: 'Onsite',
         domain: 'Artificial Intelligence',
         eligibleYears: 'All 4 Years',
         isPaid: false,
@@ -750,6 +810,7 @@ const companiesData = [
       },
       {
         title: 'Digital Marketing Intern',
+        internshipType: 'Onsite',
         domain: 'Digital Marketing',
         eligibleYears: 'All 4 Years',
         isPaid: false,
@@ -768,6 +829,7 @@ const companiesData = [
     positions: [
       {
         title: 'Full-Stack Developer Intern',
+        internshipType: 'Remote / Work from home / Onsite / Hybrid',
         domain: 'Web Development / Full-Stack Development',
         eligibleYears: 'Students, fresh graduates & early-career candidates',
         isPaid: true,
@@ -777,6 +839,7 @@ const companiesData = [
       , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Business Development & Sales Intern',
+        internshipType: 'Remote / Work from home / Onsite / Hybrid',
         domain: 'Business Development / Sales',
         eligibleYears: 'Students, fresh graduates & early-career candidates',
         isPaid: true,
@@ -786,6 +849,7 @@ const companiesData = [
       , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Social Media Intern',
+        internshipType: 'Remote / Work from home / Onsite / Hybrid',
         domain: 'Social Media / Digital Marketing',
         eligibleYears: 'Students, fresh graduates & early-career candidates',
         isPaid: true,
@@ -795,6 +859,7 @@ const companiesData = [
       , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Design & Video Editing Intern',
+        internshipType: 'Remote / Work from home / Onsite / Hybrid',
         domain: 'Graphic Design / Video Editing',
         eligibleYears: 'Students, fresh graduates & early-career candidates',
         isPaid: true,
@@ -812,6 +877,7 @@ const companiesData = [
     positions: [
       {
         title: 'Client Servicing Intern',
+        internshipType: 'Remote / Work from home',
         domain: 'Client Servicing / Account Management',
         eligibleYears: 'Students / Freshers',
         isPaid: true,
@@ -821,6 +887,7 @@ const companiesData = [
       , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Sales Executive Intern',
+        internshipType: 'Remote / Work from home',
         domain: 'Sales / Lead Generation',
         eligibleYears: 'Students / Freshers',
         isPaid: true,
@@ -830,6 +897,7 @@ const companiesData = [
       , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Graphic Designer Intern',
+        internshipType: 'Remote / Work from home',
         domain: 'Graphic Design',
         eligibleYears: 'Students / Freshers',
         isPaid: true,
@@ -839,6 +907,7 @@ const companiesData = [
       , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Video Editor Intern',
+        internshipType: 'Remote / Work from home',
         domain: 'Video Editing',
         eligibleYears: 'Students / Freshers',
         isPaid: true,
@@ -856,6 +925,7 @@ const companiesData = [
     positions: [
       {
         title: 'Business Developer :: International Sales',
+        internshipType: 'Onsite',
         domain: 'International Business Development',
         eligibleYears: 'Freshers / Experienced candidates',
         isPaid: true,
@@ -873,6 +943,7 @@ const companiesData = [
     positions: [
       {
         title: 'React Developer – Fresher Program',
+        internshipType: 'Onsite / Remote / Work from home',
         domain: 'Frontend Development',
         eligibleYears: 'Final-year students / Freshers (up to 1 year experience)',
         isPaid: true,
@@ -882,6 +953,7 @@ const companiesData = [
       , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Full Stack Developer – Fresher Program',
+        internshipType: 'Onsite / Remote / Work from home',
         domain: 'Full Stack Development',
         eligibleYears: 'Freshers / Recent graduates',
         isPaid: true,
@@ -899,6 +971,7 @@ const companiesData = [
     positions: [
       {
         title: 'Marketing & Social Media Intern',
+        internshipType: 'Onsite',
         domain: 'Social Media Management',
         eligibleYears: 'Students / Freshers',
         isPaid: true,
@@ -908,6 +981,7 @@ const companiesData = [
       , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Business Development / Sales Intern',
+        internshipType: 'Onsite',
         domain: 'Sales / Business Development',
         eligibleYears: 'Students / Freshers',
         isPaid: true,
@@ -925,6 +999,7 @@ const companiesData = [
     positions: [
       {
         title: 'Export & Import Intern',
+        internshipType: 'Onsite',
         domain: 'Export / Import / International Trade',
         eligibleYears: 'Not specified',
         isPaid: true,
@@ -934,6 +1009,7 @@ const companiesData = [
       , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'International Sales / Business Development Intern',
+        internshipType: 'Onsite',
         domain: 'International Sales / Business Development',
         eligibleYears: 'Not specified',
         isPaid: true,
@@ -951,6 +1027,7 @@ const companiesData = [
     positions: [
       {
         title: 'Merchandise Design & B2B Outreach Intern',
+        internshipType: 'Remote / Work from home',
         domain: 'Graphic Design & Business Development',
         eligibleYears: 'Not specified (Previous experience not mandatory)',
         isPaid: false,
@@ -960,6 +1037,7 @@ const companiesData = [
       , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
       {
         title: 'Social Media & B2B Outreach Intern',
+        internshipType: 'Remote / Work from home',
         domain: 'Social Media Marketing & Business Development',
         eligibleYears: 'Not specified (Previous experience not mandatory)',
         isPaid: false,
@@ -977,6 +1055,7 @@ const companiesData = [
     positions: [
       {
         title: 'Video Editor',
+        internshipType: 'Onsite',
         domain: 'Video Editing & Motion Design',
         eligibleYears: 'Not specified',
         isPaid: true,
@@ -994,6 +1073,7 @@ const companiesData = [
     positions: [
       {
         title: 'Engineering Intern (Mechanical) / Mechanical Intern',
+        internshipType: 'Onsite',
         domain: 'Mechanical Engineering',
         eligibleYears: 'Not specified',
         isPaid: true,
@@ -1011,6 +1091,7 @@ const companiesData = [
     positions: [
       {
         title: 'Flexible / Multi-Role Intern',
+        internshipType: 'Onsite',
         domain: 'Varied (Decided based on candidate skills, interests, and academic background)',
         eligibleYears: 'College students and freshers',
         isPaid: false,
@@ -1028,6 +1109,7 @@ const companiesData = [
     positions: [
       {
         title: 'Software Engineering Intern',
+        internshipType: 'Onsite',
         domain: 'Engineering / Full-Stack Development',
         eligibleYears: 'Students or freshers (pursuing or recently completed a degree in Computer Science, IT, or related fields)',
         isPaid: false,
@@ -1045,6 +1127,7 @@ const companiesData = [
     positions: [
       {
         title: 'Growth & Business Development Intern',
+        internshipType: 'Onsite',
         domain: 'Business Development / Growth / Sales',
         eligibleYears: 'Not specified',
         isPaid: true,
@@ -1055,6 +1138,7 @@ const companiesData = [
       },
       {
         title: 'Hardware Engineering Intern',
+        internshipType: 'Onsite',
         domain: 'Hardware Engineering / Embedded Systems / Audio Electronics / R&D',
         eligibleYears: 'Not specified',
         isPaid: true,
@@ -1065,6 +1149,7 @@ const companiesData = [
       },
       {
         title: 'Customer Support Intern',
+        internshipType: 'Onsite',
         domain: 'Customer Support / Customer Experience',
         eligibleYears: 'Not specified',
         isPaid: true,
@@ -1083,6 +1168,7 @@ const companiesData = [
     positions: [
       {
         title: 'Cad cam Software application engineer',
+        internshipType: 'Onsite',
         domain: 'CAD/CAM / Software Application',
         eligibleYears: '1, 2, 3, 4',
         isPaid: true,
@@ -1126,6 +1212,7 @@ async function seedDatabase() {
             stipend: pos.stipend,
             duration: pos.duration,
             description: pos.description,
+            internshipType: (pos as any).internshipType || null,
             jobDescriptionPdfUrl: pos.jobDescriptionPdfUrl || null,
           }))
         }

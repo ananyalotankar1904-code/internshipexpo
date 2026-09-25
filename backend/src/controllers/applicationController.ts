@@ -16,7 +16,7 @@ const startSchema = z.object({
 export const startApplication = async (req: Request, res: Response): Promise<void> => {
   try {
     const data = startSchema.parse(req.body);
-    
+
     let student = await prisma.student.findUnique({
       where: { email: data.email }
     });
@@ -68,7 +68,7 @@ export const verifyStudentSession = (req: Request, res: Response, next: NextFunc
     res.status(401).json({ error: 'Unauthorized: No session token provided' });
     return;
   }
-  
+
   const token = authHeader.split(' ')[1];
   try {
     const decoded = jwt.verify(token, JWT_SECRET) as { email: string };
@@ -123,7 +123,7 @@ export const verifyResume = async (req: Request, res: Response): Promise<void> =
       res.status(403).json({ error: 'Email mismatch with session' });
       return;
     }
-    
+
     if (!driveLink.includes('drive.google.com') && !driveLink.includes('docs.google.com')) {
       res.status(400).json({ error: 'Invalid Google Drive link format.' });
       return;
@@ -131,7 +131,7 @@ export const verifyResume = async (req: Request, res: Response): Promise<void> =
 
     // TODO: Authenticate using googleapis and credentials.json to check file metadata
     // For now, we simulate a successful validation.
-    
+
     await prisma.student.update({
       where: { email },
       data: { resumeLink: driveLink }
@@ -172,11 +172,11 @@ export const submitApplication = async (req: Request, res: Response): Promise<vo
       const student = await tx.student.findUnique({
         where: { email }
       });
-      
+
       if (!student) {
         throw new Error('Student not found');
       }
-      
+
       if (student.status === 'SUBMITTED') {
         throw new Error('Application already submitted');
       }
@@ -200,6 +200,9 @@ export const submitApplication = async (req: Request, res: Response): Promise<vo
       });
 
       return { success: true, student };
+    }, {
+      maxWait: 15000,
+      timeout: 30000
     });
 
     // Send confirmation email
