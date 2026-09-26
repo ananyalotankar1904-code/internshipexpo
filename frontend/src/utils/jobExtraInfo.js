@@ -89,13 +89,13 @@ export const COMPANY_JD_LINKS = {
   
   // CSV 2: Folders
   "1Accord": "https://drive.google.com/drive/folders/1T_hyhMBYSaxv_opZrdyl0mlkTvUQO4P0?usp=drive_link",
-  "Choira Musictech Pvt. Ltd.": "https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20",
-  "Gyansthan Education Services LLP": "https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20",
-  "Ideafactor Design": "https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20",
-  "MIDASX": "https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20",
-  "STECHGROW INTELLIGENCE AI": "https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20",
-  "Thermolabs": "https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20",
-  "TrafficHQ Digital Media LLP": "https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20"
+  "Choira Musictech Pvt. Ltd.": "https://drive.google.com/drive/folders/14s5KPe9yqf0MVaKNDBztBT-HcHsFYCb5?usp=drive_link",
+  "Gyansthan Education Services LLP": "https://drive.google.com/drive/folders/1zlqNNlHZbPe0xCDdwlUrNXPHyirnsZgN?usp=drive_link",
+  "Ideafactor Design": "https://drive.google.com/drive/folders/1OOyqFg7dVbt1hRDSwlKnxSG_Pa8RwQVY?usp=drive_link",
+  "MIDASX": "https://drive.google.com/drive/folders/1tKOYweEDjaLpivvU-cQ3wBWDFAw7QyWO?usp=drive_link",
+  "STECHGROW INTELLIGENCE AI": "https://drive.google.com/drive/folders/1hniaLEdho4VYmFGcpUcJ5WSp0CpAm8f3?usp=drive_link",
+  "Thermolabs": "https://drive.google.com/drive/folders/1A3qxnNSNhhsjWId6EvzZodUnS39WIvFN?usp=drive_link",
+  "TrafficHQ Digital Media LLP": "https://drive.google.com/drive/folders/1IyaB89PrKqrA4yMqe96eGso_kmPMGp68?usp=drive_link"
 };
 
 export const getJdLinkForCompany = (companyName, originalLink) => {
