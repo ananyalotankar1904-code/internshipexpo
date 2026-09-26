@@ -13,6 +13,8 @@ const Step4ApplicationSummary = () => {
   const [companies, setCompanies] = useState([]);
   const [confirmed, setConfirmed] = useState(false);
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   useEffect(() => {
     companiesApi.getAll()
       .then(res => setCompanies(res.data.companies))
@@ -20,8 +22,9 @@ const Step4ApplicationSummary = () => {
   }, []);
 
   const handleSubmit = async () => {
-    if (!confirmed) return;
+    if (!confirmed || isSubmitting) return;
     try {
+      setIsSubmitting(true);
       await submitApplication();
       navigate('/register/step5', { state: { studentDetails, selectedPositions } });
     } catch (error) {
@@ -30,6 +33,12 @@ const Step4ApplicationSummary = () => {
       // Keep technical error in console for developer debugging
       console.error('Application submission error:', error);
       
+      // If the application is already marked SUBMITTED in the DB, gracefully send the student to Step 5
+      if (typeof errorMsg === 'string' && errorMsg.toLowerCase().includes('already submitted')) {
+        navigate('/register/step5', { state: { studentDetails, selectedPositions } });
+        return;
+      }
+      
       if (typeof errorMsg === 'string' && (errorMsg.includes('Foreign key constraint violated') || errorMsg.includes('Application_positionId_fkey'))) {
         alert('Application submission failed. One or more selected positions are no longer available. Please refresh the page, select your positions again, and resubmit.');
       } else if (typeof errorMsg === 'string' && errorMsg.includes('Unique constraint failed')) {
@@ -37,6 +46,8 @@ const Step4ApplicationSummary = () => {
       } else {
         alert('Application submission failed: ' + errorMsg + '. Please check your details and try again.');
       }
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -351,11 +362,15 @@ const Step4ApplicationSummary = () => {
             <button
               type="button"
               onClick={handleSubmit}
-              disabled={!confirmed || selectedPositions.length === 0}
-              className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-md font-sans font-semibold text-sm shadow-lg transition-all ${confirmed && selectedPositions.length > 0 ? 'bg-primary hover:bg-primary-hover text-white shadow-primary/20' : 'bg-transparent border border-border-hairline text-text-cream/30 cursor-not-allowed'}`}
+              disabled={!confirmed || selectedPositions.length === 0 || isSubmitting}
+              className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-md font-sans font-semibold text-sm shadow-lg transition-all ${confirmed && selectedPositions.length > 0 && !isSubmitting ? 'bg-primary hover:bg-primary-hover text-white shadow-primary/20 cursor-pointer' : 'bg-transparent border border-border-hairline text-text-cream/30 cursor-not-allowed'}`}
             >
-              <span>Submit Application</span>
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              <span>{isSubmitting ? 'Submitting Application...' : 'Submit Application'}</span>
+              {isSubmitting ? (
+                <span className="w-4 h-4 rounded-full border-2 border-white border-t-transparent animate-spin"></span>
+              ) : (
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              )}
             </button>
           </div>
 
