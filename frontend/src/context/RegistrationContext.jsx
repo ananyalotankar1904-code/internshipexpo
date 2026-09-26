@@ -106,13 +106,19 @@ export const RegistrationProvider = ({ children }) => {
          });
       }
 
-      const applications = selectedPositions.map((item, index) => {
+      const seenPositionIds = new Set();
+      const applications = [];
+
+      selectedPositions.forEach((item) => {
         const actualId = (typeof item === 'object' && item !== null) ? item.id : item;
-        return {
-          positionId: actualId,
-          taskLink: taskLinks[actualId] || '',
-          priority: index + 1
-        };
+        if (actualId && !seenPositionIds.has(actualId)) {
+          seenPositionIds.add(actualId);
+          applications.push({
+            positionId: actualId,
+            taskLink: taskLinks[actualId] || '',
+            priority: applications.length + 1
+          });
+        }
       });
       
       // Final submit

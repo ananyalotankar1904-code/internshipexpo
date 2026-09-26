@@ -32,6 +32,8 @@ const Step4ApplicationSummary = () => {
       
       if (typeof errorMsg === 'string' && (errorMsg.includes('Foreign key constraint violated') || errorMsg.includes('Application_positionId_fkey'))) {
         alert('Application submission failed. One or more selected positions are no longer available. Please refresh the page, select your positions again, and resubmit.');
+      } else if (typeof errorMsg === 'string' && errorMsg.includes('Unique constraint failed')) {
+        alert('You have already submitted an application with these details. If you need to make changes, please contact the organizers.');
       } else {
         alert('Application submission failed: ' + errorMsg + '. Please check your details and try again.');
       }

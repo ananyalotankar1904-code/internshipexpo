@@ -195,10 +195,24 @@ export const submitApplication = async (req: Request, res: Response): Promise<vo
         throw new Error('Application already submitted');
       }
 
-      // 2. Create applications
-      for (const app of applications) {
-        await tx.application.create({
-          data: {
+      // 2. Create or update applications safely and deduplicate by positionId
+      const uniqueApplications = Array.from(
+        new Map(applications.map((app: any) => [app.positionId, app])).values()
+      );
+
+      for (const app of uniqueApplications) {
+        await tx.application.upsert({
+          where: {
+            studentId_positionId: {
+              studentId: student.id,
+              positionId: app.positionId,
+            }
+          },
+          update: {
+            taskLink: app.taskLink || null,
+            priority: app.priority || 0,
+          },
+          create: {
             studentId: student.id,
             positionId: app.positionId,
             taskLink: app.taskLink || null,

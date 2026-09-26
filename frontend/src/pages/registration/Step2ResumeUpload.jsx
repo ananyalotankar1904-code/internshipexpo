@@ -12,11 +12,13 @@ const Step2ResumeUpload = () => {
 
   const handleNext = (e) => {
     e.preventDefault();
-    if(resumeLink) {
-        if (!resumeLink.toLowerCase().includes('drive.google.com')) {
-            alert('Please enter a valid Google Drive link.');
+    const cleanLink = resumeLink ? resumeLink.trim() : '';
+    if (cleanLink) {
+        if (!cleanLink.toLowerCase().includes('drive.google.com') && !cleanLink.toLowerCase().includes('docs.google.com')) {
+            alert('Please enter a valid Google Drive or Google Docs link to your resume.');
             return;
         }
+        setResumeLink(cleanLink);
         navigate('/register/step3');
     }
   };

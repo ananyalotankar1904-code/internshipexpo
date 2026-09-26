@@ -258,10 +258,17 @@ const Step3BrowsePositions = () => {
 
           <button
             type="button"
-            onClick={() => navigate('/register/step4')}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-md bg-primary hover:bg-primary-hover text-white font-sans font-semibold text-sm shadow-lg shadow-primary/20 transition-all"
+            onClick={() => {
+              if (selectedPositions.length === 0) {
+                alert('Please select at least 1 internship position before continuing.');
+                return;
+              }
+              navigate('/register/step4');
+            }}
+            disabled={selectedPositions.length === 0}
+            className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-md font-sans font-semibold text-sm shadow-lg transition-all ${selectedPositions.length > 0 ? 'bg-primary hover:bg-primary-hover text-white shadow-primary/20 cursor-pointer' : 'bg-transparent border border-border-hairline text-text-cream/40 cursor-not-allowed'}`}
           >
-            <span>Review &amp; Continue</span>
+            <span>Review &amp; Continue ({selectedPositions.length}/3)</span>
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
           </button>
         </div>

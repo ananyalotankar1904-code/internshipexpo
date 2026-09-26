@@ -34,7 +34,8 @@ const Step1StudentDetails = () => {
       navigate('/register/step2');
     } catch (error) {
       console.error("Failed to start session:", error);
-      alert(error.response?.data?.message || "Failed to continue. Please try again.");
+      const errMsg = error.response?.data?.error || error.response?.data?.message || "Failed to continue. Please check your details and try again.";
+      alert(typeof errMsg === 'string' ? errMsg : JSON.stringify(errMsg));
     } finally {
       setIsSubmitting(false);
     }

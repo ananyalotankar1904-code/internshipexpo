@@ -11,6 +11,28 @@ const Step5Confirmation = () => {
     const { clearRegistration } = useRegistration();
     const [submissionData, setSubmissionData] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
+    const [copied, setCopied] = useState(false);
+    const [refToken] = useState(() => `TXC2026-${Math.floor(10000 + Math.random() * 90000)}`);
+
+    const handleCopyToken = async () => {
+        try {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                await navigator.clipboard.writeText(refToken);
+            } else {
+                // Fallback for older browsers / iframe restrictions
+                const textarea = document.createElement('textarea');
+                textarea.value = refToken;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+            }
+            setCopied(true);
+            setTimeout(() => setCopied(false), 2000);
+        } catch (err) {
+            console.error('Failed to copy token:', err);
+        }
+    };
 
     useEffect(() => {
         const token = sessionStorage.getItem('studentToken');
@@ -75,8 +97,7 @@ const Step5Confirmation = () => {
         let yearStr = student.year === 2 ? 'SE' : student.year === 3 ? 'TE' : student.year === 4 ? 'BE' : student.year || 'N/A';
         doc.text(`Class/Branch: ${yearStr} - ${student.branch?.toUpperCase() || 'N/A'} (Roll: ${student.rollNo || 'N/A'})`, 20, 120);
 
-        // Use the existing token logic or generic one
-        const refToken = document.getElementById("refToken")?.innerText || `TXC2026-${Math.floor(Math.random() * 90000) + 10000}`;
+        // Use the consistent state token
         doc.text(`Reference Token: ${refToken}`, 20, 130);
 
         // Selected Roles
@@ -236,11 +257,25 @@ const Step5Confirmation = () => {
                                 <div className="mt-6 flex items-center justify-between bg-white text-void rounded-md px-4 py-3">
                                     <div className="flex flex-col">
                                         <span className="font-mono text-[9px] font-bold tracking-wider uppercase opacity-60">Reference Token</span>
-                                        <span className="font-mono text-base font-bold tracking-wider" id="refToken">TXC2026-{Math.floor(Math.random() * 90000) + 10000}</span>
+                                        <span className="font-mono text-base font-bold tracking-wider" id="refToken">{refToken}</span>
                                     </div>
-                                    <button className="flex items-center gap-1 bg-transparent/10 hover:bg-transparent/20 px-3 py-1.5 rounded text-xs font-sans font-bold transition-all active:scale-95" onClick={() => { }}>
-                                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                                        <span>Copy</span>
+                                    <button 
+                                        type="button"
+                                        aria-label="Copy Reference Token"
+                                        className={`flex items-center gap-1.5 px-3 py-1.5 rounded text-xs font-sans font-bold transition-all active:scale-95 cursor-pointer ${copied ? 'bg-emerald-600 text-white' : 'bg-black/10 hover:bg-black/20 text-void'}`} 
+                                        onClick={handleCopyToken}
+                                    >
+                                        {copied ? (
+                                            <>
+                                                <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" /></svg>
+                                                <span>Copied!</span>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                                <span>Copy</span>
+                                            </>
+                                        )}
                                     </button>
                                 </div>
                             </div>
