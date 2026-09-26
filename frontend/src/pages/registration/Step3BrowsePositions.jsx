@@ -182,6 +182,11 @@ const Step3BrowsePositions = () => {
                   </p>
 
                   <div className="flex flex-wrap gap-2 mb-5">
+                    {company.name.toLowerCase() === 'search india' && (
+                      <span className="px-2.5 py-1 rounded bg-pink-900/30 text-pink-400 font-sans font-medium text-[11px] border border-pink-500/30 flex items-center gap-1">
+                        Female
+                      </span>
+                    )}
                     <span className="px-2.5 py-1 rounded bg-primary/10 border border-primary/20 text-peach-accent font-sans font-medium text-[11px]">
                       {getDomainForCompany(company.name, position.domain)}
                     </span>
