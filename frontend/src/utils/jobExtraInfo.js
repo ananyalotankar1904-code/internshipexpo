@@ -88,7 +88,7 @@ export const COMPANY_JD_LINKS = {
   "Yogi Software": "https://drive.google.com/file/d/1XL2fjHNhPq4ax-jaiyfxdiyE7tELuHlX/view?usp=drive_web",
   
   // CSV 2: Folders
-  "1Accord": "https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20",
+  "1Accord": "https://drive.google.com/drive/folders/1T_hyhMBYSaxv_opZrdyl0mlkTvUQO4P0?usp=drive_link",
   "Choira Musictech Pvt. Ltd.": "https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20",
   "Gyansthan Education Services LLP": "https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20",
   "Ideafactor Design": "https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20",

@@ -119,7 +119,7 @@ const companiesData = [
         stipend: '₹5,000 fixed + incentives, up to ₹10,000/month',
         duration: 'Minimum 6 months',
         description: 'Work on circuit, schematic and PCB development; firmware, IoT and embedded software; microcontrollers and embedded C/C++; sensors, actuators, displays.'
-      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T_hyhMBYSaxv_opZrdyl0mlkTvUQO4P0?usp=drive_link' },
       {
         title: 'Mechanical R&D & Product Design Intern',
         internshipType: 'Hybrid / Onsite',
@@ -129,7 +129,7 @@ const companiesData = [
         stipend: '₹5,000 fixed + incentives, up to ₹10,000/month',
         duration: 'Minimum 6 months',
         description: 'Work on 3D CAD, product and enclosure design, mechanisms, fixtures, assemblies, packaging, 3D printing, rapid prototyping, electronics-mechanical integration.'
-      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T_hyhMBYSaxv_opZrdyl0mlkTvUQO4P0?usp=drive_link' },
       {
         title: 'Technical Business Development & Solutions Intern',
         internshipType: 'Hybrid / Onsite',
@@ -139,7 +139,7 @@ const companiesData = [
         stipend: '₹5,000 fixed + incentives, up to ₹15,000/month',
         duration: 'Minimum 6 months',
         description: 'B2B lead generation and prospect research, identifying customer needs and opportunities, presenting 1Accord\'s product development and IoT capabilities.'
-      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' },
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T_hyhMBYSaxv_opZrdyl0mlkTvUQO4P0?usp=drive_link' },
       {
         title: 'Growth Automation & Digital Marketing Intern',
         internshipType: 'Hybrid / Onsite',
@@ -149,7 +149,7 @@ const companiesData = [
         stipend: '₹5,000 fixed + incentives, up to ₹10,000/month',
         duration: 'Minimum 6 months',
         description: 'B2B lead generation, LinkedIn/email outreach, campaign management, lead-generation automation, CRM workflows, AI/no-code automation.'
-      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T7WFpSaPGIxoqYUV8dfZHseUmIGk6U20?usp=sharing' }
+      , jobDescriptionPdfUrl: 'https://drive.google.com/drive/folders/1T_hyhMBYSaxv_opZrdyl0mlkTvUQO4P0?usp=drive_link' }
     ]
   },
   {
