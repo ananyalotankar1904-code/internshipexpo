@@ -25,7 +25,16 @@ const Step4ApplicationSummary = () => {
       await submitApplication();
       navigate('/register/step5', { state: { studentDetails, selectedPositions } });
     } catch (error) {
-      alert('Application submission failed: ' + (error.response?.data?.error || error.message) + '. Please check your details and try again.');
+      const errorMsg = error.response?.data?.error || error.message || '';
+      
+      // Keep technical error in console for developer debugging
+      console.error('Application submission error:', error);
+      
+      if (typeof errorMsg === 'string' && (errorMsg.includes('Foreign key constraint violated') || errorMsg.includes('Application_positionId_fkey'))) {
+        alert('Application submission failed. One or more selected positions are no longer available. Please refresh the page, select your positions again, and resubmit.');
+      } else {
+        alert('Application submission failed: ' + errorMsg + '. Please check your details and try again.');
+      }
     }
   };
 
