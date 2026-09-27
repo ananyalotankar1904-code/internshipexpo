@@ -11,10 +11,11 @@ const Step1StudentDetails = () => {
   const navigate = useNavigate();
   const { studentDetails, updateStudentDetails } = useRegistration();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isClosed, setIsClosed] = useState(import.meta.env.VITE_REGISTRATIONS_OPEN === 'false');
 
   const handleNext = async (e) => {
     e.preventDefault();
-    if (isSubmitting) return;
+    if (isSubmitting || isClosed) return;
 
     try {
       setIsSubmitting(true);
@@ -35,7 +36,11 @@ const Step1StudentDetails = () => {
     } catch (error) {
       console.error("Failed to start session:", error);
       const errMsg = error.response?.data?.error || error.response?.data?.message || "Failed to continue. Please check your details and try again.";
-      alert(typeof errMsg === 'string' ? errMsg : JSON.stringify(errMsg));
+      if (errMsg === 'REGISTRATIONS_CLOSED') {
+        setIsClosed(true);
+      } else {
+        alert(typeof errMsg === 'string' ? errMsg : JSON.stringify(errMsg));
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -59,15 +64,26 @@ const Step1StudentDetails = () => {
             </span>
           </div>
 
-          <h1 className="font-display font-bold text-2xl sm:text-3xl uppercase tracking-tight text-text-cream leading-tight">
-            Tell us about yourself
-          </h1>
-          <p className="font-body text-sm text-text-cream/70 mt-2 mb-8 leading-relaxed">
-            This information will be shared with companies you apply to during the expo screening rounds.
-          </p>
+          {isClosed ? (
+            <div className="py-10 text-center">
+              <h1 className="font-display font-bold text-2xl sm:text-3xl uppercase tracking-tight text-text-cream leading-tight text-primary mb-4">
+                Registrations Closed
+              </h1>
+              <p className="font-body text-sm text-text-cream/70 leading-relaxed">
+                Registrations for the TEDxCRCE Internship Expo 2026 are now closed. Thank you for your interest.
+              </p>
+            </div>
+          ) : (
+            <>
+              <h1 className="font-display font-bold text-2xl sm:text-3xl uppercase tracking-tight text-text-cream leading-tight">
+                Tell us about yourself
+              </h1>
+              <p className="font-body text-sm text-text-cream/70 mt-2 mb-8 leading-relaxed">
+                This information will be shared with companies you apply to during the expo screening rounds.
+              </p>
 
-          {/* FORM FIELDS */}
-          <form className="space-y-5" onSubmit={handleNext}>
+              {/* FORM FIELDS */}
+              <form className="space-y-5" onSubmit={handleNext}>
             {/* Field 1: Full Name */}
             <div>
               <label className="block font-sans text-xs font-semibold tracking-wider uppercase text-text-cream mb-2">
@@ -250,6 +266,8 @@ const Step1StudentDetails = () => {
               </button>
             </div>
           </form>
+            </>
+          )}
         </div>
       </main>
 

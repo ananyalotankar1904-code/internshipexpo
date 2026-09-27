@@ -33,6 +33,12 @@ const Step4ApplicationSummary = () => {
       // Keep technical error in console for developer debugging
       console.error('Application submission error:', error);
       
+      if (typeof errorMsg === 'string' && errorMsg === 'REGISTRATIONS_CLOSED') {
+        alert("Registrations for the TEDxCRCE Internship Expo 2026 are now closed. Thank you for your interest.");
+        navigate('/');
+        return;
+      }
+      
       // If the application is already marked SUBMITTED in the DB, gracefully send the student to Step 5
       if (typeof errorMsg === 'string' && errorMsg.toLowerCase().includes('already submitted')) {
         navigate('/register/step5', { state: { studentDetails, selectedPositions } });

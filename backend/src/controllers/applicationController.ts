@@ -23,6 +23,11 @@ const startSchema = z.object({
 
 export const startApplication = async (req: Request, res: Response): Promise<void> => {
   try {
+    if (process.env.REGISTRATIONS_OPEN === 'false') {
+      res.status(403).json({ error: 'REGISTRATIONS_CLOSED' });
+      return;
+    }
+
     const data = startSchema.parse(req.body);
 
     let student = await prisma.student.findUnique({
@@ -172,6 +177,11 @@ const submitSchema = z.object({
 
 export const submitApplication = async (req: Request, res: Response): Promise<void> => {
   try {
+    if (process.env.REGISTRATIONS_OPEN === 'false') {
+      res.status(403).json({ error: 'REGISTRATIONS_CLOSED' });
+      return;
+    }
+
     const { email, applications } = submitSchema.parse(req.body);
     const sessionEmail = (req as any).studentEmail;
 
