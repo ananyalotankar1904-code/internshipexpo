@@ -939,7 +939,7 @@ const companiesData = [
     name: 'Axentra',
     websiteUrl: 'https://linkedin.com/company/axentra',
     logoUrl: '/logos/axentra.png',
-    tags: ['Web Development', 'Full-Stack Engineering', 'Software Solutions'],
+    tags: ['Web Development', 'Full-Stack Engineering', 'Software Solutions', '2 fresher programs - Paid (Only BE Students)', '2 Internship programs - Unpaid (Open)'],
     positions: [
       {
         title: 'React Developer – Fresher Program',
