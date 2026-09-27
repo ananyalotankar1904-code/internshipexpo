@@ -88,9 +88,9 @@ const Home = () => {
           </nav>
           {/* CTA Register Button (Far Right) */}
           <div className="flex items-center gap-3">
-            <Link className="bg-primary hover:bg-primary-hover text-text-cream font-sans font-semibold text-sm px-6 py-2.5 rounded-md transition-all duration-200 shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-[0.98]" to="/register">
-              Register
-            </Link>
+            <span className="bg-surface-raised text-text-cream/50 font-sans font-semibold text-sm px-6 py-2.5 rounded-md border border-border-hairline cursor-not-allowed">
+              Forms Closed
+            </span>
           </div>
         </div>
       </header>
@@ -140,16 +140,10 @@ const Home = () => {
                   <path d="M14 5l7 7m0 0l-7 7m7-7H3" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
                 </svg>
               </a>
-              <Link className="w-full sm:w-auto text-center border border-text-cream/30 hover:border-text-cream text-text-cream font-sans font-semibold text-sm md:text-base px-6 md:px-8 py-3 md:py-4 rounded-md transition-all duration-200 bg-transparent/40 hover:bg-surface-raised" to="/register">
-                Register Now
-              </Link>
-              {/* Creative Hand-drawn Arrow pointing to CTA */}
-              <div className="absolute -right-36 -top-5 hidden xl:flex flex-col items-center pointer-events-none">
-                <span className="font-display text-peach-accent text-xs tracking-wider uppercase rotate-6 mb-1">Secure your spot</span>
-                <svg className="w-16 h-12 text-peach-accent transform -rotate-12" fill="none" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M48 4C38 18 20 28 8 32M8 32L18 24M8 32L16 38" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" />
-                </svg>
-              </div>
+              <span className="w-full sm:w-auto text-center border border-text-cream/10 text-text-cream/40 font-sans font-semibold text-sm md:text-base px-6 md:px-8 py-3 md:py-4 rounded-md bg-transparent cursor-not-allowed">
+                Forms Closed
+              </span>
+              {/* Hand-drawn arrow removed since forms are closed */}
             </div>
           </div>
           {/* Right Column: Hero Visual Anchor & Taped Sticky-Note Badge */}
